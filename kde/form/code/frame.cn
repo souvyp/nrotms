@@ -1,0 +1,19 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	var path=Conf.Root+'users\\'+Response.Session["user"]+'\\'+code;
+
+	if(!DirectoryExists(path))
+		CreateDir(path);
+	if(Pos('.zfrm',code)>0)
+		Response.PutContent('#CODE#',escape(code));
+	else
+		Response.PutContent('#CODE#',escape(code+'/default.zfrm'));
+	Response.PutContent('#USER#',user);
+	Response.PutContent('#ACODE#',Response.Session["appcode"]);
+	Response.PutContent('#UNAME#',Response.Session["NAME"]);
+}

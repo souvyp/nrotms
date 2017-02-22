@@ -1,0 +1,29 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0040",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Cache_OrderID AS [OrderID],Index_Code AS [Code],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CompanyName], Index_CreatorCompanyID AS [CreatorCompanyID] ,Cache_DocID AS [DocID],Cache_Type AS [Type],Cache_Amount FROM  Price_OrderCache  INNER JOIN TMS_OrderIndex ON Cache_OrderID  = Index_ID  WHERE  Cache_DocID = @docid AND Cache_OrderID = @orderid AND Cache_Invalid = 0",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "orderid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "docid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

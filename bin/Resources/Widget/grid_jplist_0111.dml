@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0111",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT DISTINCT A.Index_ID AS [id], A.Index_Code AS [Code], dbo.fn_pub_user_SupplierName(Index_SupplierID) AS [SupplierName], A.Index_PactCode AS [PactCode], A.Index_StatusTime AS [StatusTime], dbo.fn_pub_user_Customer2Name(A.Index_CustomerID) AS [CustomerName],B.Qty,convert(varchar(10),A.Index_CreateTime,120) AS [createtime],dbo.fn_pub_order_ContainsTotalCost(A.Index_ID) AS [TotalCost] FROM TMS_OrderIndex AS A CROSS APPLY (SELECT SUM(1) AS [Qty] FROM TMS_OrderContains WHERE Contains_OwnerOrderID = A.Index_ID) B LEFT JOIN Price_DocIndex AS C ON C.Index_OrderID = A.Index_ID LEFT JOIN dbo.Price_DocDetails AS D ON D.Detail_DocID = C.Index_ID",
+    "where": "Index_SupplierCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 3 AND A.Index_CustomerCompanyID <> Index_SupplierCompanyID AND C.Index_Type = 4  AND C.Index_Status = 2 AND dbo.fn_pub_order_ContainsTotalCost(A.Index_ID) > 0",
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0056",
+  "version": 1,
+  "dml-id": "tms_0056",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Name",
+        "value": ""
+      },
+      {
+        "name": "Industry",
+        "value": 0
+      },
+      {
+        "name": "Logo",
+        "value": ""
+      },
+      {
+        "name": "Web",
+        "value": ""
+      },
+      {
+        "name": "ShortName",
+        "value": ""
+      },
+      {
+        "name": "EnName",
+        "value": ""
+      },
+      {
+        "name": "ShortEnName",
+        "value": ""
+      },
+      {
+        "name": "Master",
+        "value": ""
+      },
+      {
+        "name": "License",
+        "value": ""
+      },
+      {
+        "name": "Contact",
+        "value": ""
+      },
+      {
+        "name": "Phone",
+        "value": ""
+      },
+      {
+        "name": "Fax",
+        "value": ""
+      },
+      {
+        "name": "Zip",
+        "value": ""
+      },
+      {
+        "name": "Address",
+        "value": ""
+      },
+      {
+        "name": "Mail",
+        "value": ""
+      },
+      {
+        "name": "WeiXin",
+        "value": ""
+      },
+      {
+        "name": "Bank",
+        "value": ""
+      },
+      {
+        "name": "BankAccount",
+        "value": ""
+      },
+      {
+        "name": "Description",
+        "value": ""
+      },
+      {
+        "name": "IsPersonal",
+        "value": "0"
+      }
+    ]
+  }
+}

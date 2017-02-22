@@ -1,0 +1,7 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'paras',
+ 'id' : 'paras',
+ 'version' : 1,
+ 'dml-id' : 'paras'
+}

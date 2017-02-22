@@ -1,0 +1,36 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0211",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_order_QueryOrdersByCode",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Code",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Type",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

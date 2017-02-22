@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "order_city",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_ID AS [id], Area_Code AS [code], Area_Name AS [name], Area_ParentID AS [parentid], Area_CreatorID AS [creatorid], Area_InsertTime AS [inserttime], Area_Updater AS [updater], Area_UpdateTime AS [updatetime], Area_Invalid AS [invalid], Area_Comments AS [comments], opt_status AS [status] FROM TMS_BasicArea WHERE Area_NodeType = 2 AND Area_Invalid = 0;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "nodetype",
+        "type": "int",
+        "size": 4,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

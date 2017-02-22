@@ -1,0 +1,8 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'cfgrestore',
+ 'id' : 'cfgrestore',
+ 'version' : 1,
+ 'sml-id' : 'cfgrestore',
+ 'smlparas' : {}
+}

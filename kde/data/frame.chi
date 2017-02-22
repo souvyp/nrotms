@@ -1,0 +1,341 @@
+﻿<%@ CodeFile="code/frame.cn"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>数据设计器 | 中国程序员大联盟</title>
+<link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+<link rel="stylesheet" type="text/css" href="themes/metro/easyui.css" id="swicth-style">
+<link rel="stylesheet" type="text/css" href="themes/style.css">
+<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<link rel="stylesheet" type="text/css" href="themes/icons.css">
+
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+
+<script type="text/javascript">
+	mxBasePath = './js/src';
+</script>
+
+<script type="text/javascript" src="js/src/js/mxClient.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css">
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"> </script>
+	
+<script type="text/javascript">var userpath=unescape('#CODE#'),upath=unescape('#UCODE#'),base='base';</script>	
+
+<script type="text/javascript" src="js/index.js"></script>
+					
+</head>
+<body class="easyui-layout">
+    <div id="outlineContainer" style="width:200px;height:200px;position:absolute;z-index:9999;right:5px;bottom:5px;border:1px solid green;background:#FFF;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;"></div>
+
+	<div id="mainPanle" region="center" border="true" border="false">
+		<div title="数据设计">
+			<div>
+				<div id="toolbarContainer">
+					<a href="javascript:void(0)" id="viewMenu" class="easyui-menubutton" data-options="menu:'#mmView',iconCls:'icon-tip'">视图</a>
+					<a href="javascript:void(0)" id="HideButton" title="显示/隐藏操作按钮" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-tip'" onclick="HideButton()"></a>
+					<a href="javascript:void(0)" id="savemsg" title="保存当前内容" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" onclick="SaveMsg()"></a>
+					<a href="javascript:void(0)" id="clearData" title="清除当前内容" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-delete'" onclick="clearData()"></a>
+				</div>
+				<div id="graphContainer" style="top:37px;"></div>
+				<div id="sidebarContainer"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="mm" class="easyui-menu cs-tab-menu">
+		<div id="mm-tabupdate">刷新</div>
+		<div class="menu-sep"></div>
+		<div id="mm-tabclose">关闭</div>
+		<div id="mm-tabcloseother">关闭其他</div>
+		<div id="mm-tabcloseall">关闭全部</div>
+	</div>
+	
+	<div id="mmView" style="width:100px;display:none;">
+		<div data-options="iconCls:'icon-zoom-in'">放大</div>
+		<div data-options="iconCls:'icon-zoom-out'">缩小</div>
+		<div>实际大小</div>
+		<div>自适应大小</div>
+		<div class="menu-sep"></div>
+		<div data-options="iconCls:'icon-zoom-exp'">全部展开</div>
+		<div data-options="iconCls:'icon-zoom-col'">全部收起</div>
+	</div>
+	
+	<div id="Dataset" style="display:none;">
+		<form id="formDataset">
+			<table class="formTable">  
+				<tr>
+					<th>编码:</th> 
+					<td><input name="fcode" class="easyui-validatebox"  data-options="required:true,validType:'length[3,50]'"/>
+					
+					</td>  
+					<th>级别:</th><td><input name="flevel" id="flevel" class="easyui-numberbox" data-options="required:true,min:1,max:20" style="width:115px"/></td>
+				</tr>
+				<tr>
+					<th>名称:</th>
+					<td><input type="text" name="fname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'"/></td>
+					<th>序号:</th><td><input name="forderno" id="forderno" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr>
+				<!--tr>
+				<th>主表</th>
+				<td><input type="text" name="fkeytab" id="fkeytab" size="25" value="" class="txt" style="width:170px"/></td>
+				<th>父键</label></th><td><input type="text" name="fkey" id="fkey" size="25" value="" class="txt" style="width:115px"/></td>
+				</tr-->
+				<tr>
+					<th>分页字段:</th>
+					<td><input name="fpagefield"/></td>
+					<th>树型标记:</th><td><input name="fautotree" style="width:115px"/></td>
+				</tr>              
+				<tr>
+					<th><a href="#" class="easyui-linkbutton" onclick="genSQL();">SQL语句</a></th>
+					<td colspan="3">
+						<textarea  name="fSelectSQL" class="easyui-validatebox" data-options="required:true"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>插入语句:</th>
+					<td colspan="3">
+						<textarea name="fInsertSQL"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>更新语句:</th>
+					<td colspan="3">
+						<textarea name="fUpdateSQL"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>删除语句:</th>
+					<td colspan="3">
+						<textarea name="fDeleteSQL"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>数据连接:</th> 
+					<td colspan="3">
+						<textarea name="fConnection"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>描述:</th> 
+					<td colspan="3">
+						<textarea name="fDescription"></textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	
+	<div id="Field" style="display:none;">
+		<form id="formField">
+			<table class="formTable">  
+				<tr>
+					<th>字段名称:</th> 
+					<td><input name="dfieldname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,100]'"/></td>  
+					<th>级别:</th><td><input name="dlevel" id="dlevel" class="easyui-numberbox" data-options="required:true,min:1,max:20" style="width:115px"/></td>
+				</tr>
+				<tr>
+					<th>显示名称:</th>
+					<td><input name="ddisplayname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'"/></td>
+					<th>序号:</th><td><input name="dorderno" id="dorderno" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr>
+				<tr>
+					<th>缺省值:</th>
+					<td><input name="ddefaultvalue"/></td>
+					<th>字段大小:</th><td><input name="dfieldsize" id="dfieldsize class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr> 
+				<tr>
+					<th>显示格式:</th>
+					<td><input name="deditmask"/></td>
+					<th>显示宽度:</th><td><input name="ddisplaywidth" id="ddisplaywidth" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr>  
+				<tr>
+					<th>继承键:</th>
+					<td><input name="dinherited"/></td>
+					<th>编辑宽度:</th><td><input name="deditsize" id="deditsize" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr> 	
+				<tr>
+					<th>验证类型:</th>
+					<td><input name="dvalidtype"/></td>
+					<th>功能分组:</th>
+					<td><input name="dgroup" style="width:115px"/></td>
+				</tr> 					
+				<tr>
+					<th>选项:</th>
+					<td colspan="3" style="border:1px solid #E0ECFF;">
+					<input value="True" type="checkbox" class="checkbox" name="dvisible" id="dvisible"  /> <label for="dvisible">显示字段</label>
+					<input value="True" type="checkbox" class="checkbox" name="dreadonly" id="dreadonly"  /> <label for="dreadonly">只读字段</label>
+					<input value="True" type="checkbox" class="checkbox" name="dkeys" id="dkeys"  /> <label for="dkeys">主键</label>
+					<input value="True" type="checkbox" class="checkbox" name="deditvisible" id="deditvisible"  /> <label for="deditvisible">编辑可见</label><br />
+					<input value="True" type="checkbox" class="checkbox" name="dfiltered" id="dfiltered"  /> <label for="dfiltered">支持查询</label>
+					<input value="True" type="checkbox" class="checkbox" name="drequired" id="drequired"  /> <label for="drequired">必填字段</label>
+					<input value="True" type="checkbox" class="checkbox" name="dforeignkey" id="dforeignkey"  /> <label for="dforeignkey">外键</label>
+					<input value="True" type="checkbox" class="checkbox" name="dlocked" id="dlocked"  /> <label for="dlocked">锁定此列</label><br />
+					<input value="True" type="checkbox" class="checkbox" name="deditgrid" id="deditgrid"  /> <label for="deditgrid">表格编辑</label>
+					<input value="True" type="checkbox" class="checkbox" name="dsingleline" id="dsingleline"  /> <label for="dsingleline">独占一行</label>
+					<input value="True" type="checkbox" class="checkbox" name="dsorted" id="dsorted"  /> <label for="dsorted">排序</label>
+					<input value="False" type="checkbox" class="checkbox" name="dperspective" id="dperspective"  /> <label for="dperspective">支持透视</label><br/>
+					<input value="False" type="checkbox" class="checkbox" name="dparamfld" id="dparamfld"  /> <label for="dparamfld">查询参数</label>
+					<input value="False" type="checkbox" class="checkbox" name="dfindfld" id="dfindfld"  /> <label for="dfindfld">查询动态显示字段</label>
+					</td>
+				</tr>
+				<tr>					
+					<th>编辑类型:</th>
+					<td>
+						<select name="dedittype" onchange="propertyList(this)">
+							<option value="1" >文本</option>
+							<option value="2" >密码</option>
+							<option value="3" >多行文本</option>
+							<option value="4" >列表</option>
+							<option value="5" >数据列表</option>
+							<option value="6" >日期</option>
+							<option value="7" >单选按钮</option>
+							<option value="8" >编辑掩码</option>
+							<option value="9" >多选组</option>
+							<option value="10" >单选组</option>
+							<option value="11" >选择</option>
+							<option value="12" >上级联动</option>
+							<option value="13" >数值</option>
+							<option value="14" >HTML编辑器</option>
+							<option value="15" >隐藏域</option>
+							<option value="16" >时间</option>
+							<option value="17" >文件</option>
+							<option value="18" >父键</option>
+							<option value="19" >树型列表</option>
+							<option value="20" >计算</option>
+							<option value="21" >下拉多选</option>
+							<option value="22" >输入联想</option>
+							<option value="23" >下拉表格</option>
+							<option value="24" >多选文件</option>
+							<option value="25" >下拉多选树</option>
+							<option value="26" >文本图像</option>
+						</select>
+					</td>
+					<th>字段类型:</th>
+					<td>         
+						<select name="dfieldtype"  style="width:115px">
+							<option value="0" >Empty</option>
+							<option value="1" >整数</option>
+							<option value="2" >文本</option>
+							<option value="3" >浮点数</option>
+							<option value="4" >日期</option>
+							<option value="5" >大字段</option>
+							<option value="6" >唯一文本</option>
+							<option value="7" >自动递增</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>关联内容:</th> 
+					<td colspan="3">
+						
+						<textarea name="dlinklist" style="height:50px;"></textarea>
+						<!--table id="property-Link" class="easyui-propertygrid" style="width:355px;height:80px;" data-options="
+									url:'propertygrid_data1.json',
+									method:'get',
+									showGroup:false,
+									showHeader:false,
+									scrollbarSize:0,
+									onBeforeLoad:function(param){
+									},
+									columns:[[{field:'name',width:40,resizable:false},
+											{field:'value',width:90,resizable:true}]]
+								">
+						</table-->
+					</td>
+				</tr>
+				<tr>
+					<th>执行代码:</th> 
+					<td colspan="3">
+						<textarea name="ddescription" style="height:50px;"></textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+
+	<div id="Operation" style="display:none;">
+		<form id="formOperation">
+			<table class="formTable">  
+				<tr>
+					<th>功能编号:</th> 
+					<td><input name="ocode" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'"/></td>  
+					<th>级别:</th><td><input name="olevel" id="olevel" class="easyui-numberbox" data-options="required:true,min:1,max:20" style="width:115px"/></td>
+				</tr>
+				<tr>
+					<th>功能名称:</th>
+					<td>
+						<input name="oname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'" />
+					</td>
+					<th>序号:</th><td><input name="oorderno" id="oorderno" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr>
+				<!--tr>
+					<th>功能图标:</th>
+					<td><input type="file" class="file"><span class="fileinput" style="width:174px;"><input class="inputfile" name="oimg" style="width:157px;"><span class="btnfile" onclick="chooseFile(this)"></span></span></td>
+					<th>样式类名:</th><td>
+						<input class="easyui-searchbox" id="ocssIcon" data-options="prompt:'请选择图标',searcher:doSearchIcon" name="ocssIcon" style="width:109px"></input>
+					</td>
+				</tr-->	
+				<tr>
+					<th>功能图标:</th>
+					<td colspan="3" style="line-height: 5px;">
+						<img src="themes/icons/tip.png" id="oimg" name="oimg" onclick="doSearchIcon()"  />	
+						<input name="ocssIcon" type="hidden" />
+					</td>
+				</tr>	
+			
+				<tr>
+					<th>快捷键:</th>
+					<td><input name="oshorkey"/></td>
+					<th>操作对象:</th><td>
+						<select name="ooperatetype" style="width:115px">
+							<option value="0" >表格工具</option>
+							<option value="1" >表单按钮</option>
+							<option value="2" >表格窗口</option>
+							<option value="3" >表单工具</option>
+						</select>
+					</td>
+				</tr>	
+				<tr>
+					<th>备注:</th> 
+					<td colspan="3">
+						<textarea name="onote" style="height:60px;"></textarea>
+					</td>
+				</tr>		
+				<tr>
+					<th>初始化代码:</th> 
+					<td colspan="3">
+						<textarea name="oinit" style="height:60px;"></textarea>
+					</td>
+				</tr>					
+				<tr>
+					<th>执行代码:</th> 
+					<td colspan="3">
+						<textarea name="odescription" style="height:80px;"></textarea>
+					</td>
+				</tr>				
+			</table>
+		</form>
+	</div>		
+	
+	<div id="tt-Icons">
+		<a href="javascript:void(0)" class="icon-delete" onclick="javascript:clearIcons();"></a>
+		<a href="javascript:void(0)" id="uploadIcons" onclick="javascript:alert('add')"></a>
+		<a href="javascript:void(0)" class="icon-save" onclick="javascript:genIconCss();"></a>
+	</div>
+
+	
+	<div id="win-Icons" class="easyui-window" title="图标列表" data-options="modal:true,closed:true,tools:'#tt-Icons'" style="width:550px;height:350px;padding:5px;">
+
+	</div>
+</body>
+</html>

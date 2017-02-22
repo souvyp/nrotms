@@ -1,0 +1,15 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0084",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT EndUser_ID AS [id], dbo.fn_pub_user_Company2Name(EndUser_CustomerCompanyID) AS [CustomerCompanyName], dbo.fn_pub_user_Company2Name(EndUser_OwnerCompany) AS [OwnerCompanyName], dbo.fn_pub_user_Company2Name(EndUser_CompanyID) AS 
+[CustomerName], EndUser_ClientCode AS [clientcode], EndUser_Name AS [EndUserName], EndUser_Industry AS [industry],EndUser_CustomerID AS [CustomerID], EndUser_Contact AS [contact],Addr_Phone AS [Phone], Addr_Desc AS [Address], Addr_Type AS [Type], Addr_InsertTime AS [InsertTime],Addr_Invalid AS [Invalid],dbo.fn_pub_order_AreaName(Addr_ProvinceID) AS ProvinceName, dbo.fn_pub_order_AreaName(Addr_CityID) AS CityName, dbo.fn_pub_order_AreaName(Addr_DistrictID) AS DistrictName,Addr_ProvinceID AS [ProvinceID],Addr_CityID AS [CityID], Addr_DistrictID AS [DistrictID],dbo.fn_pub_order_AreaName(Addr_ProvinceID)+' '+dbo.fn_pub_order_AreaName(Addr_CityID)+' '+dbo.fn_pub_order_AreaName(Addr_DistrictID) AS FromName,Addr_UpdateTime As [UpdateTime] FROM TMS_MEndUser RIGHT JOIN TMS_MAddr ON EndUser_ID = Addr_CustomerID",
+    "where": "EndUser_OwnerCompany = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND EndUser_Invalid = 0 AND Addr_Type = 1  AND Addr_Invalid = 0"
+  }
+}
+
+
+
+

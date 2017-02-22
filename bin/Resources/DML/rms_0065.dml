@@ -1,0 +1,24 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0065",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], SUM(dbo.fn_pub_order_TotalCost(Index_ID))  AS [TotalCost],SUM(dbo.fn_pub_order_TotalWeight(Index_ID,1)) AS [TotalWeight],SUM(dbo.fn_pub_order_TotalVolume(Index_ID,1)) AS [TotalVolume]
+FROM TMS_OrderIndex WHERE Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_Status <> 32  AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator, 0) GROUP BY Index_CustomerID ORDER BY [TotalCost] DESC",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+	  {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "用户编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

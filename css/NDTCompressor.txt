@@ -1,0 +1,2 @@
+NDTCompressor -c e:\SVN\OTMS\trunk\css\ bootstrap-style.css home.css huc.css base.css index.css
+NDTCompressor -p otms.1.0.1.css E:\SVN\OTMS\trunk\css\ bootstrap-style.min.css home.min.css huc.min.css base.min.css index.min.css

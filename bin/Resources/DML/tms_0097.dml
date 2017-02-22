@@ -1,0 +1,36 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0097",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_event_EventList",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Amount",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+		"name": "Module",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+	  }
+    ],
+    "responseType": "recordset"
+  }
+}

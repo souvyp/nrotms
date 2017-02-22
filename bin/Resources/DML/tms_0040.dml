@@ -1,0 +1,78 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0040",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_my_EditAddr",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CustomerID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Address",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Type",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ProvinceID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CityID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DistrictID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Phone",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

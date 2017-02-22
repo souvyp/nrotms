@@ -1,0 +1,29 @@
+﻿{
+	"root":
+	{
+		"id":"newotms","text":"OTMS","layout":"map","children":
+		[
+			{"id":"xofvkmgg","text":"管理员中心","side":"right","children":
+			[
+				{"id":"MyCenter","text":"个人中心","thumbText":"中心","shape":"box","children":
+					[
+						{"id":"UpdatePwd","text":"修改密码","shape":"box","others":{"0":"UpdatePwd.aspx"}}
+					],
+					"others":{"0":"glyphicon-user","1":"UpdatePwd"}
+				},
+				{"id":"Index","text":"对账单","thumbText":"对账单","shape":"box","children":
+					[
+						{"id":"Index","text":"应收对账单","shape":"box","others":{"0":"Index.aspx"}},
+						{"id":"AccountPay","text":"应付对账单","shape":"box","others":{"0":"AccountPay.aspx"}},
+						{"id":"c_Index","text":"待收订单查询","shape":"box","others":{"0":"c_Index.aspx"}},						
+						{"id":"c_AccountPay","text":"待付订单查询","shape":"box","others":{"0":"c_AccountPay.aspx"}},
+						{"id":"Indexed","text":"已完结应收对账单","shape":"box","others":{"0":"Indexed.aspx"}},
+						{"id":"AccountPayed","text":"已完结应付对账单","shape":"box","others":{"0":"AccountPayed.aspx"}}
+					],
+					"others":{"0":"glyphicon-shopping-cart","1":"Index"}
+				}				
+			],"others":{}
+			}
+		]
+	}
+}

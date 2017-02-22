@@ -1,0 +1,155 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0022",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE client SET clientcode = @clientcode, clientname = @clientname, industryid = @industryid, clientweb = @clientweb, csname = @csname, cename = @cename, esname = @esname, corporation = @corporation, Businesslicense = @businesslicense, linkman = @linkman, phone = @phone, fax = @fax, email = @email, address = @address, zipcode = @zipcode, weixin = @weixin, clientlogo = @clientlogo, Account = @account, clientremark = @clientremark WHERE Id = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientcode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "公司编号"
+      },
+      {
+        "name": "clientname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "公司全称"
+      },
+      {
+        "name": "industryid",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": "所属行业"
+      },
+      {
+        "name": "clientweb",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "公司网站"
+      },
+      {
+        "name": "csname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "公司简称"
+      },
+      {
+        "name": "cename",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "esname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "corporation",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "businesslicense",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "linkman",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "联系人"
+      },
+      {
+        "name": "phone",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "联系电话"
+      },
+      {
+        "name": "fax",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "传真"
+      },
+      {
+        "name": "email",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "address",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "zipcode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "weixin",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientlogo",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "account",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientremark",
+        "type": "ntext",
+        "size": 16,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0205",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Symbol_ID AS [id], Symbol_CompanyID AS [companyid], Symbol_Type AS [type], Symbol_Code AS [code], Symbol_Name AS [name], Symbol_Creator AS [creator], Symbol_InsertTime AS [inserttime], Symbol_Updater AS [updater], Symbol_UpdateTime AS [updatetime], Symbol_Invalid AS [invalid], Symbol_Comments AS [comments] FROM TMS_MSymbol WHERE Symbol_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "标记编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

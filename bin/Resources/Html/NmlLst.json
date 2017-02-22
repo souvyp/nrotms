@@ -1,0 +1,3632 @@
+﻿[
+  {
+    "id": "API_001",
+    "pid": "dml",
+    "description": "api申请注册",
+    "program": "otms"
+  },
+  {
+    "id": "API_002",
+    "pid": "dml",
+    "description": "API申请审核",
+    "program": "otms"
+  },
+  {
+    "id": "Branch_jplist_0095",
+    "pid": "dml",
+    "description": "申请加入集团或修改加入集团申请",
+    "program": "otms"
+  },
+  {
+    "id": "Branch_jplist_0095",
+    "pid": "vml",
+    "description": "集团待审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "Branch_jplist_0096",
+    "pid": "dml",
+    "description": "集团已审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "Branch_jplist_0096",
+    "pid": "vml",
+    "description": "集团已审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "Comments_0001",
+    "pid": "vml",
+    "description": "追加备注",
+    "program": "otms"
+  },
+  {
+    "id": "Comments_0001",
+    "pid": "dml",
+    "description": "追加备注",
+    "program": "otms"
+  },
+  {
+    "id": "Comments_0002",
+    "pid": "vml",
+    "description": "追加备注",
+    "program": "otms"
+  },
+  {
+    "id": "Comments_0002",
+    "pid": "dml",
+    "description": "追加备注",
+    "program": "otms"
+  },
+  {
+    "id": "Zone_jplist_0095",
+    "pid": "dml",
+    "description": "申请加入园区或修改加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "Zone_jplist_0095",
+    "pid": "vml",
+    "description": "园区待审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "Zone_jplist_0096",
+    "pid": "dml",
+    "description": "园区已审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "Zone_jplist_0096",
+    "pid": "vml",
+    "description": "园区已审库列表",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0001",
+    "pid": "vml",
+    "description": "重新计算订单价格",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0001",
+    "pid": "dml",
+    "description": "重新计算订单价格",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0002",
+    "pid": "vml",
+    "description": "配置信息新增、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0002",
+    "pid": "dml",
+    "description": "配置信息新增、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0003",
+    "pid": "vml",
+    "description": "配置信息详情",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0003",
+    "pid": "dml",
+    "description": "配置信息详情",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0004",
+    "pid": "dml",
+    "description": "启用禁用账号",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0004",
+    "pid": "vml",
+    "description": "启用禁用账号",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0005",
+    "pid": "vml",
+    "description": "重置密码使用",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0005",
+    "pid": "dml",
+    "description": "重置密码使用",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0006",
+    "pid": "vml",
+    "description": "申请加入集团或修改加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0006",
+    "pid": "dml",
+    "description": "申请加入集团或修改加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0007",
+    "pid": "dml",
+    "description": "集团申请详情(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0007",
+    "pid": "vml",
+    "description": "集团申请详情(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0008",
+    "pid": "dml",
+    "description": "列表，发送加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0008",
+    "pid": "vml",
+    "description": "列表，发送加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0009",
+    "pid": "dml",
+    "description": "列表，审核加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0009",
+    "pid": "vml",
+    "description": "列表，审核加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0010",
+    "pid": "vml",
+    "description": "列表，关闭加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0010",
+    "pid": "dml",
+    "description": "列表，关闭加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0012",
+    "pid": "dml",
+    "description": "申请加入园区或修改加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0012",
+    "pid": "vml",
+    "description": "申请加入园区或修改加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0013",
+    "pid": "vml",
+    "description": "园区申请详情 ",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0013",
+    "pid": "dml",
+    "description": "园区申请详情 ",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0014",
+    "pid": "vml",
+    "description": "列表，发送加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0014",
+    "pid": "dml",
+    "description": "列表，发送加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0015",
+    "pid": "vml",
+    "description": "列表，审核加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0015",
+    "pid": "dml",
+    "description": "列表，审核加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0016",
+    "pid": "dml",
+    "description": "列表，关闭加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "aml_0016",
+    "pid": "vml",
+    "description": "列表，关闭加入园区申请",
+    "program": "otms"
+  },
+  {
+    "id": "caches",
+    "pid": "sml",
+    "description": "",
+    "program": "otms"
+  },
+  {
+    "id": "cfgrestore",
+    "pid": "sml",
+    "description": "",
+    "program": "otms"
+  },
+  {
+    "id": "city_addition_query",
+    "pid": "vml",
+    "description": "附加费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_addition_query",
+    "pid": "dml",
+    "description": "附加费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_delivery_query",
+    "pid": "dml",
+    "description": "送货费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_delivery_query",
+    "pid": "vml",
+    "description": "送货费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_fullload_query",
+    "pid": "vml",
+    "description": "整车详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_fullload_query",
+    "pid": "dml",
+    "description": "整车详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_insurance_query",
+    "pid": "dml",
+    "description": "保费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_insurance_query",
+    "pid": "vml",
+    "description": "保费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_load_query",
+    "pid": "dml",
+    "description": "装卸费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_load_query",
+    "pid": "vml",
+    "description": "装卸费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_min_query",
+    "pid": "vml",
+    "description": "最低收费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_min_query",
+    "pid": "dml",
+    "description": "最低收费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_pick_query",
+    "pid": "dml",
+    "description": "提货费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_pick_query",
+    "pid": "vml",
+    "description": "提货费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_tax_query",
+    "pid": "dml",
+    "description": "税费详细",
+    "program": "otms"
+  },
+  {
+    "id": "city_tax_query",
+    "pid": "vml",
+    "description": "税费详细",
+    "program": "otms"
+  },
+  {
+    "id": "company_reading",
+    "pid": "dml",
+    "description": "公司信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "company_reading",
+    "pid": "vml",
+    "description": "公司信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "dml_file",
+    "pid": "sml",
+    "description": "生成DML文件",
+    "program": "otms"
+  },
+  {
+    "id": "dropcache",
+    "pid": "sml",
+    "description": "",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0001",
+    "pid": "dml",
+    "description": "应（收/付）结账单新增",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0001",
+    "pid": "vml",
+    "description": "应（收/付）结账单新增",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0002",
+    "pid": "vml",
+    "description": "应（收/付）结账单编辑",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0002",
+    "pid": "dml",
+    "description": "应（收/付）结账单编辑",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0003",
+    "pid": "vml",
+    "description": "应（收/付）结账单查询",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0003",
+    "pid": "dml",
+    "description": "应（收/付）结账单查询",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0004",
+    "pid": "vml",
+    "description": "订单明细新增",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0004",
+    "pid": "dml",
+    "description": "订单明细新增",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0005",
+    "pid": "vml",
+    "description": "订单明细删除",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0005",
+    "pid": "dml",
+    "description": "订单明细删除",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0006",
+    "pid": "dml",
+    "description": "订单明细查询",
+    "program": "otms"
+  },
+  {
+    "id": "fml_0006",
+    "pid": "vml",
+    "description": "订单明细查询",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0002",
+    "pid": "widget",
+    "description": "客户选择列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0003",
+    "pid": "widget",
+    "description": "客户信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0004",
+    "pid": "widget",
+    "description": "物品类型列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0005",
+    "pid": "widget",
+    "description": "物品信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0006",
+    "pid": "widget",
+    "description": "市内待调度列表(新单据 0)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0007",
+    "pid": "widget",
+    "description": "订单待分配信息列表(已接收 1)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0008",
+    "pid": "widget",
+    "description": "订单待签收信息列表(已分配 2)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0009",
+    "pid": "widget",
+    "description": "订单待回单信息列表(已签收 4)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0011",
+    "pid": "widget",
+    "description": "订单待结账信息列表(已回单 8)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0012",
+    "pid": "widget",
+    "description": "订单已结账信息列表(已结账 16)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0013",
+    "pid": "widget",
+    "description": "订单追踪列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0014",
+    "pid": "widget",
+    "description": "待审核公司列表",
+    "program": "otms_cp"
+  },
+  {
+    "id": "grid_jplist_0015",
+    "pid": "widget",
+    "description": "运输管理系统用户信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0016",
+    "pid": "widget",
+    "description": "我的承运商列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0017",
+    "pid": "widget",
+    "description": "公司信息列表",
+    "program": "otms_cp"
+  },
+  {
+    "id": "grid_jplist_0018",
+    "pid": "widget",
+    "description": "司机信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0019",
+    "pid": "widget",
+    "description": "车辆信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0020",
+    "pid": "widget",
+    "description": "收货人信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0021",
+    "pid": "widget",
+    "description": "公司信息选择列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0022",
+    "pid": "widget",
+    "description": "承运商常用地址列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0023",
+    "pid": "widget",
+    "description": "最终用户收货地址列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0024",
+    "pid": "widget",
+    "description": "待接收订单(新单据 0)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0025",
+    "pid": "widget",
+    "description": "承运商(线上)列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0026",
+    "pid": "widget",
+    "description": "邀请列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0027",
+    "pid": "widget",
+    "description": "被邀请列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0028",
+    "pid": "widget",
+    "description": "订单费用列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0029",
+    "pid": "widget",
+    "description": "客户订单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0030",
+    "pid": "widget",
+    "description": "TMS历史消息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0031",
+    "pid": "widget",
+    "description": "附加费选择订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0033",
+    "pid": "widget",
+    "description": "承运商(线下/线上)选择列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0034",
+    "pid": "widget",
+    "description": "已关闭订单列表(状态:32)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0035",
+    "pid": "widget",
+    "description": "草稿箱订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0036",
+    "pid": "widget",
+    "description": "我的待办列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0037",
+    "pid": "widget",
+    "description": "已委托订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0038",
+    "pid": "widget",
+    "description": "收货人选择列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0039",
+    "pid": "widget",
+    "description": "运输订单待签收信息列表(已分配 2)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0040",
+    "pid": "widget",
+    "description": "运输订单待回单信息列表(已签收 4)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0041",
+    "pid": "widget",
+    "description": "运输订单已关闭订单列表(状态:32)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0042",
+    "pid": "widget",
+    "description": "运输订单追踪列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0043",
+    "pid": "widget",
+    "description": "运输订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0044",
+    "pid": "widget",
+    "description": "报价管理系统用户信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0045",
+    "pid": "widget",
+    "description": "物品单位维护列表",
+    "program": "otms_cp"
+  },
+  {
+    "id": "grid_jplist_0046",
+    "pid": "widget",
+    "description": "价格类型维护列表",
+    "program": "otms_cp"
+  },
+  {
+    "id": "grid_jplist_0047",
+    "pid": "widget",
+    "description": "已发送报价单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0048",
+    "pid": "widget",
+    "description": "待发送报价单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0049",
+    "pid": "widget",
+    "description": "已过期报价单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0050",
+    "pid": "widget",
+    "description": "已关闭报价单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0051",
+    "pid": "widget",
+    "description": "补充报价客户订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0052",
+    "pid": "widget",
+    "description": "原报价单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0053",
+    "pid": "widget",
+    "description": "报价单检索列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0054",
+    "pid": "widget",
+    "description": "已审核报价单列表（报价单审核）",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0055",
+    "pid": "widget",
+    "description": "待审核报价单列表（报价单审核）",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0056",
+    "pid": "widget",
+    "description": "已过期报价单列表（报价单审核）",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0057",
+    "pid": "widget",
+    "description": "报价单检索（报价单审核）",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0058",
+    "pid": "widget",
+    "description": "PMS历史消息列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0059",
+    "pid": "widget",
+    "description": "长途待调度列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0060",
+    "pid": "widget",
+    "description": "报表系统用户列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0061",
+    "pid": "widget",
+    "description": "财物系统用户列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0062",
+    "pid": "widget",
+    "description": "结账订单选择列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0063",
+    "pid": "widget",
+    "description": "订单价格重新计算列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0064",
+    "pid": "widget",
+    "description": "应收结账单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0065",
+    "pid": "widget",
+    "description": "应付结账单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0066",
+    "pid": "widget",
+    "description": "按单报价订单号选择",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0067",
+    "pid": "widget",
+    "description": "待接收拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0068",
+    "pid": "widget",
+    "description": "已接收拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0069",
+    "pid": "widget",
+    "description": "拼车待调度",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0070",
+    "pid": "widget",
+    "description": "已委托拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0071",
+    "pid": "widget",
+    "description": "待调度订单选择",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0078",
+    "pid": "widget",
+    "description": "待接收订单(个人中心)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0079",
+    "pid": "widget",
+    "description": "待调度订单(个人中心)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0080",
+    "pid": "widget",
+    "description": "待签收订单(个人中心)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0081",
+    "pid": "widget",
+    "description": "待回单订单(个人中心)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0082",
+    "pid": "widget",
+    "description": "标识管理(资源管理)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0083",
+    "pid": "widget",
+    "description": "客户标示选择",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0084",
+    "pid": "widget",
+    "description": "收货人选择（运输计划）",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0085",
+    "pid": "widget",
+    "description": "合单报价列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0087",
+    "pid": "widget",
+    "description": "运输订单费用查询",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0089",
+    "pid": "widget",
+    "description": "已关闭拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0090",
+    "pid": "widget",
+    "description": "创建订单物品列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0091",
+    "pid": "widget",
+    "description": "客户订单收货人地址列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0092",
+    "pid": "widget",
+    "description": "资源管理 新增收货人列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0093",
+    "pid": "widget",
+    "description": "客服 应收结账单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0094",
+    "pid": "widget",
+    "description": "运营 应付结账单",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0095",
+    "pid": "widget",
+    "description": "申请加入集团或修改加入集团申请(AMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0096",
+    "pid": "widget",
+    "description": "审核申请列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0097",
+    "pid": "widget",
+    "description": "自营拼车单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0098",
+    "pid": "widget",
+    "description": "自营，按单报价(pms)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0099",
+    "pid": "widget",
+    "description": "自营，合单报价(pms)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0100",
+    "pid": "widget",
+    "description": "自营，已发送单报价(pms)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0101",
+    "pid": "widget",
+    "description": "自营，已发送报价单(PMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0102",
+    "pid": "widget",
+    "description": "自营，已关闭报价单(PMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0103",
+    "pid": "widget",
+    "description": "自营，检索报价单(PMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0104",
+    "pid": "widget",
+    "description": "自营，已审核报价单(PMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0105",
+    "pid": "widget",
+    "description": "自营，待审核报价单(PMS)",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplist_0106",
+    "pid": "widget",
+    "description": "补充报价自营订单列表",
+    "program": "otms"
+  },
+  {
+    "id": "grid_jplistcp_0001",
+    "pid": "widget",
+    "description": "待补入订单物品信息（订单列表 后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "grid_jplistcp_0002",
+    "pid": "widget",
+    "description": "物品选择（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "jplist_file",
+    "pid": "sml",
+    "description": "生成JPLIST列表",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0001",
+    "pid": "vml",
+    "description": "物品单位新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0001",
+    "pid": "dml",
+    "description": "物品单位新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0002",
+    "pid": "vml",
+    "description": "物品单位编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0002",
+    "pid": "dml",
+    "description": "物品单位编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0003",
+    "pid": "vml",
+    "description": "物品单位查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0003",
+    "pid": "dml",
+    "description": "物品单位查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0004",
+    "pid": "vml",
+    "description": "价格类型新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0004",
+    "pid": "dml",
+    "description": "价格类型新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0005",
+    "pid": "vml",
+    "description": "价格类型编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0005",
+    "pid": "dml",
+    "description": "价格类型编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0006",
+    "pid": "vml",
+    "description": "价格类型查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0006",
+    "pid": "dml",
+    "description": "价格类型查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "pml_0007",
+    "pid": "vml",
+    "description": "按单报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0007",
+    "pid": "dml",
+    "description": "按单报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0008",
+    "pid": "vml",
+    "description": "合约报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0008",
+    "pid": "dml",
+    "description": "合约报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0009",
+    "pid": "dml",
+    "description": "补充报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0009",
+    "pid": "vml",
+    "description": "补充报价新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0010",
+    "pid": "dml",
+    "description": "零担报价新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0010",
+    "pid": "vml",
+    "description": "零担报价新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0011",
+    "pid": "vml",
+    "description": "提货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0011",
+    "pid": "dml",
+    "description": "提货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0012",
+    "pid": "vml",
+    "description": "整车新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0012",
+    "pid": "dml",
+    "description": "整车新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0013",
+    "pid": "vml",
+    "description": "送货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0013",
+    "pid": "dml",
+    "description": "送货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0015",
+    "pid": "dml",
+    "description": "装卸货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0015",
+    "pid": "vml",
+    "description": "装卸货费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0016",
+    "pid": "vml",
+    "description": "最小收费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0016",
+    "pid": "dml",
+    "description": "最小收费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0017",
+    "pid": "dml",
+    "description": "保费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0017",
+    "pid": "vml",
+    "description": "保费新增,编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0018",
+    "pid": "dml",
+    "description": "价格删除",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0018",
+    "pid": "vml",
+    "description": "价格删除",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0019",
+    "pid": "dml",
+    "description": "按单报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0019",
+    "pid": "vml",
+    "description": "按单报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0020",
+    "pid": "vml",
+    "description": "零担报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0020",
+    "pid": "dml",
+    "description": "零担报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0021",
+    "pid": "dml",
+    "description": "附加费新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0021",
+    "pid": "vml",
+    "description": "附加费新增",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0022",
+    "pid": "dml",
+    "description": "发送报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0022",
+    "pid": "vml",
+    "description": "发送报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0023",
+    "pid": "dml",
+    "description": "关闭报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0023",
+    "pid": "vml",
+    "description": "关闭报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0024",
+    "pid": "vml",
+    "description": "审核报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0024",
+    "pid": "dml",
+    "description": "审核报价单",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0027",
+    "pid": "vml",
+    "description": "合约报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0027",
+    "pid": "dml",
+    "description": "合约报价查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0028",
+    "pid": "vml",
+    "description": "税费新增，编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0028",
+    "pid": "dml",
+    "description": "税费新增，编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0029",
+    "pid": "dml",
+    "description": "合单报价新增、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0029",
+    "pid": "vml",
+    "description": "合单报价新增、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0031",
+    "pid": "vml",
+    "description": "拼车单保存总价",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0031",
+    "pid": "dml",
+    "description": "拼车单保存总价",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0032",
+    "pid": "vml",
+    "description": "报价系统-显示合单价格",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0032",
+    "pid": "dml",
+    "description": "报价系统-显示合单价格",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0033",
+    "pid": "vml",
+    "description": "按单报价详情主单查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0033",
+    "pid": "dml",
+    "description": "按单报价详情主单查询",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0034",
+    "pid": "vml",
+    "description": "合单报价新增显示订单明细",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0034",
+    "pid": "dml",
+    "description": "合单报价新增显示订单明细",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0035",
+    "pid": "dml",
+    "description": "待发送报价单详情编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0035",
+    "pid": "vml",
+    "description": "待发送报价单详情编辑",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0036",
+    "pid": "dml",
+    "description": "合单报价编辑显示合单明细",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0036",
+    "pid": "vml",
+    "description": "合单报价编辑显示合单明细",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0037",
+    "pid": "dml",
+    "description": "已审核订单重新报价",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0037",
+    "pid": "vml",
+    "description": "已审核订单重新报价",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0038",
+    "pid": "dml",
+    "description": "补充报价新增-订单详情",
+    "program": "otms"
+  },
+  {
+    "id": "pml_0038",
+    "pid": "vml",
+    "description": "补充报价新增-订单详情",
+    "program": "otms"
+  },
+  {
+    "id": "rLst_file",
+    "pid": "sml",
+    "description": "读取NMLLIST数据",
+    "program": "otms"
+  },
+  {
+    "id": "rmcache",
+    "pid": "sml",
+    "description": "",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0001",
+    "pid": "vml",
+    "description": "营业额统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0001",
+    "pid": "dml",
+    "description": "营业额统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0002",
+    "pid": "vml",
+    "description": "运输方式成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0002",
+    "pid": "dml",
+    "description": "运输方式成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0003",
+    "pid": "dml",
+    "description": "运输类型成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0003",
+    "pid": "vml",
+    "description": "运输类型成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0004",
+    "pid": "dml",
+    "description": "费用类型成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0004",
+    "pid": "vml",
+    "description": "费用类型成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0005",
+    "pid": "dml",
+    "description": "承运商成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0005",
+    "pid": "vml",
+    "description": "承运商成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0006",
+    "pid": "vml",
+    "description": "自营成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0006",
+    "pid": "dml",
+    "description": "自营成本报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0007",
+    "pid": "vml",
+    "description": "成本月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0007",
+    "pid": "dml",
+    "description": "成本月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0008",
+    "pid": "dml",
+    "description": "营业额月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0008",
+    "pid": "vml",
+    "description": "营业额月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0009",
+    "pid": "dml",
+    "description": "客户利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0009",
+    "pid": "vml",
+    "description": "客户利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0010",
+    "pid": "dml",
+    "description": "订单利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0010",
+    "pid": "vml",
+    "description": "订单利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0011",
+    "pid": "dml",
+    "description": "收入支出报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0011",
+    "pid": "vml",
+    "description": "收入支出报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0012",
+    "pid": "dml",
+    "description": "实际利润月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0012",
+    "pid": "vml",
+    "description": "实际利润月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0013",
+    "pid": "vml",
+    "description": "业务利润月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0013",
+    "pid": "dml",
+    "description": "业务利润月报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0014",
+    "pid": "dml",
+    "description": "应收报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0014",
+    "pid": "vml",
+    "description": "应收报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0015",
+    "pid": "dml",
+    "description": "应付报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0015",
+    "pid": "vml",
+    "description": "应付报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0016",
+    "pid": "dml",
+    "description": "集团营业额分公司统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0016",
+    "pid": "vml",
+    "description": "集团营业额分公司统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0017",
+    "pid": "vml",
+    "description": "集团营业额总览报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0017",
+    "pid": "dml",
+    "description": "集团营业额总览报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0018",
+    "pid": "dml",
+    "description": "集团营业额客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0018",
+    "pid": "vml",
+    "description": "集团营业额客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0019",
+    "pid": "dml",
+    "description": "集团营业额费用类型",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0019",
+    "pid": "vml",
+    "description": "集团营业额费用类型",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0020",
+    "pid": "vml",
+    "description": "集团营业额（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0020",
+    "pid": "dml",
+    "description": "集团营业额（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0021",
+    "pid": "vml",
+    "description": "集团营业额（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0021",
+    "pid": "dml",
+    "description": "集团营业额（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0022",
+    "pid": "dml",
+    "description": "集团营业额全部线路统计（月份）",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0022",
+    "pid": "vml",
+    "description": "集团营业额全部线路统计（月份）",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0023",
+    "pid": "dml",
+    "description": "集团营业额全部线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0023",
+    "pid": "vml",
+    "description": "集团营业额全部线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0024",
+    "pid": "vml",
+    "description": "集团营业额分线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0024",
+    "pid": "dml",
+    "description": "集团营业额分线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0025",
+    "pid": "dml",
+    "description": "集团应收账款分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0025",
+    "pid": "vml",
+    "description": "集团应收账款分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0026",
+    "pid": "dml",
+    "description": "集团应收账款客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0026",
+    "pid": "vml",
+    "description": "集团应收账款客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0027",
+    "pid": "vml",
+    "description": "集团应收账款总览",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0027",
+    "pid": "dml",
+    "description": "集团应收账款总览",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0028",
+    "pid": "dml",
+    "description": "集团应付账款总览",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0028",
+    "pid": "vml",
+    "description": "集团应付账款总览",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0029",
+    "pid": "dml",
+    "description": "集团应付账款分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0029",
+    "pid": "vml",
+    "description": "集团应付账款分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0030",
+    "pid": "vml",
+    "description": "集团应付账款客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0030",
+    "pid": "dml",
+    "description": "集团应付账款客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0031",
+    "pid": "dml",
+    "description": "集团成本分公司统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0031",
+    "pid": "vml",
+    "description": "集团成本分公司统计报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0032",
+    "pid": "dml",
+    "description": "集团成本总览报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0032",
+    "pid": "vml",
+    "description": "集团成本总览报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0033",
+    "pid": "dml",
+    "description": "集团成本客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0033",
+    "pid": "vml",
+    "description": "集团成本客户统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0034",
+    "pid": "dml",
+    "description": "集团成本费用类型",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0034",
+    "pid": "vml",
+    "description": "集团成本费用类型",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0035",
+    "pid": "vml",
+    "description": "集团成本（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0035",
+    "pid": "dml",
+    "description": "集团成本（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0036",
+    "pid": "dml",
+    "description": "集团成本（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0036",
+    "pid": "vml",
+    "description": "集团成本（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0037",
+    "pid": "dml",
+    "description": "集团成本全部线路统计（月份）",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0037",
+    "pid": "vml",
+    "description": "集团成本全部线路统计（月份）",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0038",
+    "pid": "vml",
+    "description": "集团成本全部线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0038",
+    "pid": "dml",
+    "description": "集团成本全部线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0039",
+    "pid": "vml",
+    "description": "集团成本分线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0039",
+    "pid": "dml",
+    "description": "集团成本分线路统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0040",
+    "pid": "dml",
+    "description": "集团利润分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0040",
+    "pid": "vml",
+    "description": "集团利润分公司统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0041",
+    "pid": "dml",
+    "description": "集团利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0041",
+    "pid": "vml",
+    "description": "集团利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0042",
+    "pid": "dml",
+    "description": "集团路线利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0042",
+    "pid": "vml",
+    "description": "集团路线利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0043",
+    "pid": "dml",
+    "description": "集团费用类型利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0043",
+    "pid": "vml",
+    "description": "集团费用类型利润统计",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0044",
+    "pid": "dml",
+    "description": "集团利润（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0044",
+    "pid": "vml",
+    "description": "集团利润（2长途、1市内）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0045",
+    "pid": "vml",
+    "description": "集团利润（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0045",
+    "pid": "dml",
+    "description": "集团利润（1零担、2整车）费用",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0046",
+    "pid": "vml",
+    "description": "集团客户利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0046",
+    "pid": "dml",
+    "description": "集团客户利润报表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0047",
+    "pid": "vml",
+    "description": "集团总运量分公司年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0047",
+    "pid": "dml",
+    "description": "集团总运量分公司年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0048",
+    "pid": "dml",
+    "description": "集团总运量分公司月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0048",
+    "pid": "vml",
+    "description": "集团总运量分公司月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0049",
+    "pid": "dml",
+    "description": "集团总运量分公司日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0049",
+    "pid": "vml",
+    "description": "集团总运量分公司日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0050",
+    "pid": "dml",
+    "description": "集团总运量客户年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0050",
+    "pid": "vml",
+    "description": "集团总运量客户年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0051",
+    "pid": "dml",
+    "description": "集团总运量客户月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0051",
+    "pid": "vml",
+    "description": "集团总运量客户月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0052",
+    "pid": "dml",
+    "description": "集团总运量客户日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0052",
+    "pid": "vml",
+    "description": "集团总运量客户日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0053",
+    "pid": "vml",
+    "description": "集团总运量承运商年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0053",
+    "pid": "dml",
+    "description": "集团总运量承运商年表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0054",
+    "pid": "dml",
+    "description": "集团总运量承运商月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0054",
+    "pid": "vml",
+    "description": "集团总运量承运商月表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0055",
+    "pid": "vml",
+    "description": "集团总运量承运商日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0055",
+    "pid": "dml",
+    "description": "集团总运量承运商日表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0056",
+    "pid": "vml",
+    "description": "集团总运量子公司季度表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0056",
+    "pid": "dml",
+    "description": "集团总运量子公司季度表",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0057",
+    "pid": "dml",
+    "description": "集团总览",
+    "program": "otms"
+  },
+  {
+    "id": "rms_0057",
+    "pid": "vml",
+    "description": "集团总览",
+    "program": "otms"
+  },
+  {
+    "id": "stat_0001",
+    "pid": "dml",
+    "description": "个人中心首页状态数据值",
+    "program": "otms"
+  },
+  {
+    "id": "stat_0001",
+    "pid": "vml",
+    "description": "个人中心首页状态数据值",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0001",
+    "pid": "vml",
+    "description": "物品类型添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0001",
+    "pid": "dml",
+    "description": "物品类型添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0002",
+    "pid": "dml",
+    "description": "物品类型删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0002",
+    "pid": "vml",
+    "description": "物品类型删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0004",
+    "pid": "vml",
+    "description": "物品类型查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0004",
+    "pid": "dml",
+    "description": "物品类型查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0016",
+    "pid": "vml",
+    "description": "物品添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0016",
+    "pid": "dml",
+    "description": "物品添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0018",
+    "pid": "dml",
+    "description": "物品查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0018",
+    "pid": "vml",
+    "description": "物品查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0019",
+    "pid": "vml",
+    "description": "物品删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0019",
+    "pid": "dml",
+    "description": "物品删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0020",
+    "pid": "vml",
+    "description": "客户信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0020",
+    "pid": "dml",
+    "description": "客户信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0021",
+    "pid": "vml",
+    "description": "客户信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0021",
+    "pid": "dml",
+    "description": "客户信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0023",
+    "pid": "dml",
+    "description": "客户信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0023",
+    "pid": "vml",
+    "description": "客户信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0024",
+    "pid": "dml",
+    "description": "订单信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0024",
+    "pid": "vml",
+    "description": "订单信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0025",
+    "pid": "dml",
+    "description": "订单信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0025",
+    "pid": "vml",
+    "description": "订单信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0027",
+    "pid": "dml",
+    "description": "订单信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0027",
+    "pid": "vml",
+    "description": "订单信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0028",
+    "pid": "dml",
+    "description": "订单物品添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0028",
+    "pid": "vml",
+    "description": "订单物品添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0030",
+    "pid": "dml",
+    "description": "订单物品查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0030",
+    "pid": "vml",
+    "description": "订单物品查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0031",
+    "pid": "vml",
+    "description": "订单物品删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0031",
+    "pid": "dml",
+    "description": "订单物品删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0032",
+    "pid": "vml",
+    "description": "司机信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0032",
+    "pid": "dml",
+    "description": "司机信息添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0034",
+    "pid": "vml",
+    "description": "司机信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0034",
+    "pid": "dml",
+    "description": "司机信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0035",
+    "pid": "dml",
+    "description": "司机信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0035",
+    "pid": "vml",
+    "description": "司机信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0036",
+    "pid": "dml",
+    "description": "车辆信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0036",
+    "pid": "vml",
+    "description": "车辆信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0037",
+    "pid": "dml",
+    "description": "车辆信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0037",
+    "pid": "vml",
+    "description": "车辆信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0038",
+    "pid": "dml",
+    "description": "车辆信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0038",
+    "pid": "vml",
+    "description": "车辆信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0039",
+    "pid": "dml",
+    "description": "车辆信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0039",
+    "pid": "vml",
+    "description": "车辆信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0040",
+    "pid": "dml",
+    "description": "常用地址添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0040",
+    "pid": "vml",
+    "description": "常用地址添加、编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0042",
+    "pid": "dml",
+    "description": "收货人信息调取查看",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0042",
+    "pid": "vml",
+    "description": "收货人信息调取查看",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0043",
+    "pid": "vml",
+    "description": "常用地址删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0043",
+    "pid": "dml",
+    "description": "常用地址删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0044",
+    "pid": "dml",
+    "description": "公司信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0044",
+    "pid": "vml",
+    "description": "公司信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0045",
+    "pid": "dml",
+    "description": "公司信息修改（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0045",
+    "pid": "vml",
+    "description": "公司信息修改（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0046",
+    "pid": "dml",
+    "description": "公司信息详情（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0046",
+    "pid": "vml",
+    "description": "公司信息详情（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0047",
+    "pid": "dml",
+    "description": "公司信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0047",
+    "pid": "vml",
+    "description": "公司信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0049",
+    "pid": "vml",
+    "description": "用户信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0049",
+    "pid": "dml",
+    "description": "用户信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0052",
+    "pid": "dml",
+    "description": "收货人信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0052",
+    "pid": "vml",
+    "description": "收货人信息添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0053",
+    "pid": "vml",
+    "description": "收货人信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0053",
+    "pid": "dml",
+    "description": "收货人信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0054",
+    "pid": "vml",
+    "description": "收货人信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0054",
+    "pid": "dml",
+    "description": "收货人信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0055",
+    "pid": "dml",
+    "description": "收货人信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0055",
+    "pid": "vml",
+    "description": "收货人信息删除",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0056",
+    "pid": "dml",
+    "description": "公司注册",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0056",
+    "pid": "vml",
+    "description": "公司注册",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0057",
+    "pid": "vml",
+    "description": "用户列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0057",
+    "pid": "dml",
+    "description": "用户列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0058",
+    "pid": "dml",
+    "description": "修改密码（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0058",
+    "pid": "dml",
+    "description": "修改密码",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0058",
+    "pid": "vml",
+    "description": "修改密码",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0058",
+    "pid": "vml",
+    "description": "修改密码（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0059",
+    "pid": "vml",
+    "description": "重置用户，管理员密码",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0059",
+    "pid": "vml",
+    "description": "重置公司管理员密码（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0059",
+    "pid": "dml",
+    "description": "重置用户，管理员密码",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0059",
+    "pid": "dml",
+    "description": "重置公司管理员密码（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0060",
+    "pid": "dml",
+    "description": "一般用户注册",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0060",
+    "pid": "vml",
+    "description": "一般用户注册",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0061",
+    "pid": "dml",
+    "description": "公司列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0061",
+    "pid": "vml",
+    "description": "公司列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0062",
+    "pid": "dml",
+    "description": "承运商添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0062",
+    "pid": "vml",
+    "description": "承运商添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0063",
+    "pid": "dml",
+    "description": "我的客户添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0063",
+    "pid": "vml",
+    "description": "我的客户添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0064",
+    "pid": "vml",
+    "description": "我的司机添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0064",
+    "pid": "dml",
+    "description": "我的司机添加",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0065",
+    "pid": "vml",
+    "description": "我的司机查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0065",
+    "pid": "dml",
+    "description": "我的司机查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0066",
+    "pid": "vml",
+    "description": "接收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0066",
+    "pid": "dml",
+    "description": "接收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0067",
+    "pid": "vml",
+    "description": "分配订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0067",
+    "pid": "dml",
+    "description": "分配订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0068",
+    "pid": "dml",
+    "description": "签收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0068",
+    "pid": "vml",
+    "description": "签收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0069",
+    "pid": "vml",
+    "description": "回单上传",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0069",
+    "pid": "dml",
+    "description": "回单上传",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0070",
+    "pid": "dml",
+    "description": "审核公司，注册管理员（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0070",
+    "pid": "vml",
+    "description": "审核公司，注册管理员（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_0071",
+    "pid": "dml",
+    "description": "订单发送",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0071",
+    "pid": "vml",
+    "description": "订单发送",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0072",
+    "pid": "dml",
+    "description": "同意或拒绝成为供应商",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0072",
+    "pid": "vml",
+    "description": "同意或拒绝成为供应商",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0073",
+    "pid": "dml",
+    "description": "拆单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0073",
+    "pid": "vml",
+    "description": "拆单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0074",
+    "pid": "dml",
+    "description": "货物数量拆单列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0074",
+    "pid": "vml",
+    "description": "货物数量拆单列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0075",
+    "pid": "dml",
+    "description": "费用下拉列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0075",
+    "pid": "vml",
+    "description": "费用下拉列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0080",
+    "pid": "dml",
+    "description": "我的信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0080",
+    "pid": "vml",
+    "description": "我的信息列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0081",
+    "pid": "dml",
+    "description": "承运商列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0081",
+    "pid": "vml",
+    "description": "承运商列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0082",
+    "pid": "vml",
+    "description": "客户列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0082",
+    "pid": "dml",
+    "description": "客户列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0083",
+    "pid": "dml",
+    "description": "最终用户列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0083",
+    "pid": "vml",
+    "description": "最终用户列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0084",
+    "pid": "dml",
+    "description": "获取用户账号",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0084",
+    "pid": "vml",
+    "description": "获取用户账号",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0085",
+    "pid": "vml",
+    "description": "被邀请承运商详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0085",
+    "pid": "dml",
+    "description": "被邀请承运商详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0086",
+    "pid": "dml",
+    "description": "获取事件提醒数目",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0086",
+    "pid": "vml",
+    "description": "获取事件提醒数目",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0089",
+    "pid": "dml",
+    "description": "打回订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0089",
+    "pid": "vml",
+    "description": "打回订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0090",
+    "pid": "dml",
+    "description": "关闭订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0090",
+    "pid": "vml",
+    "description": "关闭订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0091",
+    "pid": "dml",
+    "description": "TMS我的待办(功能列表)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0091",
+    "pid": "vml",
+    "description": "TMS我的待办(功能列表)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0092",
+    "pid": "vml",
+    "description": "订单追踪明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0092",
+    "pid": "dml",
+    "description": "订单追踪明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0093",
+    "pid": "vml",
+    "description": "订单订单调度",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0093",
+    "pid": "dml",
+    "description": "订单订单调度",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0094",
+    "pid": "vml",
+    "description": "TMS我的待办(消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0094",
+    "pid": "dml",
+    "description": "TMS我的待办(消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0095",
+    "pid": "vml",
+    "description": "PMS我的待办(功能列表)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0095",
+    "pid": "dml",
+    "description": "PMS我的待办(功能列表)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0096",
+    "pid": "vml",
+    "description": "PMS我的待办(消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0096",
+    "pid": "dml",
+    "description": "PMS我的待办(消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0097",
+    "pid": "dml",
+    "description": "PMS我的消息(列表、消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0097",
+    "pid": "vml",
+    "description": "PMS我的消息(列表、消息提示区)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0098",
+    "pid": "dml",
+    "description": "PMS我的消息数量",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0098",
+    "pid": "vml",
+    "description": "PMS我的消息数量",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0099",
+    "pid": "dml",
+    "description": "创建订单时，获取默认的客户ID",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0099",
+    "pid": "vml",
+    "description": "创建订单时，获取默认的客户ID",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0100",
+    "pid": "vml",
+    "description": "数量单位查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0100",
+    "pid": "dml",
+    "description": "数量单位查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0101",
+    "pid": "vml",
+    "description": "创建订单获得默认的计费，价格，包装，货物",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0101",
+    "pid": "dml",
+    "description": "创建订单获得默认的计费，价格，包装，货物",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0102",
+    "pid": "dml",
+    "description": "签收详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0102",
+    "pid": "vml",
+    "description": "签收详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0103",
+    "pid": "vml",
+    "description": "待调度订单合单保存（主单）",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0103",
+    "pid": "dml",
+    "description": "待调度订单合单保存（主单）",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0105",
+    "pid": "vml",
+    "description": "编辑拼车单（订单）明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0105",
+    "pid": "dml",
+    "description": "编辑拼车单（订单）明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0106",
+    "pid": "dml",
+    "description": "接收或拒绝拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0106",
+    "pid": "vml",
+    "description": "接收或拒绝拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0107",
+    "pid": "dml",
+    "description": "关闭拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0107",
+    "pid": "vml",
+    "description": "关闭拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0108",
+    "pid": "vml",
+    "description": "追加被合并的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0108",
+    "pid": "dml",
+    "description": "追加被合并的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0109",
+    "pid": "vml",
+    "description": "删除被合并的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0109",
+    "pid": "dml",
+    "description": "删除被合并的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0200",
+    "pid": "vml",
+    "description": "判断承运商是否存在",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0200",
+    "pid": "dml",
+    "description": "判断承运商是否存在",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0201",
+    "pid": "dml",
+    "description": "新增拼车单时显示订单明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0201",
+    "pid": "vml",
+    "description": "新增拼车单时显示订单明细",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0202",
+    "pid": "dml",
+    "description": "发送拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0202",
+    "pid": "vml",
+    "description": "发送拼车单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0203",
+    "pid": "dml",
+    "description": "标记管理新增",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0203",
+    "pid": "vml",
+    "description": "标记管理新增",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0204",
+    "pid": "vml",
+    "description": "标记管理修改",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0204",
+    "pid": "dml",
+    "description": "标记管理修改",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0205",
+    "pid": "dml",
+    "description": "标记管理查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0205",
+    "pid": "vml",
+    "description": "标记管理查询",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0206",
+    "pid": "dml",
+    "description": "标记列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0206",
+    "pid": "vml",
+    "description": "标记列表启用、禁用",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0207",
+    "pid": "vml",
+    "description": "客户、运输订单查询功能(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0207",
+    "pid": "dml",
+    "description": "客户、运输订单查询功能(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0208",
+    "pid": "dml",
+    "description": "页面运输订单查询功能(首页)-暂时用不着",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0208",
+    "pid": "vml",
+    "description": "页面运输订单查询功能(首页)-暂时用不着",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0209",
+    "pid": "dml",
+    "description": "列表签收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0209",
+    "pid": "vml",
+    "description": "列表签收订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0210",
+    "pid": "dml",
+    "description": "报价里面新增了一种消息通知 15 报价单被强制过期",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0210",
+    "pid": "vml",
+    "description": "报价里面新增了一种消息通知 15 报价单被强制过期",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0211",
+    "pid": "vml",
+    "description": "编码转换列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0211",
+    "pid": "dml",
+    "description": "编码转换列表",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0212",
+    "pid": "dml",
+    "description": "客户、运输订单物品明细查询(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0212",
+    "pid": "vml",
+    "description": "客户、运输订单物品明细查询(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0213",
+    "pid": "dml",
+    "description": "客户、运输订单订单跟踪查询(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0213",
+    "pid": "vml",
+    "description": "客户、运输订单订单跟踪查询(首页)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0214",
+    "pid": "dml",
+    "description": "撤回承运商未接收的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0214",
+    "pid": "vml",
+    "description": "撤回承运商未接收的订单",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0215",
+    "pid": "vml",
+    "description": "待调度详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0215",
+    "pid": "dml",
+    "description": "待调度详情",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0216",
+    "pid": "dml",
+    "description": "个人中心配置信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0216",
+    "pid": "vml",
+    "description": "个人中心配置信息编辑",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0217",
+    "pid": "vml",
+    "description": "个人中心配置信息详情(TMS)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0217",
+    "pid": "dml",
+    "description": "个人中心配置信息详情(TMS)",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0218",
+    "pid": "dml",
+    "description": "创建订单自动计划，追加物品信息",
+    "program": "otms"
+  },
+  {
+    "id": "tms_0218",
+    "pid": "vml",
+    "description": "创建订单自动计划，追加物品信息",
+    "program": "otms"
+  },
+  {
+    "id": "tms_city",
+    "pid": "dml",
+    "description": "市",
+    "program": "otms"
+  },
+  {
+    "id": "tms_city",
+    "pid": "vml",
+    "description": "市",
+    "program": "otms"
+  },
+  {
+    "id": "tms_cp_0001",
+    "pid": "dml",
+    "description": "后台登录（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0001",
+    "pid": "vml",
+    "description": "后台登录（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0002",
+    "pid": "dml",
+    "description": "订单花费类型新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0002",
+    "pid": "vml",
+    "description": "订单花费类型新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0003",
+    "pid": "vml",
+    "description": "订单花费类型编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0003",
+    "pid": "dml",
+    "description": "订单花费类型编辑（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0004",
+    "pid": "vml",
+    "description": "订单花费类型查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0004",
+    "pid": "dml",
+    "description": "订单花费类型查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0005",
+    "pid": "dml",
+    "description": "获取公司对应的管理员账号（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0005",
+    "pid": "vml",
+    "description": "获取公司对应的管理员账号（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0006",
+    "pid": "dml",
+    "description": "启用、禁用公司（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0006",
+    "pid": "vml",
+    "description": "启用、禁用公司（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0007",
+    "pid": "dml",
+    "description": "添加省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0007",
+    "pid": "vml",
+    "description": "添加省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0008",
+    "pid": "vml",
+    "description": " 编辑省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0008",
+    "pid": "dml",
+    "description": " 编辑省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0009",
+    "pid": "dml",
+    "description": " 启用省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0009",
+    "pid": "vml",
+    "description": " 启用省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0010",
+    "pid": "vml",
+    "description": " 禁用省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0010",
+    "pid": "dml",
+    "description": " 禁用省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0011",
+    "pid": "vml",
+    "description": " 查询省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0011",
+    "pid": "dml",
+    "description": " 查询省、市、区（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0012",
+    "pid": "dml",
+    "description": "订单详情查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0012",
+    "pid": "vml",
+    "description": "订单详情查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0013",
+    "pid": "vml",
+    "description": "订单物品明细查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0013",
+    "pid": "dml",
+    "description": "订单物品明细查询（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0014",
+    "pid": "dml",
+    "description": "订单物品明细新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_cp_0014",
+    "pid": "vml",
+    "description": "订单物品明细新增（后台）",
+    "program": "otms_cp"
+  },
+  {
+    "id": "tms_district",
+    "pid": "dml",
+    "description": "区",
+    "program": "otms"
+  },
+  {
+    "id": "tms_district",
+    "pid": "vml",
+    "description": "区",
+    "program": "otms"
+  },
+  {
+    "id": "tms_province",
+    "pid": "dml",
+    "description": "省",
+    "program": "otms"
+  },
+  {
+    "id": "tms_province",
+    "pid": "vml",
+    "description": "省",
+    "program": "otms"
+  },
+  {
+    "id": "user_reading",
+    "pid": "dml",
+    "description": "用户信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "user_reading",
+    "pid": "vml",
+    "description": "用户信息查询",
+    "program": "otms"
+  },
+  {
+    "id": "vml_file",
+    "pid": "sml",
+    "description": "生成VML文件",
+    "program": "otms"
+  },
+  {
+    "id": "wLst_file",
+    "pid": "sml",
+    "description": "写入NMLLIST数据",
+    "program": "otms"
+  },
+  {
+    "id": "wbat_file",
+    "pid": "sml",
+    "description": "写入.bat数据",
+    "program": "otms"
+  }
+]

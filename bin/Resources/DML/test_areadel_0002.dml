@@ -1,0 +1,57 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "test_areadel_0002",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "INSERT INTO TMS_BasicArea(Area_Code, Area_Level, Area_Name, Area_ParentID, Area_NodeType, Area_CreatorID, Area_InsertTime) VALUES(@Code, @Level, @Name, @ParentID, 0, @CreatorID, GETDATE());SELECT IDENT_CURRENT( 'TMS_BasicArea' ) AS ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Code",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Level",
+        "type": "int",
+        "size": 4,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ParentID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "NodeType",
+        "type": "int",
+        "size": 4,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CreatorID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

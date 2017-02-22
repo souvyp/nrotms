@@ -1,0 +1,239 @@
+﻿<!doctype html>
+<html>
+<head>     
+<title>数据编辑</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/NSF/js/NSF.0.0.3.min.js"></script>
+</head>
+<body onload="">
+
+<!-- 通用对话框开始-->
+<div class="modal fade text-center" id="win-Common-Dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style=" display:none;">
+   <div class="modal-dialog modal-lg" style="display: inline-block; width: auto;">
+       <div class="modal-content">
+           <div class="modal-body">
+               <div>
+                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" title="关闭"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>
+                   <button type="button" class="btn btn-default pull-right okButton" style="margin-right:10px;" aria-label="OK" title="确定"><span aria-hidden="true" class="glyphicon glyphicon-ok-circle"></span></button>
+               </div>
+               <div class="content">
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- 通用对话框结尾 -->
+
+<div class="formcontainer container" style="">
+	<!-- 表单开始-->
+	<table class="FormTable text-center" style="width:100%;" id="2236c2fd-3273-4860-97c2-52b6ddb664a1" >
+    <colgroup>
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+    </colgroup>
+    <tr>
+      <td colspan="6">
+        <input type="hidden" name="id" />
+        <!--工具栏开始-->
+        <div class="toolbar">
+          <div style="text-align:right;" class="button_workflow">
+            <a class="btn btn-red" href="javascript:void(0);" onClick="save()">保存</a>
+            <a class="btn btn-red" href="javascript:void(0);" onclick="printURLTable($('#2236c2fd-3273-4860-97c2-52b6ddb664a1'))">打印</a>
+            <a class="btn btn-red" href="javascript:void(0);" onclick="closeForm(this)">关闭</a>
+          </div>
+          <div class="clear"></div>
+          <div class="content_workflow"></div>
+        </div>
+        <!--工具栏结尾-->
+        </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name">a</td>
+      <td><textarea name="ID" oc="richtext" type="richtext" class="edit form-control transparent placeholder="a" verify="">{{ID}}</textarea>      </td>
+      <td class="td_name">b</td>
+            <td><textarea name="Code" oc="richtext" type="richtext" class="edit form-control transparent placeholder="b" verify="">{{Code}}</textarea>      </td>
+
+      <td class="td_name">c</td>
+      <td><textarea name="Name" oc="richtext" type="richtext" class="edit form-control transparent placeholder="c" verify="">{{Name}}</textarea>      </td>
+
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name">d</td>
+      <td>
+        <input name="ParentID" oc="text" type="text" placeholder="d" class="edit form-control transparent" verify="" value="{{ParentID}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="NodeType" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{NodeType}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="CreatorID" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{CreatorID}}" />
+      </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name"></td>
+      <td>
+        <input name="InsertTime" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{InsertTime}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Updater" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Updater}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="UpdateTime" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{UpdateTime}}" />
+      </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name"></td>
+      <td>
+        <input name="Invalid" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Invalid}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Comments" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Comments}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="status" oc="text" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{status}}" />
+      </td>
+    </tr>
+  </table>
+  <!-- 表单结尾 -->
+</div>
+<script type="text/javascript" src="./assets/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="./assets/Ueditor/ueditor.all.js"></script>
+
+
+<script type="text/javascript">
+  initInputWebEditor();
+
+    function initInputWebEditor()
+  {
+    var _tbl = $('table');
+    if (_tbl.length > 0)
+    {
+      var _lst = _tbl.find( 'textarea[name]' );
+      _lst.each(function()
+      {
+        var ostr = $(this).attr("f-options");
+        //var _option = eval('(' + ostr + ')');
+        var that = this;
+        var _name = $(that).attr('name');
+        if ($(that).attr('type') == "richtext")
+        {
+          _initInputWebEditor(that);
+          $(this).parent().append('<script id="'+Code2EditorName(_name) +'" type="text/plain" style="width:100%;height:278px"><\/script>');
+          $(this).hide();
+          $(this).parent().attr('style','white-space: inherit;')
+        }
+      });
+    }
+  }
+
+  function Code2EditorName(_code)
+  {
+    return _code + '_Editor';
+  }
+
+  //更改为百度编辑器 2016-05-24 杨柳
+  function _initInputWebEditor(that)
+  {
+    var _name = $(that).attr('name');
+    var ue = UE.getEditor(_name, {
+      textarea : _name,
+      autoClearinitialContent : false
+    });
+    //编辑器准备好以后，设置默认值
+    ue.addListener( 'ready', function( editor ) 
+    {
+      $('textarea[name="' + _name + '"]').attr( "editorReady", "true");
+    } );
+    /*
+    //第二种同步方法
+    ue.addListener( 'contentChange', function() {
+      $('textarea[name="' + _name + '"]').val( ue.getContent() );
+    });
+    */
+  }
+
+  //循环同步所有Editor
+  function SyncEditors()
+  {
+    var _tbl = $('.FormTable');
+    if (_tbl.length > 0)
+    {
+      var _lst = _tbl.find( 'textarea[f-options][name]' );
+      _lst.each(function()
+      {
+        var ostr = $(this).attr("f-options");
+        var _option = eval('(' + ostr + ')');
+        var that = this;
+        if (_option.type == "editor")
+        {
+          SyncEditor(_option.code);
+        }
+      });
+    }
+  }
+
+  //将Editor值同步到Textarea
+  function SyncEditor(_code)
+  {
+    var _name = Code2EditorName(_code);
+    var ue = UE.getEditor(_name);
+    $('textarea[name="' + _code + '"]').val( ue.getContent() );
+  }
+
+  function InitialEditorContent(_object)
+  {
+    try
+    {
+      var ostr = $(_object).attr("f-options");
+      var _option = eval('(' + ostr + ')');
+      var _code = _option.code;
+
+      setTimeout( "_DoEditorContentInitialize('" + _code + "')", 500 );
+    }
+    catch(e)
+    {
+      //
+    }
+    
+    return;
+  }
+
+  function _DoEditorContentInitialize(_code)
+  {
+    console.log( "_DoEditorContentInitialize:" + _code );
+    
+    var _r = $('textarea[name="' + _code + '"]').attr( "editorReady");
+    if (_r == 'true')
+    {
+      var _name = Code2EditorName(_code);
+      var ue = UE.getEditor(_name);
+      var _html = $('textarea[name="' + _code + '"]').val();
+      if (_html)
+      {
+        ue.setContent(_html, false);
+      }
+    }
+    else
+    {
+      setTimeout( "_DoEditorContentInitialize('" + _code + "')", 500 );
+    }
+  }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "rms_0083",
+  "version": 1,
+  "dml-id": "rms_0083",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "type",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

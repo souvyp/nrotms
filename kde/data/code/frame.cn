@@ -1,0 +1,21 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	if(code=="")
+		Response.Redirect("/");
+	else{
+		var userpath=Conf.Root+'users\\'+user;
+		var path=userpath+'\\'+code;
+
+		if(!DirectoryExists(path))
+			CreateDir(path);
+		if(!DirectoryExists(path+'\\base'))
+			CreateDir(path+'\\base');	
+		Response.PutContent('#CODE#',escape(code));
+		Response.PutContent('#UCODE#',escape('users/'+user));
+	}
+}

@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'rfile',
+ 'id' : 'rLst_file',
+ 'version' : 1,
+ 'sml-id' : 'rLst_file',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'json'
+ }
+}

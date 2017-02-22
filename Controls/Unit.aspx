@@ -1,0 +1,17 @@
+﻿<option value="1">公斤</option>
+<option value="2">吨</option>
+<option value="3">立方米</option>
+<option value="4">升</option>
+<option value="5">个</option>
+<option value="6">托</option>
+<option value="7">台</option>
+<option value="8">箱</option>
+<option value="9">包</option>
+<option value="10">捆</option>
+<option value="11">辆</option>
+<option value="12">件</option>
+<option value="13">袋</option>
+<option value="14">架</option>
+<option value="15">盒</option>
+<option value="16">桶</option>
+<option value="17">其它</option>

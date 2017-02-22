@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<script>
+//Priority  优先
+function PriorityQueue() {
+  var items = [];
+  function QueEle(ele, priority){ //封装我们的元素为一个对象
+    this.ele = ele; //元素
+    this.priority = priority; //优先级
+  }
+  //入队
+  this.enqueue = function (ele, priority) {
+    var queObj = new QueEle(ele, priority); //创建队列元素对象
+    if(this.isEmpty()){ //如果队列是空的，直接插入
+      items.push(queObj);
+    }else{
+      var bAdded = false;
+      for(var i = 0, len = items.length; i < len; i++){ 
+        if(priority < items[i].priority){  //  这里是最小优先，，，，   反之   最大  优先
+          items.splice(i, 0, queObj); // 循环队列，如果优先级小于这个位置元素的优先级，插入
+          bAdded = true;
+          break;
+        }
+      }
+      if(!bAdded){
+        items.push(queObj); // 如果循环一圈都没有找到能插队的位置，直接插入队列尾部
+      }
+    }
+  };
+  //出队
+  this.dequeue = function () {
+    return items.shift();
+  };
+  //查看队头元素
+  this.front = function () {
+    return items[0];
+  };
+  //是否为空
+  this.isEmpty = function () {
+    return items.length === 0;
+  };
+  // 长度
+  this.size = function () {
+    return items.length;
+  };
+  //清空队列
+  this.clear = function () {
+    items = [];
+  };
+  //打印队列
+  this.print = function () {
+    //这个地方稍微修改一下下
+    var temp = [];
+    for(var i = 0, len = items.length; i < len; i++){
+      temp.push(items[i].ele);
+    }
+    console.log(temp.toString());
+  };
+}
+
+var pQueue = new PriorityQueue();
+var asdf = new Array();
+ 
+asdf[0] = "Saab";
+asdf[1] = "Volvo";
+asdf[2] = "BMW";
+
+pQueue.enqueue(asdf, 3);
+pQueue.enqueue('Mr.B', 3);
+pQueue.enqueue('Mr.C', 3);
+console.log("原队列:");
+pQueue.print();
+pQueue.enqueue('VIP', 2);
+pQueue.enqueue('SVIP', 1);
+console.log("新队列:");
+pQueue.print();
+
+
+	
+</script>
+ 
+	</head>
+	<body>
+ 
+	</body>
+</html> 
+
+
+

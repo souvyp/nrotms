@@ -1,0 +1,43 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0024",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_price_VerifyDoc",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Op",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 512,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0069",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_order_ReceiptOrder",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OrderID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ReceiptDocPath0",
+        "type": "nvarchar",
+        "size": 512,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ReceiptDocPath1",
+        "type": "nvarchar",
+        "size": 512,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ReceiptDocPath2",
+        "type": "nvarchar",
+        "size": 512,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ReceiptDocPath3",
+        "type": "nvarchar",
+        "size": 512,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "IsPaperReceived",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "company_email",
+  "version": 1,
+  "dml-id": "company_email",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "mail",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

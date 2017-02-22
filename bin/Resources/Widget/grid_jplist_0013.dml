@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0013",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_ShipMode AS [ShipMode], CONVERT(NVARCHAR(10), Index_FromTime, 120) AS [FromTime], Index_PactCode AS [pactcode],Index_Code AS [code], Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to], Index_Status AS [status], dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName],CONVERT(VARCHAR(16), Index_StatusTime,120) AS [statustime], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], CONVERT(VARCHAR(10),Index_CreateTime,120) AS [createtime],Device_IMEICode AS [DeviceCode] ,CONVERT(NVARCHAR(19),Index_ToTime , 120) AS [ToTime],dbo.fn_pub_order_OrderID2Code(Contains_OwnerOrderID) AS [ContainsOrderCode],Contains_OwnerOrderID AS [OwnerOrderID],(CASE WHEN Contains_OwnerOrderID = '' OR Contains_OwnerOrderID IS NULL THEN 0 ELSE 1 END)  AS [Combined],   CONVERT(VARCHAR(19),Index_FromTime,120) AS [LFromTime] FROM TMS_OrderIndex AS A LEFT JOIN TMS_Devices ON Device_ID = Index_DeviceCode LEFT JOIN TMS_OrderContains AS B ON A.Index_SrcOrderID = B.Contains_OrderID",
+    "where": "Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_Status >= 0 AND Index_Status < 32",
+	"sort": "statustime DESC"
+  }
+}

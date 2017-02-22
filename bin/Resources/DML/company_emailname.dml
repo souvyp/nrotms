@@ -1,0 +1,29 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "company_emailname",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Company_ID AS [id] FROM TMS_company WHERE Company_Name = @name OR Company_Mail = @mail;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "mail",
+        "type": "nvarchar",
+        "size": 400,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

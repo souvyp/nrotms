@@ -1,0 +1,36 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0086",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  dbo.fn_pub_user_Company2Name(Index_CustomerCompanyID) AS [CustomerCompany],Index_CustomerCompanyID AS [CustomerCompanyID],COUNT(1) AS OrderCount,SUM(CASE WHEN Index_Status >4 THEN 1 ELSE 0 END) AS OrderReceipt FROM TMS_OrderIndex WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_Status <32 AND Index_FromTime >=  @MinFromTime AND Index_FromTime < @MaxFromTime GROUP BY Index_CustomerCompanyID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "下单人"
+      },
+	  {
+        "name": "MinFromTime",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": "最小发货时间"
+      },
+	  {
+        "name": "MaxFromTime",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": "最大发货时间"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

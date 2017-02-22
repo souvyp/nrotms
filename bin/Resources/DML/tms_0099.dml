@@ -1,0 +1,29 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0099",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Customer_ID AS [id], Customer_CompanyID AS [companyid], Customer_ClientCode AS [clientcode], Customer_Name AS [name], Customer_Industry AS [industry], Customer_Web AS [web], Customer_ShortName AS [shortname], Customer_EnName AS [enname], Customer_ShortEnName AS [shortenname], Customer_Master AS [master], Customer_License AS [license], Customer_Contact AS [contact], Customer_Phone AS [phone], Customer_Fax AS [fax], Customer_Mail AS [mail], Customer_Address AS [address], Customer_Zip AS [zip], Customer_WeiXin AS [weixin], Customer_Logo AS [logo], Customer_Bank AS [bank], Customer_BankAccount AS [bankaccount], Customer_Description AS [description], Customer_Creator AS [creator], Customer_InsertTime AS [inserttime], Customer_Updater AS [updater], Customer_UpdateTime AS [updatetime], Customer_Invalid AS [invalid], Customer_Comments AS [comments] FROM TMS_mcustomer WHERE Customer_OwnerCompany = dbo.fn_pub_user_User2CompanyID(@ownercompany,0) AND Customer_CompanyID = dbo.fn_pub_user_User2CompanyID(@companyid,0);",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "ownercompany",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "客户属于哪个公司"
+      },
+      {
+        "name": "companyid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "客户的公司编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

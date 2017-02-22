@@ -1,0 +1,23 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "aml_0018",
+  "version": 1,
+  "dml-id": "aml_0018",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "BranchID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

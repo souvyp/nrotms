@@ -1,0 +1,290 @@
+﻿<%@ CodeFile="code/frame.cn"%>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+		<title>Mind Map!</title>
+		<link rel="icon" href="mm.png" />
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/mms.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var fileName='#CODE#';
+				setTimeout(function(){
+					$('#BtnLoad').click();
+				},100);
+				
+				$('#BtnLoad').click(function(){
+					MM.UI.Backend.WebDAV._load('/code/files/misc.chi?param=file&path='+fileName);
+				})
+				
+				$('#BtnSave').click(function(){
+					var mw=MM.UI.Backend.WebDAV;
+					mw._url.value='/code/files/misc.chi?param=put&name='+fileName+'&center=';
+					mw.save();
+				})
+			})
+		</script>
+	</head>
+<body>
+	<ul id="port">
+		
+	</ul>
+
+	<div id="tip">按下 ‘Tab’ 键插入子节点, 按下‘Enter’ 键 插入兄弟节点.</div>	  
+
+
+		<div class="ui" style="box-shadow: 0 0 2px 2px #eee;top:0px;">
+			<h3 style="background-color:#fff;border-bottom:1px solid #eee;">
+				<button data-command="ZoomIn" title="放大"><img src="icons/106.png" alt="放大" width="32"/></button>
+				<button data-command="ZoomOut" title="缩小"><img src="icons/107.png" alt="缩小" width="32"/></button>				
+				<button id="BtnLoad" title="刷新"><img src="icons/48.png" alt="刷新" width="32"/></button>
+				<button id="BtnSave" title="保存"><img src="icons/7.png" alt="保存" width="32"/></button>
+			</h3>
+			<p>
+				<span>显示风格</span>
+				<select id="layout">
+					<option value="">(Inherit)</option>
+				</select>
+			</p>
+			<p>
+				<span>显示形状</span>
+				<select id="shape">
+					<option value="">(Automatic)</option>
+				</select>
+			</p>
+			<p>
+				<span>节点数值</span>
+				<select id="value">
+					<option value="">(None)</option>
+					<option value="num">Number</option>
+					<optgroup label="Formula">
+						<option value="sum">Sum</option>
+						<option value="avg">Average</option>
+						<option value="min">Minimum</option>
+						<option value="max">Maximum</option>
+					</optgroup>
+				</select>
+			</p>
+			<p>
+				<span>标志</span>
+				<select id="status">
+					<option value="">无</option>
+					<option value="yes">标志一</option>
+					<option value="no">标志二</option>
+					<option value="computed">随机</option>
+				</select>
+			</p>
+			<p>
+				<span>边框颜色</span>
+				<span id="color" class="color">
+					<a data-color="" title="Inherit" href="#"></a>
+					<a data-color="#000" title="Black" href="#"></a>
+					<a data-color="#e33" title="Red" href="#"></a>
+					<a data-color="#3e3" title="Green" href="#"></a>
+					<a data-color="#33e" title="Blue" href="#"></a>
+					<a data-color="#dd3" title="Yellow" href="#"></a>
+					<a data-color="#3dd" title="Cyan" href="#"></a>
+					<a data-color="#d3d" title="Magenta" href="#"></a>
+					<a data-color="#fa3" title="Orange" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="pink" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Inherit" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Black" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Red" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Green" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Blue" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Yellow" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Cyan" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Magenta" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Orange" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="pink" href="#"></a>
+				</span>
+			</p>
+			
+			<p>
+				<span>图标</span>
+				<span class="nodeicon">
+					<span class="img">24x24</span>
+					<a href="#" class="FileButton" style="margin-left: 20px;">浏览
+						<input type="file"  class="Fileinput" />
+						<input type="hidden"  id="photo"  />
+					</a>					
+					<a href="#" class="FileButton clearButton" style="float:right;margin-right: 5px;">清除</a>
+				</span>
+			</p>
+			<button id="toggle" title="显示/隐藏UI栏"></button>
+			<button data-command="Help" title="Help"><img src="icons/help.png" width="32" alt="Help" /></button>
+			<div id="throbber"></div>
+		</div>
+
+
+		<div id="io" class="ui openFile" style="box-shadow: none;top:0px;">
+			<h3></h3>
+			<p>
+				<span>存储</span>
+				<select id="backend"></select>
+			</p>
+			
+			<div id="resource"></div>
+			
+			<div id="file">
+				<p class="desc">本地文件适用于加载/保存文件从其他的思维导图的应用.</p>
+				<p data-for="save">
+					<span>格式</span>
+					<select class="format"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="image">
+				<p class="desc">导出你的设计作为一个PNG图像.</p>
+				<p data-for="save">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="local">
+				<p class="desc">你的浏览器的本地存储可以处理许多心智图并创建一个永久链接，但这个URL不能共享。</p>
+				<p data-for="load">
+					<span>保存导图</span>
+					<select class="list"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+				<p data-for="load">
+					<button class="remove">删除</button>
+				</p>
+			</div>
+
+			<div id="firebase">
+				<p class="desc">Firebase提供真正的多用户协作的实时同步。</p>
+				<p data-for="save load">
+					<span>Server</span>
+					<input type="text" class="server" />
+				</p>
+				<p data-for="save load">
+					<span>Auth</span>
+					<select class="auth">
+						<option value="">(None)</option>
+						<option value="facebook">Facebook</option>
+						<option value="twitter">Twitter</option>
+						<option value="github">GitHub</option>
+						<option value="persona">Persona</option>
+					</select>
+				</p>
+				<p data-for="load">
+					<span>保存的导图</span>
+					<select class="list"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+				<p data-for="load">
+					<button class="remove">删除</button>
+				</p>
+			</div>
+
+			<div id="webdav">
+				<p class="desc">使用此访问通用DAV-like REST API.</p>
+				<p data-for="save load">
+					<span>URL</span>
+					<input type="text" class="url" />
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="gdrive">
+				<p class="desc">Maps stored in Google Drive have a permalink URL and can be shared with other users, if you allow this by setting proper permissions (inside Google Drive itself).</p>
+				<p data-for="save">
+					<span>Format</span>
+					<select class="format"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+		</div>
+
+		<div id="help" class="ui" style="box-shadow: none;top:0px;">
+			<!--h3>Help</h3-->
+
+			<p><span>Navigation</span></p>
+			<table class="navigation"></table>
+
+			<p><span>Manipulation</span></p>
+			<table class="manipulation"></table>
+
+			<p><span>Editing</span></p>
+			<table class="editing"></table>
+
+			<p><span>Other</span></p>
+			<table class="other"></table>
+		</div>
+		
+		<div id="menu">
+			<button data-command="InsertChild">插入子节点</button>
+			<button data-command="InsertSibling">插入兄弟节点</button>
+			<button data-command="Delete">删除节点</button>
+			<button data-command="Edit">编辑文字</button>
+			<!--button data-command="Value"></button-->
+			<button data-toggle="modal" href="#responsive" onclick="NodeProperty()">节点属性</button>
+		</div>
+		
+		
+		<div id="responsive" class="modal fade" tabindex="-1" aria-hidden="true" >
+			<div class="modal-dialog">
+			   <div class="modal-content">
+				  <div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					 <h4 class="modal-title">其他属性 & 备用属性</h4>
+				  </div>
+				  <div class="modal-body">
+					 <div class="scroller" style="height:310px" data-always-visible="1" data-rail-visible1="1">
+						<div class="row">
+						   <div class="col-md-6">
+							  <h4>其他属性</h4>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						   <div class="col-md-6">
+							  <h4>备用属性</h4>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						</div>
+					 </div>
+					 <div class="row">
+						<div class="col-md-12">
+						<p><textarea name="note" class="col-md-12 form-control"></textarea></p>
+						</div>
+					 </div>
+				  </div>
+				  <div class="modal-footer">
+					 <button type="button" data-dismiss="modal" class="btn default">关闭</button>
+					 <button type="button" data-dismiss="modal" class="btn green" onclick="SaveNotes()">保存</button>
+				  </div>
+			   </div>
+			</div>
+		 </div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0223",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  Index_ID AS [OrderID], Index_Code AS [Code], Index_PactCode AS [PactCode], Index_EndUserName AS [EndUserName], (dbo.fn_pub_order_AreaName(Index_ToProvince)+' '+dbo.fn_pub_order_AreaName(Index_ToCity) +' '+dbo.fn_pub_order_AreaName(Index_ToDistrict) +' '+ Index_To) AS [To],Index_StatusTime AS [StatusTime],Index_DriverID AS [DriverID],dbo.fn_pub_user_Driver2Name(Index_DriverID) AS [DriverName], dbo.fn_pub_user_Car2SN(Index_CarID) AS [CarSN], Index_CarID AS [CarID], (CASE WHEN Index_SupplierCompanyID IS NULL OR Index_SupplierCompanyID = 0 THEN dbo.fn_pub_user_SupplierName(Index_SupplierID) ELSE dbo.fn_pub_user_Company2Name(Index_SupplierCompanyID) END) AS [SupplierName], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName],Index_CustomerCompanyID AS [CustomerCompanyID], dbo.fn_pub_user_User2Name(Index_Creator) AS [Creator],  convert(varchar(100),Index_CreateTime,111) AS [CreateTime],Index_Comments AS [Comments],
+convert(varchar(16),Index_FromTime,(120)) AS [FromTime],convert(varchar(16),Index_ToTime,(120)) AS [ToTime],Index_Kms AS [Kms],Index_CarType AS [CarType],Index_CarLength AS [CarLength],
+Index_Description AS [Descriptions],
+Index_CarVolume AS [CarVolume],
+Index_CarWeight AS [CarWeight],
+Index_ToContact AS [ToContact],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CreatorCompanyName],dbo.fn_pub_order_TotalWeight(A.Index_ID,0) AS [TotalWeight],dbo.fn_pub_order_TotalVolume(A.Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalAmount(A.Index_ID,0) AS [TotalAmount],Index_EndUserName AS [EndContact] ,EndUser_ClientCode AS [ClientCode]  FROM TMS_OrderIndex AS A INNER JOIN TMS_MEndUser ON Index_EndUserID = EndUser_ID    WHERE Index_PactCode  = @id AND dbo.fn_pub_user_Customer2Name(Index_CustomerID) = '脱普日用化学品有限公司' AND Index_SrcOrderID = 0 AND Index_Invalid = 0 AND Index_Status < 32;
+   SELECT a.GoodsLst_ID AS [ListID], a.GoodsLst_OrderID AS [OrderID], a.GoodsLst_GoodsID AS [GoodsID], a.GoodsLst_Code AS [Code], Goods_ShortName AS [ShortName],a.GoodsLst_Name AS [Name],(SELECT CAST(a.GoodsLst_Qty AS INT)) AS [Qty], a.GoodsLst_Weight AS [Weight], a.GoodsLst_Volume AS [Volume],a.GoodsLst_Weight AS [weight], CAST( a.GoodsLst_Price AS   DECIMAL(10,2)) AS [price],(SELECT CAST(a.GoodsLst_ReceiptQty AS INT)) AS [ReceiptQty], (SELECT CAST(a.GoodsLst_ExceptionQty AS INT)) AS [ExceptionQty],NULL AS [BatchNo], a.GoodsLst_Creator AS [Creator], a.GoodsLst_InsertTime AS [InsertTime],a.GoodsLst_Comments AS [Comments],b.Goods_SPC AS [SPC],dbo.fn_pub_price_UnitName(b.Goods_Unit) AS [UnitName],b.Goods_BarCode AS [BarCode],NULL AS [BoxNo]  FROM TMS_OrderGoods AS a INNER JOIN TMS_MGoods AS b ON a.GoodsLst_GoodsID = b.Goods_ID INNER JOIN TMS_OrderIndex ON Index_ID = GoodsLst_OrderID AND Index_PactCode = @id  WHERE  dbo.fn_pub_user_Customer2Name(Index_CustomerID) = '脱普日用化学品有限公司' AND Index_SrcOrderID = 0 AND Index_Invalid = 0 AND Index_Status < 32;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": " NVARCHAR",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

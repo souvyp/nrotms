@@ -1,0 +1,28 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0097",
+  "version": 1,
+  "dml-id": "tms_0097",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "Amount",
+        "type": "normal",
+        "value": 0
+      },
+	  {
+		"name": "Module",
+		"type": "normal",
+		"value" : 2
+	  }
+    ]
+  }
+}

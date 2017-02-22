@@ -1,0 +1,17 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0039",
+  "version": 1,
+  "dml-id": "pml_0039",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "id",
+        "value": 0
+      }
+    ]
+  }
+}

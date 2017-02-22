@@ -1,0 +1,16 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0110",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id],Index_Code AS [code], dbo.fn_pub_order_TotalCost(Index_ID) AS [TotalCost], Index_PactCode AS [pactcode], Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to], dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName],CONVERT(VARCHAR(100),Index_CreateTime,111) AS [createtime], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName],dbo.fn_pub_order_OrderID2Code(Contains_OwnerOrderID) AS [ContainsOrderCode] FROM TMS_OrderIndex AS A LEFT JOIN TMS_OrderContains AS B ON A.Index_ID = B.Contains_OrderID",
+    "where": "Index_Invalid = 0 AND 
+Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND 
+Index_SrcClass <> 3 AND Index_Status < 16  AND 
+dbo.fn_pub_order_BalanceBillContains(Index_ID) = 0 "
+  }
+}
+
+
+

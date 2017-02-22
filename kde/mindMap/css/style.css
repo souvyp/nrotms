@@ -1,0 +1,282 @@
+@import url(ui.css);
+@import url(item.css);
+@import url(shape.css);
+@import url(menu.css);
+
+* {
+	font-family: microsoft yahei, sans-serif;
+}
+
+html, body {
+	margin: 0;
+	overflow: auto;
+	height: 100%;
+	background-color: #fff;
+	-webkit-user-select: none; /* no magnifier on hold */
+}
+
+[contenteditable] { /* allow for editable items */
+	-webkit-user-select: auto;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pcontainer{
+	position: absolute;
+	left:0px;
+	right:0px;
+	top:51px;
+	bottom:0px;
+	overflow:hidden;
+}
+#port {
+	overflow: hidden;
+	font-size: 12px;
+}
+
+#throbber {
+	position: absolute;
+	top: 50px;
+	left: -60px;
+	width: 50px;
+	height: 50px;
+	background-image: url(throbber.gif);
+}
+
+#throbber:not(.visible) {
+	opacity: 0;
+}
+
+.ghost {
+	position: absolute !important; /* to prevent collision with .content */
+	opacity: 0.5;
+	z-index: 1;
+}
+
+#tip {
+	position: fixed;
+	z-index: 1;
+	left: 10px;
+	bottom: 5px;
+	transition: all 500ms;
+	background: #ddd;
+	color: orange;
+}
+
+#tip:before {
+	content: "Tip: ";
+}
+
+#tip.hidden {
+	opacity: 0;
+}
+.shortcut{
+	float:right;
+	
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
+	margin-left: -1px;
+	-webkit-border-radius: 0 6px 6px 6px;
+	-moz-border-radius: 0 6px 6px;
+	border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+	display: block;
+}
+.dropdown-submenu > a:after {
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
+}
+.dropdown-submenu:hover > a:after {
+	border-left-color: #fff;
+}
+.dropdown-submenu.pull-left {
+	float: none;
+}
+.dropdown-submenu.pull-left > .dropdown-menu {
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
+}
+
+.navbar-brand  {
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+	line-height:15px;
+}
+
+.navbar-brand img {
+	/*float: left;
+	margin: 0px 10px 0 0;*/
+	position: absolute;
+	top: 10px;
+	left:10px;
+}
+
+.btn.green {
+color: white;
+text-shadow: none;
+background-color: #35aa47;
+}
+
+.nodeicon{
+	display: block;
+	border: 1px solid gray;
+	border-radius: 5px;
+		padding: 5px 0px 0px 5px;
+}
+
+.nodeicon .img{
+	width: 45px;
+	height: 30px;
+	float: left;
+	border: 1px solid #ddd;
+	line-height: 28px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.FileButton{
+	display: inline-block;
+	width: 45px;
+	height: 32px;
+	background: #35aa47;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	color:#fff;
+}
+.FileButton:hover{
+	background:#35aa47;
+		text-decoration:none;
+}
+
+.Fileinput{
+	position:absolute; 
+	right:0; 
+	top:0; 
+	font-size:100px; 
+	opacity:0; 
+	filter:alpha(opacity=0);
+}
+
+#port .content .photo{
+	width: 24px;
+	height: 24px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	/*border:none;
+	background:transition;*/
+	margin-right: 5px;
+}
+
+.ui#io {
+	overflow-y: auto;
+	right: auto;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ui#io:not(.visible) {
+	-webkit-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+}
+
+.fileList{
+	list-style:none;
+}
+
+.fileList li{
+	float: left;
+	border: 1px solid rgb(0, 197, 255);
+	background: #dddddd;
+	padding: 5px;
+	margin: 4px;
+	border-radius: 5px;
+
+}
+
+.fileList li a{
+	color: #000;
+}
+
+
+.active {
+  outline: 1px dashed orange;
+}
+
+.hover {
+  outline: 1px dashed blue;
+}
+
+.drag {
+	cursor: pointer;
+	background-color: #333;
+	padding: 5px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-family: sans-serif;
+	font-style: italic;
+	font-stretch: normal;
+	color: #eee;
+}
+
+.drop-item {
+	background-color: #333;
+	margin: 0px 2px 0px 0px;
+	padding: -1px;
+	border-radius: 3px;
+	position: relative;
+	display: inline-block;
+	font-size: 10px;
+	font-family: sans-serif;
+	font-style: italic;
+	font-stretch: normal;
+	color: #eee;
+	padding: 0px 5px 0px 5px;
+}
+
+.drop-item .remove {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  border:1px solid orange;
+}
+
+#resource h3{
+	background-color:#fff;
+	border-bottom:1px solid #eee;
+}
+#resource button{
+	border: none;
+	background: transparent;
+}

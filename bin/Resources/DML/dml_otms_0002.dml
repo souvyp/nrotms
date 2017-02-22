@@ -1,0 +1,35 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "dml_otms_0002",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_ID AS [ID], 
+Area_Code AS [Code], 
+(CASE 
+WHEN Area_NodeType = 1 OR Area_NodeType = 2 THEN Area_Name 
+WHEN Area_NodeType = 3 THEN dbo.fn_pub_order_AreaName( Area_ParentID ) + '/' + Area_Name 
+ELSE '' END) AS [Name], Area_ParentID AS [ParentID], Area_NodeType AS [NodeType] FROM TMS_BasicArea WHERE (Area_NodeType = 2 OR Area_NodeType = 3) AND (@code <> '' OR @name <> '') AND 
+(@code = '' OR Area_Code LIKE '%' + @code + '%') AND (@name = '' OR Area_Name LIKE '%' + @name + '%');",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

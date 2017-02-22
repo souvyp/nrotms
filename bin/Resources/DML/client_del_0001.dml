@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "client_del_0001",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "DELETE FROM client WHERE Id = @Id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

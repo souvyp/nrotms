@@ -1,0 +1,85 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0033",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE TMS_MDriver SET Driver_Name = @Name, Driver_Gender = @Gender, Driver_Photo = @Photo, Driver_Birthday = @Birthday, Driver_Phone = @Phone, Driver_LicensedDate = @LicensedDate, Driver_LicenseType = @LicenseType, Driver_SN = @SN, Driver_PersonalSN = @PersonalSN WHERE Driver_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Gender",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Photo",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Birthday",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Phone",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "LicensedDate",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "LicenseType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "SN",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "PersonalSN",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

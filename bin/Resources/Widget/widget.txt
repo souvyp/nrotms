@@ -1,0 +1,110 @@
+grid_jplist_0002 客户选择列表
+grid_jplist_0003 客户信息列表
+grid_jplist_0004 物品类型列表
+grid_jplist_0005 物品信息列表
+
+grid_jplist_0006 市内待调度列表(新单据 0)
+grid_jplist_0024 待接收订单(新单据 0)
+grid_jplist_0007 订单待分配信息列表(已接收 1)
+grid_jplist_0008 订单待签收信息列表(已分配 2)
+grid_jplist_0009 订单待回单信息列表(已签收 4)
+grid_jplist_0011 订单待结账信息列表(已回单 8)
+grid_jplist_0012 订单已结账信息列表(已结账 16)
+
+grid_jplist_0013 订单追踪列表
+
+grid_jplist_0014 待审核公司列表
+grid_jplist_0015 运输管理系统用户信息列表
+grid_jplist_0016 我的供应商列表
+grid_jplist_0017 公司信息列表
+grid_jplist_0018 司机信息列表
+grid_jplist_0019 车辆信息列表
+grid_jplist_0020 收货人信息列表
+
+grid_jplist_0021 公司信息选择列表
+
+grid_jplist_0010 常用地址信息列表
+grid_jplist_0022 供应商常用地址列表
+grid_jplist_0023 最终用户收货地址列表
+
+grid_jplist_0025 承运商(线上)列表
+grid_jplist_0026 邀请列表
+grid_jplist_0027 被邀请列表
+
+grid_jplist_0028 订单费用列表
+grid_jplist_0029 我的订单列表
+
+grid_jplist_0031 附加费选择订单列表
+grid_jplist_0032 承运商(线下)列表
+
+grid_jplist_0033 承运商(线下/线上)选择列表
+grid_jplist_0034 已关闭订单列表(状态:32)
+grid_jplist_0035 草稿箱订单列表
+grid_jplist_0036 我的待办列表
+grid_jplist_0037 已委托订单列表
+grid_jplist_0038 收货人选择列表
+
+
+grid_jplist_0039 运输订单待签收信息列表(已分配 2)
+grid_jplist_0040 运输订单待回单信息列表(已签收 4)
+grid_jplist_0041 运输订单已关闭订单列表(状态:32)
+grid_jplist_0042 运输订单追踪列表
+
+grid_jplist_0043 运输订单列表
+
+
+grid_jplist_0044 报价管理系统用户信息列表
+
+grid_jplist_0045 物品单位维护列表
+grid_jplist_0046 价格类型维护列表
+grid_jplist_0047 已发送报价单列表 
+grid_jplist_0048 待发送报价单列表 
+grid_jplist_0049 已过期报价单列表 
+grid_jplist_0050 已关闭报价单列表 
+
+grid_jplist_0051 客户订单列表 
+grid_jplist_0052 原报价单列表 
+grid_jplist_0053 报价单检索列表
+
+grid_jplist_0054 已审核报价单列表（报价单审核）
+grid_jplist_0055 待审核报价单列表（报价单审核）
+grid_jplist_0056 已过期报价单列表（报价单审核）
+grid_jplist_0057 报价单检索（报价单审核）
+
+grid_jplist_0030 TMS历史消息列表
+grid_jplist_0058 PMS历史消息列表
+
+grid_jplist_0059 长途待调度列表
+grid_jplist_0060 报表系统用户列表
+grid_jplist_0061 财物系统用户列表
+
+grid_jplist_0062 结账订单选择列表
+grid_jplist_0063 订单价格重新计算列表
+grid_jplist_0064 应收结账单列表
+grid_jplist_0065 应付结账单列表
+
+grid_jplist_0066 按单报价订单号选择
+
+grid_jplist_0067 待接收拼车单
+grid_jplist_0068 已接收拼车单
+
+grid_jplist_0069 拼车待调度
+grid_jplist_0070 已委托拼车单
+grid_jplist_0071 待调度订单选择
+grid_jplist_0072 报价系统-拼车单选择
+
+grid_jplist_0073 已发送报价单列表(线下承运商)
+grid_jplist_0074 待发送报价单列表(线下承运商)
+grid_jplist_0075 已过期报价单列表(线下承运商)
+grid_jplist_0076 已关闭报价单列表(线下承运商)
+grid_jplist_0077 报价单检索列表(线下承运商)
+
+grid_jplist_0078 待接收订单(个人中心)
+grid_jplist_0079 待调度订单(个人中心)
+grid_jplist_0080 待签收订单(个人中心)
+grid_jplist_0081 待回单订单(个人中心)
+
+grid_jplist_0082 标识管理(资源管理)
+grid_jplist_0083 客户标示选择
+
+grid_jplist_0084 收货人选择（运输计划）

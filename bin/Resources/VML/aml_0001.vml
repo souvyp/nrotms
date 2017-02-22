@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "aml_0001",
+  "version": 1,
+  "dml-id": "aml_0001",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0022",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Addr_ID AS [id], Addr_CompanyID AS [CompanyID], Addr_Code AS [Code], Addr_CustomerID AS [CustomerID], dbo.fn_pub_user_AddrCompany2Name(3, Addr_CustomerID) AS [CustomerName], Addr_Desc AS [Address], Addr_Type AS [Type], Addr_Creator AS [Creator], Addr_InsertTime AS [InsertTime], Addr_Updater AS [Updater], Addr_UpdateTime AS [UpdateTime], Addr_Invalid AS [Invalid], Addr_Comments AS [Comments] FROM TMS_MAddr",
+    "where": "Addr_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Addr_Invalid = 0 AND Addr_Type = 3"
+  }
+}

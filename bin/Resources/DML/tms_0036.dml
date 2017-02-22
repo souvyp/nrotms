@@ -1,0 +1,92 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0036",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_my_EditCar",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "SN",
+        "type": "varchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CarType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CarLength",
+        "type": "decimal",
+        "size": 9,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Weight",
+        "type": "float",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Seats",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "PurchaseTime",
+        "type": "datetime",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Insurance",
+        "type": "datetime",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Brand",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Photo",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Volume",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

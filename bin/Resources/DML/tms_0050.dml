@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0050",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT name AS [name], sex AS [sex], userpic AS [userpic], birthday AS [birthday], phone AS [phone], username AS [username], password AS [password], dept AS [dept], duty AS [duty], nickname AS [nickname] FROM usermanager WHERE Id = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="js/jquery-1.10.1.min.js"></script>    
+    <script src="js/echarts.min.js"></script>
+    <script src="js/wlyuan.js"></script>
+    <script src="js/china.js"></script>    
+    <script src="js/index.js"></script>
+	<script src="js/app.js"></script>    
+	<script src="/assets/NSF/js/NSF.js"></script>
+ 	<script src="/assets/NSF/js/NSF.System.js"></script>		 	
+ 	<script src="/assets/NSF/js/NSF.System.Network.js"></script>    
+ 	<style type="text/css">
+ 		body{
+ 			background-image: url(img/bg001.jpg);
+ 			background-repeat: no-repeat;
+ 			background-size: cover;
+ 			margin: 0;
+ 			padding: 0;
+ 		}
+ 
+ 		
+ 		.main4{
+ 			overflow: hidden;
+ 			width: 3840px;
+ 			height:1080px;
+ 		}
+ 
+ 					
+ 	</style>
+ 	<link rel="stylesheet" type="text/css" href="css/donghua.css">
+</head>
+<body>
+  
+ 
+	
+	<div class="main4" >
+		<div class="" style="float: left;" class="object-opacity-hide wings" >
+		    <div id="main40_name"style="">
+				<font class="name_h40" style="font-size: 60px; height: 80px; position: absolute; color: #FFFFFF; left: 20%; top: 60px; z-index: 99;"> </font>
+		    </div>
+		    <div id="main4_0" style=" width: 1920px;height:1080px; ">
+		
+		    </div>
+		   
+		</div>
+		<div class="" style="float: left;" class="content-right-in" >
+		    <div id="main41_name"style="" class="object-opacity-hide wings" >
+				<font class="name_h41" style="font-size: 60px; position: absolute; color: #FFFFFF; left: 70%; top: 60px; z-index: 99;">整车与零担统计图</font>
+		    </div>
+		    <div id="main4_1" style=" width: 1920px;height:1080px; " class="content-right-in">
+		
+		    </div>	
+		</div>
+	    
+	 
+	</div>
+ 
+	
+<span id="Span2" style="display:none">10947</span>
+	
+	
+	
+</body>
+    <script type="text/javascript">
+
+		APP.init2();
+ 
+		setInterval("click_rand()",4500);
+		
+		function click_rand(){
+			var x = 8;//上限
+			var y = 1; //下限
+			var rand =  parseInt(Math.random() * (x - y + 1) + y);
+			setTimeout("huan_"+rand+"()",100);
+			
+		}
+ 
+		function huan_1(){
+		
+			fourth('main4_0');
+			$('.name_h40').text('');
+		}
+		function huan_2(){	 
+			second('main4_1');	 
+			$('.name_h41').text('市内与长途统计图');
+		}	
+		function huan_3(){	 
+			third('main4_1');	 
+			$('.name_h41').text('线路统计图(单位/方)');
+		}	
+		
+		function huan_4(){	 
+			nineth('main4_0');	
+			$('.name_h40').text('整车与零担统计图');
+		}	
+ 
+		function huan_5(){	 
+			fifth('main4_1');	
+		 
+			$('.name_h41').text('全国货源流向图');
+		}
+		function huan_6(){	 
+			sixth('main4_0');	 
+			$('.name_h40').text('城市发货量热力图');
+		}	
+		function huan_7(){	 
+			seventh('main4_0');	 
+			$('.name_h40').text('货物在途信息图');
+		}	
+		
+		function huan_8(){	 
+			eighth('main4_1');	
+			$('.name_h41').text('省份发货量热力图');
+		}		 
+	
+ 
+    </script>  
+</html>

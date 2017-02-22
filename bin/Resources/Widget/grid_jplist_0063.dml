@@ -1,0 +1,21 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0063",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id],Index_Code AS [code], dbo.fn_pub_order_TotalCost(Index_ID) AS [TotalCost], Index_PactCode AS [pactcode], Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to], dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName],CONVERT(VARCHAR(100),Index_CreateTime,111) AS [createtime], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName] FROM TMS_OrderIndex AS A",
+    "where": "Index_Invalid = 0 AND 
+Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND 
+(CASE WHEN Index_SupplierID > 0 THEN 1 
+WHEN Index_SrcClass = 1 AND Index_SrcOrderID > 0 THEN 1 
+WHEN Index_Combined = 1 THEN 1 
+WHEN Index_SrcClass = 2 AND Index_SupplierSymbolID > 0 THEN 1 
+ELSE 0 END) = 1 AND 
+Index_Status > 0 AND Index_Status < 16 AND 
+dbo.fn_pub_order_BalanceBillContains(Index_ID) = 0 AND Index_SrcClass <> 3 AND Index_Combined <> 1 AND NOT EXISTS (SELECT B.Index_OrderID FROM dbo.Price_DocIndex AS B WHERE B.Index_OrderID = A.Index_ID AND B.Index_Type = 1)"
+  }
+}
+
+
+

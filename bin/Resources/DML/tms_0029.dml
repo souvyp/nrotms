@@ -1,0 +1,57 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0029",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE Operation2 SET goodscode = @goodscode, goodsname = @goodsname, qty = @qty, weight = @weight, volume = @volume WHERE Id = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "goodscode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "物品编号"
+      },
+      {
+        "name": "goodsname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "物品名称"
+      },
+      {
+        "name": "qty",
+        "type": "float",
+        "size": 8,
+        "direction": "input",
+        "displayName": "物品数量"
+      },
+      {
+        "name": "weight",
+        "type": "float",
+        "size": 8,
+        "direction": "input",
+        "displayName": "重量"
+      },
+      {
+        "name": "volume",
+        "type": "float",
+        "size": 8,
+        "direction": "input",
+        "displayName": "体积"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

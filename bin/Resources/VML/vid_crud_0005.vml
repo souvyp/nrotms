@@ -1,0 +1,7 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'crud',
+ 'id' : 'vid_crud_0005',
+ 'version' : 1,
+ 'dml-id' : 'did_crud_0005'
+}

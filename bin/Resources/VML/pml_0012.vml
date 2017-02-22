@@ -1,0 +1,118 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0012",
+  "version": 1,
+  "dml-id": "pml_0012",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "DocID",
+        "type": "prev_rs",
+        "value": "0/0/0/1"
+      },
+      {
+        "name": "DetailID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DocType",
+        "type": "normal",
+        "value": 2
+      },
+      {
+        "name": "FromProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "From",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ToProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "To",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Kms",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarLength",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Price",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarVolume",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarWeight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Invalid",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

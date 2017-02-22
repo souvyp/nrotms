@@ -1,0 +1,50 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "aml_0012",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_user_JoinZone",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ZoneID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ZoneCompanyCode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 500,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "SendDirectly",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

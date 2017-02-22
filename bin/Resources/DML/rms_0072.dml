@@ -1,0 +1,23 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0072",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT T.FromCity,T.ToCity,SUM(T.Qty)AS [Qty],SUM(1) AS [count]  FROM (SELECT Index_ID,dbo.fn_pub_order_AreaName(Index_FromCity) AS [FromCity],Index_EndUserName AS [ToCity],SUM(B.GoodsLst_Qty) AS [Qty] FROM TMS_OrderIndex AS A INNER JOIN (SELECT [GoodsLst_OrderID],[GoodsLst_Code] ,[GoodsLst_Name],[GoodsLst_Qty] FROM [TMS_OrderGoods]) AS B ON A.Index_ID = B.GoodsLst_OrderID WHERE Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(@Operator, 0) AND YEAR(Index_FromTime)=YEAR(GETDATE()) AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_Status >= 1 AND Index_Status < 32 AND Index_CustomerCompanyID = 534 GROUP BY index_ID,Index_EndUserName,Index_FromCity) AS T GROUP BY FromCity,ToCity ORDER BY [count] DESC ",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

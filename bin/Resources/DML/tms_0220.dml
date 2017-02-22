@@ -1,0 +1,22 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0220",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_order_CheckDeviceCode",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "DeviceCode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

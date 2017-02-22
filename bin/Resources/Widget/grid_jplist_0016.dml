@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0016",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Supplier_ID AS [id], Supplier_OwnerCompanyID AS [ownercompanyid], Supplier_CompanyID AS [companyid], Supplier_Creator AS [creator], Supplier_InsertTime AS [inserttime], Supplier_Updater AS [updater], Supplier_UpdateTime AS [updatetime], Supplier_Invalid AS [invalid], Supplier_Comments AS [comments] FROM TMS_MSupplier",
+    "count": "SELECT COUNT([Supplier_ID]) FROM TMS_MSupplier",
+    "where": ""
+  }
+}

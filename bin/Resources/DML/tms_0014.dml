@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0014",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "DELETE FROM Operation2 WHERE Id = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0015",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Id AS [id], goodscode AS [goodscode] FROM Operation2 WHERE dId = @did;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

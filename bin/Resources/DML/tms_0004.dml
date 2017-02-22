@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0004",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT GoodsType_ID AS [ID], GoodsType_CompanyID AS [CompanyID], GoodsType_Code AS [Code], GoodsType_Unit AS [Unit], GoodsType_Name AS [Name], GoodsType_Description AS [Description], GoodsType_Creator AS [Creator], GoodsType_InsertTime AS [InsertTime], GoodsType_Updater AS [Updater], GoodsType_UpdateTime AS [UpdateTime], GoodsType_Invalid AS [Invalid], GoodsType_Comments AS [Comments] FROM TMS_MGoodsType WHERE GoodsType_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

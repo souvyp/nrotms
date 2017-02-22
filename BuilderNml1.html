@@ -1,0 +1,1544 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>生成DML</title>
+    <script src="http://otms.zld.com.cn/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://otms.zld.com.cn/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="http://otms.zld.com.cn/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="http://otms.zld.com.cn/assets/NSF/js/NSF.0.0.3.min.js"></script>
+    <script type="text/javascript" charset="gbk">
+        $( function ()
+        {
+            var _name;
+            var _pType;
+            var _size;
+            var _direction;
+            var _displayName;
+            var _scale;
+
+            var _version;
+            var flag = true;
+            var _sql;
+
+			$( 'input[name="id"]' ).change( function()
+			{
+				$( 'input.txtVml' ).val( $(this).val() );
+			});
+            $( 'input[name="version"]' ).blur( function ()
+            {
+                var _value = $( 'input[name="version"]' ).val();
+                if ( _value.IsNumeric( _value ) )
+                {
+                    _version = _value;
+                    $( 'label' ).text('');
+                }
+                else
+                {
+                    $( 'label' ).text( "请输入数字值" );
+                }
+            } );
+
+            $( '.paraDiv' ).hide();
+
+            $( 'input[name="btnAdd"]' ).click( function ()
+            {
+                $( '.paraDiv' ).show();
+
+                $( 'input[name="btnClose"]' ).click( function ()
+                {
+                    $( '.paraDiv' ).hide();
+                } );
+
+            } );
+
+            
+            $( 'input[name="bPara"]' ).click( function ()
+            {
+                $( '.flash' ).attr( 'style', 'display:block;text-align:center;' );
+                _sql = $( 'textarea[name="sql"]' ).val();
+
+                window.setTimeout( function ()
+                {
+                    CreateParams( _sql );
+                }, 1000 );
+            } );
+
+            
+            $( 'input[name="btnBuilder"]' ).click( function ()
+            {
+                var _nameSpace = 'data';
+                var _cmd = $( 'input[name="sCmd"]' ).val();
+                var _id = $( 'input[name="id"]' ).val();
+                
+
+                var _dbtype;
+                $( 'select[name="sDtype"]' ).find( 'option:selected' ).each( function ()
+                {
+                    _dbtype = $( this ).val();
+                } );
+                
+                var _readonly;
+                $( 'select[name="read"]' ).find( 'option:selected' ).each( function ()
+                {
+                    _readonly = $( this ).val();
+                } );
+
+                var _type;
+                $( 'select[name="sType"]' ).find( 'option:selected' ).each( function ()
+                {
+                    _type = $( this ).val();
+                } );
+
+                _sql = $( 'textarea[name="sql"]' ).val();
+				if (_type == "StoreProcedure")
+				{
+					_sql = _sql.ReplaceAll( " ", "" );
+					_sql = _sql.ReplaceAll( "\n", "" );
+					_sql = _sql.ReplaceAll( "\r", "" );
+					_sql = _sql.ReplaceAll( "\t", "" );
+				}
+				else if( _type == "text" )
+				{
+					_sql = _sql.ReplaceAll( "\n", "" );
+				}
+               
+                var _responseType = $( 'select[name="reType"]' ).find( 'option:selected' ).val();
+
+                _dml = {};
+                _dml.namespace = _nameSpace;
+                _dml.cmd = _cmd;
+                _dml.id = _id;
+
+                _version = $( 'input[name="version"]' ).val();
+
+                if ( typeof ( _version ) == 'undefined' || _version == null )
+                {
+                    $( 'label' ).text( "不能为空" );
+                }
+
+                _dml.version = ( _version ).ToInt();
+
+                var paras = {};
+                paras.dbtype = _dbtype;
+                paras.sql = _sql;
+                paras.readonly = _readonly;
+                paras.type = _type;
+
+                var _paras = [];
+                $( 'table[name="title"]' ).find( 'tr' ).each( function ( index )
+                {
+                    if ( index > 0 )
+                    {
+                        var _pObj = {};
+                        _pObj.name = $( this ).find( 'td:eq(0)' ).text();
+                        _pObj.type = $( this ).find( 'td:eq(1)' ).text();
+                        _pObj.size = ( $( this ).find( 'td:eq(2)' ).text() ).ToInt();
+                        _pObj.direction = $( this ).find( 'td:eq(3)' ).text();
+                        _pObj.displayName = $( this ).find( 'td:eq(4)' ).text();
+
+                        _paras.push( _pObj );
+                    }
+                } );
+
+                paras.paras = _paras;
+                paras.responseType = _responseType;
+
+                _dml.paras = paras;
+                console.log( NSF.System.Json.ToString( _dml ) );
+
+                var strDml = NSF.System.Json.ToString( _dml );
+                CreateDml( _id, strDml );
+            } );
+
+            $( 'input[name="btnOk"]' ).click( function ()
+            {
+                _name = $( '.paraDiv' ).find( 'input:eq(0)' ).val();
+                _pType = $( 'select[name="paraType"]' ).find( 'option:selected' ).val();
+
+                _size = $( '.paraDiv' ).find( 'input:eq(1)' ).val();
+                _direction = $( 'select[name="io"]' ).find( 'option:selected' ).val();
+                _displayName = $( '.paraDiv' ).find( 'input:eq(2)' ).val();
+
+                _DoAddParas(name, pType, size, direction, displayName);
+
+                $( '.paraDiv' ).hide();
+            } );
+
+            //生成
+            $( '.enterWidget' ).click( function ()
+            {
+                var _sql = "";
+                var _tblName = $( 'input[name="DistrCode"]' ).val();
+                var _did = $( 'input[name="txtWidgetDMLID"' ).val();
+                if ( _tblName == null || _tblName == "" )
+                {
+                    return "请输入表名！";
+                }
+                if ( _did == null || _did == "" )
+                {
+                    return "请输入Widget DML ID！";
+                }
+
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    var trObj = $( this ).parent().parent();
+                    var _pk = trObj.find( 'td:eq(9)' ).text();
+                    var _fld = trObj.find( 'td:eq(1)' ).text();
+                    var _alias = trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+
+                    //CreateWidgetDml
+                    if ( _check )
+                    {
+                        if ( _sql != "" )
+                        {
+                            _sql += ", ";
+                        }
+                        _sql += _fld + " AS [" + _alias + "]";
+                    }
+                } );
+
+                _sql = "SELECT " + _sql;
+                _sql += " FROM " + _tblName;
+
+                var _para = {};
+                _para.sql = _sql;
+                _para.where = "";
+
+                var _dml = {};
+                _dml.namespace = "widget";
+                _dml.cmd = "jplist";
+                _dml.id = _did;
+                _dml.version = "1";
+                _dml.paras = _para;
+
+                var strDml = NSF.System.Json.ToString( _dml );
+                CreateWidgetDml( _did, strDml );
+            } );
+
+            //保存
+            $( '.enter' ).click( function ()
+            {
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    if ( _check )
+                    {
+                        var trObj = $( this ).parent().parent();
+
+                        var name = trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+                        var pType = trObj.find( 'td:eq(3)' ).text();
+                        var size = trObj.find( 'td:eq(4)' ).text();
+                        var direction = 'input';
+                        var displayName = trObj.find( 'td:eq(7)' ).text();
+
+                        _DoAddParas(name, pType, size, direction, displayName);
+
+                        $( '.paraDiv' ).hide();
+                    }
+                    $( '.modal' ).modal( 'hide' );
+                } );
+				
+				$( 'select[name="sType"]' ).val( 'text' );
+            } );
+
+            $( '.SPara input' ).click( function ()
+            {
+                var _check = $( this ).is( ':checked' );
+                var _checks = $( 'input[name="check"]' );
+
+                if ( _check )
+                {
+                    _checks.prop( 'checked', 'checked' );
+                }
+                else
+                {
+                    _checks.removeAttr( 'checked' );
+                }
+            } );
+
+            $( '.sname' ).click( function ()
+            {
+                var _check = $( this ).is( ':checked' );
+                var _checks = $( 'input' );
+
+                if ( _check )
+                {
+                    _checks.prop( 'checked', 'checked' );
+                }
+                else
+                {
+                    _checks.removeAttr( 'checked' );
+                }
+            } );
+
+            $( '.btnPara' ).click( function ()
+            {
+                
+                $( '.flash1' ).attr( 'style', 'display:block;text-align:center;' );
+                var tableName = $( 'input[name="DistrCode"]' ).val();
+
+                window.setTimeout( function ()
+                {
+                    GetParams( tableName );
+                }, 1000 );
+            } );
+
+			$( '.btnDelete' ).click( function()
+			{
+				var tableName = $( 'input[name="DistrCode"]' ).val();
+                var sql = "", cdtLst = "";
+                sql = "DELETE FROM ";
+				sql += tableName;
+
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    if ( _check )
+                    {
+                        var trObj = $( this ).parent().parent();
+
+						var _cdt = false;
+						var cdtObj = trObj.find( 'td:eq(8) input[type="checkbox"]' );
+						if (cdtObj)
+						{
+							_cdt = cdtObj.is( ':checked' );
+						}
+						if (_cdt)
+						{
+							if ( cdtLst != "" )
+							{
+								cdtLst += " AND ";
+							}
+							
+							cdtLst += trObj.find( 'td:eq(1)' ).text();
+							cdtLst += " = @";
+							cdtLst += trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+						}
+						else
+						{
+							$( this ).attr( "checked", false );
+						}
+                    }
+                } );
+
+				if (cdtLst != "")
+				{
+					sql += " WHERE ";
+					sql += cdtLst;
+				}
+				sql += ";";
+
+                if ( cdtLst != "" )
+                {
+                    $( 'textarea[name="sql"]' ).val( sql );
+
+					if ( confirm( "是否直接提交参数列表！" ) )
+                    {
+                        DoParamsGenerate();
+                    }
+                }
+                else
+                {
+                    alert( "请选择待使用的参数列表！" );
+                }
+
+                return;
+			});
+
+			$( '.btnSelect' ).click( function ()
+			{
+				var tableName = $( 'input[name="DistrCode"]' ).val();
+                var sql = "", fldLst = "", cdtLst = "";
+                sql = "SELECT ";
+
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    if ( _check )
+                    {
+                        var trObj = $( this ).parent().parent();
+
+						var _cdt = IsCondition( trObj );
+						if (_cdt)
+						{
+							if ( cdtLst != "" )
+							{
+								cdtLst += " AND ";
+							}
+							
+							cdtLst += trObj.find( 'td:eq(1)' ).text();
+							cdtLst += " = @";
+							cdtLst += trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+						}
+						else
+						{
+							if ( fldLst != "" )
+							{
+								fldLst += ", ";
+							}
+							fldLst += trObj.find( 'td:eq(1)' ).text();
+							fldLst += " AS [";
+							fldLst += trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+							fldLst += "]";
+							
+							$( this ).attr( "checked", false );
+						}
+                    }
+                } );
+
+                sql += fldLst;
+                sql += " FROM ";
+				sql += tableName;
+				if (cdtLst != "")
+				{
+					sql += " WHERE ";
+					sql += cdtLst;
+				}
+				sql += ";";
+
+                if ( fldLst != "" )
+                {
+                    $( 'textarea[name="sql"]' ).val( sql );
+
+					if ( confirm( "是否直接提交参数列表！" ) )
+                    {
+                        DoParamsGenerate();
+                    }
+                }
+                else
+                {
+                    alert( "请选择待使用的参数列表！" );
+                }
+
+                return;
+			});
+			//生成列表页模态设置
+			$('.btnList').click(function()
+			{
+				if($( 'input[name="check"]' ).is(':checked'))
+				{
+					$('#BtnList').modal('show');
+					$('#BtnList .modal-body').html('');
+					var _contList = '';
+					_contList += '<table class="table"><tbody class="tbody">';
+					_contList += '<tr><td>Name</td><td>别名</td><td>title</td><td>Type</td><td>页面显示方式</td><td colspan="2">扩展操作（format&template&&execute）</td><td>删除操作</td></tr>';
+					$( 'input[name="check"]' ).each( function ( index )
+	                {
+	                    var _check = $( this ).is( ':checked' );
+	                    if ( _check )
+	                    {
+	                        var trObj = $( this ).parent().parent();
+	                        _contList += '<tr><td>'+ trObj.find('td:eq(1)').text() +'</td><td>'+ trObj.find('td:eq(2) input').val() +'</td>';
+	                        _contList += '<td><input type="text" name="titleName" value="'+ trObj.find('td:eq(7)').text() +'"/></td><td>'+ trObj.find('td:eq(3)').text() +'</td><td><select onchange="selectes(this)"><option value="show">show</option><option value="template">template</option><option value="calc">calc</option><option value="attr">attr</option></select></td>';
+	                        _contList += '<td><textarea name="Spread" placeholder="format" data-toggle="tooltip" data-placement="top" title="format写法:例  show (show为函数名)"></textarea></td><td></td><td><a href="javascript:void(0)" onclick="Del(this)" class="btn btn-primary">删除</a></td>';
+	                        _contList += '</tr>';
+	                    }
+					});
+					_contList += '</tbody></table>';
+					$('#BtnList .modal-body').append(_contList);
+					$('[data-toggle="tooltip"]').tooltip();
+				}
+				else
+				{
+					alert('请选择待使用的参数列表！');
+				}
+			});
+			
+			//生成列表页面
+			$('.btn-Lsit').click(function()
+			{
+				var viewId = $('input[name="view-id"]').val();
+				var htmlName = $('input[name="HtmlName"]').val();
+				var temp = true;
+				if(viewId != '')
+				{
+					var _header = '',_body = '',_table_title = '',_table_cont = '';
+					$( '#BtnList .table tr' ).each( function ( index )
+					{
+						if(index > 0)
+						{
+							_table_title += '\n<td>'+ $(this).find('td:eq(2) input').val() +'</td>';
+							if($(this).find('td:eq(4) select option:selected').val() == 'show')
+							{
+								if($(this).find('td:eq(5) textarea').val())
+								{
+									_table_cont += '\n<td view-fld=\'{fld : "'+ $(this).find('td:eq(1)').text().toLocaleLowerCase() +'", method : "'+ $(this).find('td:eq(4) select option:selected').val() +'",format:"'+ $(this).find('td:eq(5) textarea').val() +'"}\'></td>';
+								}
+								else
+								{
+									_table_cont += '\n<td view-fld=\'{fld : "'+ $(this).find('td:eq(1)').text().toLocaleLowerCase() +'", method : "'+ $(this).find('td:eq(4) select option:selected').val() +'"}\'></td>';
+								}
+								
+							}
+							else if($(this).find('td:eq(4) select option:selected').val() == 'template')
+							{
+								if($(this).find('td:eq(5) textarea').val())
+								{
+									_table_cont += '\n<td view-fld=\'{fld : "'+ $(this).find('td:eq(1)').text().toLocaleLowerCase() +'", method : "'+ $(this).find('td:eq(4) select option:selected').val() +'",template:"'+ $(this).find('td:eq(5) textarea').val() +'"}\'></td>';
+								}
+								else
+								{
+									temp = false;
+								}
+							}
+							else if($(this).find('td:eq(4) select option:selected').val() == 'calc')
+							{
+								if($(this).find('td:eq(5) textarea').val())
+								{
+									_table_cont += '\n<td view-fld=\'{fld : "'+ $(this).find('td:eq(1)').text().toLocaleLowerCase() +'", method : "'+ $(this).find('td:eq(4) select option:selected').val() +'",execute:"'+ $(this).find('td:eq(5) textarea').val() +'"}\'></td>';	
+								}
+								else
+								{									
+									temp = false;
+								}
+							}
+							else if($(this).find('td:eq(4) select option:selected').val() == 'attr')
+							{
+								if($(this).find('td:eq(5) textarea').val() || $(this).find('td:eq(6) textarea').val())
+								{
+									_table_cont += '\n<td view-fld=\'{fld : "'+ $(this).find('td:eq(1)').text().toLocaleLowerCase() +'", method : "'+ $(this).find('td:eq(4) select option:selected').val() +'",attr:"'+ $(this).find('td:eq(6) textarea').val() +'",format:"'+ $(this).find('td:eq(5) textarea').val() +'"}\'></td>';	
+								}
+								else
+								{									
+									temp = false;
+								}
+							}
+						}
+					});
+					
+					//内容
+					_body += '<div class="container" style="margin-top:10px;">\n<table class="table table-hover" style="border: 1px solid #ddd;">'+
+					'\n<thead style="background-color: #f7f7f7;">\n<tr>' + _table_title +
+					'</tr>\n</thead>\n'+
+					'<tbody>'+
+					'\n<tr name="list" view-id=\'{ id:"'+ viewId +'",cross:"false",rowIdentClass:"tablePage", paras:[{"name" : "Rows","value" : 10},{"name" : "Page","value" : 1}]}\'>'+
+					 _table_cont + '</tr>'+
+					 '\n</tbody>\n</table>\n<nav name="list" class="hide">\n<ul class="pagination" style="margin:0;"></ul>\n</nav>\n</div>';
+					//头部标签
+					_header += '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n'+
+					'<meta name="author" content="Three knives(331408588@qq.com)">\n<title>列表页</title>\n'+
+					'<link rel="stylesheet" href="assets/css/jBootsrapPage.css"/>\n'+
+					'<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>\n'+
+					'</head>\n<body onload="load()">\n'+
+					'<script type="text/javascript">\nfunction load()\n{\n_tabList = new NSF.System.Data.Grid();\n'+ 
+					'_tabList.Initialize( "/", "list", $( "tr[name=\'list\']" ).attr( "view-id" ), $( "tr[name=\'list\']" ) );}'+
+					'\n<\/script>\n' + _body + 
+					'\n<script type="text/javascript" src="assets\/js\/jquery-1.11.1.min.js"><\/script>'+
+					'\n<script type="text/javascript" src="assets\/js\/jBootstrapPage.js"><\/script>'+
+					'\n<script type="text/javascript" src="assets\/bootstrap\/js\/bootstrap.min.js"><\/script>'+					
+					'\n<script type="text/javascript" src="assets\/NSF\/js\/NSF.js"><\/script>'+
+					'\n<script type="text/javascript" src="assets\/NSF\/js\/NSF.System.js"><\/script>'+
+					'\n<script type="text/javascript" src="assets\/NSF\/js\/NSF.System.Network.js"><\/script>'+
+					'\n<script type="text/javascript" src="assets\/NSF\/js\/NSF.System.data.js"><\/script>'+
+					'\n</body>\n</html>';
+					if(temp)
+					{
+						var strHtml = NSF.System.Json.ToString( _header );
+						var params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"html_file","paras":[{"name":"filename","value":"'+ htmlName +'"},{"name":"content","value":'+ strHtml +'}]}]';
+						var cross = false;
+			            $.ajax(
+		                {
+		                    async: false,
+		                    url: '/Portal.aspx',
+		                    dataType: ( cross ? "jsonp" : "json" ),
+		                    jsonp: ( cross ? 'callback' : '' ),
+		                    type: 'POST',
+		                    data: params,		                    
+		                    success: function ( data )
+		                    {
+		                    	if(data[0].result)
+		                    	{
+		                    		alert( '生成html成功!' );
+		                    	}
+		                        
+		                    }
+	                	} );
+	                }
+					else
+					{
+						alert('类型为template时，当前对应扩展操作栏不能为空！');
+					}
+				}
+				else
+				{
+					alert('请输入view-id');
+				}
+			});
+			function IsCondition(parentObj)
+			{
+				var _cdt = false;
+
+				var cdtObj = parentObj.find( 'td:eq(8) input[type="checkbox"]' );
+				if (cdtObj)
+				{
+					_cdt = cdtObj.is( ':checked' );
+				}
+				
+				return _cdt;
+			}
+			
+			function IsIdentity(parentObj)
+			{
+				var _idt = false;
+
+				var idtObj = parentObj.find( 'td:eq(10)' );
+				if (idtObj)
+				{
+					if (idtObj.text() == "1")
+					{
+						_idt = true;
+					}
+				}
+				
+				return _idt;
+			}
+
+            $( '.btnUpdate' ).click( function ()
+            {
+                var tableName = $( 'input[name="DistrCode"]' ).val();
+                var sql = "", fldLst = "", cdtLst = "";
+                sql = "UPDATE " + tableName;
+                sql += " SET ";
+
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    if ( _check )
+                    {
+                        var trObj = $( this ).parent().parent();
+
+						var _cdt = IsCondition( trObj );
+						if (_cdt)
+						{
+							if ( cdtLst != "" )
+							{
+								cdtLst += " AND ";
+							}
+							
+							cdtLst += trObj.find( 'td:eq(1)' ).text();
+							cdtLst += " = @";
+							cdtLst += trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+						}
+						else
+						{
+							if (IsIdentity( trObj ) )
+							{
+								$( this ).attr( "checked", false );
+							}
+							else
+							{
+								if ( fldLst != "" )
+								{
+									fldLst += ", ";
+								}
+
+								fldLst += trObj.find( 'td:eq(1)' ).text();
+								fldLst += " = ";
+								fldLst += "@" + trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+							}
+						}
+                    }
+                } );
+
+                sql += fldLst;
+				if (cdtLst != "")
+				{
+					sql += " WHERE ";
+					sql += cdtLst;
+				}
+				sql += ";";
+
+                if ( fldLst != "" )
+                {
+                    $( 'textarea[name="sql"]' ).val( sql );
+
+                    if ( confirm( "是否直接提交参数列表！" ) )
+                    {
+                        DoParamsGenerate();
+                    }
+                }
+                else
+                {
+                    alert( "请选择待使用的参数列表！" );
+                }
+
+                return;
+            } );
+
+            $( '.btnInsert' ).click( function ()
+            {
+                var tableName = $( 'input[name="DistrCode"]' ).val();
+                var sql = "", fldLst = "", valLst = "";
+                sql = "INSERT INTO " + tableName;
+                sql += "(";
+
+                $( 'input[name="check"]' ).each( function ( index )
+                {
+                    var _check = $( this ).is( ':checked' );
+                    if ( _check )
+                    {
+                        var trObj = $( this ).parent().parent();
+
+						if ( IsIdentity( trObj ) )
+						{
+							$( this ).attr( "checked", false );
+						}
+						else
+						{
+							if ( fldLst != "" )
+							{
+								fldLst += ", ";
+							}
+							fldLst += trObj.find( 'td:eq(1)' ).text();
+
+							if ( valLst != "" )
+							{
+								valLst += ", ";
+							}
+							valLst += "@" + trObj.find( 'input[name="dName"]' ).val().toLowerCase();
+						}
+                    }
+                } );
+
+                sql += fldLst;
+                sql += ") VALUES(";
+                sql += valLst;
+                sql += ");";
+                sql += "SELECT IDENT_CURRENT( '";
+                sql += tableName;
+                sql += "' ) AS ID;";
+
+                if ( fldLst != "" && valLst != "" )
+                {
+                    $( 'textarea[name="sql"]' ).val( sql );
+
+                    if ( confirm( "是否直接提交参数列表！" ) )
+                    {
+                        DoParamsGenerate();
+                    }
+                }
+                else
+                {
+                    alert( "请选择待使用的参数列表！" );
+                }
+
+                return;
+            } );
+
+            $( '.DelAll' ).click( function ()
+            {
+                $( 'table[name="title"]' ).find( 'tr' ).each( function ( index )
+                {
+                    if ( index > 0 )
+                    {
+                        $( this ).remove();
+                    }
+                } );
+            } );
+
+            //生成VML
+            $( '.btnVML' ).click( function ()
+            {
+                var _vml = {};
+
+                var _nameSpace = 'view';
+                var _cmd = 'data';
+                var _id = $( '.txtVml' ).val();
+                var _version = $( 'input[name="version"]' ).val();
+                var _dml_id = $( 'input[name="id"]' ).val();
+
+                var _rows = true;
+                var _columns = true;
+
+                _vml.namespace = _nameSpace;
+                _vml.cmd = _cmd;
+                _vml.id = _id;
+                _vml.version = ( _version ).ToInt();
+				_vml['dml-id'] = _dml_id;
+
+                var dmlparas = {};
+
+                dmlparas.rows = _rows;
+                dmlparas.columns = _columns;
+
+                var _paras = [];
+
+                $( 'table[name="title"]' ).find( 'tr' ).each( function ( index )
+                {
+                    if ( index > 0 )
+                    {
+                        var _pObj = {};
+                        _pObj.name = $( this ).find( 'td:eq(0)' ).text();
+						
+						var _dT = $( this ).find( '[name="defType"]' ).val();
+						if (_dT == "0")
+						{
+							_pObj.type = "normal";
+
+							var type = $( this ).find( 'td:eq(1)' ).text();
+							if ( type == 'bigint' || type == 'tinyint'
+								|| type == 'int' || type == 'decimal'
+								|| type == 'smallint' || type == 'real'
+								|| type == 'float' || type == 'bool'
+								|| type == 'money' )
+							{
+								_pObj.value = 0;
+							}
+							else
+							{
+								_pObj.value = '';
+							}
+						}
+						else
+						{
+							if (_dT == "1")
+							{
+								_pObj.type = "prev_rs";
+							}
+							else if (_dT == "2")
+							{
+								_pObj.type = "session";
+							}
+							_pObj.value = $( this ).find( '[name="default"]' ).val();
+						}
+
+                        _paras.push( _pObj );
+                    }
+                } );
+
+                dmlparas.paras = _paras;
+                _vml.dmlparas = dmlparas;
+
+                var strVml = NSF.System.Json.ToString( _vml );
+
+                console.log( strVml );
+
+                var params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"vml_file","paras":[{"name":"filename","value":"' + _id + '"},{"name":"content","value":' + strVml + '}]}]';
+                var cross = false;
+                $.ajax(
+                    {
+                        async: false,
+                        url: '/Portal.aspx',
+                        dataType: ( cross ? "jsonp" : "json" ),
+                        jsonp: ( cross ? 'callback' : '' ),
+                        type: 'POST',
+                        data: params,
+                        error: function ( reqObj, status, err )
+                        {
+                            if ( callback )
+                            {
+                                callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                            }
+                            else
+                            {
+                                NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                            }
+                        },
+                        success: function ( data )
+                        {
+                            alert( '生成VML成功' );
+                        }
+                    } );
+            } );
+        } );
+
+        function DoParamsGenerate()
+        {
+            $( '.enter' ).click();
+
+            return;
+        }
+
+        //生成参数
+        function CreateParams( _sql )
+        {
+            var Para = "[{ 'namespace': 'protocol', 'cmd': 'paras', 'id': 'paras', 'version': 1, 'paras': [{'name': 'type','value': 'procedure'},{'name': 'name','value': '" + _sql + "'}] }]";
+            var cross = false;
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: ( cross ? "jsonp" : "json" ),
+                    jsonp: ( cross ? 'callback' : '' ),
+                    type: 'POST',
+                    data: Para,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        if ( data[0].result )
+                        {
+							$( 'select[name="sType"]' ).val( 'StoreProcedure' );
+                            $( '.flash' ).attr( 'style', 'display:none' );
+                            var rows = data[0].columns;
+                            for ( var i = 0; i < rows.length; i++ )
+                            {
+                                AddTable( rows[i] );
+                            }
+
+                        }
+                    }
+                } );
+        }
+
+        //选配参数
+        function GetParams( tableName )
+        {
+            var Para = "[{ 'namespace': 'protocol', 'cmd': 'crud', 'id': 'structure', 'version': 1, 'paras': {'operate': 'structure','table': '" + tableName + "'}}]";
+            var cross = false;
+            $.ajax(
+                {
+                    async: false,
+                    url: '/CRUDPortal.aspx',
+                    dataType: ( cross ? "jsonp" : "json" ),
+                    jsonp: ( cross ? 'callback' : '' ),
+                    type: 'POST',
+                    data: Para,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        var result = data[0].rs;
+                        if ( result[0] )
+                        {
+                            $( '.tbody' ).find( 'tr' ).each( function ( index )
+                            {
+                                if ( index > 0 )
+                                {
+                                    $( this ).remove();
+                                }
+                            } );
+                            window.setTimeout( function ()
+                            {
+                                $( '.flash1' ).attr( 'style', 'display:none' );
+                                var rows = result[0].rows;
+                                for ( var i = 0; i < rows.length; i++ )
+                                {
+                                    BuilderTable( rows[i] );
+                                }
+                            }, 1000 );
+                        }
+                        else
+                        {
+                            $( '.flash1' ).attr( 'style', 'display:none' );
+                        }
+                    }
+                } );
+        }
+        function addCheck( obj )
+        {
+            var inputObj = $( obj ).parent().parent().find('input:first');
+            var _check = inputObj.is( ':checked' );
+            //var _checks = $( 'input' );
+
+            if ( _check )
+            {
+                inputObj.removeAttr( 'checked' );
+            }
+            else
+            {
+                inputObj.prop( 'checked', 'checked' );
+            }
+        }
+
+        function BuilderTable( rowData )
+        {
+            var s_name = rowData.Name;
+
+            var array;
+            var array = s_name.split( '_' );
+
+            var s_anotherName;
+            if ( array[1] )
+            {
+                s_anotherName = array[1];
+            }
+            else
+            {
+                s_anotherName = s_name;
+            }
+            var s_Type = rowData.Type;
+            var s_size ;
+            if ( rowData.Size == -1 )
+            {
+                s_size = 65536;
+            }
+            else
+            {
+                s_size = rowData.Size;
+            }
+            
+            var s_precision = rowData.Precision;
+            var s_scale = rowData.Scale;
+            var s_mark = rowData.Mark;
+            var s_pk = rowData.PK;
+            var s_identity = rowData.Identity;
+            var s_Default = rowData.Default;
+
+            var _tr = '<tr>';
+            _tr += '<td>';
+            _tr += '<input name="check" type="checkbox" onclick="getCheck(this)" />'
+            _tr += '</td>';
+            _tr += '<td ><a class="sname" herf="#" onClick="addCheck(this)">';
+            _tr += s_name;
+            _tr += '</a></td>';
+            _tr += '<td><input name="dName" type="text" value="' + s_anotherName + '" size="11"  />';
+            _tr += '</td>'
+            _tr += '<td>';
+            _tr += s_Type;
+            _tr += '</td>'
+            _tr += '<td>';
+            _tr += s_size;
+            _tr += '</td>'
+            _tr += '<td>';
+            _tr += s_precision;
+            _tr += '</td>'
+            _tr += '<td>';
+            _tr += s_scale;
+            _tr += '</td>';
+            _tr += '<td>';
+            _tr += s_mark;
+            _tr += '</td>';
+            _tr += '<td><input  type="checkbox" onclick="SecondCheck(this)" />';
+            _tr += '</td>';
+            _tr += '<td>';
+            _tr += s_pk;
+            _tr += '</td>';
+            _tr += '<td>';
+            _tr += s_identity;
+            _tr += '</td>';
+            _tr += '<td>';
+            _tr += s_Default;
+            _tr += '</td>';
+            _tr += '</tr>';
+
+            $( '.tbody' ).append( _tr );
+        }
+
+        function getCheck( obj )
+        {
+            var _check = $( obj ).is( ':checked' );
+            var trObj = $( obj ).parent().parent();
+            if ( _check )
+            {
+                $( obj ).attr( 'checked', 'checked' );
+            }
+            else
+            {
+                $( obj ).removeAttr( 'checked' );
+                trObj.find( 'input:eq(2)' ).removeAttr( 'checked');
+            }
+        }
+        function SecondCheck( obj )
+        {
+            var _check = $( obj ).is( ':checked' );
+            var trObj = $( obj ).parent().parent();
+            if ( _check )
+            {
+                $( obj ).attr( 'checked', 'checked' );
+                trObj.find( 'input:eq(0)' ).prop( 'checked', 'checked' );
+            }
+            else
+            {
+                $( obj ).removeAttr( 'checked' );
+            }
+        }
+
+		//添加参数行
+		function _DoAddParas(name, pType, size, direction, displayName)
+		{
+		    if ( name != "RETURN_VALUE" )   //&& pType != "int"
+			{
+				var _tr = '<tr>';
+				_tr += '<td>';
+				_tr += name;
+				_tr += '</td>'
+				_tr += '<td>';
+				_tr += pType;
+				_tr += '</td>'
+				_tr += '<td>';
+				_tr += size;
+				_tr += '</td>'
+				_tr += '<td>';
+				_tr += direction;
+				_tr += '</td>';
+				_tr += '<td>';
+				_tr += displayName;
+				_tr += '</td>';
+				_tr += '<td>';
+				_tr += '<input type="text" name="default" size="20" style="border: 1px solid #CCCCCC;" title="Prev-rs的默认格式为：协议序号/记录集序号/记录序号/字段序号\n序号从0开始\n\nSession的格式为：SESSION[USERID]">';
+				_tr += '</td>';
+				_tr += '<td>';
+				_tr += '<select name="defType"><option value="0">Normal</option><option value="1">Prev-rs</option><option value="2">SESSION</option></select>'
+				_tr += '</td>';
+				_tr += '<td>';
+				_tr += '<input type="button" value="删除" onclick="Del(this)">';
+				_tr += '</td>'
+				_tr += '</tr>';
+
+				$( 'table[name="title"]' ).append( _tr );
+			}
+			
+			return;
+		}
+
+        //添加行数据
+        function AddTable( rowData )
+        {
+            _name = rowData.name;
+            _pType = rowData.type;
+
+            if ( _pType == 'tinyint' )
+            {
+                _size = 1;
+            }
+            else if ( _pType == 'int' )
+            {
+                _size = 4;
+            }
+            else if ( _pType == 'bigint' )
+            {
+                _size = 8;
+            }
+            else if ( _pType == 'varchar' || _pType == 'nvarchar' )
+            {
+                if ( toString( rowData.size ).toLowerCase() == "max" || rowData.size == -1 )
+				{
+					_size = 65536;
+				}
+				else
+				{
+					_size = rowData.size;
+				}
+            }
+            else
+            {
+                _size = rowData.size;
+            }
+            _direction = rowData.direction;
+            if ( rowData.precision == 0 || rowData.precision == null )
+            {
+                _displayName = '';
+                
+            }
+            else
+            {
+                _displayName = rowData.precision;
+            }
+
+			_DoAddParas(_name, _pType, _size, _direction, _displayName);
+
+            $( '.paraDiv' ).hide();
+        }
+
+        //生成Widget的DML
+        function CreateWidgetDml( id, strDml)
+        {
+            var params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"jplist_file","paras":[{"name":"filename","value":"' + id + '"},{"name":"content","value":' + strDml + '}]}]';
+            var cross = false;
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: ( cross ? "jsonp" : "json" ),
+                    jsonp: ( cross ? 'callback' : '' ),
+                    type: 'POST',
+                    data: params,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        alert( '生成Widget DML成功!' );
+                    }
+                } );
+        }
+
+        //生成Dml
+        function CreateDml( id, strDml )
+        {
+            var params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"dml_file","paras":[{"name":"filename","value":"' + id + '"},{"name":"content","value":' + strDml + '}]}]';
+            var cross = false;
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: ( cross ? "jsonp" : "json" ),
+                    jsonp: ( cross ? 'callback' : '' ),
+                    type: 'POST',
+                    data: params,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        alert( '生成DML成功!' );
+                    }
+                } );
+        }
+
+        //删除一行数据
+        function Del( obj )
+        {
+            var row = obj.parentNode.parentNode;
+            var tb = row.parentNode;
+            var rowIndex = row.rowIndex;
+            tb.deleteRow( rowIndex );
+        }
+		//页面显示方式change事件
+		function selectes(that)
+		{
+			var val = $(that).val();
+			$(that).parent().parent().find('td').eq(6).html('');
+			if(val == 'show')
+			{
+				$(that).parent().next().find('textarea').attr('placeholder','format');
+				$(that).parent().next().find('textarea').attr('title','format写法:例  show (show为函数名)');
+				$(that).parent().next().find('textarea').attr('data-original-title','format写法:例  show (show为函数名)');
+			}
+			else if(val == 'template')
+			{
+				$(that).parent().next().find('textarea').attr('placeholder','template');
+				$(that).parent().next().find('textarea').attr('title','template写法：例  <a href=\'PartnerDetils.aspx?no=@no@\'>@keyword@</a> (@@内为字段名)');
+				$(that).parent().next().find('textarea').attr('data-original-title','template写法：例  <a href=\'PartnerDetils.aspx?no=@no@\'>@keyword@</a> (@@内为字段名)');
+			}
+			else if(val == 'calc')
+			{
+				$(that).parent().next().find('textarea').attr('placeholder','execute');
+				$(that).parent().next().find('textarea').attr('title','execute写法:例  show (show为函数名)');
+				$(that).parent().next().find('textarea').attr('data-original-title','execute写法:例  show (show为函数名)');
+			}
+			else if(val == 'attr')
+			{
+				$(that).parent().next().find('textarea').attr('placeholder','format');
+				$(that).parent().next().find('textarea').attr('title','format写法:例  show (show为函数名)');
+				$(that).parent().next().find('textarea').attr('data-original-title','format写法:例  show (show为函数名)');
+				var _htmls = '<textarea name="attrText" placeholder="attr" data-toggle="tooltip" data-placement="top" title="attr写法：例 class (class为要被替换的名)"></textarea>';
+				$(that).parent().parent().find('td').eq(6).append(_htmls);
+				$('textarea[name="attrText"]').tooltip();
+			}
+		}
+    </script>
+    <style type="text/css">
+        ul > li {
+            list-style:none;
+            height:80px;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+            text-align:center;
+        }
+        .table {
+            width:850px;
+        }
+        td, th {
+            padding:0px;
+        }
+        .paraDiv {
+            width:400px;
+            height:300px;
+            position:absolute;
+            -webkit-box-shadow: 2px 2px 10px #909090;
+            background:#addbea;left:500px;top:150px;
+            z-index:100;
+        }
+        .topDiv {
+            margin-left:50px;
+            margin-top:20px;
+        }
+        .paraTwo {
+            margin-left:90px;
+            margin-top:30px;
+        }
+        .s1 {
+            margin-top:20px;
+        }
+        .button {
+        text-align:right;
+        margin-bottom:10px;
+        }
+        .modal-content{
+            width:1224px;
+        }
+        .modal-body table {
+            width:100%;
+        }
+        .modal-lg {
+            width:1200px;
+        }
+		#BtnList .modal-content,#BtnList .modal-dialog{width:1100px;}
+		#BtnList .modal-dialog textarea{height:26px !important;resize:none;width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="topDiv">
+        生成DML
+        <div class="s1">
+			<table border="0" cellspacing="0" cellpadding="0" style="width:660px;">
+			<tr>
+				<td align="right" width="130">cmd:</td>
+				<td align="left"  width="200">
+					<input type="text" value="sqlcmd" name="sCmd" />
+				</td>
+				<td align="right" width="130">version:</td>
+				<td align="left" width="200">
+					<input type="text" name="version" value="1" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">dbtype:</td>
+				<td align="left">
+					<select name="sDtype">
+						<option value="sqlserver"  selected="selected">sqlserver</option>
+						<option value="mysql" >mysql</option>
+					</select>
+				</td>
+				<td align="right">readonly:</td>
+				<td align="left">
+					<select name="read">
+						<option selected="selected" value="">---请选择---</option>
+						<option value="true" >是</option>
+						<option value="false" selected>否</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">dml id:</td>
+				<td align="left">
+					<input  type="text" name="id" value="dml_fy_0002" />
+				</td>
+				<td align="right">vml id:</td>
+				<td align="left">
+					<input type="text" class="txtVml" value="vml_fy_0001"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">command:</td>
+				<td colspan="3" align="left">
+					<textarea rows="7" cols="80" name="sql"  >sp_prv_my_EditAddr</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">命令类型:</td>
+				<td align="left">
+					<select name="sType">
+						<option selected="selected" value="" >---请选择---</option>
+						<option value="StoreProcedure" >存储过程</option>
+						<option value="text" selected>sql语句</option>
+					</select>
+				</td>
+				<td align="right">responseType:</td>
+				<td align="left">
+					<select name="reType">
+						<option selected="selected" value="" >---请选择---</option>
+						<option value="value" >返回值</option>
+						<option value="recordset" selected>数据集</option>
+					</select>
+				</td>
+			</tr>
+			</table>
+        </div>      
+        <div class="s1 table">
+            <div class="button">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">选配参数</button>
+                <input type="button" name="bPara" value="生成参数"/>
+                <input type="button" name="btnAdd" value="添加参数" />
+                <input type="button" class="DelAll" value="删除全部参数" />
+           </div>
+            <table border="1" name="title">
+                <tr>
+                    <td>Name</td>
+                    <td>Type</td>
+                    <td>Size</td>
+                    <td>direction</td>
+                    <td>display</td>
+					<td>default</td>
+					<td>defType</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+            <div class="flash" style="display:none;">
+                <img src="/images/loading.gif" />
+            </div>
+        </div>
+        
+        <div>
+            <input type="button" name="btnBuilder" value="生成DML" />
+            <span style="margin-left:500px">
+                <input type="button" class="btnVML" value="生成VML" />
+            </span>
+        </div>
+    </div>
+
+    <div class="paraDiv">
+        <div class="paraTwo">
+            <div class="s1">
+            名称:&nbsp;&nbsp;<input type="text" name="name" value="Name" />
+        </div>
+            <div class="s1">
+                类型:&nbsp;&nbsp;<select name="paraType">
+                        <option value="" selected="selected">---请选择---</option>
+                        <option  value="int">int</option>
+                        <option value="varchar" >varchar</option>
+                        <option  value="bigint">bigint</option>
+                        <option value="bool" >bool</option>
+                        <option  value="binary">binary</option>
+                        <option value="varbinary" >varbinary</option>
+                        <option  value="char">char</option>
+                        <option value="datetime" >datetime</option>
+                        <option  value="decimal">decimal</option>
+                        <option value="float" >float</option>
+                        <option  value="image">image</option>
+                        <option value="money" >money</option>
+                        <option  value="nchar">nchar</option>
+                        <option value="ntext" >ntext</option>
+                        <option  value="nvarchar">nvarchar</option>
+                        <option value="real" >real</option>
+                        <option  value="smallint">smallint</option>
+                        <option  value="text">text</option>
+                        <option  value="tinyint">tinyint</option>
+                    </select>
+            </div>
+            <div class="s1">
+                大小:&nbsp;&nbsp;<input type="text" name="size" value="200" />
+            </div>
+            <div class="s1">
+                输入/输出:&nbsp;
+                    <select name="io">
+                        <option selected="selected" value="" >---请选择---</option>
+                        <option value="input" >输入</option>
+                        <option value="inputoutput" >输出</option>
+                    </select>
+            </div>
+            <div class="s1">
+                说明:&nbsp;&nbsp;<input type="text" name="description" value="姓名" />
+            </div>
+            <div class="s1">
+                <input type="button" name="btnOk" value="确定"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="btnClose" value="关闭"/>
+            </div>
+        </div>
+        
+    </div>
+
+	<!--选配参数-->
+    <div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">
+                        表名：
+                        <input type="text" name="DistrCode" placeholder="" value="TMS_BasicArea" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" class="btnPara" value="字段列表" />
+                        <span style="margin-left:200px">
+                            <button type="button" class="btn btn-primary btnInsert">Insert语句</button>
+                            <button type="button" class="btn btn-primary btnUpdate">Update语句</button>
+                            <button type="button" class="btn btn-primary btnSelect">Select语句</button>
+                            <button type="button" class="btn btn-primary btnDelete">Delete语句</button>
+                            <button type="button" class="btn btn-primary btnList">生成列表页面</button>
+                        </span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tbody class="tbody">
+                            <tr class="SPara">
+                                <th><input type="checkbox"  />全选</th>
+                                <th>Name</th>
+                                <th>别名</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Bits</th>
+                                <th>Point</th>
+                                <th>DName</th>
+                                <th>Condition</th>
+                                <th>PK</th>
+                                <th>Identity</th>
+                                <th>Default</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="flash1" style="display:none;">
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+					Widget DML ID: <input type="text" name="txtWidgetDMLID" value="grid_jplist_0001">&nbsp;&nbsp;<button type="button" class="btn btn-primary  enterWidget">生成DML</button>&nbsp;&nbsp;
+                    <button type="button" class="btn enter">生成参数</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- 生成列表 Modal -->
+	<div class="modal fade" id="BtnList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">view-id：<input type="text" name="view-id" />
+						页面名称：<input type="text" name="HtmlName"/>
+						<button type="button" class="btn btn-primary btn-Lsit pull-right" style="margin-right:10px;">生成页面</button>
+					</h4>
+					
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-Lsit">生成页面</button>				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

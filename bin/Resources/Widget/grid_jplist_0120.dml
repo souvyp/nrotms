@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0120",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  GoodsType_ID AS [id],GoodsType_Name AS [Name],CONVERT(varchar(100),GoodsType_InsertTime , 111) AS [InsertTime], GoodsType_Invalid AS [Invalid] FROM TMS_MGoodsType",
+    "where": "GoodsType_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND GoodsType_Invalid = 0 "
+  }
+}
+
+
+

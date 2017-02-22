@@ -1,0 +1,23 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0081",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT dbo.fn_pub_user_SupplierName(Index_SupplierID) AS [SupplierName],SUM(dbo.fn_pub_order_TotalAmount(Index_ID,0)) AS [Qty],SUM(1) AS [count] FROM TMS_OrderIndex  AS A LEFT JOIN [TMS_Devices] ON Index_DeviceCode = [Device_ID]  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0) AND YEAR(Index_FromTime)=YEAR(GETDATE())AND Index_SrcClass = 2 AND Index_Status <> 32 AND Index_Status > 1 AND Index_Invalid = 0 AND Index_CustomerCompanyID = 534 GROUP BY Index_SupplierID ; ",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

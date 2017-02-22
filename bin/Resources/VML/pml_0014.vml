@@ -1,0 +1,53 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0014",
+  "version": 1,
+  "dml-id": "pml_0014",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "DocID",
+        "type": "prev_rs",
+        "value": "0/0/0/1"
+      },
+      {
+        "name": "DocType",
+        "type": "normal",
+        "value": 5
+      },
+      {
+        "name": "UnitType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Unit",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Min",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Max",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Price",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

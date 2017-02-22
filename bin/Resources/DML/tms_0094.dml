@@ -1,0 +1,33 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0094",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT TOP (@Amount) * FROM (SELECT 1 AS Event_Category, 1 AS Event_Type, 0 AS Event_Result, Supplier_OwnerCompanyID AS Event_SrcCompanyID, dbo.fn_pub_user_Company2Name(Supplier_OwnerCompanyID) AS Event_SrcCompanyName, Supplier_CompanyID AS Event_DstCompanyID, dbo.fn_pub_user_Company2Name(Supplier_CompanyID) AS Event_DstCompanyName,Supplier_Welcome AS Event_Ext, CONVERT(VARCHAR(10), Supplier_InsertTime,120) AS Event_Time,Supplier_InsertTime AS Event_InsertTime,  0 AS [IsLongDistance],3 AS [SupplierSymbolID] FROM TMS_MSupplier WHERE Supplier_CompanyID = dbo.fn_pub_user_User2CompanyID(@id, 0) AND Supplier_Status = 0 AND Supplier_Invalid = 0 AND Supplier_CompanyID > 0 AND dbo.fn_prv_event_CheckPmis(@id,1)=1 UNION ALL 
+SELECT (CASE WHEN Index_SrcClass = 3 THEN 5 ELSE 2 END) AS Event_Category,(CASE WHEN Index_SrcClass = 3 THEN 12 ELSE 3 END) AS Event_Type, 0 AS Event_Result, Index_CreatorCompanyID AS Event_SrcCompanyID, dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS Event_SrcCompanyName,Index_SupplierCompanyID AS Event_DstCompanyID, dbo.fn_pub_user_Company2Name(Index_SupplierCompanyID) AS Event_DstCompanyName,
+CAST(Index_ID AS VARCHAR) AS Event_Ext, CONVERT(VARCHAR(10), Index_CreateTime,120) AS Event_Time,Index_CreateTime AS Event_InsertTime, (CASE WHEN Index_FromProvince <> Index_ToProvince THEN 1 WHEN Index_FromCity <> Index_ToCity THEN 1 ELSE 0 END) AS [IsLongDistance],Index_SupplierSymbolID AS [SupplierSymbolID] FROM TMS_OrderIndex  WHERE Index_SupplierCompanyID = dbo.fn_pub_user_User2CompanyID(@id, 0) AND ( Index_SrcClass = 2 OR Index_SrcClass = 3 ) AND Index_Status = 1 AND Index_Invalid = 0 AND Index_Combined = 0 AND  dbo.fn_prv_event_CheckPmis(@id,(CASE WHEN Index_SrcClass = 3 THEN 12 ELSE 3 END))=1
+UNION ALL SELECT Event_Category,Event_Type,Event_Result,Event_SrcCompanyID,dbo.fn_pub_user_Company2Name(Event_SrcCompanyID)  AS Event_SrcCompanyName ,Event_DstCompanyID,dbo.fn_pub_user_Company2Name(Event_DstCompanyID) AS Event_DstCompanyName,dbo.fn_pub_order_OrderID2Code(Event_Ext) AS [Event_Ext],Event_Time,Event_InsertTime, 0 AS Doc_Type,(CASE WHEN Index_SupplierSymbolID = 0 THEN 0 WHEN Index_SupplierSymbolID > 0 THEN 1 ELSE 2 END) AS [SupplierSymbolID] FROM TMS_Events INNER JOIN TMS_OrderIndex ON Event_Ext = Index_ID WHERE Event_SrcCompanyID= dbo.fn_pub_user_User2CompanyID(@id, 0)  AND  dbo.fn_prv_event_CheckPmis(@id,Event_Type)=1 AND dbo.fn_prv_event_CheckOrderPrice(Event_Ext,Event_Type) = 1 AND  dbo.fn_prv_event_ModuleMatch(Event_Type,2)=1 AND Event_Type>24) P",
+    "readonly": "false",
+    "type": "text",
+    "paras":
+	[
+	  {
+		"name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+	  },
+	  {
+	    "name" : "Amount",
+		"type" : "bigint",
+		"size" : 8,
+		"direction" : "input",
+		"displayName" : "数量"
+	  }
+	],
+    "responseType": "recordset"
+  }
+}

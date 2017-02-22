@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0050",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  Index_ID AS [id],Index_Code AS [code], Index_PactCode AS [PactCode],  Index_Name AS [name], (CASE WHEN Index_Type = 2 THEN CONVERT(VARCHAR(100),Index_StartTime,111)  ELSE '' END) AS [starttime],(CASE WHEN Index_Type = 2 THEN CONVERT(VARCHAR(100),Index_EndTime,111) ELSE '' END) AS [endtime], Index_Type AS [type], dbo.fn_pub_user_Company2Name(Index_CustomerCompanyID) AS customercompanyname, dbo.fn_pub_price_Status2Name(Index_Status) AS [StatusName], Index_Invalid AS [invalid],Index_orderID AS [OrderID],dbo.fn_pub_order_OrderID2Code(Index_orderID) AS [OrderCode]  FROM Price_DocIndex",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SupplierSymbolID = 0 AND Index_Invalid = 0 AND Index_Status = 4"
+  }
+}
+
+

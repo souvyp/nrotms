@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0058",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT TOP (1000) Event_ID AS ID, Event_Category, Event_Type, Event_Result, Event_SrcCompanyID, dbo.fn_pub_user_Company2Name(Event_SrcCompanyID) AS Event_SrcCompanyName,  Event_Ext, CONVERT(VARCHAR(100),Event_Time,111) AS Event_Time FROM TMS_Events",
+    "where": "Event_DstCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND dbo.fn_prv_event_ModuleMatch(Event_Type, 2) = 1 AND Event_Processed = 1 AND Event_Invalid =0",
+    "sort":"Event_Category DESC"
+  }
+}
+
+

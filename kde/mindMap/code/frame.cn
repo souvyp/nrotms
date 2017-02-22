@@ -1,0 +1,6 @@
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	Response.PutContent('#CODE#',escape(Request.getParameter("code")));
+}

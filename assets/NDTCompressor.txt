@@ -1,0 +1,19 @@
+List:
+css
+NDTCompressor -c E:\snv\OTMS\trunk\assets\ plugins\laydate\need\laydate.css css\style.css
+NDTCompressor -p listCss.1.0.1.css E:\snv\OTMS\trunk\assets\ plugins\bootstrap\css\bootstrap.min.css bootstrap\css\bootstrap-datetimepicker.min.css plugins\jquery.ui\css\jquery-ui.min.css plugins\jpList-master\css\jplist.min.css plugins\laydate\need\laydate.min.css css\style.min.css
+js
+NDTCompressor -c E:\snv\OTMS\trunk\assets\ js\common.js js\template.js plugins\store\store.js js\data-list-1.0.js bootstrap\js\bootstrap-datetimepicker.zh-CN.js plugins\laydate\laydate.js
+NDTCompressor -p listJs.1.0.1.js E:\snv\OTMS\trunk\assets\ js\common.min.js js\template.min.js plugins\store\store.min.js plugins\jquery.ui\js\jquery-ui-min.js plugins\bootstrap\js\bootstrap.min.js plugins\jpList-master\js\jplist.min.js js\data-list-1.0.min.js bootstrap\js\bootstrap-datetimepicker.min.js bootstrap\js\bootstrap-datetimepicker.zh-CN.min.js plugins\laydate\laydate.min.js
+
+Form:
+css
+NDTCompressor -c E:\snv\OTMS\trunk\assets\ plugins\uploadFile\uploadify.css plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.css plugins\plugins.css plugins\timeline\css\styles.css css\style.css kindeditor\themes\default\default.css kindeditor\plugins\code\prettify.css
+NDTCompressor -p formCss.1.0.1.css E:\snv\OTMS\trunk\assets\ bootstrap\css\bootstrap.min.css bootstrap\css\bootstrap-datetimepicker.min.css plugins\jpList-master\css\jplist.min.css plugins\jquery.ui\css\jquery-ui.min.css plugins\bootstrap\css\bootstrap.min.css plugins\bootstrap\css\bootstrap-theme.min.css plugins\bootstrap\css\bootstrap-select.min.css plugins\uploadFile\uploadify.min.css plugins\jstree\dist\themes\default\style.min.css plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.min.css plugins\bootstrap-markdown\css\bootstrap-markdown.min.css plugins\plugins.min.css plugins\timeline\css\styles.min.css css\style.min.css kindeditor\themes\default\default.min.css kindeditor\plugins\code\prettify.min.css
+js
+NDTCompressor -c E:\snv\OTMS\trunk\assets\ js\common.js plugins\uploadFile\jquery.uploadify.js js\template.js plugins\store\store.js plugins\laydate\laydate.js js\droparea.js plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.js plugins\bootstrap-markdown\js\bootstrap-markdown.js kindeditor\kindeditor.js kindeditor\lang\zh_CN.js kindeditor\plugins\code\prettify.js
+NDTCompressor -p formJs.1.0.1.js E:\snv\OTMS\trunk\assets\ js\common.min.js plugins\uploadFile\jquery.uploadify.min.js plugins\bootstrap\js\bootstrap.min.js js\template.min.js plugins\store\store.min.js plugins\bootstrap\js\bootstrap-select.min.js plugins\jstree\dist\jstree.min.js plugins\laydate\laydate.min.js js\droparea.min.js plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.min.js plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.min.js plugins\bootstrap-markdown\js\bootstrap-markdown.min.js kindeditor\kindeditor.min.js kindeditor\lang\zh_CN.min.js kindeditor\plugins\code\prettify.min.js
+
+Selector
+css
+NDTCompressor -p selectorCss.1.0.1.css E:\snv\OTMS\trunk\assets\plugins\ bootstrap\css\bootstrap.min.css jquery.ui\css\jquery-ui.min.css plugins\jpList-master\css\jplist.min.css

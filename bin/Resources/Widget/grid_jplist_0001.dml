@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0001",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  FROM TMS_MCar",
+    "count": "SELECT COUNT() FROM TMS_MCar",
+    "where": ""
+  }
+}

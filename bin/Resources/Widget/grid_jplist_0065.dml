@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0065",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id],Index_Code AS [code], Index_No AS [no], Index_Amount AS [amount],Index_Status AS [status], CONVERT(VARCHAR(10),Index_InsertTime,120) AS [inserttime],dbo.fn_pub_user_SupplierName(Index_SupplierID) AS [suppliername],Index_Description AS [comments] FROM Balance_BillIndex",
+	"where": "Index_Invalid = 0 AND Index_CustomerID = 0 AND dbo.fn_pub_user_User2CompanyID(Index_Author,0) = dbo.fn_pub_user_User2CompanyID(SESSION[USERID],0)"
+  }
+}
+
+
+

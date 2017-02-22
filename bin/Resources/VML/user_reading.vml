@@ -1,0 +1,18 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "user_reading",
+  "version": 1,
+  "dml-id": "user_reading",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0116",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT DISTINCT Index_ID AS [id], Index_Code AS [Code], Index_PactCode AS [PactCode], Index_EndUserID AS [EndUserID], Index_EndUserName AS [EndUserName], Index_From AS [IFrom], Index_To AS [ITo], Index_StatusTime AS [StatusTime], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], dbo.fn_pub_order_TotalCost(Index_ID) AS [TotalCost],dbo.fn_pub_order_TotalVolume(Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalWeight(Index_ID,0) AS [TotalWeight], dbo.fn_pub_order_TotalAmount(Index_ID,0) AS [TotalAmount] , convert(varchar(10),Index_CreateTime,120) AS [createtime], Index_SrcClass AS [SrcClass],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CompanyName], Index_CreatorCompanyID AS [CreatorCompanyID] ,Cache_DocID AS [DocID],dbo.fn_pub_price_DocID2Code(Cache_DocID,1) AS [DocCode]  FROM  Price_OrderCache  LEFT JOIN TMS_OrderIndex ON Cache_OrderID  = Index_ID",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 2 AND Index_Invalid = 0 AND Index_Status < 16 AND dbo.fn_pub_order_TotalCost(Index_ID) > '0'",
+  }
+}

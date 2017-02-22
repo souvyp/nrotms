@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0023",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Addr_ID AS [id],dbo.fn_pub_user_Company2Name(Addr_CompanyID) AS [CompanyName], (CASE WHEN Addr_Type = 1 THEN dbo.fn_pub_user_Customer2Name( dbo.fn_pub_user_EndUser2Customer(Addr_CustomerID) ) WHEN Addr_Type = 2 THEN dbo.fn_pub_user_Customer2Name( Addr_CustomerID ) ELSE N'' END) AS [CustomerName], (CASE WHEN Addr_Type = 1 THEN Addr_CustomerID ELSE 0 END) AS [EndUserID], (CASE WHEN Addr_Type = 1 THEN dbo.fn_pub_user_AddrCompany2Name(Addr_Type, Addr_CustomerID) ELSE N'' END) AS [EndUserName], Addr_Desc AS [Address], Addr_Type AS [Type],Addr_ProvinceID AS [ProvinceID],dbo.fn_pub_order_AreaName(Addr_ProvinceID) AS ProvinceName, Addr_CityID AS [CityID],dbo.fn_pub_order_AreaName(Addr_CityID) AS CityName, Addr_DistrictID AS [DistrictID],dbo.fn_pub_order_AreaName(Addr_DistrictID) AS DistrictName, Addr_Phone AS [Phone], Addr_InsertTime AS [InsertTime],dbo.fn_pub_order_AreaName(Addr_ProvinceID)+' '+dbo.fn_pub_order_AreaName(Addr_CityID)+' '+dbo.fn_pub_order_AreaName(Addr_DistrictID) AS ToName, Addr_Invalid AS [Invalid] FROM TMS_MAddr",
+    "where": "Addr_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0)  AND Addr_Type = 1"
+  }
+}
+
+

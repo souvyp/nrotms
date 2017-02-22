@@ -1,0 +1,53 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "fml_0002",
+  "version": 1,
+  "dml-id": "fml_0002",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "customerid",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "supplierid",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "code",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "no",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "amount",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "status",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0035",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT OI.Index_ID AS [OrderID], OI.Index_Code AS [Code], OI.Index_PactCode AS [PactCode], 
+    dbo.fn_pub_user_SymbolName(OI.Index_SupplierSymbolID) AS [SupplierSymbolName], 
+OI.Index_EndUserID AS [EndUserID], OI.Index_EndUserName AS [EndUserName], OI.Index_From AS [IFrom], 
+OI.Index_To AS [ITo], OI.Index_SupplierID AS [SupplierID], 
+(CASE WHEN OI.Index_SupplierCompanyID IS NULL OR OI.Index_SupplierCompanyID = 0 THEN dbo.fn_pub_user_SupplierName(OI.Index_SupplierID) ELSE dbo.fn_pub_user_Company2Name(OI.Index_SupplierCompanyID) END) AS [SupplierName],  
+dbo.fn_pub_user_Customer2Name(OI.Index_CustomerID) AS [CustomerName], OI.Index_CustomerID AS [CustomerID],
+OI.Index_ShipMode AS [ShipMode],OI.Index_Pick AS [IsPick], (CASE WHEN OI.Index_Pick = '1' THEN '是' ELSE '否' END) AS [PickName],
+OI.Index_Delivery AS [IsDelivery], (CASE WHEN OI.Index_Delivery = '1' THEN '是' ELSE '否' END) AS [DeliveryName],
+OI.Index_CustomerCompanyID AS [CustomerCompanyID], dbo.fn_pub_user_User2Name(OI.Index_Creator) AS [Creator], 
+ convert(varchar(100),OI.Index_CreateTime,111) AS [CreateTime], 
+OI.Index_OnLoad AS [IsOnLoad], (CASE WHEN OI.Index_OnLoad = '1' THEN '是' ELSE '否' END) AS [OnLoadName],
+OI.Index_OffLoad AS [IsOffLoad], (CASE WHEN OI.Index_OnLoad = '1' THEN '是' ELSE '否' END) AS [OffLoadName],
+dbo.fn_pub_order_AreaName(OI.Index_FromProvince) AS [FromProvince],
+OI.Index_FromProvince AS [FromProvince_id],
+dbo.fn_pub_order_AreaName(OI.Index_FromCity) AS [FromCity],
+dbo.fn_pub_order_AreaName(OI.Index_FromCity) AS AreaName,
+OI.Index_FromCity AS [FromCity_id],
+dbo.fn_pub_order_AreaName(OI.Index_FromDistrict) AS [FromDistrict],
+OI.Index_FromDistrict AS [FromDistrict_id],
+convert(varchar(10),Index_FromTime,(120)) AS [FromTime],
+dbo.fn_pub_order_AreaName(OI.Index_ToProvince) AS [ToProvince],
+OI.Index_ToProvince AS [ToProvince_id],
+dbo.fn_pub_order_AreaName(OI.Index_ToCity) AS [ToCity],
+OI.Index_ToCity AS [ToCity_id],
+dbo.fn_pub_order_AreaName(OI.Index_ToDistrict) AS [ToDistrict],
+OI.Index_ToDistrict AS [ToDistrict_id],
+convert(varchar(10),OI.Index_ToTime,
+(120)) AS [ToTime],OI.Index_TransportMode AS [TransportMode],
+OI.Index_GoodsCategory AS [GoodsCategory],OI.Index_PackageMode AS [PackageMode],OI.Index_ChargeMode AS [ChargeMode],
+Index_PriceUnit AS [PriceUnit],
+OI.Index_Insurance AS [IsInsurance], (CASE WHEN OI.Index_Insurance = '1' THEN '是' ELSE '否' END) AS [InsuranceName],
+dbo.fn_pub_order_TotalCost(OI.Index_ID) AS [TotalCost],
+dbo.fn_pub_order_TotalVolume(OI.Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalWeight(OI.Index_ID,0) AS [TotalWeight],
+dbo.fn_pub_order_TotalAmount(OI.Index_ID,0) AS [TotalAmount],
+DI.Index_Description AS [Description],
+DI.Index_ID AS [DocID], DI.Index_Name AS [Name],CASE Index_TransportMode WHEN 1 THEN '零担' ELSE '整车' END AS [TransportModeName],T.LessLoadPrice,T.FullLoadPrice,T.PickPrice,T.DeliveryPrice,T.OnLoadPrice,T.OffLoadPrice,T.InsuranceCost,T.AdditionPrice,T.TaxPrice,T.TotalAmounts  FROM TMS_OrderIndex OI,Price_DocIndex DI, (SELECT 
+SUM(CASE WHEN Detail_Type = 1 THEN Detail_Amount ELSE 0 END) AS 'LessLoadPrice',
+SUM(CASE WHEN Detail_Type = 2 THEN Detail_Amount ELSE 0 END) AS 'FullLoadPrice',
+SUM(CASE WHEN Detail_Type = 3 THEN Detail_Amount ELSE 0 END) AS 'PickPrice',
+SUM(CASE WHEN Detail_Type = 4 THEN Detail_Amount ELSE 0 END) AS 'DeliveryPrice',
+SUM(CASE WHEN Detail_Type = 5 THEN Detail_Amount ELSE 0 END) AS 'OnLoadPrice',
+SUM(CASE WHEN Detail_Type = 6 THEN Detail_Amount ELSE 0 END) AS 'OffLoadPrice',
+SUM(CASE WHEN Detail_Type = 8 THEN Detail_Amount ELSE 0 END) AS 'InsuranceCost',
+SUM(CASE WHEN Detail_Type = 9 THEN Detail_Amount ELSE 0 END) AS 'AdditionPrice',
+SUM(CASE WHEN Detail_Type = 10 THEN Detail_Amount ELSE 0 END) AS 'TaxPrice',
+SUM(Detail_Amount) AS [TotalAmounts]
+ FROM Price_DocDetails a INNER JOIN Price_DocIndex b ON a.Detail_DOCID=b.Index_ID  WHERE Detail_DocID = @id AND Detail_Invalid = 0  AND (Detail_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) OR b.Index_CustomerCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0))) AS T
+ WHERE DI.Index_OrderID = OI.Index_ID AND DI.Index_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

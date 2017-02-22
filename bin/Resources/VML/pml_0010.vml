@@ -1,0 +1,128 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0010",
+  "version": 1,
+  "dml-id": "pml_0010",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "DocID",
+        "type": "prev_rs",
+        "value": "0/0/0/1"
+      },
+      {
+        "name": "DetailID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DocType",
+        "type": "normal",
+        "value": 1
+      },
+      {
+        "name": "FromProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "From",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ToProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "To",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Kms",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "UnitType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Unit",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Min",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Max",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "MinEqual",
+        "type": "normal",
+        "value": 1
+      },
+      {
+        "name": "MaxEqual",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Price",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Invalid",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

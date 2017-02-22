@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>选择货架号</title>
+		<script src="jquery-1.10.1.min.js"></script>
+
+		<body>
+<article class="wrap">
+    <section class="sectionOne">01</section>
+    <section class="sectionTwo">02</section>
+    <section class="sectionThree">03</section>
+</article>
+CSS代码：
+<style>
+.wrap{
+width:600px;
+height:108px;
+border:1px solid red;
+display:-moz-box;
+display:-webkit-box;
+display:box;
+-moz-box-pack:center;
+-webkit-box-pack:center;
+-o-box-pack:center;
+box-pack:center;
+}
+.wrap section{
+width:100px;
+}
+.wrap .sectionOne{
+background:orange;
+}
+.wrap .sectionTwo{
+background:purple;
+}
+.wrap .sectionThree{
+background:green;
+}
+</style>
+			<style>
+				ul {
+					width: 300px;
+					height: 300px;
+					background: #eee;
+				}
+				
+				li {
+					float: left;
+					width: 100px;
+					height: 100px;
+					text-decoration: none;
+					list-style: none;
+					line-height: 100px;
+				}
+				
+				li:hover {
+					background: #fff;
+				}
+			</style>
+			<script type="text/javascript">
+				$(document).on('click', 'li', function() {
+					alert("123");
+
+				});
+			</script>
+
+			<ul>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+				<li>afasdf</li>
+			</ul>
+		</body>
+
+		<!DOCTYPE html>
+		<html>
+
+		<head lang="en">
+			<meta charset="UTF-8">
+
+			<style>
+				.div1 {
+					background: red;
+					width: 100px;
+					height: 100px;
+					position: relative;
+				}
+				
+				.div1:after {
+					position: absolute;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					left: 50%;
+					margin-left: -10px;
+					content: " ";
+					border-top: 10px solid #000000;
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+				}
+				
+				.div1:before {
+					position: absolute;
+					top: -10px;
+					width: 0;
+					height: 0;
+					left: 50%;
+					margin-left: -10px;
+					content: " ";
+					border-bottom: 10px solid #000000;
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+				}
+			</style>
+		</head>
+
+		<body>
+			<div class="div1">
+
+			</div>
+		</body>
+
+		</html>
+
+		<html>
+
+		<head>
+			<meta charset="UTF-8" />
+
+			<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+			<script src="http://code.highcharts.com/highcharts.js"></script>
+		</head>
+
+		
+
+		</html>
+
+		<!DOCTYPE html>
+		<html>
+
+		<head>
+			<script src="jquery-1.10.1.min.js">
+			</script>
+			<script>
+				$(document).ready(function() {
+					//$("#btn1").click(function(){
+					//  $(".test1").text(function(i,origText){
+					//    return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+					//  });
+					//});
+
+					$("#btn1").click(function() {
+						$(".test1").html(function(i, origText) {
+							return "Old text: " + origText + " New text: Hello world! (index: " + i + ")";
+						});
+					});
+				});
+			</script>
+		</head>
+
+		<body>
+			<p class="test1">This is a <b>bold</b> paragraph.</p>
+			<p class="test1">This is another <b>bold</b> paragraph.</p>
+			<button id="btn1">Show Old/New Text</button>
+
+		</body>
+
+		</html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Form栏特全时钟</TITLE>
+</HEAD>
+<body bgcolor="#ffffff" onLoad="startclock()">
+<script language="JavaScript">
+ 
+ var timerID = null
+ var timerRunning = false
+ function MakeArray(size) 
+ {
+ this.length = size;
+ for(var i = 1; i <= size; i++)
+ {
+ this[i] = "";
+ }
+ return this;
+ }
+ function stopclock (){
+ if(timerRunning)
+ clearTimeout(timerID);
+ timerRunning = false
+ }
+ function showtime () {
+ var now = new Date();
+ var year = now.getFullYear();
+ var month = now.getMonth() + 1;
+ var date = now.getDate();
+ var hours = now.getHours();
+ var minutes = now.getMinutes();
+ var seconds = now.getSeconds();
+ var day = now.getDay();
+ Day = new MakeArray(7);
+ Day[0]="星期天";
+ Day[1]="星期一";
+ Day[2]="星期二";
+ Day[3]="星期三";
+ Day[4]="星期四";
+ Day[5]="星期五";
+ Day[6]="星期六";
+ var timeValue = "";
+ timeValue += year + "年";
+ timeValue += ((month < 10) ? "0" : "") + month + "月";
+ timeValue += date + "日 ";
+ timeValue += (Day[day]) + " ";
+ timeValue += ((hours <= 12) ? hours : hours - 12);
+ timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+ timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+ timeValue += (hours < 12) ? "上午" : "下午";
+ document.jsfrm.face.value = timeValue;
+ timerID = setTimeout("showtime()",1000);
+ timerRunning = true
+ }
+ function startclock () {
+ stopclock();
+ showtime()
+ }
+ 
+</script>
+<form name='jsfrm'>
+<input style="border: none;" readonly="" type=text name='face' size=34 value=''>
+</form>
+</BODY>
+</HTML>
+
+
+
+<script>
+var pageSize = "10";//每页行数 
+var currentPage = "1";//当前页 
+var totalPage = "0";//总页数 
+var rowCount = "0";//总条数 
+var params="";//参数 
+var url="activity_list.action";//action 
+$(document).ready(function(){//jquery代码随着document加载完毕而加载 
+//分页查询 
+function queryForPages(){ 
+$.ajax({ 
+url:url, 
+type:'post', 
+dataType:'json', 
+data:"qo.currentPage="+currentPage+"&qo.pageSize="+pageSize+params, 
+success:function callbackFun(data){ 
+//解析json 
+var info = eval("("+data+")"); 
+//清空数据 
+clearDate(); 
+fillTable(info); 
+} 
+}); 
+} 
+//填充数据 
+function fillTable(info){ 
+if(info.length>1){ 
+totalPage = info[info.length-1].totalPage; 
+var tbody_content="";//不初始化字符串"",会默认"undefined" 
+for(var i=0 ; i<info.length-1;i++){ 
+tbody_content +="<tr>" 
++"<td data-title='序号' >"+(i+1+(currentPage-1)*pageSize)+"</td>" 
++"<td data-title='标题'>"+info[i].title.substr(0,20)+"</td>" 
++"<td data-title='地点'>"+info[i].address.substr(0,6)+"</td>" 
++"<td data-title='已报名'>"+info[i].quota_sign+"人</td>" 
++"<td data-title='类别'>"+info[i].type+"</td>" 
++"<td data-title='操作'><a href='<%=request.getContextPath()%>/activity_edit.action?id="+info[i].id+"'>编辑</a></td>" 
++"</tr>" 
+$("#t_body").html(tbody_content); 
+} 
+}else{ 
+$("#t_head").html(""); 
+$("#t_body").html("<div style='height: 200px;width: 700px;padding-top: 100px;' align='center'>"+info.msg+"</div>"); 
+} 
+} 
+
+//清空数据 
+function clearDate(){ 
+$("#t_body").html(""); 
+} 
+
+//搜索活动 
+$("#searchActivity").click(function(){ queryForPages(); }); 
+//首页 
+$("#firstPage").click(function(){ 
+currentPage="1"; 
+queryForPages(); 
+}); 
+//上一页 
+$("#previous").click(function(){ 
+if(currentPage>1){ 
+currentPage-- ; 
+} 
+queryForPages(); 
+}); 
+//下一页 
+$("#next").click(function(){ 
+if(currentPage<totalPage){ 
+currentPage++ ; 
+} 
+queryForPages(); 
+}); 
+//尾页 
+$("#last").click(function(){ 
+currentPage = totalPage; 
+queryForPages(); 
+}); 
+
+}); 
+</script>
+
+<table class="table style-5"> 
+<thead id="t_head"> 
+<tr> 
+<th>序号</th> 
+<th>标题</th> 
+<th>地点</th> 
+<th>已报名</th> 
+<th>类别</th> 
+<th>操作</th> 
+</tr> 
+</thead> 
+<tbody id="t_body"> 
+<!-- ajax填充列表 --> 
+</tbody> 
+</table> 
+<button id="firstPage">首页</button> 
+<button id="previous">上一页</button> 
+<button id="next">下一页</button> 
+<button id="last">尾页</button>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<style>
+
+</style>
+ 
+<script>
+$(function(){
+	$(".checkedAll").click(function(){
+		if(this.checked){
+			$("[name=items]:checkbox").prop("checked",true);
+		}else{
+			$("[name=items]:checkbox").prop("checked",false);
+		};
+	});
+});
+</script>
+</head>
+<body>
+	<form>
+		你爱好的运动是？
+		<input type="checkbox" class="checkedAll" />全选/全不选<br/>
+		<input type="checkbox" name="items" value="1" />足球
+		<input type="checkbox" name="items" value="2" />篮球
+		<input type="checkbox" name="items" value="3" />羽毛球
+		<input type="checkbox" name="items" value="4" />乒乓球<br/>
+		<input id="send" type="button" value="提交" /><br/>
+	</form>
+</body>
+</html>
+
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title></title>  
+    </head>  
+    <body>  
+        <!--触发事件 -->  
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">  
+          Launch demo modal  
+        </button>  
+          
+        <!-- 模态窗口 -->  
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">  
+          <div class="modal-dialog" role="document">  
+            <div class="modal-content">  
+              <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>  
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>  
+              </div>  
+              <div class="modal-body">  
+                ...  
+              </div>  
+              <div class="modal-footer">  
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                <button type="button" class="btn btn-primary">Save changes</button>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+        <script src="jquery-1.10.1.min.js" type="text/javascript"></script>  
+        <!--用户拖动元素需引入的js-->  
+        <script src="jquery-ui.min.js" type="text/javascript"></script>  
+  
+ 
+        <script>  
+            $(document).ready(function(){  
+                //为模态对话框添加拖拽  
+                //$(".modal-dialog").draggable();  
+                //为模态对话框添加拖拽，拖拽区域只在顶部栏  
+                $(".modal").draggable({  
+                    handle: ".modal"       
+                });  
+          
+            })  
+        </script>  
+    </body>  
+</html>  
+
+<style>
+  p:after{content:''}
+</style>
+<p>正文内容</p>
+<script>
+function as(){
+		  	s=document.createElement('style');
+		  	s.innerText='active:after{width:37%}';
+		  	document.body.appendChild(s); 
+};
+
+as();
+
+document.onclick=function(){
+  css('p:after{color:red}');
+};
+
+
+</script>

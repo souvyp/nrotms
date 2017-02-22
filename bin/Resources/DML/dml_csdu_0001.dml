@@ -1,0 +1,14 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "dml_csdu_0001",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Id, code, date1, byname, dept, payname, department, prjcode, prjname, paytype, bank, bankno, content, memo, sumMoney-1, sumMoney, ncode, nname, prjid, company, PrjHeadname, opt_user, company_id, nid_id, nid, prjid_id AS [id], payname_id AS [id], bank_id AS [id], department_id AS [id], fzr, principal, orga, posi, attFiles FROM ntxuagqd;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [],
+    "responseType": "recordset"
+  }
+}

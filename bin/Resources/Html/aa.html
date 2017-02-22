@@ -1,0 +1,175 @@
+﻿<!doctype html>
+<html>
+<head>     
+<title>数据编辑</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="http://otms.zld.com.cn/assets/js/jquery-1.11.1.min.js"></script><link rel="stylesheet" href="http://otms.zld.com.cn/assets/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/fileinput.css" /><script type="text/javascript" src="http://otms.zld.com.cn/assets/plugins/bootstrap/js/bootstrap.min.js"></script><script src="http://otms.zld.com.cn/assets/NSF/js/NSF.0.0.3.min.js"></script>
+<script src="http://otms.zld.com.cn/assets/js/droparea.js"></script>
+<script src="http://otms.zld.com.cn/assets/js/form-image-1.0.js"></script>
+<script src="js/fileinput.js"></script>
+<body>
+
+<!-- 通用对话框开始-->
+<div class="modal fade text-center" id="win-Common-Dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style=" display:none;">
+   <div class="modal-dialog modal-lg" style="display: inline-block; width: auto;">
+       <div class="modal-content">
+           <div class="modal-body">
+               <div>
+                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" title="关闭"><span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>
+                   <button type="button" class="btn btn-default pull-right okButton" style="margin-right:10px;" aria-label="OK" title="确定"><span aria-hidden="true" class="glyphicon glyphicon-ok-circle"></span></button>
+               </div>
+               <div class="content">
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- 通用对话框结尾 -->
+
+<div class="formcontainer container" style="">
+	<!-- 表单开始-->
+	<table class="FormTable text-center" style="width:100%;" id="bb94d66b-8068-45d0-bbc2-94322e59ecf1" >
+    <colgroup>
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+      <col style="width:16.5%">
+    </colgroup>
+    <tr>
+      <td colspan="6">
+        <input type="hidden" name="id" />
+        <!--工具栏开始-->
+        <div class="toolbar">
+          <div style="text-align:right;" class="button_workflow">
+            <a class="btn btn-red" href="javascript:void(0);" onClick="save()">保存</a>
+            <a class="btn btn-red" href="javascript:void(0);" onclick="printURLTable($('#bb94d66b-8068-45d0-bbc2-94322e59ecf1'))">打印</a>
+            <a class="btn btn-red" href="javascript:void(0);" onclick="closeForm(this)">关闭</a>
+          </div>
+          <div class="clear"></div>
+          <div class="content_workflow"></div>
+        </div>
+        <!--工具栏结尾-->
+        </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name">aa</td>
+      <td><input type="file"  class="edit form-control droparea spot" name="ID" data-post="http://otms.zld.com.cn/ImageUploader.aspx?filename=ID&mode=dr" data-width="190" data-height="60" data-crop="true" data-file="" />      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Code" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Code}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Name" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Name}}" />
+      </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name"></td>
+      <td>
+        <input name="ParentID" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{ParentID}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="NodeType" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{NodeType}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="CreatorID" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{CreatorID}}" />
+      </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name"></td>
+      <td>
+        <input name="InsertTime" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{InsertTime}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Updater" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Updater}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="UpdateTime" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{UpdateTime}}" />
+      </td>
+    </tr>
+    <tr style="height:60px;">
+      <td class="td_name"></td>
+      <td>
+        <input name="Invalid" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Invalid}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input name="Invalid" type="text" placeholder="" class="edit form-control transparent" verify="" value="{{Invalid}}" />
+      </td>
+      <td class="td_name"></td>
+      <td>
+        <input  name="photo1" class="edit form-control transparent" type="file"  >
+      </td>
+    </tr>
+  </table>
+  <!-- 表单结尾 -->
+</div>
+<script type="text/javascript">
+  $('.droparea').droparea({
+      'instructions': '拖动文件到此处<br />或点击此处',
+      'over': '将文件放在此处',
+      'nosupport': 'No support for the File API in this web browser',
+      'noimage': '不支持的文件类型!',
+      'uploaded': '上传完成',
+      'maxsize': '10', //Mb
+      'init': function(result) {
+          //console.log('custom init',result);
+      },
+      'start': function (area) {
+        area.find('.error').remove();
+      },
+      'error': function(result, input, area) {
+        $('<div class="error">').html(result.error).prependTo(area);
+        return 0;
+        //console.log('custom error',result.error);
+      },
+      'complete': function ( result, file, input, area )
+      {
+         
+          _droparea = input;
+        if ((/image/i).test(file.type)) {
+          initImages(area,result.path + result.filename);
+        }
+        else
+          alert('不支持的文件类型!');
+          //console.log('custom complete',result);
+      }
+    });
+
+  var _imgName = 'photo1';
+  $('input[name="'+ _imgName +'"]').fileinput({
+        language: 'ch', //设置语言
+        uploadUrl: "http://otms.zld.com.cn/ImageUploader.aspx", //上传的地址
+        allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+        showUpload: false, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn", //按钮样式             
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+    });
+
+
+
+ //$('.fileinput-remove').hide();
+  //$('.kv-fileinput-caption').hide();
+  //$('div.btn-file').removeClass('btn-primary');
+</script>
+</body>
+<style type="text/css">
+tr td{
+  border: 1px solid black;
+}
+
+
+</style>
+</html>

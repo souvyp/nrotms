@@ -1,0 +1,36 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0062",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_my_AddSupplier",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CompanyCode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "InviteDesc",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

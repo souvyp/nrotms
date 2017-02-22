@@ -1,0 +1,37 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "test_areadel_0002",
+  "version": 1,
+  "dml-id": "test_areadel_0002",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Code",
+        "value": ""
+      },
+      {
+        "name": "Level",
+        "value": 0
+      },
+      {
+        "name": "Name",
+        "value": ""
+      },
+      {
+        "name": "ParentID",
+        "value": 0
+      },
+      {
+        "name": "NodeType",
+        "value": 0
+      },
+      {
+        "name": "CreatorID",
+        "value": 0
+      }
+    ]
+  }
+}

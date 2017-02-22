@@ -1,0 +1,16 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	var user=Response.Session["user"];
+	var userpath=Conf.Root+'users\\'+user;
+	var path=userpath+'\\'+code;
+	Response.PutContent('#USER#',user);
+	Response.PutContent('#ANAME#',unescape(Response.Session["appname"]));
+	Response.PutContent('#UNAME#',Response.Session["name"]);
+	Response.PutContent('#CODE#',code);
+	Response.PutContent('#UCODE#','users/'+user);
+}

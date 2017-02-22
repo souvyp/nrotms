@@ -1,0 +1,41 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0008",
+  "version": 1,
+  "dml-id": "tms_0008",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "code",
+        "value": ""
+      },
+      {
+        "name": "pactcode",
+        "value": ""
+      },
+      {
+        "name": "clientid",
+        "value": 0
+      },
+      {
+        "name": "clientname",
+        "value": ""
+      },
+      {
+        "name": "cname",
+        "value": ""
+      },
+      {
+        "name": "sadd",
+        "value": ""
+      },
+      {
+        "name": "eadd",
+        "value": ""
+      }
+    ]
+  }
+}

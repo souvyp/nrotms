@@ -1,0 +1,530 @@
+@charset "UTF-8";
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: "微软雅黑";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: couriernew, courier, monospace;
+}
+
+small {
+	font-size: 12px;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+a {
+	font-family: "微软雅黑";
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none !important;
+}
+
+sup {
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+legend {
+	color: #000;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html,
+body {
+	margin: 0;
+	font-family: "微软雅黑";
+ /**/
+	color: #666;
+	height: 1080px;
+}
+ 
+
+ul li {
+	list-style: none;
+}
+
+.font-w {
+	font-weight: bold;
+	font-family: "微软雅黑";
+	width: 120px;
+	float: left;
+	display: block;
+	font-size: 1.2em;
+}
+
+.span35 {
+	padding: 10px 10px;
+	display: block;
+}
+
+.marginTB20 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.marginLR20 {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.padT10 {
+	padding-top: 10px;
+}
+
+.padT30 {
+	padding-top: 30px;
+}
+
+.padLR10,
+ul li.padLR10 {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.padTB10 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.padT20 {
+	padding-top: 20px;
+}
+
+.size18 {
+	font-size: 18px;
+}
+
+.tableTitle {
+	background-color: rgba(255, 255, 255, 0.15);
+	padding: 0px 15px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+/*2016-07-27  禅道错误代码 1726*/
+
+.tableCont {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0px 15px;
+}
+
+.tableTitle li,
+.tableCont li {
+	padding: 10px;
+	text-align: left;
+}
+
+.tableTitle li:nth-child(1),
+.tableCont li:nth-child(1) {
+	width: 7%;
+	text-indent: 10px;
+}
+
+.tableTitle li:nth-child(2),
+.tableCont li:nth-child(2) {
+	width: 29%;
+}
+
+.tableTitle li:nth-child(3),
+.tableCont li:nth-child(3) {
+	width: 16%;
+}
+
+.tableTitle li:nth-child(4),
+.tableCont li:nth-child(4) {
+	width: 16%;
+}
+
+.tableTitle li:nth-child(5),
+.tableCont li:nth-child(5) {
+	width: 16%;
+}
+
+.tableTitle li:nth-child(6),
+.tableCont li:nth-child(6) {
+	width: 16%;
+}
+
+.tableCont li:nth-child(1) {
+	color: #01FFFF;
+}
+
+.tableCont li:nth-child(2) {
+	color: #FFFD0A;
+}
+
+.tableCont li {
+	border-bottom: 1px solid #E1E1E1;
+	color: #FAFAFA;
+}
+
+.tableTitle li,
+.tableCont li {
+	float: left;
+ 
+}
+
+.backWhite {
+	background: #010d6f;
+}
+
+
+/*                   总表                                  */
+
+.tableTitle_a {
+	padding: 0px 10px;
+	color: #FFFFFF;
+	border-bottom: solid 1px #106667;
+	margin-bottom: 0px;
+	font-size: 18px;
+}
+
+
+/*2016-07-27  禅道错误代码 1726*/
+
+.tableCont_a {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0px 10px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid #7B7B7B;
+}
+
+.tableTitle_a li {
+	padding: 10px;
+	text-align: left;
+}
+
+.tableCont_a li {
+	padding: 4px;
+	font-size: 12px;
+	color: #FAFAFA;
+}
+
+.tableTitle_a li:nth-child(1),
+.tableCont_a li:nth-child(1) {
+	width: 40%;
+
+}
+
+.tableTitle_a li:nth-child(2),
+.tableCont_a li:nth-child(2) {
+	width: 20%;
+}
+
+.tableTitle_a li:nth-child(3),
+.tableCont_a li:nth-child(3) {
+	width: 20%;
+}
+
+.tableTitle_a li:nth-child(4),
+.tableCont_a li:nth-child(4) {
+	width: 20%;
+}
+
+.tableCont_a li:nth-child(1) {
+	color: #FFFF00;
+}
+
+.tableTitle_a li,
+.tableCont_a li {
+	float: left;
+	text-align: left;
+}
+
+body {
+	background-image: url(../img/bg001.jpg) !important;
+	background-size:3840px 2160px;
+	background-repeat: no-repeat;
+}
+
+
+/*上墙*/
+
+.show_title {
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	 
+}
+
+.show_title font {
+	color: floralwhite;
+	font-weight: bold;
+}
+.show_title_left {
+	width: 30%;
+	height: 80px;
+	padding-left: 10px;
+	float: left;
+}
+.show_title_left2 {
+	color: white;
+	width: 33%;
+	height: 80px;
+	padding-left: 10px;
+	float: left;
+	font-size: 34px;
+}
+
+.show_title_right {
+	width: 30%;
+	height: 80px;
+	padding-left: 10px;
+	float: right;
+}
+
+.show_title_right_f {
+	height: 80px;
+}
+
+.show_title_right input {
+	background: none;
+	color: white; 
+	font-size: 1.2em;
+	border: none;
+	padding-top: 40px;
+	line-height: 30px;
+}
+
+.show_content {
+	 
+}
+
+.show_footer {
+	background: black !important;
+	height: 50px;
+	line-height: 50px;
+	color: #FF0509;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.show_footer_left {
+	float: left;
+	padding-left: 30px;
+}
+
+.show_footer_right {
+	float: right;
+	padding-right: 30px;
+}
+
+
+/*//////////////show_all_content*********************************/
+
+.show_a_content {
+	width: 99%;
+
+	margin: 0 auto;
+}
+
+.show_a_content h3 {
+	text-align: center;
+	color: #00FFFF;
+	font-family: "微软雅黑";
+}
+
+.show_c {
+	border: solid 1px #106667;
+}
+
+.show_a_today {
+	float: left;
+	width: 33%;
+	height: 100%;
+	margin-right: 0.5%;
+}
+
+.show_a_month {
+	float: left;
+	width: 33%;
+	height: 100%;
+	margin-right: 0.5%;
+}
+
+.show_a_year {
+	float: left;
+	width: 33%;
+	height: 100%;
+}
+
+.bd {
+	padding: 0px;
+}
+/*//奇数行 */
+.bd ul>li:nth-of-type(odd) {
+    background: #0682b6;
+    color: #fff;
+	 text-shadow:none;
+	 height: 30px !important;
+} 
+/*//偶数行  */
+.bd ul>li:nth-of-type(even){ 
+	background:#99ffff;
+	color: #316c98;
+	height: 30px !important;
+}
+
+
+.tableCont_a_li div {
+	width: 100%;
+	line-height: 30px;
+	padding: 0px 18px;
+	 
+	font-weight: bold;
+}
+
+.picList li {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 4px 10px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid #7B7B7B;
+}
+
+.bd .S_CName {
+	width: 40%;
+	text-align: left;
+	float: left;
+	 
+}
+
+.bd .TotalAmount {
+	width: 20%;
+	float: left;
+	 
+}
+
+.bd .TotalWeight {
+	width: 20%;
+	float: left;
+	 
+}
+
+.bd .TotalVolume {
+	width: 20%;
+	float: left;
+ 
+}
+
+.S_Cid {
+	width: 7%;
+	text-indent: 10px;
+	color: #01FFFF;
+	float: left;
+	font-size: 16px;
+	border-bottom: 1px solid #7B7B7B;
+	padding: 10px 20px;
+}
+
+.S_Cn {
+	width: 29%;
+	color: #FFFD0A;
+	float: left;
+	font-size: 16px;
+	border-bottom: 1px solid #7B7B7B;
+	padding: 10px 20px;
+}
+
+.S_C_else1 {
+	width: 16%;
+	float: left;
+	color: #FAFAFA;
+	 
+	font-size: 16px;
+	border-bottom: 1px solid #7B7B7B;
+	padding: 10px 16px;
+}
+
+.S_C_else {
+	width: 16%;
+	float: left;
+	color: #FAFAFA;
+	 
+	font-size: 16px;
+	border-bottom: 1px solid #7B7B7B;
+	padding: 10px 10px;
+}

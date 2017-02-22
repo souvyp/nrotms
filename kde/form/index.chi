@@ -1,0 +1,924 @@
+﻿<%@ CodeFile="code/frame.cn"%>
+<!DOCTYPE HTML>
+<html lang="zh-cmn-Hans">
+<head>
+    <title>表单设计器 | 中国程序员大联盟</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+
+    <link rel="stylesheet" href="./jquery-ui/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="res/jquery-easyui-1.4.2/themes/bootstrap/easyui.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="res/jquery-easyui-1.4.2/themes/icon.css">
+    <link rel="stylesheet" href="./jquery-ui/evol.colorpicker.css" type="text/css" />
+    <!--link rel="stylesheet" href="css/common.css" type="text/css" />
+	 <link rel="stylesheet" href="./css/smartMenu.css" type="text/css" /-->
+    <link rel="stylesheet" href="./css/style.css" type="text/css" /> 
+	
+    <script type="text/javascript" src="./js/resource.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+    <script src="./js/jquery-smartMenu.js"></script>
+    <script type="text/javascript" src="./js/jquery.sheet.js"></script>
+
+    <script type="text/javascript" src="./jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./jquery-ui/evol.colorpicker.js"></script>
+	
+	<script type="text/javascript" src="res/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="res/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css">
+	<script type="text/javascript" src="uploadify/jquery.uploadify.js"> </script>
+
+    <script type="text/javascript" src="./js/common.js"></script>
+	<script>var fb_File='#CODE#';fb_File=unescape(fb_File);</script>
+    <script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="/assets/js/verify-1.0.js"></script>
+	<script type="text/javascript" src="/assets/js/table-form-1.0.1.js"></script>
+	<script type="text/javascript" src="./js/action.js"></script>
+	<script type="text/javascript" src="./js/md5.js"></script>
+	<script type="text/javascript" src="./js/icons.js"></script>
+	<script type="text/javascript" src="./js/action1.js"></script>
+	<script type="text/javascript" src="./js/action2.js"></script>
+
+	<script type="text/javascript" src="../../assets/NSF/js/NSF.js"></script>
+	<script type="text/javascript" src="../../assets/NSF/js/NSF.System.js"></script>
+	<script type="text/javascript" src="../../assets/NSF/js/NSF.System.Network.js"></script>
+	<script type="text/javascript" src="../../assets/NSF/js/NSF.System.Data.js"></script>
+	<script>
+		$(function(){
+			setTimeout('openSheet();',500);
+			$('.colorPicker ').parent('div').css('width',20 + 'px');
+			$('.color-bj').css('height',22 + 'px');
+		})
+	</script>
+	<style>
+		.fc-color .layout-panel
+		{
+			position: initial;
+		}
+		.evo-pop
+		{
+			width:auto;
+		}
+	</style>
+</head>
+<body class="easyui-layout fc-color"  developer="#USER#" acode="#ACODE#">
+	<div class="easyui-panel Menus" data-options="region:'north',border:false" style="overflow:hidden;height:95px">	
+		<div  id="Menus">
+			<div class="navbar-brand"><img src="res/icons/logo.png"/>表单设计器<span class="label label-default">Ver 0.1</span></div>
+			<a href="#" class="easyui-menubutton" data-options="menu:'#mm0',iconCls:'icon-home'">文件 </a>
+			<a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-preview'">预览 </a>
+			<a id="btn-edit" href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-options'">操作 </a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="float:right;" onclick="UserLogout()">退出</a>
+			<div id="user" style="float:right;color:#fff;font-size:12px;padding:5px 5px;">#UNAME#</div>
+		</div>
+		<div id="mm0" class="menus">		
+			<div data-options="iconCls:'icon-save'" onclick="saveSheet(this); return false;">保存</div>
+			<div data-options="iconCls:'icon-import'" onclick="importSheet(this); return false;">导入</div>
+			<div data-options="iconCls:'icon-export'" onclick="exportSheet(this); return false;">导出</div>
+		</div>
+		<div id="mm1" data-options="onClick:editOpertaion">		
+			<div data-options="iconCls:'icon-add'" onclick="addOpertaion()">新增操作</div>
+			<div class="menu-sep"></div>
+		</div>
+		<div id="mm2" class="menus">		
+			<div data-options="iconCls:'icon-data'" onclick="previewTable(this); return false;">预览数据</div>
+			<div data-options="iconCls:'icon-print'" onclick="previewForm(this); return false;" tag=1>预览表单</div>
+			<div>
+				<span>生成列表</span>
+				<div style="width:150px;">
+					<div data-options="iconCls:'icon-data'" onclick="createList(this); return false;" tag=1>流程(包含文件)</div>
+					<div data-options="iconCls:'icon-data'" onclick="createList(this); return false;" tag=2>数据(包含文件)</div>
+					<div data-options="iconCls:'icon-data'" onclick="createList(this); return false;" tag=3>列表(不包含文件)</div>
+				</div>
+			</div>
+			<div>
+				<span>数据表单</span>
+				<div style="width:150px;">
+					<div data-options="iconCls:'icon-data'" onclick="createEditForm(this); return false;" tag=1>生成流程表单</div>
+					<div data-options="iconCls:'icon-data'" onclick="createEditForm(this); return false;" tag=4>生成表单</div>
+					<div data-options="iconCls:'icon-data'" onclick="createEditForm(this); return false;" tag=3>生成打印单</div>
+				</div>
+			</div>
+			<div data-options="iconCls:'icon-data'" onclick="createOptions(this); return false;" tag=4>生成数据管理</div>
+			<div data-options="iconCls:'icon-compiler'" onclick="createEditForm(this); return false;"  tag=2>生成数据库结构</div>
+		</div>
+		<div class="easyui-panel" style="padding:5px;background-color: #f7f7f7;" data-options="{fit:true}">
+			<ul class="iconsli">
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cut'" onclick="this.jS.evt.doc.cut(); return false;"  title="剪切"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-copy'" onclick="this.jS.evt.doc.copy(); return false;" title="复制"></a></li>
+				<li>
+					<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-paste'" onclick="this.jS.pasteOverCells(); return false;" title="粘贴"></a>
+				</li>
+				<li>
+					<a href="javascript:;" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:'icon-clear',plain:true" onclick="this.jS.newSheet(); return false;">清除</a>			
+				</li>
+				<li>
+					<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="this.jS.undo.manager.undo(); return false;">撤销</a>			
+				</li>
+				<li>
+					<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-redo',plain:true" onclick="this.jS.undo.manager.redo(); return false;">重做</a>
+				</li>
+				<li>
+					<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-selectAll'" onclick="this.jS.cellSetActiveBar('left',1, this.jS.sheetSize().rows);return false;" title="选择所有"></a>
+				</li>						
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-HyperLink'" onclick="link(this.jS);return false;"title="超链接"></a></li>	
+				<li title="字体">
+					<select class="easyui-combobox" data-options="formatter:FontFamily,panelHeight:'auto'" style="width: 100px;" showt="font-family">
+                        <option value="微软雅黑">微软雅黑</option>
+                        <option value="宋体">宋体 </option>
+                        <option value="黑体">黑体</option>
+                        <option value="楷体">楷体</option>
+                        <option value="新宋体">新宋体</option>
+                        <option value="仿宋">仿宋</option>
+                        <option value="隶书">隶书</option>
+                        <option value="幼圆">幼圆</option>
+                        <option value="华文细黑">华文细黑</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Georgia">Georgia</option>
+                    </select>&nbsp;			
+				</li>								
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-blod'" set="styleBold" onclick="this.jS.cellStyleToggle('styleBold'); sign('styleBold');" title="加粗"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-italic'" set="styleItalics" onclick="this.jS.cellStyleToggle('styleItalics'); sign('styleItalics');"title="倾斜"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-underline'" set="styleUnderline" onclick="this.jS.cellStyleToggle('styleUnderline','styleLineThrough'); sign('styleUnderline', 'styleLineThrough');" title="下划线"></a>&nbsp;</li>
+				<li title="字号">
+					<select class="easyui-combobox" data-options="formatter: fontSize,panelHeight:'auto'" showt="font-size" style="width: 110px;">
+                        <option value="12px">12px</option>
+                        <option value="13px">13px</option>
+                        <option value="14px">14px</option>
+                        <option value="15px">15px</option>
+                        <option value="16px">16px</option>
+                        <option value="17px">17px</option>
+                        <option value="18px">18px</option>
+						<option value="22px">22px</option>
+                        <option value="24px">24px</option>
+                        <option value="26px">26px</option>
+                        <option value="28px">28px</option>
+                        <option value="30px">30px</option>
+                    </select>&nbsp;
+				</li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-strickThrough'" set="styleLineThrough" onclick="this.jS.cellStyleToggle('styleLineThrough','styleUnderline'); sign('styleLineThrough', 'styleUnderline');" title="删除线"></a></li>
+				<li class="color-bj ui-state-default ui-corner-all" title="文字颜色" font-title="Font Color" style="height: 24px;">
+                    <span class="ui-icon ui-icon-pause"></span>
+					<div style="position:relative;">
+						<div class="arrow" style="right:-15px"></div>
+						<div class="color" style=""></div>
+					</div>
+                    <input class="cpButton" />							
+                </li>
+				<li class="color-bj ui-state-default ui-corner-all" title="背景颜色" font-title="Background Color" style="height: 24px;">
+                    <span class="ui-icon ui-icon-seek-next"></span>
+					<div style="position:relative;">
+						<div class="arrow" style="right:-15px"></div>
+						<div class="color" style=""></div>
+					</div>
+                    <input class="cpButton" />							
+                </li>
+				<li>
+					<select class="easyui-combobox" data-options="panelHeight:'auto'" showt="Format" style="width: 130px;">
+                        <option value="percent">Percent</option>
+                        <option value="number">Number</option>
+						<option value="currency">Currency</option>
+                        <option value="date">Date</option>
+                        <option value="time">Time</option>
+                        <option value="null">Remove Format</option>
+                    </select>
+				</li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-FontSize'" onclick="this.jS.fontReSize('up'); return false;" title="增大字体"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-FontSizes'" onclick="this.jS.fontReSize('down'); return false;" title="缩小字体"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-Upper'" onclick="this.jS.cellStyleToggle('styleUpper', 'styleCapital styleLower'); sign('styleUpper', 'styleCapital styleLower');" set='styleUpper' title="更改为大写"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-lower '" onclick="this.jS.cellStyleToggle('styleLower', 'styleCapital styleUpper'); sign('styleLower', 'styleCapital styleUpper');" set='styleLower' title="更改为小写"></a></li>
+				
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-left'" onclick="this.jS.cellStyleToggle('styleLeft', 'styleCenter styleRight'); sign('styleLeft', 'styleCenter styleRight');"set='styleLeft' title="文本左对齐"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-center'" onclick="this.jS.cellStyleToggle('styleCenter', 'styleLeft styleRight'); sign('styleCenter', 'styleLeft styleRight');" set='styleCenter' title="文本居中对齐"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-right'" onclick="this.jS.cellStyleToggle('styleRight', 'styleLeft styleCenter');sign('styleRight', 'styleLeft styleCenter');"set='styleRight' title="文本右对齐"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-top '" onclick="this.jS.cellChangeStyle('vertical-align','top');signcss('vertical-align','top');" vertical-align="top" title="Top"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icons icon-middle '" onclick="this.jS.cellChangeStyle('vertical-align','middle'); signcss('vertical-align','middle');" vertical-align="middle" title="Middle"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-bottom '" onclick="this.jS.cellChangeStyle('vertical-align','bottom'); signcss('vertical-align','bottom');" vertical-align="bottom" title="Bottom"></a></li>
+				
+				<li class="color-bj ui-state-default ui-corner-all" title="边框颜色" font-title="border color" style="height: 24px;">
+                    <span class="ui-icon ui-icon-battery-3"></span>
+					<div style="position:relative;">
+						<div class="arrow" style="right:-15px"></div>
+						<div class="color" style=""></div>
+					</div>
+                    <input class="cpButton" />							
+                </li>
+				
+				<li title="边框线宽度">
+					<select class="easyui-combobox" data-options="formatter: formatItem,panelHeight:'auto'" showT="border-Width" style="width:80px;">
+                        <option value="1px">1px</option>
+                        <option value="2px">2px</option>
+                        <option value="3px">3px</option>
+                        <option value="4px">4px</option>
+                        <option value="5px">5px</option>
+                        <option value="6px">6px</option>
+                        <option value="7px">7px</option>
+                        <option value="8px">8px</option>
+                        <option value="9px">9px</option>
+                        <option value="10px">10px</option>
+                        <option value="11px">11px</option>
+                    </select>
+				</li>				
+				<li title="边框线样式">
+					
+					<select style="width:80px;" class="easyui-combobox" showT="border-Style" data-options="formatter: forborder,panelHeight:'auto'">
+                        <option value="solid">solid</option>
+                        <option value="dashed">dashed</option>
+                        <option value="double">double</option>
+                    </select>
+					
+				</li>
+				<li title="边框线">
+					<select class="easyui-combobox" data-options="panelHeight:'auto'" showT="border-Type" style="width:100px;">
+                        <option value="border-style:dashed" ><img src="images/fourborder.png"/>全边框</option>
+                        <option value="border-top-style:dashed"><img src="images/topborder.png"/>上边框</option>
+                        <option value="border-right-style:dashed"><img src="images/fourborder.png"/>右边框</option>
+                        <option value="border-left-style:dashed"><img src="images/fourborder.png"/>左边框</option>
+                        <option value="border-bottom-style:dashed"><img src="images/fourborder.png"/>底部边框</option>
+                    </select>
+				</li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-Insert '" onclick="this.jS.controlFactory.addRow(jS.rowLast, true); return false;" title="上面新增加一行"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-InsertCl '" onclick="this.jS.controlFactory.addColumn(jS.colLast, true); return false;" title="左边新增加一列"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-Insertroaf '" onclick="this.jS.controlFactory.addRow(jS.rowLast, false); return false;" title="最下列新增一行"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-Insertclaf '" onclick="this.jS.controlFactory.addColumn(jS.colLast, false); return false;" title="最右侧新增一列"></a></li>
+				
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-delR '" onclick="this.jS.deleteRow(); return false;" title="删除选中行"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-delco '" onclick="this.jS.deleteColumn(); return false;" title="删除选中列"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-Merge '" onclick="merge(this.jS); return false;" title="Merge Cells"></a></li>
+				<li><a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icons icon-UnMerge '" onclick="this.jS.unmerge(); return false;" title="Un-Merge Cells"></a></li>
+
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+
+	<div data-options="region:'center',fit:true">	
+		 <div id="sheetParent"></div>		
+	</div>
+	
+<!--dialog begin--->
+	<div id="settingrowsTRattrdialog" class="easyui-dialog" title="行属性" data-options="closed:true,modal:true">
+		<form>
+        <table>
+            <tr>
+                <td>
+                    <label resource="rowid">rowid:</label></td>
+                <td>
+                    <input type="text" name='rowid' value="" /></td>
+            </tr>
+			<tr>
+                <td>
+                    <label>初始行数:</label>
+				</td>
+                <td>
+                    <input type="text" name='initialRows' value="" />
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    <label resource="maxrows">maxrows:</label></td>
+                <td>
+                    <input type="text" name='maxrows' value="" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <label resource="content">content:</label></td>
+                <td>
+                    <input type="text" name='content' value="" /></td>
+            </tr>            
+        </table>   
+		</form>
+	</div>
+	
+    <div id="settingrowatt" class="easyui-dialog"title="表格属性" data-options="panelHeight:'initial',closed:true,modal:true">
+		<form style="width:470px;">
+			<div class="easyui-tabs" id="tab_rowattr">
+				<div title="基本属性">
+					<table>
+						<tr>
+							<td>
+								<label resource="code">code:</label>
+							</td>
+							<td>
+								<input type="text" class="easyui-textbox"  name='codename' value="" />
+							</td>
+							<td>
+								<label>类型:</label></td>
+							<td>								
+								<select name='codetype' id="comboProperty" class="easyui-combobox" data-options="panelHeight:'auto'" style="width:100%">
+									<option value="">空</option>
+									<option value="text">文本框</option>
+									<option value="date">日期时间</option>
+									<option value="number">数字</option>
+									<option value="dialogue">对话框</option>
+									<option value="checkbox">多选</option>
+									<option value="radio">单选</option>
+									<option value="combobox">下拉</option>
+									<option value="linklist">联动</option>
+									<option value="richtext">富文本</option>
+									<option value="image">图片</option>
+									<option value="file">文件</option>
+									<option value="editor">编辑器</option>
+									<option value="_button">按钮</option>
+									<option value="_normal">常用控件</option>
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<label resource="edittype">edittype:</label></td>
+							<td>
+								<select name='edittype' data-options="panelHeight:'auto'" class="easyui-combobox" style="width: 100%">
+									<option value="editable">可编辑</option>
+									<option value="calculation">实时计算</option>
+									<option value="viewcalculation">显示计算</option>
+									<option value="creatcalculation">创建时计算</option>
+								</select>
+							</td>
+							<td>
+								<label resource="characterlength">Character length:</label></td>
+							<td>
+								<input class="easyui-numberbox" data-options="min:1,precision:0,max:4000" type="text" name='characterlength' value="" /></td>
+						</tr>
+					  <tr>
+							<td>
+								<label resource="placeholder">placeholder</label></td>
+							<td>
+								<input class="easyui-textbox" type="text" name='placeholder' value="" /></td>
+							<td>
+								<label resource="displayname">displayname</label></td>
+								
+							 <td>
+								<input class="easyui-textbox" type="text" name='displayname' value="" /></td>	
+								
+						</tr>						
+						<tr>
+							<td>
+								<label resource="option">option:</label>
+							</td>
+							<td colspan="3" style="border: 1px solid #ccc; border-radius:5px;">								
+								<table style="width:100%;">
+									<tr>
+										<td>
+											<input fb-type="radio"  type="radio" id="conditionhiding_1" onclick="check(this)" checked="checked" name="conditionhiding" value="0" />
+											<label for="conditionhiding_1">显示</label>
+										</td>
+										<td>
+											<input fb-type="radio"  type="radio" id="conditionhiding_2" name="conditionhiding" value="1" />
+											<label for="conditionhiding_2">隐藏</label>
+										</td>
+										<td>                                        
+											<input fb-type="radio"  type="radio" id="conditionhiding_3" name="conditionhiding" value="2"/>
+											<label for="conditionhiding_3">按条件隐藏</label>
+										</td>
+										<td>
+											<input fb-type="checkbox"  type="checkbox" name="hiddinRow"  id="hiddinRow" />
+											<label for="hiddinRow">隐藏整行</label>
+										</td>										
+									</tr>
+									<tr id="show">
+										<td>
+											<input fb-type="checkbox"  type="checkbox" name="readOnly"  id="readOnlyItem" />
+											<label for="readOnlyItem">只读</label>
+										</td>
+										<td>
+											<input fb-type="checkbox"  type="checkbox" name="retrieve"  id="retrieveItem" />
+											<label for="retrieveItem">检索</label>
+										</td>
+										<td>
+											<input fb-type="checkbox"  type="checkbox" name="sort"  id="sortItem" />
+											<label for="sortItem">排序</label>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>  
+						<tr>
+							<td>
+								<label resource="conditionhiding">condition of hiding:</label></td>
+							<td colspan="3">
+								<textarea class="easyui-textbox" data-options="multiline:true" name="conditionhidingcontent" disabled="disabled" style="width:405px;resize: none; height: 100px;"></textarea></td>
+						</tr>
+						<tr>
+							<td>
+								<label resource="setting">setting:</label></td>
+							<td colspan="3">
+								<textarea class="easyui-textbox" data-options="multiline:true" name="setting" style="width:405px;resize: none; height: 100px;"></textarea></td>
+
+						</tr>
+					</table>
+				</div>
+				<div title="控件">
+					<div id="controlProperty" style="height:400px;">
+						
+					</div>	
+				</div>
+				<div title="校验选项">
+					<div style="height:400px;">
+						<td colspan="3" style="border: 1px solid #ccc; border-radius:5px;">	
+							<table style="width:100%;">
+								<tr>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_required"  id="requiredItem" />
+										<label for="conditionhiding_1">必填</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_mail"  id="requiredItem" />
+										<label for="conditionhiding_1">邮件</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_url"  id="requiredItem" />
+										<label for="conditionhiding_1">网址</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_dateISO"  id="requiredItem" />
+										<label for="conditionhiding_1">日期</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_number"  id="requiredItem" />
+										<label for="conditionhiding_1">数字</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_digits"  id="requiredItem" />
+										<label for="conditionhiding_1">整数</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_maxlength"  id="requiredItem" />
+										<label for="conditionhiding_1">最大长度</label>
+									</td>
+									<td>
+										<input fb-type="checkbox"  type="checkbox" name="vfy_textarea"  id="requiredItem" onclick="_vCheckbox(this)" />
+										<label for="conditionhiding_1">自定义代码</label>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<textarea name="vfy_textarea1"  style="width:90%;height:172px;display:none">
+										{
+										&nbsp;&nbsp;"pattern": "",
+										&nbsp;&nbsp;"message": ""
+										}
+										</textarea>
+									</td>
+								<tr/>
+							</table>
+						</td>
+					</div>	
+				</div>				
+				<div title="流程选项">
+					<div style="height:400px;">
+						<label><input type="radio" name="workflowFlag" value="0" checked="checked"/>非流程字段</label>&nbsp;
+						<label><input type="radio" name="workflowFlag" value="1"/>组织字段</label>&nbsp;
+						<label><input type="radio" name="workflowFlag" value="2"/>岗位字段</label>&nbsp;
+						<label><input type="radio" name="workflowFlag" value="3"/>用户字段</label>&nbsp;
+					</div>
+				</div>
+			</div>		
+		</form>
+    </div>
+	
+	<div style="display: none;" tabstow="checkbox,radio">
+        <table>
+            <tr>
+                <td>
+                    <label resource="datasourcetype">data source type:</label>
+				</td>
+                <td>
+                    <select name="datasourcetype">
+                        <option value="list" resource="list">list</option>
+                        <option value="url" resource="url">url</option>
+						<option value="tree" resource="tree">tree</option>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="optValue">数据数值字段:</label>
+				</td>
+                <td>
+					<input type="text" name='optValue' style="width: 100%;" value="" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="optText">数据显示字段:</label>
+				</td>
+               <td>
+					<input type="text" name='optText' style="width: 100%;" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label resource="datasourcetsetting">data sourcet setting:</label></td>
+                <td>
+                    <textarea name="datasourcetsetting" style="width: 330px;height:100px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+	<div style="display: none;" tabstow="combobox">
+        <table>
+            <tr>
+                <td>
+                    <label resource="datasourcetype">data source type:</label>
+				</td>
+                <td>
+                    <select name="datasourcetype">
+                        <option value="list" resource="list">list</option>
+                        <option value="url" resource="url">url</option>
+						<option value="tree" resource="tree">tree</option>
+						<option value="vml" resource="vml">vml</option>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="optValue">数据数值字段:</label>
+				</td>
+                <td>
+					<input type="text" name='optValue' style="width: 100%;" value="" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="optText">数据显示字段:</label>
+				</td>
+               <td>
+					<input type="text" name='optText' style="width: 100%;" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label resource="datasourcetsetting">data sourcet setting:</label></td>
+                <td>
+                    <textarea name="datasourcetsetting" style="width: 330px;height:100px;"></textarea>
+                </td>
+            </tr>
+			<tr class="cnt prov">
+				<td colspan="2">
+                    <input type="radio" id="cnt_province" name="comboconst" value="province" checked="checked"/><label for="cnt_province">省</label>&nbsp;
+					<input type="radio" id="cnt_city" name="comboconst" value="city"/><label for="cnt_city">市</label>&nbsp;
+					<input type="radio" id="cnt_district" name="comboconst" value="district"/><label for="cnt_district">区</label>&nbsp;
+					<input type="radio" id="cnt_org" name="comboconst" value="org"/><label for="cnt_org">组织</label>&nbsp;
+					<input type="radio" id="cnt_dept" name="comboconst" value="dept"/><label for="cnt_dept">部门</label>&nbsp;
+					<input type="radio" id="cnt_person" name="comboconst" value="person"/><label for="cnt_person">人员</label>&nbsp;					
+				</td>                
+			</tr>
+			<tr class="cnt">
+				<td>
+                    <label>数据联动字段:</label>
+				</td>
+                <td>
+					<input type="text" name="linkfield" style="width: 100%;"/>
+                </td>
+			</tr>
+			<tr class="cnt">
+				<td>
+                    <label>数据联动父对象:</label>
+				</td>
+                <td>
+					<input type="text" name="linkcombo" style="width: 100%;"/>
+                </td>
+			</tr>
+        </table>
+    </div>
+	
+	<div style="display: none;" tabstow="_normal">
+        <table>           
+			<tr class="cnt prov">
+				<td colspan="2">
+					<div>
+						<label><input type="radio" name="constControl" value="address"/>地址控件:</label>
+						<label><input type="checkbox" name="province" value="1"/>省</label>
+						<label><input type="checkbox" name="city" value="1"/>市</label>
+						<label><input type="checkbox" name="district" value="1"/>区</label>
+						<label><input type="checkbox" name="address" value="1" />详细地址</label>
+					</div>
+					<div>
+						<label><input type="radio" name="constControl" value="person"/>人员控件:</label>
+						<label><input type="checkbox" name="org" value="1"/>组织</label>
+						<label><input type="checkbox" name="dept" value="1"/>部门</label>
+						<label><input type="checkbox" name="person" value="1"/>人员</label>
+					</div>				
+				</td>                
+			</tr>
+			
+        </table>
+    </div>
+	
+	<div style="display: none;" tabstow="dialogue">
+        <table>
+            <tr>
+                <td>
+                    <label resource="datasourcetype">data source type:</label></td>
+                <td>
+                    <select name="datasourcetype">
+                        <option value="url" resource="url">url</option>
+						<option value="tree" resource="tree">tree</option>
+						<option value="frame" resource="frame">内嵌</option>
+                    </select>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label>模态对话框:</label></td>
+                <td>
+                    <input type="checkbox" name="modalWindow" value="1" /></td>
+			</tr>
+			<tr>
+                <td>
+                    <label>对话框位置:</label></td>
+                <td>
+                     <select name="windowType" fb-type="select">
+                        <option value="1" resource="left">靠左</option>
+                        <option value="2" resource="right">靠右</option>
+						<option value="3" resource="top">靠上</option>
+						<option value="4" resource="bottom">靠下</option>
+                    </select>
+				</td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="pushValus">赋值配置:</label>
+				</td>
+               <td>
+					<input fb-type="text" type="text" name='pushValus' style="width: 100%;" value="" />
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    <label resource="pushFilter">过滤条件:</label>
+				</td>
+               <td>
+					<input fb-type="text" type="text" name='pushFilter' style="width: 100%;" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label resource="datasourcetsetting">data sourcet setting:</label></td>
+                <td>
+                    <textarea fb-type="textarea" name="datasourcetsetting" style="width: 360px;height:100px;"></textarea>
+                </td>
+            </tr>
+			<tr class="dialog_url prov">
+				<td>
+                    <label>输出全路径:</label>
+				</td>
+				<td><input type="checkbox" name="outputurl"/></td>
+			</tr>
+			<tr class="dialog_url prov">
+				<td>
+                    <label>显示层级:</label>
+				</td>				
+				<td><input type="text" name="showtier"/>	</td>
+			</tr>
+			<tr class="dialog_url prov">
+				<td><label>是否只选叶子节点</label></td>
+				<td><input type="checkbox" name="optionsson"/></td>
+			</tr>
+			<tr class="dialog_url prov">
+				<td><label>是否多选</label></td>
+				<td><input type="checkbox" name="multiple"/></td>
+			</tr>
+        </table>
+    </div>
+	
+	<div style="display: none;" tabstow="_button">
+        <table>
+            <tr>
+                <td>
+                    <label resource="Target">Target:</label></td>
+                <td>
+                    <input type="text" name="target" value="" /></td>
+            </tr>
+			<tr>
+				<td><label>内置链接:</label></td>
+				<td><input type="text" name="innerText" value="" style="width:405px;"/></td>
+			</tr>
+            <tr>
+                <td>
+                    <label resource="ExecuteCode">ExecuteCode:</label></td>
+                <td>
+                    <textarea fb-type="textarea" name="ExecuteCode" style="width:405px;height:200px; resize: none;"></textarea>
+                </td>
+            </tr>
+
+			<tr>
+				<td colspan="2">
+					<label><input type="radio" name="btnButton" value="1"/>保存</label>
+					<label><input type="radio" name="btnButton" value="2"/>新增</label>
+					<label><input type="radio" name="btnButton" value="3"/>删除</label>
+					<label><input type="radio" name="btnButton" value="4"/>编辑</label>
+				</td>
+			</tr>
+        </table>
+    </div>
+    <div style="display: none;" tabstow="number">
+		<ul class="numUl">
+			<li><label>数值格式: </label><input type="text" name="numberformat" value="" /></li>
+			<li><label>小数点位置:</label><input type="text" name="decimalposition" value="" /></li>
+			<li>
+				<label><input type="checkbox" name="decimalpointposition" value="" />类型</label>
+				<label><input type="checkbox" name="thousand" value="" />千分符</label>
+				<label><input type="checkbox" name="currency" value="" />货币</label>                                   
+			</li>
+			<li><label>货币符号:</label><input type="text" name="currencysymbol" value="" /></li>
+		</ul>
+    </div>
+    <div style="display: none;" tabstow="date">
+        <table>
+            <tr>
+                <td>
+                    <label>日期格式: </label>
+                </td>
+                <td colspan="2">
+                    <input type="text" name="dateformat" value="YYYY-MM-DD" /></td>
+            </tr>
+			<tr>			
+				<td colspan="3">
+                    <label><input type="checkbox" name="festival" value="true" />显示节日</label>
+					<label><input type="checkbox" name="istime" value="true" />支持时间</label>
+					<label><input type="checkbox" name="istoday" value="true" />显示当日</label>
+				</td>
+			</tr>
+
+			<tr>
+                <td>
+                    <label>日期区间: </label>
+                </td>
+                <td colspan="2">
+                    从&nbsp;<input  type="text" name="dateMin" value="" />				
+				
+                    至&nbsp;<input  type="text" name="dateMax" value="" />
+				</td>
+            </tr>
+			<tr>
+                <td>
+                    <label>执行代码: </label>
+                </td>
+                <td colspan="2">
+                    <textarea name="ExecuteCode" style="width:405px;resize: none;height:50px"></textarea>
+				</td>
+            </tr>
+        </table>
+    </div>
+<!--dialog end--->	
+
+	<!-- toolbar -->
+	<div id="toolbarButton">
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="delOpertaionBtn();" style="float:left;">删除</a>
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="addOpertaionBtn();">确定</a>
+		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" onclick="$('#operationForm').dialog('close');">取消</a>
+	</div>
+	<div id="operationForm" class="easyui-dialog" title="操作" data-options="iconCls:'icon-save',buttons:'#toolbarButton',closed:true,modal:true" style="padding:10px">
+		<form>
+			<table class="formTable">  
+				<tr>
+					<th>名称:</th>
+					<td>
+						<!-- <input name="oname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'" /> -->
+						<input type="text" class="easyui-textbox textbox-f" value="" name="oname" />
+					</td>
+					<th>类型:</th>
+					<td>						
+						<select name='type' data-options="panelHeight:'auto'" class="easyui-combobox" style="width:94%">
+							<option value="icon">icon</option>
+							<option value="separator">separator</option>							
+						</select>
+					</td>
+				</tr>
+				<tr>					
+					<th>模式:</th>
+					<td>						
+						<select name='mode' data-options="panelHeight:'auto'" class="easyui-combobox" style="width:95%">
+							<option value="bar">bar</option>
+							<option value="inline">inline</option>							
+						</select>
+					</td>
+					<th>tips:</th>
+					<td>
+						<!-- <input name="oorderno" id="oorderno" class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/> -->
+						<input type="text" class="easyui-textbox textbox-f" value="" name="tips" />
+					</td>					
+				</tr>				
+				<tr>
+					<th>作用域:</th>
+					<td>
+						<select name='scope' data-options="panelHeight:'auto'" class="easyui-combobox" style="width:95%">
+							<option value="grid">grid</option>
+							<option value="form">form</option>
+							<option value="all">all</option>
+						</select>
+					</td>
+					<!-- <th>选项:</th>
+					<td>
+						<input type="checkbox" name="hidden" id="hidden">
+						<label for="hidden">隐藏</label>
+						<input type="checkbox" name="inline" id="inline">
+						<label for="inline">行内</label>
+					</td> -->
+				</tr>
+				<tr>
+					<th>图片:</th>
+					<td colspan="3" style="line-height: 5px;">
+						<img src="/projects/icons/112.png" id="oimg" name="oimg" style="height:20px;cursor:pointer;" onclick="doSearchIcon()"/>	
+						<input name="image" type="hidden" />						
+					</td>
+				</tr>
+				<tr>
+					<th>执行代码:</th> 
+					<td colspan="3">
+						<textarea class="easyui-textbox textbox-f" name="handler" data-options="multiline:true" style="height:80px;width: 405px; resize: none; height: 100px; display: none;"></textarea>
+					</td>
+				</tr>				
+			</table>
+		</form>
+	</div>
+	<!-- toolbar end -->
+	
+	<!-- create options -->
+	<div id="createOptions" class="easyui-dialog" title="生成..." data-options="closed:true,modal:true" style="padding:10px">
+		<form>
+			<div>
+				<label>文&nbsp;件&nbsp;名:&nbsp;<input type="text" name="code" value="index.chi"></label><br>
+				<label>文件标题:&nbsp;<input type="text" name="title" value="数据管理"></label><br>
+				<label><input type="checkbox" name="datanavUp" value="1">列表上导航</label>
+				<label><input type="checkbox" name="datalist" value="1">数据列表</label>
+				<label><input type="checkbox" name="datanavDown" value="1">列表下导航</label>
+				<label><input type="checkbox" name="dataButton" value="1">数据操作按钮</label>				
+				<label><input type="checkbox" name="initData" value="1">初始化数据列表代码</label>
+				<label><input type="checkbox" name="workflow" value="1">流程</label>
+				<label><input type="checkbox" name="form" value="1">表单</label>
+				<label><input type="checkbox" name="initForm" value="1">初始化表单代码</label>
+				<label><input type="checkbox" name="inc" value="1">包含文件</label>
+			</div>
+			<div style="margin-top:10px;">
+				<hr style="width:100%;height:1px;"/>
+				<label><input type="checkbox" name="ndtOptions" value="1"> 生成NDT数据管理文件</label><br>
+				<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td colspan="5"><label>VML配置</label></td>
+				</tr>
+				<tr>
+					<td align="center" width="112" style="border-bottom:1px solid #000000;"><label>表名</label></td>
+					<td align="center" width="112" style="border-bottom:1px solid #000000;"><label>添加</label></td>
+					<td align="center" width="113" style="border-bottom:1px solid #000000;"><label>修改</label></td>
+					<td align="center" width="113" style="border-bottom:1px solid #000000;"><label>查询</label></td>
+					<td align="center" width="113" style="border-bottom:1px solid #000000;"><label>删除</label></td>
+				</tr>
+				<tr>
+					<td colspan="5" height="5"></td>
+				</tr>
+				<tr name="trVmlCfgPrimary">
+					<td align="center"><label>主表</label></td>
+					<td align="center"><input type="text" name="insertVml" size="10" value="tms_0008"></td>
+					<td align="center"><input type="text" name="updateVml" size="10" value="tms_0009"></td>
+					<td align="center"><input type="text" name="queryVml" size="10" value="tms_0011"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td colspan="5" height="15"></td>
+				</tr>
+				<tr>
+					<td colspan="5"><label>jpList配置</label></td>
+				</tr>
+				<tr>
+					<td align="center" width="110" style="border-bottom:1px solid #000000;"><label>列表</label></td>
+					<td align="center" width="110" style="border-bottom:1px solid #000000;"><label>删除</label></td>
+					<td colspan="3" style="border-bottom:1px solid #000000;"></td>
+				</tr>
+				<tr>
+					<td colspan="3" height="5"></td>
+				</tr>
+				<tr>
+					<td align="center"><input type="text" name="jpListDml" size="10" value="grid_jplist_0002"></td>
+					<td align="center"><input type="text" name="deleteVml" size="10" value="tms_0010"></td>
+					<td colspan="3"></td>
+				</tr>
+				</table>
+				<br>
+			</div>
+			
+		</form>
+	</div>
+	<!-- create options end -->
+	
+	<!-- toolbar icon start-->
+	<div id="tt-Icons">
+		<a href="javascript:void(0)" class="icon-delete" title="清除所有图标" onclick="javascript:clearIcons();"></a>
+		<a href="javascript:void(0)" id="uploadIcons" title="上传图标" onclick="javascript:alert('add')"></a>
+		<a href="javascript:void(0)" class="icon-save" title="生成图标样式文件(icons.css)" onclick="javascript:genIconCss();"></a>
+	</div>
+	<div id="win-Icons" class="easyui-window" title="图标列表" data-options="modal:true,closed:true,tools:'#tt-Icons'" style="width:550px;height:350px;padding:5px;">
+
+	</div>
+	<!-- toolbar icon end-->
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0045",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Unit_ID AS [id], Unit_Name AS [name], Unit_Creator AS [creator], convert(varchar(100),Unit_CreateTime,111) AS [createtime], Unit_Invalid AS [invalid] FROM Price_Unit",
+    "count": "SELECT COUNT([Unit_ID]) FROM Price_Unit",
+    "where": ""
+  }
+}

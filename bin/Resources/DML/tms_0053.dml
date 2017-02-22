@@ -1,0 +1,169 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0053",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE TMS_MEndUser SET EndUser_OwnerCompany = @ownercompany, EndUser_ClientCode = @clientcode, EndUser_Name = @name, EndUser_Industry = @industry, EndUser_Web = @web, EndUser_ShortName = @shortname, EndUser_EnName = @enname, EndUser_ShortEnName = @shortenname, EndUser_Master = @master, EndUser_License = @license, EndUser_Contact = @contact, EndUser_Phone = @phone, EndUser_Fax = @fax, EndUser_Mail = @mail, EndUser_Address = @address, EndUser_Zip = @zip, EndUser_WeiXin = @weixin, EndUser_Logo = @logo, EndUser_Bank = @bank, EndUser_BankAccount = @bankaccount, EndUser_Description = @description WHERE EndUser_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ownercompany",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "客户属于哪个公司"
+      },
+      {
+        "name": "clientcode",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "公司编号"
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": "公司全称"
+      },
+      {
+        "name": "industry",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "所属行业"
+      },
+      {
+        "name": "web",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": "公司网站"
+      },
+      {
+        "name": "shortname",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "公司简称"
+      },
+      {
+        "name": "enname",
+        "type": "nvarchar",
+        "size": 400,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "shortenname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "master",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "license",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "contact",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": "联系人"
+      },
+      {
+        "name": "phone",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "联系电话"
+      },
+      {
+        "name": "fax",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "传真"
+      },
+      {
+        "name": "mail",
+        "type": "nvarchar",
+        "size": 400,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "address",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "zip",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "weixin",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "logo",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "bank",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "bankaccount",
+        "type": "varchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "description",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

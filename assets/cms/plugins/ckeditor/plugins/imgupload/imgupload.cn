@@ -1,0 +1,6 @@
+var file=Request.getParameter("upload_Disk");
+var funcnum=Request.getParameter("CKEditorFuncNum");
+var re='<script>';
+re+='window.parent.CKEDITOR.tools.callFunction('+funcnum+', "/uploads/'+file+'" )';
+re+='</script>';
+Response.ContentText=re;

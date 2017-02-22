@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_city",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_ID AS [id], '' AS [cityPinyin], Area_Invalid AS [invalid], Area_Name AS [name], Area_ParentID AS [provinceId], '' AS [cityShortPY] FROM TMS_BasicArea WHERE Area_NodeType = 2 AND Area_Invalid = 0;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "nodetype",
+        "type": "int",
+        "size": 4,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

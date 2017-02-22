@@ -1,0 +1,3 @@
+﻿ALTER TABLE Price_DocDetails ADD Detail_AdditionType BIGINT NULL DEFAULT 0;
+
+ALTER TABLE TMS_Events ADD Event_ProcessDesc NVARCHAR(600) NULL DEFAULT N'';

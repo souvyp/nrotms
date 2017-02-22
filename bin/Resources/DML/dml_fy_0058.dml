@@ -1,0 +1,36 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "dml_fy_0058",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_user_ChangePwd",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Username",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OldPwd",
+        "type": "varchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "NewPwd",
+        "type": "varchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

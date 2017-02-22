@@ -1,0 +1,28 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0232",
+  "version": 1,
+  "dml-id": "tms_0232",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "AddrID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "EOD",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

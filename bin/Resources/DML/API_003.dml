@@ -1,0 +1,22 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "API_003",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT License_AppID AS [appid], License_OwnerCompanyID AS [ownercompanyid], License_HelloToken AS [hellotoken], License_AesKey AS [aeskey], License_ClientUrl AS [clienturl], License_StartTime AS [starttime], License_EndTime AS [endtime] ,License_Confirmer AS [Confirmer],License_Confirmed AS [Confirmed] FROM API_License WHERE License_Creator = @Operator;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

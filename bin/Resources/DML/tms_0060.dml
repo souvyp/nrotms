@@ -1,0 +1,107 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0060",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_user_RegisterUser",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Acccount",
+        "type": "varchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Password",
+        "type": "varchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "RoleID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Gender",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Birthday",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Phone",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Dept",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Duty",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Photo",
+        "type": "nvarchar",
+        "size": 255,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Nickname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "UserType",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      }
+	  
+    ],
+    "responseType": "recordset"
+  }
+}

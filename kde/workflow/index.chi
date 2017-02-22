@@ -1,0 +1,358 @@
+﻿<%@ CodeFile="code/index.cn"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>流程编辑器</title>
+<link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+<link rel="stylesheet" type="text/css" href="res/jquery-easyui-1.4.2/themes/metro/easyui.css">
+<link rel="stylesheet" type="text/css" href="res/jquery-easyui-1.4.2/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/flow.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="res/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+<script src="res/jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/GooFunc.js"></script>
+
+<!--script type="text/javascript" src="js/canvg/rgbcolor.js"></script>
+<script type="text/javascript" src="js/canvg/canvg.js"></script-->
+
+<!--[if lt IE 9]>
+<?import namespace="v" implementation="#default#VML" ?>
+<![endif]-->
+
+<script type="text/javascript" src="js/workflow.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/flow.js"></script>
+
+</head>
+<body class="easyui-layout" path="#CODE#" upath="#UCODE#" acode="#ACODE#">
+	<div class="easyui-panel Menus" data-options="region:'north',border:false">	
+		<div  id="Menus">
+			<div class="navbar-brand"><img src="res/icons/logo.png"/>中国程序员大联盟<span class="label label-default">Ver 0.1</span></div>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="saveData()">保存</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-import',plain:true" onclick="importData(this)">导入</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-export',plain:true" onclick="exportData()">导出</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-export',plain:true" onclick="exportToPng()">导出到图片</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-clear',plain:true" onclick="Flow.onBtnNewClick()">清除</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="Flow.undo()">撤销</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-redo',plain:true" onclick="Flow.redo()">重做</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-export',plain:true" onclick="createWorkFlowHtml()">审批文件</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="float:right;" onclick="UserLogout()">退出</a>
+			<div id="user" style="float:right;color:#fff;font-size:12px;padding:5px 5px;">#UNAME#</div>
+		</div>
+	</div>
+	
+	<div data-options="region:'center'" style="overflow:hidden;">	
+		<div id="Flow"></div>	
+		<div id="mmMenu" class="easyui-menu" style="width:120px;">
+			<div data-options="iconCls:'icon-undo'" onclick="Flow.redo()">撤销</div>
+			<div data-options="iconCls:'icon-redo'" onclick="Flow.redo()">重做</div>
+			<div class="menu-sep"></div>
+			<div data-options="iconCls:'icon-property'" onclick="showProperty(this)">属性</div>
+		</div>
+	</div>
+
+	<div class="override"></div>
+		
+	<div id="position" class="ui">
+		<input type="text" name="nodeid" />
+		<h3 style="text-align:left;padding-left:5px;height:43px;">
+			<span style="color:#333;line-height:43px;font-size:16px;" id="nodeText"></span>
+			<span style="float:right;padding-top:5px;">
+				<button title="节点属性" onclick="showTab(this,1)"><img src="icons/20.png" alt="节点属性" width="32"></button>
+				<button title="组织架构" onclick="showTab(this,0)"><img src="icons/54.png" alt="组织架构" width="32"></button>
+			</span>
+		</h3>
+		<div id="positionList" style="display:none;">
+			<div class="group">
+				<label><input type="radio" name="orgatype" value="0"/>全部</label>
+				<label><input type="radio" name="orgatype" checked="checked" value="1"/>指定组织</label>
+				<input class="easyui-combotree">
+				<label><input type="radio" name="orgatype" value="2"/>发起人指定组织</label>
+				<label><input type="radio" name="orgatype" value="3"/>发起人管理组织</label>
+				<label><input type="radio" name="orgatype" value="4"/>组织文字:<input type="text" name="orgText" /></label>				
+			</div>
+			<div class="resList"></div>
+		</div>
+		<div id="nodeProperty" style="padding: 3px;">
+			<div tag="start" style="display:none;">
+				<!--div class="time-set clearfix">
+					<span class="fl">不可编辑的字段：</span>
+					<textarea name="_editFields"></textarea>
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">可操作的按钮：</span>
+					<textarea name="_operations"></textarea>
+				</div-->
+				<div class="authority clearfix">
+				
+					<span class="fl">操作权限：</span>
+					<div class="auth-list">
+						<label>
+							<input type="checkbox"  name="_getBack" value="1"/>取回
+						</label>
+						<label>
+							<input type="checkbox" name="_delivery" value="1" />直送
+						</label>
+						<label>
+							<input type="checkbox" name="_delete" value="1"/>删除
+						</label>
+						<label>
+							<input type="checkbox" name="_restart" value="1"/>重启
+						</label>
+						<label>
+							<input type="checkbox" name="_pause" value="1"/>暂停
+						</label>
+						<label>
+							<input type="checkbox" name="_recovery" value="1"/>恢复
+						</label>
+					</div>
+				</div>
+				<p>
+					<span class="fl">通知方式：</span>
+					<div class="time-item fl">
+						<label>
+							<input type="checkbox" name="_mail" value="1"/>邮件
+						</label>
+						<label>
+							<input type="checkbox" name="_sim" value="1"/>短信
+						</label>
+						<label>
+							<input type="checkbox" name="_im" value="1"/>IM
+						</label>
+						<label>
+							<input type="checkbox" name="_app" value="1"/>APP
+						</label>
+					</div>
+				</p>
+				<!--div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div-->
+			</div>
+		
+			<div tag="task" style="display:none;">
+				<!--span class="fl">处理原则：</span>
+				<div class="time-item fl">
+					<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+					<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+				</div-->
+				<div class="time-set clearfix">
+					<span class="fl">资源计算公式：</span>
+					<textarea name="_config"></textarea>
+					<span class="fl">关系计算公式：</span>
+					<textarea name="_relation"></textarea>
+				</div>
+				<!--div class="time-set clearfix">
+					<span class="fl">不可查阅的字段：</span>
+					<textarea name="_readFields"></textarea>
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">可编辑的字段：</span>
+					<textarea name="_editFields"></textarea>
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">可操作的按钮：</span>
+					<textarea name="_operations"></textarea>
+				</div-->
+				<div class="time-set clearfix">
+				<label>				
+					<input type="checkbox" name="_start"  value="1"/>阶段起始节点
+				</label>				
+				</div>
+				<div class="authority clearfix">
+					<span class="fl">操作权限：</span>
+					<div class="auth-list">
+						<label>
+							<input type="checkbox" name="_duplicate"  value="1"/>抄送
+						</label>
+						<label>
+							<input type="checkbox" name="_refuse"  value="1"/>拒绝
+						</label>
+						<label>
+							<input type="checkbox" name="_withdraw" value="1"/>撤回
+						</label>
+						<label>
+							<input type="checkbox" name="_entrust"  value="1"/>委托
+						</label>
+						<label>
+							<input type="checkbox" name="_delivery" value="1"/>直送
+						</label>
+						<label>
+							<input type="checkbox" name="_restart" value="1"/>重启
+						</label>
+						<label>
+							<input type="checkbox" name="_pause" value="1"/>暂停
+						</label>
+						<label>
+							<input type="checkbox" name="_recovery" value="1"/>恢复
+						</label>
+						<label>
+							<input type="checkbox" name="_jump" value="1"/>跳转
+						</label>
+						<label>
+							<input type="checkbox" name="_stop" value="1"/>停止
+						</label>
+						<label>
+							<input type="checkbox" name="_sign" value="1"/>加签
+						</label>
+						<label>
+							<input type="checkbox" name="_ask" value="1"/>询问
+						</label>
+					</div>
+				</div>
+				<p style="padding-left:0px;">
+					<span class="fl">通知方式：</span>
+					<div class="time-item fl">
+						<label>
+							<input type="checkbox" name="_mail" value="1"/>邮件
+						</label>
+						<label>
+							<input type="checkbox" name="_sim" value="1"/>短信
+						</label>
+						<label>
+							<input type="checkbox" name="_im" value="1"/>IM
+						</label>
+						<label>
+							<input type="checkbox" name="_app"  value="1"/>APP
+						</label>
+					</div>
+				</p>
+				<div class="time-set clearfix">
+					<span class="fl">超时设置：</span>
+					<div class="time-item fl">
+						<p style="margin:0;">
+							<label><input type="checkbox" name="_normal" />普通</label>
+							<input type="text" class="time-text" /> 天
+							<input type="text" class="time-text" /> 时
+							<input type="text" class="time-text" /> 分
+						</p>
+						<p class="">
+							<label><input type="checkbox" name="_urgent" />紧急</label>
+							<input type="text" class="time-text" /> 天
+							<input type="text" class="time-text" /> 时
+							<input type="text" class="time-text" /> 分
+						</p>
+						<p class="">
+							<label><input type="checkbox" name="_asap" />特急</label>
+							<input type="text" class="time-text" /> 天
+							<input type="text" class="time-text" /> 时
+							<input type="text" class="time-text" /> 分
+						</p>
+					</div>
+				</div>
+				
+				<div class="time-set clearfix">
+					<span class="fl">超时处理：</span>
+					<div class="time-item fl">
+						
+						<label><input type="radio" name="_timeoutDeal" value="1" />自动同意</label>
+						<label><input type="radio" name="_timeoutDeal" value="2" />自动拒绝</label>
+						<label><input type="radio" name="_timeoutDeal" value="3" />跳过此节点</label>
+						
+					</div>
+				</div>
+				
+			</div>
+				
+			<div tag="node" style="display:none;">
+				<!--span class="fl">处理原则：</span>
+				<div class="time-item fl">
+					<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+					<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+				</div-->
+				<div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div>
+			</div>
+			
+			<div tag="end" style="display:none;">
+				<!--span class="fl">处理原则：</span>
+				<div class="time-item fl">
+					<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+					<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div-->
+			</div>
+			
+			<div tag="fork" style="display:none;">
+				<!--span class="fl">处理原则：</span>
+				<div class="time-item fl">
+					<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+					<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+				</div-->
+				<div class="time-set clearfix">
+					<span class="fl">流程序号：</span>
+					<input type="text" name="_order" value="" />
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div>
+			</div>
+
+			<div tag="join" style="display:none;">
+
+				<div class="time-set clearfix">
+					<span class="fl">处理原则：</span>
+					<div class="time-item fl">
+						<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+						<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+					</div>
+				</div>
+			</div>
+			
+			<div tag="chat" style="display:none;">
+				<p>
+					<span>适配器类型：</span>
+					<input type="text" name="_chattype" value="" />
+				</p>
+				<div class="time-set clearfix">
+					<span class="fl">适配器设置：</span>
+					<textarea rows="10" name="_chatset"></textarea>
+				</div>
+			</div>
+			
+			<div tag="state" style="display:none;">
+				<p>
+					<span>子流程节点：</span>
+					<input type="text" name="_subWorkflow" value="" />
+				</p>
+			</div>
+			
+			<div tag="plug" style="display:none;">
+				<div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div>
+			</div>
+			
+			<div tag="line" style="display:none;">
+				<!--p>
+					<span>序号：</span>
+					<input type="text" name="_lineorder" value="" />
+				</p>
+				<span class="fl">处理原则：</span>
+				<div class="time-item fl">
+					<label><input type="radio" name="_dealRule" value="1" />多人单审</label>
+					<label><input type="radio" name="_dealRule" value="2" />多人并审</label>
+				</div>
+				<div class="time-set clearfix">
+					<span class="fl">流程条件：</span>
+					<textarea name="_relation"></textarea>
+				</div-->
+			</div>
+		</div>
+		
+		
+	</div>
+
+</body>
+</html>

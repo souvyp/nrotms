@@ -1,0 +1,18 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "company_reading",
+  "version": 1,
+  "dml-id": "company_reading",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      }
+    ]
+  }
+}

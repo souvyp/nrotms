@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'wfile',
+ 'id' : 'vml_file',
+ 'version' : 1,
+ 'sml-id' : 'vml_file',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'vml'
+ }
+}

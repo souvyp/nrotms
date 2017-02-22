@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0067",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id],Index_Code AS [Code], CONVERT( VARCHAR(10), Index_CreateTime, 120 ) AS [CreateTime],  Index_PactCode AS [PactCode], dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS CustomerName, Index_StatusTime AS [StatusTime],B.Qty , CONVERT(VARCHAR(10),A.Index_FromTime,120) AS [fromtime] FROM TMS_OrderIndex AS A CROSS APPLY (SELECT SUM(1) AS [Qty] FROM TMS_OrderContains WHERE Contains_OwnerOrderID = A.Index_ID) B ",
+    "where": "Index_SupplierCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 3 AND Index_Status = 1 AND Index_Invalid = 0"
+	}
+}

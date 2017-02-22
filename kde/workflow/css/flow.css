@@ -1,0 +1,9 @@
+.flow-ico-multi {
+  background:url(../images/multi.png) no-repeat;
+}
+.flow-ico-align-top {
+  background: url(../images/top.png) no-repeat -2px -2px;
+}
+.flow-ico-align-left {
+  background: url(../images/left.png) no-repeat -3px -2px;
+}

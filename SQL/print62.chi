@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="head">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<meta name="author" content="ThreeKinves" />
+	<title>打印单</title>
+	<link href="/web/css/m_print.css" rel="stylesheet" type="text/css" media="screen,print" />  
+	<style type="text/css">
+		.size16,.m_text,.ml5 
+		{
+			font-size:16px !important;
+		}
+		.size14
+		{
+			font-size:14px !important;
+		}
+		.mgb5
+		{
+			margin-bottom:5px;
+		}
+		.mgb10
+		{
+			margin-bottom:10px;
+		}
+		table tr td:nth-child(1)
+		{
+			width:40px;
+		}
+		table tr td:nth-child(3),table tr td:nth-child(4),table tr td:nth-child(9)
+		{
+			width:110px;
+		}
+		table tr td:nth-child(2)
+		{
+			width:220px;
+		}
+		table tr td:nth-child(5),table tr td:nth-child(8)
+		{
+			width:60px;
+		}
+		table tr td:nth-child(6),table tr td:nth-child(7)
+		{
+			width:80px;
+		}
+		.bz
+		{
+			    position: absolute;
+				top: 10px;
+				height: 100px;
+				overflow:hidden;
+				font-size:12px;
+		}
+		.pz
+		{
+			position:absolute;
+			top:120px;
+			right:0px;
+			
+		}
+		.copyTab,.cont
+		{
+			position:relative;
+		}		
+		.copyTab
+		{
+			margin-top:100px;
+		}
+		.m_table tr td
+		{
+			height:23px !important;
+			font-size:16px;
+		}
+		.mgb15
+		{
+			margin-bottom:15px;
+		}
+		.four
+		{
+			position: absolute;
+			top: 109px;
+			right: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="cont">
+<div class="mgb10"></div>
+<div>
+	<img src="images/logo-zld.png" style="position:absolute;width:100px;top:0px;">
+	<span class="font_title size18 mgb10">上&nbsp;海&nbsp;中&nbsp;保&nbsp;物&nbsp;流&nbsp;有&nbsp;限&nbsp;公&nbsp;司</span>
+	<span class="font_sub size18 mgb10" style="margin-left:280pt !important;">出&nbsp;&nbsp;库&nbsp;&nbsp;单</span>
+</div>
+<div class="font_head mgb10">
+	<span class="ml5"><b>库房:</b></span>
+	<span>&nbsp;<b><CHI#StorageName#CHI></b></span>
+</div>
+
+<div class="font_head" style="margin-bottom:5px;">
+	<span class="ml5">&nbsp;&nbsp;&nbsp;</span>
+	<span>&nbsp;&nbsp;&nbsp;</span>
+	<span class="ml5 size16"><b>客户名称：</b></span>
+	<span class="m_text size16"><b><CHI#CNAME#CHI></b></span>
+	<span class="ml5 size16"><b>出库日期：</b></span>
+	<span class="m_text size16 date" style="width:140px !important;"><b><CHI#DATE#CHI></b></span>
+	<span class="ml5 size16"><b>出库编号：</b></span>
+	<span class="m_text size16"><b><CHI#CODE#CHI></b></span>
+</div>
+<table class="m_table" border="1" cellspacing="0" cellpadding="0" style="width:95% !important;">
+	<tbody>
+		<tr>
+			<td>序号</td>
+			<td>品名</td>
+			<td>型号</td>
+			<td>批次号</td>
+			<td>件数</td>
+			<td>体积</td>
+			<td>重量</td>
+			<td>库位</td>
+			<!--td>目的地</td-->
+			<td>备注</td>
+		</tr>
+		<CHI#DRD#CHI>
+		<tr>
+			<td></td>
+			<td>合&nbsp;&nbsp;&nbsp;计</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td class="total_num"><CHI#total_num#CHI></td>
+			<td class="volume_sum"><CHI#volume_sum#CHI></td>
+			<td class="weight_sum"><CHI#weight_sum#CHI></td>
+			<td></td>
+
+			
+	  </tr>
+    </tbody>
+</table>
+<div class="pz">︵<br>一<br>︶<br>单<br>证<br>联<br>︵<br>二<br>︶<br>发<br>货<br>联<br>︵<br>三<br>︶<br>运<br>输<br>联<br>
+<div class="four">︵<br>四<br>︶<br>留<br>存<br>联</div></div>
+<br>
+<div class="font_head mgb15">
+	<span class="ml5">&nbsp;&nbsp;&nbsp;</span>
+	<span class="ml5 "><b>收货人签字：</b></span>
+	<span class="m_text " style="width:95px !important;"><b></b></span>
+ 
+	<span class="ml5 "><b>扫码人签字：</b></span>
+	<span class="m_text " style="width:80px !important;"><b></b></span>
+ 
+	<span class="ml5 "><b>制单员：</b></span>
+	<span class="m_text date" style="width:80px !important;"><b><CHI#name#CHI></b></span>
+	<span class="ml5 "><b>制单时间：</b></span>
+	<span class="m_text date" style="width:150px !important;"><b><CHI#DATE#CHI></b></span>
+</div>
+<div class="font_head mgb15">
+	<span class="ml5">&nbsp;&nbsp;&nbsp;</span>
+	<span class="ml5 "><b>入库车牌号：</b></span>
+	<span class="m_text " style="width:95px !important;"><b></b></span>
+
+	<span class="ml5 "><b>入库人员签字：</b></span>
+	<span class="m_text " style="width:65px !important;"><b></b></span>
+ 
+	<span class="ml5 "><b>卸货员签字：</b></span>
+	<span class="m_text " style="width:65px !important;"><b></b></span>
+	<span class="ml5 "><b></b></span>
+	<span class="m_text " style="width:150px !important;"><b></b></span>
+</div>
+<div class="font_head">
+	<span class="ml5">&nbsp;&nbsp;&nbsp;</span>
+	<span class="ml5 "><b>司机签字：</b></span>
+	<span class="m_text " style="width:110px !important;"><b></b></span>
+
+	<span class="ml5 "><b>联系电话：</b></span>
+	<span class="m_text " style="width:95px !important;"><b></b></span>
+ 
+	<span class="ml5 "><b>身份证号码/驾驶证号：</b></span>
+	<span class="m_text " style="width:65px !important;"><b></b></span>
+	<span class="ml5 "><b></b></span>
+	<span class="m_text " style="width:150px !important;"><b></b></span>
+</div>
+</div>
+</body>
+<script src="js/jquery-1.6.4.min.js"></script>
+<script>
+function onprint()
+{
+print();
+close();
+}
+forDataNum();
+setTimeout("print()",200); 
+function forDataNum()
+{
+	$('.date').each(function()
+	{
+		var str = $(this).text();
+		str=str.substring(0,10);
+		$(this).text(str);
+	});
+	var trLength = $('table tr').length - 2; //获取tr长度，减去头和尾
+	//判断是否大于十条并判断应该分成几份
+	if( trLength > 10 )
+	{		
+		var dataNum = Math.ceil( trLength / 10 ) - 1; //判断应该有几份 由于最初所有生成了 则减去1
+		for( var i = 0; i < dataNum; i++ )
+		{
+			$('body').append('<div class="copyTab">' + $('.cont').eq(0).html() + '</div>');
+			$('.copyTab').append('<div style="text-align:right">'+ parseInt(i+2) +'/'+ parseInt(dataNum + 1) +'</div>');
+		}
+		$('.cont').append('<div style="text-align:right">1/'+ parseInt(dataNum + 1) +'</div>');
+		//删除第一个多余的部分
+		//存储备注
+		var remark = $('table').eq(0).find('tr').eq(1).find('td:last').html();
+		var total_num = 0, volume_sum = 0, weight_sum = 0;
+		$('table').eq(0).find('tr').each(function()
+		{	
+			if( $(this).find('td').eq(0).text() > 10 )
+				$(this).remove();
+				
+			if( $(this).find('td').eq(4).text() != '件数' && $(this).find('td').eq(0).text() < 11 && $(this).find('td').eq(0).text() != '' )
+			{				
+				total_num = parseInt( total_num ) + parseInt($(this).find('td').eq(4).text());
+				volume_sum = parseFloat( volume_sum ) + parseFloat($(this).find('td').eq(5).text());
+				weight_sum = parseFloat( weight_sum ) + parseFloat($(this).find('td').eq(6).text());
+				$(this).parent().find('td.total_num').text(total_num);
+				$(this).parent().find('td.volume_sum').text(volume_sum.toFixed(4));
+				$(this).parent().find('td.weight_sum').text(weight_sum.toFixed(4));
+			}		
+		});
+		//table长度循环,除第一条table以外 剩余table的处理
+		var tabLength = $('table').length - 1;		
+		for( t = 0; t < tabLength; t++ )
+		{
+			//生成表单的合计值
+			var total_num1 = 0, volume_sum1 = 0, weight_sum1 = 0;
+			$('table').eq( t + 1 ).find('tr').each(function( index )
+			{						
+				if( $(this).find('td').eq(0).text() > (t + 2) * 10 )
+					$(this).remove();
+				else if( $(this).find('td').eq(0).text() < (t + 1) * 10 + 1 )
+					$(this).remove();
+				if( $(this).find('td').eq(0).text() != '序号' && $(this).find('td').eq(0).text() != '' )
+					$(this).find('td').eq(0).text( $(this).find('td').eq(0).text() - ( t + 1 ) * 10 );					
+			});
+			//计算合计 
+			$('table').eq( t + 1 ).find('tr').each(function()
+			{
+				if( $(this).find('td').eq(4).text() != '件数' && $(this).find('td').eq(0).text() < 11 && $(this).find('td').eq(0).text() != '' )
+				{				
+					total_num1 = parseInt( total_num1 ) + parseInt($(this).find('td').eq(4).text());
+					volume_sum1 = parseFloat( volume_sum1 ) + parseFloat($(this).find('td').eq(5).text());
+					weight_sum1 = parseFloat( weight_sum1 ) + parseFloat($(this).find('td').eq(6).text());
+				}
+			});
+			
+			//判断一下处理后该table tr的长度，如果小于12则添加空的tr
+			var insertTabL = $('table').eq( t + 1 ).find('tr').length;
+			//附加备注
+			$('table').eq( t + 1 ).find('tr').eq(1).append('<td rowspan="11" style="position:relative;">' + remark + '</td>');
+			if( insertTabL < 12 )
+			{
+				for( var insert = 0; insert < 12 - (insertTabL + 1); insert++ )
+				{
+					$('table').eq( t + 1 ).append('<tr><td>'+ parseInt(insertTabL + insert) +'</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>');
+				}
+				$('table').eq( t + 1 ).append('<tr><td></td><td>合&nbsp;&nbsp;&nbsp;计</td><td>&nbsp;</td><td>&nbsp;</td><td class="total_num"></td><td class="volume_sum"></td><td class="weight_sum"></td><td></td></tr>')
+				$('table').eq( t + 1 ).find('.total_num').text(total_num1);
+				$('table').eq( t + 1 ).find('.volume_sum').text(volume_sum1.toFixed(4));
+				$('table').eq( t + 1 ).find('.weight_sum').text(weight_sum1.toFixed(4));
+			}
+		}
+	}
+}
+</script>
+</html>

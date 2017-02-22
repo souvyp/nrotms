@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0074",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_ID AS [id], GoodsLst_ID AS [ListID], Index_Code AS [Code], Index_PactCode AS [PactCode], Index_EndUserID AS [EndUserID], Index_From AS [From], Index_To AS [To],   Index_CustomerID AS [CustomerID], GoodsLst_Name AS [GoodsName], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], Index_CustomerCompanyID AS [CustomerCompanyID], Index_EndUserName AS [EndUserName],  GoodsLst_Weight AS [Weight], GoodsLst_GoodsID AS [GoodsID], GoodsLst_Volume AS [Volume], CAST( GoodsLst_Qty AS DECIMAL ) AS [Qty] FROM TMS_OrderIndex ,TMS_OrderGoods  where Index_ID=GoodsLst_OrderID AND Index_ID=@id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

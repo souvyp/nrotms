@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0025",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  A.Supplier_ID AS [id], B.Company_Name AS [CompanyName], A.Supplier_Comments AS [Comments], A.Supplier_Status AS [Status], A.Supplier_Invalid AS [Invalid],B.Company_Phone AS [Phone], B.Company_Mail AS [Mail], B.Company_Contact AS [Contact]  FROM TMS_MSupplier AS A INNER JOIN TMS_Company AS B ON A.Supplier_CompanyID = B.Company_ID",
+    "where": "A.Supplier_OwnerCompanyID=dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND A.Supplier_Status=1 AND A.Supplier_CompanyID > 0"
+  }
+}

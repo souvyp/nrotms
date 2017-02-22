@@ -1,0 +1,15 @@
+1、、压缩工具：
+http://tool.oschina.net/jscompress?type=3
+
+2、操作注意事项
+a. 文件必须是UTF-8编码
+b. 添加文件的顺序是
+jplist-core.min.js
+jplist.sort-bundle.min.js
+jplist.textbox-control.min.js
+jplist.pagination-bundel.min.js
+jplist.filter-dropdown-bundle.min.js
+jplist.histgory-bundle.min.js
+jplist.filter-toggle-bunndle.min.js
+jplist.views-control.min.js
+jplist.preloader-control.min.js

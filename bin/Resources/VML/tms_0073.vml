@@ -1,0 +1,53 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0073",
+  "version": 1,
+  "dml-id": "tms_0073",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "SrcOrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "AddrLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "GoodsLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "_Version",
+        "type": "normal",
+        "value": "2"
+      },
+      {
+        "name": "TransType",
+        "type": "normal",
+        "value": "1"
+      },
+      {
+        "name": "Payable",
+        "type": "normal",
+        "value": "0"
+      },
+      {
+        "name": "Payment",
+        "type": "normal",
+        "value": "0"
+      }
+    ]
+  }
+}

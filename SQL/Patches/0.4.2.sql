@@ -1,0 +1,1 @@
+﻿DROP FUNCTION fn_pub_user_Car2Name;

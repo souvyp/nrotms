@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0027",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Supplier_ID AS [id],dbo.fn_pub_user_Company2Name(Supplier_OwnerCompanyID) AS [OwnerCompanyName],Supplier_Status AS [Status] FROM TMS_MSupplier",
+    "where": "Supplier_CompanyID=dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Supplier_Status=0 AND Supplier_Invalid = 0 AND Supplier_CompanyID > 0" 
+  }
+}
+
+
+

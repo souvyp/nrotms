@@ -1,0 +1,64 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0041",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE TMS_MAddr SET Addr_CompanyID = @companyid, Addr_Code = @code, Addr_CustomerID = @customerid, Addr_Desc = @desc, Addr_Type = @type, Addr_Comments = @comments WHERE Addr_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "companyid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "customerid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "desc",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "type",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "comments",
+        "type": "varchar",
+        "size": 256,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

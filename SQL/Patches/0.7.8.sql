@@ -1,0 +1,2 @@
+﻿ALTER TABLE TMS_OrderIndex ADD Index_FromContact NVARCHAR(300) NULL;
+ALTER TABLE TMS_OrderIndex ADD Index_ToContact NVARCHAR(300) NULL;

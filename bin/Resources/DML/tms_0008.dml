@@ -1,0 +1,64 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0008",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "INSERT INTO toqbqyvc(code, pactcode, clientid_id, clientid, cname, sadd, eadd) VALUES(@code, @pactcode, @clientid, @clientname, @cname, @sadd, @eadd);SELECT IDENT_CURRENT( 'toqbqyvc' ) AS ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "pactcode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientname",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "cname",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "sadd",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "eadd",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

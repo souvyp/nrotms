@@ -1,0 +1,48 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0069",
+  "version": 1,
+  "dml-id": "tms_0069",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ReceiptDocPath0",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ReceiptDocPath1",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ReceiptDocPath2",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ReceiptDocPath3",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "IsPaperReceived",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

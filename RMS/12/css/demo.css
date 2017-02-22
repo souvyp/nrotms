@@ -1,0 +1,254 @@
+/******基本格式开始**********/
+body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,textarea,p {margin:0px;padding:0px; font-size:12px;
+font-family:Helvetica,Arial,sans-serif;}
+ul {list-style:none;}
+a:link {cursor:pointer; color:#37a; text-decoration:none; outline:none;}
+a:visited {color:#669; text-decoration:none; outline:none;}
+a:hover {background:#37a; color:#fff; text-decoration:none; outline:none;}
+a:active {background:#f93; color:#fff; text-decoration:none; outline:none;}
+input:focus {outline:none;}
+/******基本格式结束**********/
+
+/**主体**/
+body {padding-top:30px;}
+
+/*顶部*/
+#top {width:950px; height:33px; margin:0 auto 25px;}
+#top .logo {width:156px; height:33px; float:left; margin-right:28px;}
+
+#top .search {float:left; border:1px solid #ccc; width:270px; height:30px; vertical-align:middle;
+display:inline-block; position:relative;}
+#top form {margin:0; padding:0; border:none; height:30px; width:280px; border:1px solid #ccc; float:left;
+position:relative; margin-right:25px;}
+#top form input {border:none;}
+#top form span {width:30px; height:30px; background:url(img/bn_srh_1.png) 50% 50% no-repeat; position:absolute;}
+#top form input.text {width:240px; height:20px; margin:5px; color:#D4D4D4;}
+#top form input.btn {width:30px; height:30px; cursor: pointer; overflow:hidden; background: rgba(0, 0, 0, 0);}
+
+#top ul {float:left; width:457px; height:21px; margin-top:8px;}
+#top ul li {float:left; width:40px; height:20px; margin-left:17px;}
+#top ul li a { width:40px; height:20px; display:inline-block; background:url(img/anony_nav_logo.png) no-repeat 100% 100%;
+overflow:hidden;}
+#top ul li a.dushu {background-position:0 0;}
+#top ul li a.dianying {background-position:-60px 0;}
+#top ul li a.yinyue {background-position:-120px 0;}
+#top ul li a.xiaozu {background-position:-180px 0;}
+#top ul li a.tongcheng {background-position:-299px 0;}
+#top ul li a.fm {background-position:-240px 0;}
+#top ul li a.dongxi {background-position:-360px 0;}
+#top ul li a.jishi {background-position:-422px 0;}
+/*顶部结束*/
+
+/*注册登录*/
+#neck {height:195px; width:100%; background-color: #F1FAF1; background-image:url(img/doubanapp4_bg.png);
+background-position:top right; margin-bottom:25px; background-repeat:no-repeat;}
+#neck .neck-nav {width:950px; height:195px; margin:0 auto; position:relative;}
+#neck .wrapper {width:950px; height:147px; padding:28px 0 4px; margin:0;}
+
+#neck .wrapper>img {position:absolute; top:0; left:0;}
+
+#neck .wrapper .douban {width:157px; height:120px; position:absolute; top:38px; left:430px;}
+#neck .wrapper .douban .title {font-size:26px; font-family: Helvetica, Arial, sans-serif; font-weight: bold;
+margin:7px 0;}
+#neck .wrapper .douban .title span {margin-left:10px; font-weight:100;}
+#neck .wrapper .douban .slogan {margin-bottom:18px;}
+#neck .wrapper .douban .xiazai {width:72px; height:12px; background: #00B51D; padding:9px 21px; color:#fff;
+display:inline-block; font-size: 12px; vertical-align: top; border-radius: 2px;}
+#neck .wrapper .douban .app {width:30px; height:30px; position:relative; display:inline-block;}
+#neck .wrapper .douban .app a {width:28px; height:28px; background: rgba(0, 0, 0, 0); display:inline-block;
+ border: 1px solid #48AA0D; border-radius:2px; }
+#neck .wrapper .douban .app a img {width:28px; height:28px;}
+#neck .wrapper .douban .app .erweima {display:none; position:absolute; top:0; left:0; z-index:99; text-align:center; line-height:13px;
+border:1px solid #4A480D; background:#fff; color:#666; border-radius:2px; padding:20px 15px 10px ; white-space: nowrap;}
+#neck .wrapper .douban .app .erweima img {width:160px; height:160px;}
+#neck .wrapper .douban .app .erweima p {margin:15px; font-size:13px;}
+
+#neck .wrapper .denglu {width:273px; height:148px; position:absolute; right:0;}
+#neck .wrapper .denglu form div {width:273px; margin-bottom:4px;}
+#neck .wrapper .denglu form div input {border:none; font-size:12px; border-radius:2px;}
+#neck .wrapper .denglu form div.item-zhanghao,#neck .wrapper .denglu form div.item-mima {border:1px solid #DBE5DB; 
+background:#fff; text-align:left; height:32px;}
+#neck .wrapper .denglu form div.item-zhanghao input {width:252px; line-height:30px; height:30px; padding:0 8px;}
+#neck .wrapper .denglu form div.item-mima input {width:220px; line-height:30px; height:30px; padding:0 8px;}
+#neck .wrapper .denglu form div.item-mima a{width:; height:; color:#ccc; display:inline-block;}
+#neck .wrapper .denglu form div.item-mima a:hover {color:#669; background:none;}
+
+#neck .wrapper .denglu form div.item-submit {background: rgba(0, 0, 0, 0); margin-top:6px;}
+#neck .wrapper .denglu form div input.denglubtn {width:89px; height:30px; padding:0 22px; display:inline-block; margin-right:4px;
+background:#30A080; color:#fff; font-size:12px; cursor:pointer; box-sizing: content-box; vertical-align:top;}
+#neck .wrapper .denglu form div input.denglubtn:hover {background:#2A8C70;}
+#neck .wrapper .denglu form div a.zhuce {width:89px; padding:8px 21px 8px; display:inline-block; border:1px solid #30A080;
+color:#30A080; text-align:center; border-radius:2px; height:12px; cursor:pointer; vertical-align:top;}
+#neck .wrapper .denglu form div a.zhuce:hover {color:#2A8C70; background:none;}
+
+#neck .wrapper .denglu form div.item-action {height:35px; color:#666; font-size:12px; margin-top:8px;}
+#neck .wrapper .denglu form div.item-action label {display:inline-block; height:14px; width:52px; vertical-align:middle;}
+#neck .wrapper .denglu form div.item-action .remenber {margin-right:3px; vertical-align:middle;}
+#neck .wrapper .denglu form div.item-action span a{background:url(img/appdenglu.png) no-repeat; display:inline-block;
+width:18px; height:18px; float:right;}
+#neck .wrapper .denglu form div.item-action span.weibo a {background-position:-23px 0; margin-left:4px;}
+/*****************注册结束*************/
+
+/**************主体内容的通用格式开始********************/
+.section {width:100%; margin-bottom:30px;}
+.wrapper {width:950px; height:100%; margin:0 auto;}
+h2 {color:#072; font:15px Arial, Helvetica, sans-serif; margin-bottom:12px;line-height: 150%;}
+h2 span {font: 12px Arial, Helvetica, sans-serif;line-height:150%;color:#666;}
+
+.wrapper .left {width:100px; float:left; margin-right:20px;}
+.wrapper .left>h2 {font-size:24px;}
+.wrapper .left ul li {font-size:14px; margin-top:5px; line-height:22px; display:block;}
+.wrapper .left ul li img {position:relative; top:-5px;}
+
+.wrapper .right {width:265px; float:right; margin-left:30px;}
+
+.wrapper .main {width:535px; float:left;}
+/**************主体内容的通用格式结束********************/
+
+/************综合内容开始*************/
+#content-syn {height:542px; padding:10px 0;}
+#content-syn .wrapper {height:561px;}
+#content-syn .wrapper a img {display:block; width:950px; height:90px;}
+
+#content-syn .wrapper .zuob {width:655px; height:460px; float:left;}
+#content-syn .wrapper .zuob .photo {width:350px; height:426px; margin-right:30px; color:#999; float:left;}
+#content-syn .wrapper .zuob .photo ul {width:360px; height:436px; margin:-10px 0 0 -10px;}
+#content-syn .wrapper .zuob .photo ul li {width:170px; height:189px; float:left; margin:10px 0 0 10px; display:inline-block;}
+#content-syn .wrapper .zuob .photo ul li a img {width:170px; height:170px; margin-bottom:2px;}
+
+#content-syn .wrapper .zuob .notes {width:275px; height:374px; float:left; color:#666; line-height:19px;}
+#content-syn .wrapper .zuob .notes ul {width:100%; height:100%;}
+#content-syn .wrapper .zuob .notes ul li {margin-top:12px;}
+#content-syn .wrapper .zuob .notes ul li.frist {margin-top:0;} 
+#content-syn .wrapper .zuob .notes ul li.frist div.author {color:#999;}
+
+#content-syn .wrapper .youb {width:265px; height:400px; float:right;}
+#content-syn .wrapper .youb a img {width:265px; height:110px; margin:10px 0; display:block;}
+#content-syn .wrapper .youb ul {line-height:20px;}
+#content-syn .wrapper .youb ul li {margin-top:10px; color:#999;}
+/************综合内容结束啦！*************/
+
+.wrapper .main ul li .pic {margin-bottom:10px; overflow:hidden;}
+.wrapper .main ul li .pic a {background:none;}
+
+/************movie!movie!*****************/
+#content-movie {height:696px; background:#F7F7F7; padding:40px 0 20px;}
+#content-movie .wrapper {height:566px;}
+
+#content-movie .wrapper .left {height:300px;}
+#content-movie .wrapper .lef>h2 {color:#27A;}
+
+#content-movie .wrapper .right {height:566px;}
+#content-movie .wrapper .right .mod {float:left; margin-bottom:30px;}
+#content-movie .wrapper .right .mod ul li {float:left; width:48px; height:19px; margin-top:4px;}
+#content-movie .wrapper .right .mod .movie-chart ol li {line-height:19px; margin-bottom:6px; padding-bottom:5px;
+list-style-position: inside; border-bottom:1px solid #EAEAEA;}
+
+#content-movie .wrapper .main {height:524px;}
+#content-movie .wrapper .main ul {margin-top:-40px;}
+#content-movie .wrapper .main ul li {width:133px; height:225px; float:left; display:inline-block; margin-top:40px;
+text-align: center;}
+#content-movie .wrapper .main ul li .pic {height:145px;}
+#content-movie .wrapper .main ul li .pic a {background:none;}
+#content-movie .wrapper .main ul li .title {font-size:13px; line-height:19px; margin-bottom:4px;}
+#content-movie .wrapper .main ul li .title a {color:#333;}
+#content-movie .wrapper .main ul li .title a:hover {color:#fff; background:#37a}
+#content-movie .wrapper .main ul li .rating {width:139px; height:19px;}
+#content-movie .wrapper .main ul li .rating span {background:url(img/ic_rating_s.png) no-repeat; display:inline-block;
+height:11px; width:55px;}
+#content-movie .wrapper .main ul li .rating p {display:inline-block;}
+#content-movie .wrapper .main ul li>a {padding:2px 10px; display:inline-block; background:#1c8bd0; color:#fff;
+border-radius:2px;}
+#content-movie .wrapper .main ul li>a:hover {background:#047fcb;}
+#content-movie .wrapper .main ul li .rating .allstar10 {background-position:0 -88px;}
+#content-movie .wrapper .main ul li .rating .allstar15 {background-position:0 -77px;}
+#content-movie .wrapper .main ul li .rating .allstar20 {background-position:0 -66px;}
+#content-movie .wrapper .main ul li .rating .allstar25 {background-position:0 -55px;}
+#content-movie .wrapper .main ul li .rating .allstar30 {background-position:0 -44px;}
+#content-movie .wrapper .main ul li .rating .allstar35 {background-position:0 -33px;}
+#content-movie .wrapper .main ul li .rating .allstar40 {background-position:0 -22px;}
+#content-movie .wrapper .main ul li .rating .allstar45 {background-position:0 -11px;}
+#content-movie .wrapper .main ul li .rating .allstar50 {background-position:0 0;;}
+
+#content-movie .wrapper .bottom a {display:block; width:950px; height:90px;}
+/************movie!movie!end.*****************/
+
+/************人丑就得多读书*****************/
+#content-book {height:595px; padding:10px 0;}
+#content-book .wrapper {height:595px; color:#111;}
+#content-book .wrapper a {color: #4A2F14}
+#content-book .wrapper a:hover {color:#fff;} 
+
+#content-book .wrapper .left .app-list {margin-top:18px;}
+#content-book .wrapper .left .app-list a span {background:url(img/app_icons_50_10.jpg) no-repeat 0 0; display:block;
+width:50px; height:50px; box-shadow: 1px 1px 2px #999; border-radius:10px; vertical-align:top; margin-bottom:3px;}
+
+#content-book .wrapper .right {height:414px;}
+#content-book .wrapper .right .book-cate {margin-top:-10px; overflow:hidden;}
+#content-book .wrapper .right .book-kind {width:265px; height:40px; padding-top:10px; border-top: 1px solid #EAEAEA;
+margin:-1px 0 10px;}
+#content-book .wrapper .right .book-kind ul li {float:left; display:inline-block; margin-left:10px; line-height:19px;}
+#content-book .wrapper .right .book-kind ul li.book-label {color:#999;}
+
+#content-book  .wrapper .main {height:524px;}
+#content-book  .wrapper .main .book-list {margin-bottom:30px; width:535px; height:281px;}
+#content-book  .wrapper .main ul {margin-top:-40px;}
+#content-book  .wrapper .main ul li {width:133px; height:225px; float:left; display:inline-block; margin-top:40px;
+text-align: center;}
+#content-book  .wrapper .main ul li .pic {height:145px;}
+#content-book  .wrapper .main ul li .pic a img {width:100px; height:150px;}
+#content-book  .wrapper .main ul li .title {font-size:13px; line-height:19px; margin-bottom:4px;}
+#content-book  .wrapper .main ul li .title a {color:#333;}
+#content-book  .wrapper .main ul li .title a:hover {color:#fff; background:#37a}
+#content-book  .wrapper .main ul li .rating {width:139px; height:19px;}
+#content-book  .wrapper .main ul li .rating span {background:url(img/ic_rating_s.png) no-repeat; display:inline-block;
+height:11px; width:55px;}
+#content-book  .wrapper .main ul li .rating p {display:inline-block;}
+#content-book  .wrapper .main ul li>a {padding:2px 10px; display:inline-block; background:#999a95; color:#fff;
+border-radius:2px;}
+#content-book  .wrapper .main ul li>a:hover {background:#878882;}
+/************学海无涯回头是岸*****************/
+
+/************同城*****************/
+#content-city {height:345px; background:#f7f7f7; padding:40px 0 20px;}
+#content-city .wrapper {height:345px; color:#643;}
+#content-city .wrapper a {color:#643;}
+#content-city .wrapper a:hover {color:#fff;}
+
+#content-city .wrapper>.left>h2>a {color:#ec5303;}
+
+#content-city .wrapper .right .mod {height:315px;}
+#content-city .wrapper .right .event-kind {width:265px; margin-bottom:10px;}
+#content-city .wrapper .right .event-kind ul li {float:left; display:inline-block; margin-left:10px; line-height:19px;}
+#content-city .wrapper .right .event-kind ul li.event-label {color:#333; font-size:14px; width:100%; margin:3px 0 5px;}
+
+#content-city .wrapper .main {width:535px; height:296px;}
+#content-city .wrapper .main ul li {float:left; width:248px; height:119px; margin:0 10px 30px 0;}
+#content-city .wrapper .main ul li .pic {float:left; width:70px; height:90px; margin:0 6px 10px 0;}
+#content-city .wrapper .main ul li .info {float:left; width:168px; height:119px; color:#666;}
+#content-city .wrapper .main ul li .info .title {font-size:13px; line-height:20px;}
+#content-city .wrapper .main ul li .info .title span {background:#ff8263; color:#fff; display:inline-block; border-radius:3px; font-size:11px; font-weight:200;
+margin-bottom:3px; padding:0 3px;}
+#content-city .wrapper .main ul li .info .rating {line-height:20px;}
+/***********不约*****************/
+
+/************底部*************/
+#bottom .wrapper {height:251px;}
+#bottom .wrapper .top-pic a {background:none;}
+#bottom .wrapper .top-pic {width:950px; height:90px; position:relative; margin-bottom:40px;}
+#bottom .wrapper .top-pic .info {width:32px; height:18px; background:black; color:#fff; text-align:center; 
+filter:alpha(opacity=40); opacity:0.4; position:absolute; bottom:0; right:0;}
+
+#bottom .wrapper .foot {border-top:1px #ccc dashed; padding-top:15px;}
+#bottom .wrapper .foot .left {width:450px; float:left; color:#999; line-height:19px;}
+#bottom .wrapper .foot .left img.jubao {width:15px; height:12px; vertical-align:middle;}
+#bottom .wrapper .foot .left img.wangan {width:15; height:17; vertical-align:middle;}
+#bottom .wrapper .foot .left img.youxiang {width:117px; height:16px; vertical-align:bottom;}
+
+#bottom .wrapper .foot .right {width:430px; float:right;}
+/*******完结~撒花~*********/
+
+/*******By 子不语*********/
+
+
+

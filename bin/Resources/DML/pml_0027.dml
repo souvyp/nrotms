@@ -1,0 +1,29 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0027",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_Code AS [Code], Index_ID AS [DocID], Index_PactCode AS [PactCode], Index_Name AS [Name], CONVERT(VARCHAR(100), Index_StartTime,111) AS [StartTime], CONVERT(VARCHAR(100), Index_EndTime,111) AS [EndTime], Index_Description AS [Description], Index_SrcDocID AS [SrcDocID], Index_Type AS [Type], Index_StatusTime AS [StatusTime], Index_CustomerID AS [CustomerID], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS CustomerName, Index_CustomerCompanyID AS [CustomerCompanyID], Index_CreatorID AS [CreatorID], Index_CreatorCompanyID AS [CreatorCompanyID], Index_CreateTime AS [CreateTime], Index_Confirmer AS [Confirmer], Index_ConfirmTime AS [ConfirmTime], Index_Invalid AS [Invalid], Index_Comments AS [Comments] FROM Price_DocIndex WHERE Index_ID = @id  AND Index_Invalid = 0 AND (Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) OR Index_CustomerCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0));",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

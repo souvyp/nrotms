@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0217",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  Cfg_GoodsCategory AS [GoodsCategory], Cfg_PackageMode AS [PackageMode], Cfg_ChargeMode AS [ChargeMode], Cfg_ChargeMode AS [ChargeMode_id], Cfg_PriceUnit AS [PriceUnit], Cfg_PriceUnit AS [PriceUnit_id],Cfg_Insurance AS [IsInsurance], Cfg_Pick AS [IsPick], Cfg_Delivery AS [IsDelivery], Cfg_OnLoad AS [IsOnLoad], Cfg_OffLoad AS [IsOffLoad] FROM TMS_MConfig  WHERE Cfg_Creator = @Operator;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

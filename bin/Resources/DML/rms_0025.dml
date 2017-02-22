@@ -1,0 +1,31 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0025",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_CreatorCompanyID, dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [ComapanyName], 
+SUM(dbo.fn_pub_order_TotalCost(Index_ID)) AS [TotalCost],SUM(1) AS [TotalAmount], SUM(dbo.fn_pub_order_TotalWeight(Index_ID, 1)) AS [TotalWeight], SUM(dbo.fn_pub_order_TotalVolume(Index_ID, 1)) AS [TotalVolume]  FROM TMS_OrderIndex  AS S INNER JOIN (select Branch_CompanyID from TMS_CompanyBranches where  Branch_OwnerCompanyID = dbo.fn_pub_user_User2CompanyID(@company,0)AND Branch_Status = 2  UNION ALL  select  dbo.fn_pub_user_User2CompanyID(@company,0) AS Branch_CompanyID) AS T  ON  T.Branch_CompanyID = S.Index_CreatorCompanyID  WHERE  Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status = 8  AND YEAR(Index_CreateTime)=@year  GROUP BY Index_CreatorCompanyID ORDER BY Index_CreatorCompanyID ASC",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "company",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+       
+      },
+	  {
+        "name": "Year",
+        "type": "int",
+        "size": 8,
+        "direction": "input",
+      
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

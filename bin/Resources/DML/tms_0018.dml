@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0018",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Goods_ID AS [GoodsID], Goods_Code AS [Code], Goods_Name AS [Name], dbo.fn_pub_order_GoodsType2Name(Goods_TypeID) AS [TypeName], Goods_TypeID AS [TypeID], Goods_CreatorCompanyID AS [CompanyID],dbo.fn_pub_user_Company2Name(Goods_CustomerCompanyID) AS [CustomerName], Goods_CustomerCompanyID AS [CustomerCompanyID], Goods_Price AS [Price], Goods_SPC AS [SPC], Goods_Volume AS [Volume], Goods_Weight AS [Weight], Goods_MWeight AS [MWeight], Goods_Creator AS [Creator], Goods_InsertTime AS [InsertTime], Goods_Updater AS [Updater], Goods_UpdateTime AS [UpdateTime], Goods_Invalid AS [Invalid], Goods_Comments AS [Comments], Goods_Long AS [Long], Goods_Width AS [Width], Goods_Height AS [Height], Goods_Unit AS [Unit], dbo.fn_pub_price_UnitName(Goods_Unit) AS [UnitName] FROM TMS_MGoods WHERE Goods_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

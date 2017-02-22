@@ -1,0 +1,28 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "rms_0021",
+  "version": 1,
+  "dml-id": "rms_0021",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "company",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+	  {
+        "name": "Year",
+        "type": "normal",
+        "value": ""
+      },
+	  {
+        "name": "transportmode",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

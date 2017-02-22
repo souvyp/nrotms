@@ -1,0 +1,15 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	if(code=="")
+		Response.Redirect("/");
+	else{
+		Response.PutContent('#UNAME#',Response.Session["name"]);
+		Response.PutContent('#ACODE#',Response.Session["appcode"]);
+		Response.PutContent('#ANAME#',Response.Session["appname"]);
+	}
+}

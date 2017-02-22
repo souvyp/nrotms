@@ -1,0 +1,6 @@
+Imports System
+
+Response.ContentText="1"
+Dim fFilename as string=Request.getParameter("Filedata_Disk")
+Dim fRealName as string=Request.getParameter("Filedata")
+MoveFile(Conf.Root +"\uploads\"+ fFilename,Conf.Root+"\users\frame\data\themes\icons\"+fRealName)

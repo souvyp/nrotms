@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0051",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_Code AS [Code], Index_PactCode AS [PactCode], Index_EndUserID AS [EndUserID], Index_EndUserName AS [EndUserName], Index_From AS [IFrom], Index_To AS [ITo], Index_StatusTime AS [StatusTime], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], dbo.fn_pub_order_TotalCost(Index_ID) AS [TotalCost],dbo.fn_pub_order_TotalVolume(Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalWeight(Index_ID,0) AS [TotalWeight], dbo.fn_pub_order_TotalAmount(Index_ID,0) AS [TotalAmount] , convert(varchar(10),Index_CreateTime,120) AS [createtime], Index_SrcClass AS [SrcClass]  FROM TMS_OrderIndex",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SupplierSymbolID = 0 AND Index_SrcClass = 1 AND Index_CustomerCompanyID <> Index_CreatorCompanyID AND Index_Invalid = 0 AND Index_Status < 16 AND dbo.fn_pub_order_TotalCost(Index_ID) > '0' AND dbo.fn_pub_order_OrderTransition(Index_ID,1) = 0 AND Index_Combined = 0",
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0030",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT TOP (1000) Event_Type,Event_Ext,Event_Category, Event_Time,dbo.fn_pub_order_IsLongDistance(ISNULL(CAST(ISNULL(Event_Ext, '') AS BIGINT), 0)) AS [IsDistance], Event_ProcessDesc AS [ProcessDesc] FROM TMS_Events",
+    "where": "Event_DstCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND dbo.fn_prv_event_ModuleMatch(Event_Type, 1) = 1 AND Event_Processed = 1 AND Event_Invalid =0 AND  dbo.fn_prv_event_CheckPmis(SESSION[USERID],Event_Type)=1 AND Event_Category <> 7",
+    "sort":" Event_Time DESC"
+  }
+}
+
+

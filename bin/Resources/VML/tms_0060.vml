@@ -1,0 +1,78 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0060",
+  "version": 1,
+  "dml-id": "tms_0060",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "Acccount",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Password",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "RoleID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Name",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Gender",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Birthday",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Phone",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Dept",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Duty",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Photo",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Nickname",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "UserType",
+        "type": "normal",
+        "value": "1"
+      }
+    ]
+  }
+}

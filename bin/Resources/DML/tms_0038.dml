@@ -1,0 +1,23 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0038",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT opt_status AS [status], Car_SN AS [SN], Car_Type AS [CarType], Car_Length AS [CarLength], Car_Weight AS [Weight], Car_Seats AS [Seats], (CONVERT(VARCHAR(100), Car_PurchaseTime, 23)) AS [PurchaseTime],(CONVERT(VARCHAR(100), Car_Insurance, 23)) AS [Insurance], Car_Brand AS [Brand], Car_Photo AS [Photo], Car_CompanyID AS [CompanyID], Car_Creator AS [Creator], Car_InsertTime AS [InsertTime], Car_Updater AS [Updater], Car_UpdateTime AS [UpdateTime], Car_Invalid AS [Invalid], Car_Comments AS [Comments], Car_Volume As [Volume] 
+                    FROM TMS_MCar WHERE Car_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

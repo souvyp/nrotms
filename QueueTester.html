@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+<title>Queue Tester</title>
+<script language="javascript" src="/assets/js/csdu.queue.js"></script>
+<style type="text/css">
+        .progress{width: 900px; height: 16px; background-color: #CCC; position: relative;}
+        .progress .ibar {width: 0px; height: 16px; background-color: #9370DB; position: absolute;}
+        .progress .num{position: absolute;}
+    </style>
+</head>
+<body>
+	<div class="content">
+        <div class="progress">
+            <div class="ibar" id="ibar"></div>
+            <div class="num" id="num">0</div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="content">
+        <div class="progress">
+            <div class="ibar" id="ibar1"></div>
+            <div class="num" id="num1">0</div>
+        </div>
+    </div>
+    <script language="javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+<script language="javascript">
+var queue1 = new Queue();
+var queue2 = new Queue();
+for( var now = 0; now <= 900; now++ ){
+	queue1.Push( function (_context, _paras) {
+		//console.log("第"+ _paras +"个数据");
+		$("div#ibar").css( {"width":_paras +"px"});
+		$("#num").css({"left":_paras +"px"}).html(parseInt(_paras/9));
+	}, queue1, now );
+}
+queue1.Exec();	
+
+
+queue2.Interval = 30;
+for( var now = 0; now <= 900; now++ ){
+	queue2.Push( function (_context, _paras) {
+		//console.log("第"+ _paras +"个数据aaa");
+		$("div#ibar1").css( {"width":_paras +"px"});
+		$("#num1").css({"left":_paras +"px"}).html(parseInt(_paras/9));
+	}, queue2, now );
+}
+queue2.Exec();	
+
+
+
+/*queue.Push(function () {
+console.log("第1个数据");
+now = 100;
+$("div#ibar").css( {"width":now +"px"});
+$("#num").css({"left":now +"px"}).html(parseInt(now/9));
+});
+queue.Push(function (_context, _paras) {
+	console.log("第2个数据");
+
+	//console.log("****************************************");
+	//console.log(_paras);
+	//console.log(_context.Length());
+	//console.log("****************************************");
+}, queue, [1,2,3]);
+queue.Push(function () {
+console.log("第3个数据");
+now = 300;
+$("div#ibar").css( {"width":now +"px"});
+$("#num").css({"left":now +"px"}).html(parseInt(now/9));
+});*/
+//queue.Exec();
+//单步执行
+//queue.Exec(true);
+
+
+
+</script>
+</body>
+</html>

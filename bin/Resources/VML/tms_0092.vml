@@ -1,0 +1,18 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0092",
+  "version": 1,
+  "dml-id": "tms_0092",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "orderid",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

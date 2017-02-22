@@ -1,0 +1,23 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0067",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT T.[CustomerName],Y.LD,Y.ZC,Y.TH,Y.SH,Y.ZH,Y.XH,Y.BF,Y.FJ,Y.SF,(T.TotalCost-Y.LD-Y.ZC-Y.TH-Y.SH-Y.ZH-Y.XH-Y.BF-Y.FJ-Y.SF) AS [Others] FROM (SELECT TOP 10 Index_CustomerID, dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], SUM(dbo.fn_pub_order_TotalCost(Index_ID))  AS [TotalCost] FROM TMS_OrderIndex AS A  INNER JOIN Price_OrderCache AS B ON A.Index_ID = B.Cache_OrderID WHERE Index_SrcClass = 1 AND A.Index_Invalid = 0 AND B.Cache_Invalid = 0 AND Index_Status <> 32  AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator, 0) GROUP BY Index_CustomerID  ORDER BY [TotalCost] DESC) AS T LEFT JOIN (SELECT Index_CustomerID, dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], SUM( CASE WHEN cache_type = 1 THEN Cache_Amount ELSE 0 END) AS [LD],SUM( CASE WHEN cache_type = 2 THEN Cache_Amount ELSE 0 END) AS [ZC],SUM( CASE WHEN cache_type = 3 THEN Cache_Amount ELSE 0 END) AS [TH],SUM( CASE WHEN cache_type = 4 THEN Cache_Amount ELSE 0 END) AS [SH],SUM( CASE WHEN cache_type = 5 THEN Cache_Amount ELSE 0 END) AS [ZH],SUM( CASE WHEN cache_type = 6 THEN Cache_Amount ELSE 0 END) AS [XH],SUM( CASE WHEN cache_type = 8 THEN Cache_Amount ELSE 0 END) AS [BF],SUM( CASE WHEN cache_type = 9 THEN Cache_Amount ELSE 0 END) AS [FJ],SUM( CASE WHEN cache_type = 10 THEN Cache_Amount ELSE 0 END) AS [SF] FROM TMS_OrderIndex AS A  INNER JOIN Price_OrderCache AS B ON A.Index_ID = B.Cache_OrderID WHERE Index_SrcClass = 1 AND A.Index_Invalid = 0 AND B.Cache_Invalid = 0 AND Index_Status <> 32  AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator, 0) GROUP BY Index_CustomerID ) As Y ON T.Index_CustomerID = Y.Index_CustomerID",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+	  {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "用户编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

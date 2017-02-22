@@ -1,0 +1,23 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0064",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_Name AS [Name], dbo.fn_pub_order_AreaLocation(Area_ID,0) AS Location,2 AS [sysmbolSize] FROM TMS_BasicArea WHERE Area_NodeType = 2 AND Latitude IS NOT NULL AND Longitude IS NOT NULL",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,108 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0226",
+  "version": 1,
+  "dml-id": "tms_0226",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "Issend",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DocID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Type",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PactCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Name",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CustomerID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "LessLoadPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FullLoadPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PickPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DeliveryPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "OnLoadPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "OffLoadPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "AdditionPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "InsuranceCost",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "TaxPrice",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "AddpriceLst",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

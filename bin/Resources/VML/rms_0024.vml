@@ -1,0 +1,33 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "rms_0024",
+  "version": 1,
+  "dml-id": "rms_0024",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "company",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+	  {
+        "name": "Year",
+        "type": "normal",
+        "value": ""
+      } ,
+	  {
+        "name": "fromcity",
+        "type": "normal",
+        "value": ""
+      } ,
+	  {
+        "name": "tocity",
+        "type": "normal",
+        "value": ""
+      } 
+    ]
+  }
+}

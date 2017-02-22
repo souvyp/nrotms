@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0082",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  Symbol_ID AS [id],dbo.fn_pub_user_Company2Name(Symbol_CompanyID) AS [companyname], Symbol_Type AS [type], Symbol_Code AS [code], Symbol_Name AS [name] ,Symbol_InsertTime AS [inserttime],Symbol_Invalid AS [invalid] FROM TMS_MSymbol",
+    "where": "Symbol_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID],0) AND Symbol_Type = 1"
+  }
+}
+
+

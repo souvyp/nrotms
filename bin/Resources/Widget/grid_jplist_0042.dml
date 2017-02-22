@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0042",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT A.Index_ID AS [id], A.Index_ShipMode AS [ShipMode], CONVERT(NVARCHAR(10), A.Index_FromTime, 120) AS [FromTime], dbo.fn_pub_order_SupplierName( A.Index_SupplierID,A.Index_ID) AS [SupplierName], A.Index_Code AS [code], A.Index_PactCode AS [pactcode], A.Index_EndUserName AS [endusername], A.Index_From AS [from], A.Index_To AS [toaddress], A.Index_Status [status], dbo.fn_pub_order_Status2Name_v2(Index_Status,A.Index_ID) AS [StatusName], dbo.fn_pub_user_Customer2Name(A.Index_CustomerID) AS [CustomerName],CONVERT(VARCHAR(10),A.Index_CreateTime,120) AS [createtime], A.Index_Combined AS [Combined],D.Contains_OwnerOrderID  AS [OwnerOrderID],D.Index_Code AS [ContainsOwnerOrderCode],Index_SupplierID AS [SupplierID],A.Index_statusTime AS [statustime],Device_IMEICode AS [DeviceCode] ,CONVERT(NVARCHAR(19),Index_ToTime , 120) AS [ToTime],   CONVERT(VARCHAR(19),Index_FromTime,120) AS [LFromTime] FROM TMS_OrderIndex AS A LEFT JOIN (SELECT B.Index_Code,C.Contains_OwnerOrderID,C.Contains_OrderID FROM TMS_OrderIndex AS B INNER JOIN TMS_OrderContains AS C ON B.Index_ID = C.Contains_OwnerOrderID) AS D ON A.Index_ID= D.Contains_OrderID LEFT JOIN TMS_Devices ON Device_ID = Index_DeviceCode",
+    "where": "Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 2 AND Index_Invalid = 0 AND Index_Status >= 1 AND Index_Status < 32",
+	"sort": "statustime DESC"
+  }
+}
+

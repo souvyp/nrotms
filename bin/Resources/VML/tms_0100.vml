@@ -1,0 +1,12 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0100",
+  "version": 1,
+  "dml-id": "tms_0100",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0019",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT a.Index_Code AS [Code], a.Index_ID AS [DocID], a.Index_PactCode AS [PactCode], a.Index_Name AS [Name], convert(varchar(100), a.Index_StartTime,111) AS [StartTime], convert(varchar(100), a.Index_EndTime,111) AS [EndTime], a.Index_Description AS [Description], a.Index_OrderID AS [OrderID], b.Index_Code AS [OrderCode], a.Index_SrcDocID AS [SrcDocID], a.Index_Type AS [Type], a.Index_StatusTime AS [StatusTime], a.Index_CustomerID AS [CustomerID], dbo.fn_pub_user_Customer2Name(a.Index_CustomerID) AS CustomerName, a.Index_CustomerCompanyID AS [CustomerCompanyID], a.Index_CreatorID AS [CreatorID], a.Index_CreatorCompanyID AS [CreatorCompanyID], a.Index_CreateTime AS [CreateTime], a.Index_Confirmer AS [Confirmer], a.Index_ConfirmTime AS [ConfirmTime], a.Index_Invalid AS [Invalid], a.Index_Comments AS [Comments] FROM Price_DocIndex AS a INNER JOIN TMS_OrderIndex AS b ON a.Index_OrderID = b.Index_ID WHERE a.Index_ID = @id AND a.Index_Invalid = 0 AND (a.Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) OR a.Index_CustomerCompanyID=dbo.fn_pub_user_User2CompanyID(@Operator,0) OR b.Index_SupplierCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0));",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

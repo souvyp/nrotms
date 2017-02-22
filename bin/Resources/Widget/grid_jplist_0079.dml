@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0079",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_CreateTime, Index_Code AS [Code], Index_PactCode AS [PactCode], Index_EndUserID AS [EndUserID], Index_EndUserName AS [EndUserName], Index_From AS [From], Index_To AS [To], Index_Status AS [Status], dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName], Index_StatusTime AS [StatusTime], Index_SrcOrderID AS [SrcOrderID], Index_RootOrderID AS [RootOrderID], Index_DriverID AS [DriverID], Index_CarID AS [CarID], Index_SupplierID AS [SupplierID], Index_SupplierCompanyID AS [SupplierCompanyID], Index_CustomerID AS [CustomerID], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], Index_CustomerCompanyID AS [CustomerCompanyID], Index_Creator AS [Creator], CONVERT(VARCHAR(100),Index_CreateTime,111) AS [createtime], Index_Confirmer AS [Confirmer], Index_ConfirmTime AS [confirmtime], Index_Singer AS [Singer], Index_SignTime AS [SignTime], Index_ReceiptDoc AS [ReceiptDoc], Index_Exception AS [Exception], Index_Invalid AS [Invalid], Index_Comments AS [Comments],  B.[Qty], B.[Weight], B.[Volume], Index_ShipMode AS [ShipMode],Index_Combined AS [Combined] FROM TMS_OrderIndex AS A CROSS APPLY (SELECT SUM(GoodsLst_Qty) AS [Qty], SUM(GoodsLst_Weight) AS [Weight], SUM(GoodsLst_Volume) AS [Volume] FROM TMS_OrderGoods WHERE GoodsLst_OrderID = A.Index_ID) B",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SupplierCompanyID = 0 AND Index_SrcClass = 2 AND Index_Status = 1 AND Index_Invalid = 0  AND Index_Combined = 0"
+  }
+}

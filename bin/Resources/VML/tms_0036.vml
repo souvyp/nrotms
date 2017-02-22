@@ -1,0 +1,68 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0036",
+  "version": 1,
+  "dml-id": "tms_0036",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "SN",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CarType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarLength",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Weight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Seats",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PurchaseTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Insurance",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Brand",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Photo",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Volume",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+ 'namespace' : 'data',
+ 'cmd' : 'sqlcmd',
+ 'id' : 'dml_login_0001',
+ 'version' : 1,
+ 'paras' : 
+ {
+  'dbtype' : 'sqlserver',
+  'sql' : "SELECT User_Account AS [User_Name], [User_Name] AS User_TrueName, [User_ID], '' AS User_GUID, User_RoleID, '' AS User_Permission, User_Portrait, User_Language FROM TMS_User WHERE LOWER(User_Account) = LOWER(@Username) AND LOWER(User_Password) = LOWER(replace(sys.fn_varbintohexstr(hashbytes('SHA1', @Password)), '0x', ''))",
+  'readonly' : 'false',
+  'type' : 'text',
+  'paras' : 
+  [
+   {
+    'name' : 'Username',
+    'type' : 'varchar',
+    'size' : 100,
+    'direction' : 'input'
+   },
+   {
+    'name' : 'Password',
+    'type' : 'varchar',
+    'size' : 100,
+    'direction' : 'input'
+   }
+  ],
+  'responseType' : 'recordset'
+  } 
+}

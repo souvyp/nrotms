@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "Comments_0002",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Flow_Description AS [Description],Flow_OrderID AS [OrderID] FROM TMS_OrderFlow WHERE Flow_OrderID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "订单号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

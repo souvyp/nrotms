@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "user_reading",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT User_Account AS [Account], User_Password AS [Password], User_CompanyID AS [CompanyID], User_RoleID AS [RoleID], User_Name AS [Name], User_Nickname AS [Nickname], User_Portrait AS [Photo], User_Language AS [Language], User_Gender AS [Gender], User_Birthday AS [Birthday], User_Phone AS [Phone], User_Dept AS [Dept], User_Duty AS [Duty], User_Comments AS [Comments], User_ID AS [UserID], User_ID AS [id] FROM TMS_User WHERE User_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

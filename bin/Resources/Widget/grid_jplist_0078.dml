@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0078",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_Code AS [Code],Index_StatusTime AS [StatusTime],Index_PactCode AS [PactCode],Index_EndUserName AS [EndUserName], Index_From AS [From], Index_To AS [To],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CustomerName], B.[Qty],A.Index_SrcClass AS [SrcClass],A.Index_WeightAddition,A.Index_VolumeAddition, (ISNULL(B.[Weight],0)+A.Index_WeightAddition) AS [Weight], (ISNULL(B.[Volume],0)+A.Index_VolumeAddition) AS [Volume],CONVERT(VARCHAR(10),Index_CreateTime,(120)) AS [createtime], CONVERT(VARCHAR(10),A.Index_FromTime,120) AS [fromtime] FROM TMS_OrderIndex AS A CROSS APPLY (SELECT SUM(GoodsLst_Qty) AS [Qty], SUM(GoodsLst_Weight) AS [Weight], SUM(GoodsLst_Volume) AS [Volume] FROM TMS_OrderGoods WHERE GoodsLst_OrderID = A.Index_ID) B",
+    "where": "Index_SupplierCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0)  AND Index_Status = 1 AND Index_Invalid = 0 AND Index_Combined = 0 "
+	}
+}

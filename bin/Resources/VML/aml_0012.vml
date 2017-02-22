@@ -1,0 +1,38 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "aml_0012",
+  "version": 1,
+  "dml-id": "aml_0012",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "ZoneID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ZoneCompanyCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "SendDirectly",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0013",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT YEAR(Index_FromTime) AS 'Year',
+SUM(CASE WHEN MONTH(Index_FromTime) = 1 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '1',
+SUM(CASE WHEN MONTH(Index_FromTime) = 2 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '2',
+SUM(CASE WHEN MONTH(Index_FromTime) = 3 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '3',
+SUM(CASE WHEN MONTH(Index_FromTime) = 4 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '4',
+SUM(CASE WHEN MONTH(Index_FromTime) = 5 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '5',
+SUM(CASE WHEN MONTH(Index_FromTime) = 6 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '6',
+SUM(CASE WHEN MONTH(Index_FromTime) = 7 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '7',
+SUM(CASE WHEN MONTH(Index_FromTime) = 8 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '8',
+SUM(CASE WHEN MONTH(Index_FromTime) = 9 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '9',
+SUM(CASE WHEN MONTH(Index_FromTime) = 10 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '10',
+SUM(CASE WHEN MONTH(Index_FromTime) = 11 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '11',
+SUM(CASE WHEN MONTH(Index_FromTime) = 12 THEN dbo.fn_pub_order_TotalCost(Index_ID) - dbo.fn_pub_order_TotalPrimeCost(Index_ID) ELSE 0 END) AS '12'
+ FROM TMS_OrderIndex 
+WHERE Index_SrcClass = 1 AND Index_SrcOrderID > 0 AND Index_CustomerCompanyID <> dbo.fn_pub_user_User2CompanyID( @company, 0) AND 
+Index_Invalid = 0 AND Index_Status <> 32 AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID( @company, 0) 
+GROUP BY YEAR(Index_FromTime) ORDER BY YEAR(Index_FromTime) ASC;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+	  {
+        "name": "company",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "用户公司编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

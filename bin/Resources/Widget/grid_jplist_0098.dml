@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0098",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT A.Index_ID AS [id], Index_Code AS [Code], Index_SrcClass AS [SrcClass], dbo.fn_pub_user_SymbolName(Index_SupplierSymbolID) AS [SupplierSymbolName], Index_PactCode AS [PactCode],Index_EndUserName AS [EndUserName], Index_StatusTime AS [StatusTime], Index_From AS [From], Index_To AS [To], (CASE WHEN Index_SupplierCompanyID IS NULL OR Index_SupplierCompanyID = 0 THEN dbo.fn_pub_user_SupplierName(Index_SupplierID) ELSE dbo.fn_pub_user_Company2Name(Index_SupplierCompanyID) END) AS [SupplierName],  dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], dbo.fn_pub_order_AreaName(Index_FromProvince) AS [FromProvince],dbo.fn_pub_order_AreaName(Index_FromCity) AS [FromCity],dbo.fn_pub_order_AreaName(Index_FromCity) AS AreaName,dbo.fn_pub_order_AreaName(Index_FromDistrict) AS [FromDistrict],dbo.fn_pub_order_AreaName(Index_ToProvince) AS [ToProvince],dbo.fn_pub_order_AreaName(Index_ToCity) AS [ToCity],dbo.fn_pub_order_AreaName(Index_ToDistrict) AS [ToDistrict],dbo.fn_pub_order_TotalCost(A.Index_ID) AS [TotalCost],dbo.fn_pub_order_TotalVolume(A.Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalWeight(A.Index_ID,0) AS [TotalWeight],dbo.fn_pub_order_TotalAmount(A.Index_ID,0) AS [TotalAmount], convert(varchar(10),Index_CreateTime,120) AS [createtime] FROM TMS_OrderIndex AS A INNER JOIN (SELECT Index_ID,Index_Combined AS [Combined] FROM TMS_OrderIndex ) AS B ON A.Index_SrcOrderID = B.Index_ID",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SupplierSymbolID > 0 AND  (Index_SrcClass = 2 AND Index_SupplierID = 0 AND Index_SupplierSymbolID > 0)  AND Index_Invalid = 0 AND Index_Status < 16 AND dbo.fn_pub_order_TotalCost(A.Index_ID) = '0' AND Index_Combined = 0 AND dbo.fn_pub_price_OrderBePrice(A.Index_ID) = 0  AND B.Combined = 0"
+  }
+}
+
+
+

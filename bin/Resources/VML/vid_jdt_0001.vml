@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'wfile',
+ 'id' : 'vid_jdt_0001',
+ 'version' : 1,
+ 'sml-id' : 'sid_dml_0001',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'dml'
+ }
+}

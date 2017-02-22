@@ -1,0 +1,491 @@
+﻿
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
+		<title>思维导图</title>
+		<link rel="icon" href="mm.png" />
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/style.css" />
+		
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		
+		<script type="text/javascript" src="plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/mms.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+
+	</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" style="opacity: 0.95;" >
+        <div class="navbar-collapse collapse" role="navigation" style="padding-left:0px;">
+          <ul class="nav navbar-nav">
+			<li>
+				<a class="navbar-brand hidden-sm" href="#" style="padding-left: 50px;font-size: 15px;color: #fff;font-weight: bold;line-height:15px;"><img src="css/favicon.png" />思维导图&nbsp;<span class="label label-default">Ver 0.1</span></a>
+			</li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list">项目</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#projectInfo">新建...</a>
+                </li>
+				<li>
+                  <a href="#" data-toggle="modal" data-target="#fileList">打开<span class="shortcut">Ctrl+O</span></a>
+                </li>
+                <li>
+                  <!--a href="#" data-command="Save">保存<span class="shortcut">Ctrl+S</span></a-->
+				  <a href="#" onclick="SaveMindMap()">保存<span class="shortcut">Ctrl+S</span></a>
+                </li>
+				<!--li>
+                  <a href="#" data-command="Load">本地打开<span class="shortcut">Ctrl+O</span></a>
+                </li>
+                <li>
+                  <a href="#" data-command="SaveAs">另存为...</a>
+                </li>
+				<li class="dropdown-submenu">
+                    <a href="javascript:;">导出</a>
+                    <ul class="dropdown-menu">
+						<li><a href="#" data-command="Image">图片(PNG)</a></li>
+						<li><a href="javascript:;">文本文件(Paint Text)</a></li> 
+                    </ul>
+                </li-->
+				<li role="presentation" class="divider"></li>
+				<li>
+                  <a href="#">退出<span class="shortcut">Ctrl+X</span></a>
+                </li>			
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-edit">编辑</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+			  	<li>
+                  <a href="#" data-command="Cut">剪切<span class="shortcut">Ctrl+X</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="Copy">拷贝<span class="shortcut">Ctrl+C</span></a>
+                </li>	
+				<li>
+                  <a href="#" data-command="Paste">粘贴<span class="shortcut">Ctrl+P</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="Undo">撤销<span class="shortcut">Ctrl+Z</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="Redo">重做<span class="shortcut">Ctrl+R</span></a>
+                </li>	
+				<li role="presentation" class="divider"></li>	
+				<li>
+                  <a href="#" data-command="Edit">编辑文字<span class="shortcut">E</span></a>
+                </li>
+				<li>
+                  <a href="#responsive" data-toggle="modal" onclick="NodeProperty()">节点属性<span class="shortcut">P</span></a>
+                </li>				
+              </ul>
+            </li>
+			
+			<li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pushpin">节点</span><b class="caret"></b></a>
+              <ul class="dropdown-menu" style="width:180px;">
+                <li>
+                  <a href="#" data-command="InsertChild">插入子节点<span class="shortcut">Tab</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="InsertSibling">插入兄弟节点<span class="shortcut">Enter</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="Delete">删除当前节点<span class="shortcut">Delete</span></a>
+                </li>
+				<li role="presentation" class="divider"></li>
+				<li class="dropdown-submenu">
+                    <a href="javascript:;">标志</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;"	onclick="Wstate(0);">无</a></li>
+						<li><a href="javascript:;"	onclick="Wstate(1);"><span class="glyphicon glyphicon-user">人员</span></a></li>
+                        <li><a href="javascript:;"	onclick="Wstate(2);"><span class="glyphicon glyphicon-th-list">资源</span></a></li>
+						<li><a href="javascript:;"	onclick="Wstate(3);">其他</a></li>						
+                    </ul>
+                </li>
+				<li class="dropdown-submenu">
+                    <a href="javascript:;">显示风格</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;"	onclick="Wshow(1);">地图</a></li>
+						<li><a href="javascript:;"	onclick="Wshow(2);">组织架构(竖排)</a></li>
+						<li><a href="javascript:;"	onclick="Wshow(4);">组织架构(横排)</a></li>
+                        <li><a href="javascript:;"	onclick="Wshow(6);">文件夹</a></li>						
+                    </ul>
+                </li>
+				<li class="dropdown-submenu">
+                    <a href="javascript:;">显示形状</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;"	onclick="Wshape(0);">自动</a></li>
+						<li><a href="javascript:;"	onclick="Wshape(1);">矩形</a></li>
+						<li><a href="javascript:;"	onclick="Wshape(2);">椭圆</a></li>	
+						<li><a href="javascript:;"	onclick="Wshape(3);">下划线</a></li>							
+                    </ul>
+                </li>
+			  </ul>
+            </li>
+	
+			<li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-eye-open">视图</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+				<li>
+                  <a href="#" data-command="ZoomIn">放大<span class="shortcut">+</span></a>
+                </li>
+				<li>
+                  <a href="#" data-command="ZoomOut">缩小<span class="shortcut">-</span></a>
+                </li>	
+				<li>
+                  <a href="#" data-command="Center">图像居中<span class="shortcut">V</span></a>
+                </li>	
+				<li role="presentation" class="divider"></li>
+				<li>
+					<a href="#"  data-command="Resource">资源<span class="shortcut">R</span></span></a>
+				</li>
+				<li>
+					<a href="#" data-command="Help">帮助信息<span class="shortcut">H</span></a>
+				</li>
+              </ul>
+            </li>
+
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">		  
+			<li>
+				<a class="navbar-brand hidden-sm" href="http://www.csdu.net" target="_blank" style="font-size: 16px;color: rgba(255,255,255,.25);font-weight: bold;">&copy;CSDU.NET</a>
+			</li>
+		  </ul>
+        </div>
+    </div>
+	<div class="pcontainer">
+		<ul id="port">
+			
+		</ul>
+	</div>
+
+<div id="tip">Press ‘Tab’ to Insert Child, ‘Enter’ to Insert Sibling Node.</div>	  
+
+
+		<div class="ui">
+			<!--h3>UI栏</h3-->
+			<p>
+				<span>显示风格</span>
+				<select id="layout">
+					<option value="">(Inherit)</option>
+				</select>
+			</p>
+			<p>
+				<span>显示形状</span>
+				<select id="shape">
+					<option value="">(Automatic)</option>
+				</select>
+			</p>
+			<p>
+				<span>节点数值</span>
+				<select id="value">
+					<option value="">(None)</option>
+					<option value="num">Number</option>
+					<optgroup label="Formula">
+						<option value="sum">Sum</option>
+						<option value="avg">Average</option>
+						<option value="min">Minimum</option>
+						<option value="max">Maximum</option>
+					</optgroup>
+				</select>
+			</p>
+			<p>
+				<span>标志</span>
+				<select id="status">
+					<option value="">无</option>
+					<option value="yes">人员</option>
+					<option value="no">资源</option>
+					<option value="computed">其他</option>
+				</select>
+			</p>
+			<p>
+				<span>边框颜色</span>
+				<span id="color" class="color">
+					<a data-color="" title="Inherit" href="#"></a>
+					<a data-color="#000" title="Black" href="#"></a>
+					<a data-color="#e33" title="Red" href="#"></a>
+					<a data-color="#3e3" title="Green" href="#"></a>
+					<a data-color="#33e" title="Blue" href="#"></a>
+					<a data-color="#dd3" title="Yellow" href="#"></a>
+					<a data-color="#3dd" title="Cyan" href="#"></a>
+					<a data-color="#d3d" title="Magenta" href="#"></a>
+					<a data-color="#fa3" title="Orange" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="pink" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Inherit" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Black" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Red" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Green" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Blue" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Yellow" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Cyan" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Magenta" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="Orange" href="#"></a>
+					<a data-color="rgb(161, 0, 255)" title="pink" href="#"></a>
+				</span>
+			</p>
+			
+			<p>
+				<span>图标</span>
+				<span class="nodeicon">
+					<span class="img">24x24</span>
+					<a href="#" class="FileButton" style="margin-left: 20px;">浏览
+						<input type="file"  class="Fileinput" />
+						<input type="hidden"  id="photo"  />
+					</a>					
+					<a href="#" class="FileButton clearButton" style="float:right;margin-right: 5px;">清除</a>
+				</span>
+			</p>
+			<button id="toggle" title="显示/隐藏UI栏"></button>
+			<button data-command="Help" title="Help"><img src="icons/help.png" alt="Help" width="32"/></button>
+			<div id="throbber"></div>
+		</div>
+
+
+		<div id="io" class="ui openFile">
+			<h3></h3>
+			<p>
+				<span>存储</span>
+				<select id="backend"></select>
+			</p>
+			
+			<div id="file">
+				<p class="desc">本地文件适用于加载/保存文件从其他的思维导图的应用.</p>
+				<p data-for="save">
+					<span>格式</span>
+					<select class="format"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="image">
+				<p class="desc">导出你的设计作为一个PNG图像.</p>
+				<p data-for="save">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="local">
+				<p class="desc">你的浏览器的本地存储可以处理许多心智图并创建一个永久链接，但这个URL不能共享。</p>
+				<p data-for="load">
+					<span>保存导图</span>
+					<select class="list"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+				<p data-for="load">
+					<button class="remove">删除</button>
+				</p>
+			</div>
+
+			<div id="firebase">
+				<p class="desc">Firebase提供真正的多用户协作的实时同步。</p>
+				<p data-for="save load">
+					<span>Server</span>
+					<input type="text" class="server" />
+				</p>
+				<p data-for="save load">
+					<span>Auth</span>
+					<select class="auth">
+						<option value="">(None)</option>
+						<option value="facebook">Facebook</option>
+						<option value="twitter">Twitter</option>
+						<option value="github">GitHub</option>
+						<option value="persona">Persona</option>
+					</select>
+				</p>
+				<p data-for="load">
+					<span>保存的导图</span>
+					<select class="list"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+				<p data-for="load">
+					<button class="remove">删除</button>
+				</p>
+			</div>
+
+			<div id="webdav">
+				<p class="desc">使用此访问通用DAV-like REST API.</p>
+				<p data-for="save load">
+					<span>URL</span>
+					<input type="text" class="url" />
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+
+			<div id="gdrive">
+				<p class="desc">Maps stored in Google Drive have a permalink URL and can be shared with other users, if you allow this by setting proper permissions (inside Google Drive itself).</p>
+				<p data-for="save">
+					<span>Format</span>
+					<select class="format"></select>
+				</p>
+				<p data-for="save load">
+					<button class="go"></button><button class="cancel">取消</button>
+				</p>
+			</div>
+		</div>
+
+		<div id="help" class="ui">
+			<!--h3>Help</h3-->
+
+			<p><span>Navigation</span></p>
+			<table class="navigation"></table>
+
+			<p><span>Manipulation</span></p>
+			<table class="manipulation"></table>
+
+			<p><span>Editing</span></p>
+			<table class="editing"></table>
+
+			<p><span>Other</span></p>
+			<table class="other"></table>
+		</div>
+		
+		<div id="resource" class="ui">
+			<h3>
+				<button title="新增资源"><img src="icons/127.png" alt="新增资源" width="32"/></button>
+				<button title="删除资源"><img src="icons/128.png" alt="删除资源" width="32"/></button>				
+				<button id="BtnLoad" title="刷新"><img src="icons/48.png" alt="刷新" width="32"/></button>
+				<button id="BtnSave" title="保存"><img src="icons/7.png" alt="保存" width="32"/></button>
+			</h3>
+			<div style="padding:5px;">
+				<span class="drag"><span class="glyphicon glyphicon-user"></span>李辞风</span>
+				<span class="drag"><span class="glyphicon glyphicon-user"></span>杨幂</span>
+				<span class="drag"><span class="glyphicon glyphicon-user"></span>老杨</span>
+			</div>
+			
+		</div>
+		
+		<div id="menu">
+			<button data-command="InsertChild">插入子节点</button>
+			<button data-command="InsertSibling">插入兄弟节点</button>
+			<button data-command="Delete">删除节点</button>
+			<button data-command="Edit">编辑文字</button>
+			<!--button data-command="Value"></button-->
+			<button data-toggle="modal" href="#responsive" onclick="NodeProperty()">节点属性</button>
+		</div>
+		
+		
+		<div id="responsive" class="modal fade" tabindex="-1" aria-hidden="true" >
+			<div class="modal-dialog">
+			   <div class="modal-content">
+				  <div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					 <h4 class="modal-title">其他属性 & 备用属性</h4>
+				  </div>
+				  <div class="modal-body">
+					 <div class="scroller" style="height:310px" data-always-visible="1" data-rail-visible1="1">
+						<div class="row">
+						   <div class="col-md-6">
+							  <h4>其他属性</h4>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						   <div class="col-md-6">
+							  <h4>备用属性</h4>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						</div>
+					 </div>
+					 <div class="row">
+						<div class="col-md-12">
+						<p><textarea name="note" class="col-md-12 form-control"></textarea></p>
+						</div>
+					 </div>
+				  </div>
+				  <div class="modal-footer">
+					 <button type="button" data-dismiss="modal" class="btn default">关闭</button>
+					 <button type="button" data-dismiss="modal" class="btn green" onclick="SaveNotes()">保存</button>
+				  </div>
+			   </div>
+			</div>
+		 </div>
+		 
+		<div id="fileList" class="modal fade" tabindex="-1" aria-hidden="true" >
+			<div class="modal-dialog">
+			   <div class="modal-content">
+				  <div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					 <h4 class="modal-title">项目列表</h4>
+				  </div>
+				  <div class="modal-body">
+					 <div class="scroller" style="height:310px" data-always-visible="1" data-rail-visible1="1">
+						<div class="row">
+							<ul class="fileList">
+						
+							</ul>
+						   
+						</div>
+					 </div>
+				   </div>
+				  <div class="modal-footer">
+					 <button type="button" data-dismiss="modal" class="btn default">关闭</button>
+					 <!--button type="button" data-dismiss="modal" class="btn green" onclick="LoadMindMap()">打开</button-->
+				  </div>
+			   </div>
+			</div>
+		 </div>
+
+		<div id="projectInfo" class="modal fade" tabindex="-1" aria-hidden="true" >
+			<div class="modal-dialog">
+			   <div class="modal-content">
+				  <div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					 <h4 class="modal-title">项目详情</h4>
+				  </div>
+				  <div class="modal-body">
+					 <div class="scroller" style="height:310px" data-always-visible="1" data-rail-visible1="1">
+						<div class="row">
+						   <div class="col-md-6">
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						   <div class="col-md-6">
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+							  <p><input type="text" name="note" class="col-md-12 form-control"></p>
+						   </div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<textarea name="note" class="col-md-12 form-control"></textarea>
+							</div>
+						</div>
+					 </div>
+				   </div>
+				  <div class="modal-footer">					 
+					 <button type="button" data-dismiss="modal" class="btn green" onclick="LoadMindMap()">确定</button>
+					 <button type="button" data-dismiss="modal" class="btn default">取消</button>
+				  </div>
+			   </div>
+			</div>
+		 </div>
+	</body>
+</html>

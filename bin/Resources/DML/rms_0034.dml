@@ -1,0 +1,45 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0034",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": " SELECT 
+ (CASE 
+WHEN a.Cache_Type = 1 THEN N'零担' 
+WHEN a.Cache_Type = 2 THEN N'整车' 
+WHEN a.Cache_Type = 3 THEN N'提货费' 
+WHEN a.Cache_Type = 4 THEN N'送货费' 
+WHEN a.Cache_Type = 5 THEN N'装货费' 
+WHEN a.Cache_Type = 6 THEN N'卸货费' 
+WHEN a.Cache_Type = 7 THEN N'最小金额' 
+WHEN a.Cache_Type = 8 THEN N'保险费' 
+WHEN a.Cache_Type = 9 THEN N'附加费' 
+WHEN a.Cache_Type = 10 THEN N'税费' 
+ELSE N'未知' END) AS [Type] ,SUM(a.Cache_Amount) AS [Amount] 
+FROM(TMS_OrderIndex AS b INNER JOIN  Price_OrderCache AS a ON a.Cache_OrderID = b.Index_ID )
+INNER JOIN (SELECT Branch_CompanyID FROM TMS_CompanyBranches WHERE  Branch_OwnerCompanyID = dbo.fn_pub_user_User2CompanyID(@company,0)AND Branch_Status = 2  UNION ALL  select  dbo.fn_pub_user_User2CompanyID(@company,0) AS Branch_CompanyID) AS T  ON  T.Branch_CompanyID =  Index_CreatorCompanyID  WHERE a.Cache_Invalid = 0 AND Index_SrcClass = 2 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND YEAR(Index_CreateTime)=@Year  
+GROUP BY a.Cache_Type",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "company",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      },
+	  {
+        "name": "Year",
+        "type": "int",
+        "size": 8,
+        "direction": "input",
+
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

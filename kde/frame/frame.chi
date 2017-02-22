@@ -1,0 +1,210 @@
+﻿<%@ CodeFile="code/frame.cn"%>
+<!DOCTYPE>
+<html>
+<head>
+    <title>后台管理 | 中国程序员大联盟</title>
+	
+	<link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+	<link rel="stylesheet" type="text/css" href="res/themes/bootstrap/easyui.css">
+	<link rel="stylesheet" type="text/css" href="res/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="res/themes/black/menu.css">
+	<link rel="stylesheet" type="text/css" href="/users/#USER#/common/icons/icons.css">
+
+	<script type="text/javascript" language="javascript" src="res/js/jquery.min.js"></script>
+	<script type="text/javascript" src="res/js/xheditor-1.1.14-zh-cn.js"></script>
+	<script type="text/javascript" src="res/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="res/js/easyui-lang-zh_CN.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="res/plugs/extend/uploadify/uploadify.css">
+	<script type="text/javascript" src="res/plugs/extend/uploadify/jquery.uploadify.js"> </script>
+	<script type="text/javascript" src="res/plugs/extend/actions.js"> </script>
+		
+	<script type="text/javascript" src="res/plugs/common.js"> </script>
+	<script type="text/javascript" src="res/plugs/grid.js"> </script>
+	<script type="text/javascript" src="res/plugs/tree.js"> </script>
+	<script type="text/javascript" src="res/plugs/form.js"> </script>
+	<script type="text/javascript" src="res/plugs/fun.js"></script>
+
+	<!--script type="text/javascript" src="res/js/jquery.fullscreen.js"></script-->
+	<script type="text/javascript" src="res/js/md5.js"></script>
+
+	<script src="res/chart/highcharts.js"></script>
+	<script src="res/chart/exporting.js"></script>
+		
+		
+	<script type="text/javascript" src="js/function.js"> </script>
+	<script type="text/javascript" src="js/index.js"> </script>
+	<script type="text/javascript" src="js/chart.js"></script>
+
+	<!--script type="text/javascript" src="js/jquery.portal.js"></script>
+	<script type="text/javascript" src="js/myportal.js"></script-->
+	
+</head>
+<body class="easyui-layout" path="#CODE#" upath="#UCODE#">
+	<div class="easyui-panel Menus" data-options="region:'north',border:false">	
+		<div  id="Menus">
+			<div class="navbar-brand"><img src="res/themes/icons/logo.png"/>中国程序员大联盟<span class="label label-default">Ver 0.1</span></div>
+			<!--a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-new',plain:true" onclick="showProject()">新建项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-open',plain:true" onclick="openProject()">打开项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-close',plain:true" onclick="closeProject()">关闭项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-delete',plain:true" onclick="deleteProject()">删除项目</a-->
+			<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="float:right;" onclick="UserLogout()">退出</a>
+			<!--a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-data',plain:true" style="float:right;margin-right:3px;" onclick="showUrl('dataDesign','Data Design','data')">数据设计</a-->
+			
+			<div id="user" style="float:right;color:#fff;font-size:12px;padding:5px 5px;">#UNAME#</div>
+		</div>
+	</div>
+	<div id="rcmenu" class="easyui-menu" style="">
+		<div data-options="iconCls:'icon-cancel'" id="closecur">
+			关闭
+		</div>
+		<div id="closeall">
+			关闭全部
+		</div>
+		<div id="closeother">
+			关闭其他
+		</div>
+		<div class="menu-sep"></div>
+		<div id="closeright">
+			关闭右侧标签页
+		</div>
+		<div id="closeleft">
+			关闭左侧标签页
+		</div>
+	</div>
+	<div id="leftPanel" data-options="region:'west',split:true,tools:'#tree-tools',title:'#ANAME#'" style="width:250px;padding:10px;" >
+	
+		<ul id="treeFunction" tag="0" class="easyui-tree"></ul>
+		<div id="tree-tools">
+			<a href="javascript:void(0)" title="展开功能" class="icon-expanded easyui-tooltip" onclick="expand()"></a>
+			<a href="javascript:void(0)" title="收起功能" class="icon-collapse easyui-tooltip" onclick="collapse()"></a>
+		</div>		
+	</div>
+	
+	<div data-options="region:'center'" style="overflow:hidden;">	
+		<div id="ttTab" class="easyui-tabs" data-options="border:false,fit:true" >
+			<div title="首页" id="home" style="background:#FFF;">
+			
+			</div>
+		</div>
+	</div>
+	<div data-options="region:'south',border:false" align="center" style="padding:5px;background: #f4f4f4;">mcfee@163.com</div>
+	
+	
+	<div id="function" class="easyui-dialog" title="功能详情" data-options="modal:true,closed:true" style="width:460px;height:400px;">
+		<form id="formOperation" onsubmit="return false;">
+				<table class="formTable">  
+					<tr>
+						<th>名称:</th> 
+						<td><input name="text" class="easyui-textbox"  data-options="validType:'length[2,15]'"/></td>  
+						<th>编码:</th><td><input name="id" class="easyui-textbox"  data-options="validType:'length[2,15]'" style="width:125px;"/></td>
+					</tr>
+					<tr>
+						<th>路径:</th>
+						<td><input name="path" class="easyui-textbox"  data-options="validType:'length[2,15]'"/></td>
+						<th>级别/序号:</th><td><input name="level"  class="easyui-numberbox" data-options="min:1,max:20" style="width:60px;margin-right:5px;"/>
+						<input name="order"  class="easyui-numberbox" data-options="precision:0" style="padding-left:5px;width:60px;"/></td>
+					</tr>
+					<tr>
+						<th>图标:</th>
+						<td style="line-height: 5px;">
+							<img src="res/themes/icons/tip.png" id="oimg" name="oimg" onclick="doSearchIcon()"  />	
+							<input name="iconCls" type="hidden" />
+						</td>
+						<th colspan="2">
+							<span class="easyui-checkbox" id="__shortcut">
+								<input type="checkbox" name="shortcut" value="on" label="创建快捷方式">
+							</span>
+						</th>
+						
+					</tr>				
+					<tr>
+						<th>描述:</th> 
+						<td colspan="3">
+							<input class="easyui-textbox" name="note" data-options="multiline:true" style="height:60px;width:360px;"></input>
+						</td>
+					</tr>					
+					<tr>
+						<th>执行代码:</th> 
+						<td colspan="3">
+							<input class="easyui-textbox" name="desc" data-options="multiline:true" style="height:180px;width:360px;"></input>
+						</td>
+					</tr>				
+				</table>
+		
+				<div data-options="region:'south',border:false" style="text-align:right;padding-right:17px;">
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="PostFunction()" style="width:80px">确定</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="$('#function').window('close');" style="width:80px">取消</a>
+				</div>
+		</form>
+	</div>
+	<div id="win-file"><div id="queueFile"></div></div>
+	
+	<div id="win-Login" class="easyui-dialog" title="登陆" data-options="modal:true,closed:true,closable:false" style="width:250px;height:135px;">
+		<form id="FormLogin" onsubmit="return false;" method="post">
+			<table class="formTable">  
+				<tr>
+					<th>登录名:</th>
+					<td><input type="hidden" name="cmd" value="SignIn" /><input name="Username" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[2,15]'"/></td>
+				</tr>
+				<tr>
+					<th>密码:</th>
+					<td><input name="Password" type="password" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[5,15]'"/></td>
+				</tr>				
+			</table>
+	
+			<div data-options="region:'south',border:false" align="center">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="submitLoginForm()" style="width:80px">登陆</a>
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="clearLoginForm" style="width:80px">重置</a>
+			</div>
+		</form>
+	</div>
+	
+	<div id="win-Icons" class="easyui-window" title="图标列表" data-options="modal:true,closed:true" style="width:550px;height:350px;padding:5px;">
+
+	</div>
+	
+	<div id="win-Project" class="easyui-dialog" title="新建项目" data-options="modal:true,closed:true,buttons: '#project-buttons'" style="width:350px;height:285px;">
+		<form id="FormProject" onsubmit="return false;" method="post">
+			<table class="formTable">  
+				<tr>
+					<th>项目编码:</th>
+					<td><input name="projectCode" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[4,15]'"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>项目名称:</th>
+					<td><input name="projectName" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[3,15]'"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>数据链接:</th>
+					<td><input name="dataConnection" class="easyui-textbox"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>数据路径:</th>
+					<td><input name="dataPath" class="easyui-validatebox easyui-textbox"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>项目描述:</th>
+					<td><textarea class="easyui-validatebox easyui-textbox" data-options="validType:'length[10,100]'" name="projectDesc"  style="width:240px;height:80px;"></textarea></td>
+				</tr>
+			</table>
+	
+			<div id="project-buttons">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="submitProjectForm()" style="width:80px">新建</a>
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="clearProjectForm" style="width:80px">重置</a>
+			</div>
+		</form>
+	</div>
+	
+	<div id="win-Open" class="easyui-dialog" title="打开项目" data-options="modal:true,closed:true,buttons: '#open-buttons'" style="width:450px;height:350px;">
+		<ul class="files">
+		</ul>
+		<div id="open-buttons">
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-close'" href="javascript:void(0)" onclick="$('#win-Open').dialog('close');" style="width:80px">关闭</a>
+		</div>
+	</div>
+</body>
+
+
+</html>

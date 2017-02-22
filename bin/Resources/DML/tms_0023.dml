@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0023",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Customer_ID AS [ID], Customer_OwnerCompany AS [OwnerCompany], Customer_Name  AS [CompanyName],Customer_CompanyID AS [CompanyID], Customer_ClientCode AS [ClientCode], Customer_Name AS [Name], Customer_Industry AS [Industry], Customer_Web AS [Web], Customer_ShortName AS [ShortName], Customer_EnName AS [EnName], Customer_ShortEnName AS [ShortEnName], Customer_Master AS [Master], Customer_License AS [License], Customer_Contact AS [Contact], Customer_Phone AS [Phone], Customer_Fax AS [Fax], Customer_Mail AS [Mail], Customer_Address AS [Address], Customer_Zip AS [Zip], Customer_WeiXin AS [WeiXin], Customer_Logo AS [Logo], Customer_Bank AS [Bank], Customer_BankAccount AS [BankAccount], Customer_Description AS [Description], Customer_Invalid AS [Invalid], Customer_Comments AS [Comments] FROM TMS_MCustomer WHERE Customer_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

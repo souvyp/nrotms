@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "company_reading",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT TOP 1 Company_ID AS [id], Company_Name AS [Name], Company_Industry AS [Industry], Company_Logo AS [Logo], Company_Web AS [Web], Company_Description AS [Description], Company_Contact AS [Contact], Company_Phone AS [Phone], Company_Fax AS [Fax], Company_Address AS [Address], Company_Zip AS [Zip], Company_Mail AS [Mail], Company_ClientCode AS [ClientCode], Company_ShortName AS [ShortName], Company_EnName AS [EnName], Company_ShortEnName AS [ShortEnName], Company_Master AS [Master], Company_License AS [License], Company_Weixin AS [WeiXin], Company_Bank AS [Bank], Company_BankAccount AS [BankAccount], Company_LicensePic AS [LicensePic], Company_IsGroup AS [IsGroup],Company_IsZones AS [IsZone],Company_Personal AS [IsPersonal] FROM TMS_Company WHERE Company_ID = dbo.fn_pub_user_User2CompanyID(@Operator,0);",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

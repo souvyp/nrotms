@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0085",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT (select Company_ClientCode from TMS_Company where Company_ID= Supplier_OwnerCompanyID) AS [CompanyCode], Supplier_Welcome AS [InviteDesc], dbo.fn_pub_user_Company2Name(Supplier_OwnerCompanyID) AS [CompanyName] FROM TMS_msupplier WHERE Supplier_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

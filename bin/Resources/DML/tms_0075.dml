@@ -1,0 +1,14 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0075",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Type_ID AS [id], Type_Name AS [name] FROM TMS_OrderCostType;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "city_insurance_query",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Detail_ID AS [DetailID], Detail_Type AS [Type], Detail_FromProvince AS [FromProvince], 
+dbo.fn_pub_order_AreaName(Detail_FromProvince) + '-' + dbo.fn_pub_order_AreaName(Detail_FromCity) AS [FromName], 
+Detail_FromCity AS [FromCity], Detail_FromDistrict AS [FromDistrict], Detail_From AS [From], 
+Detail_ToProvince AS [ToProvince], Detail_ToCity AS [ToCity], 
+dbo.fn_pub_order_AreaName(Detail_ToProvince) + '-' + dbo.fn_pub_order_AreaName(Detail_ToCity) AS [ToName], 
+Detail_ToDistrict AS [ToDistrict], Detail_To AS [To], Detail_Kms AS [Kms], Detail_CarType AS [CarType], 
+Detail_CarLength AS [CarLength], Detail_Description AS [Description], 
+
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN 1 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN 2 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN 3 ELSE 0 END) AS [UnitType],
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN 1 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN 2 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN 3 ELSE 0 END) AS [UnitType_id], 
+	
+	Detail_MinVolume AS [MinVolume], Detail_MaxVolume AS [MaxVolume], 
+	Detail_VolumeUnit AS [VolumeUnit], Detail_WeightUnit AS [WeightUnit],
+	Detail_MinWeight AS [MinWeight], Detail_MaxWeight AS [MaxWeight], 
+	Detail_MinCount AS [MinCount], Detail_MaxCount AS [MaxCount], Detail_CountUnit AS [CountUnit], 
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN Detail_MinVolume 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN Detail_MinWeight 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN Detail_MinCount ELSE 0 END) AS [Min],
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN Detail_MaxVolume 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN Detail_MaxWeight 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN Detail_MaxCount ELSE 0 END) AS [Max],
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN Detail_VolumeUnit 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN Detail_WeightUnit 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN Detail_CountUnit ELSE 0 END) AS [Unit], 
+	(CASE 
+WHEN Detail_VolumeUnit > 0 AND Detail_MaxVolume > 0 THEN Detail_VolumeUnit 
+WHEN Detail_WeightUnit > 0 AND Detail_MaxWeight > 0 THEN Detail_WeightUnit 
+WHEN Detail_CountUnit > 0 AND Detail_MaxCount > 0 THEN Detail_CountUnit ELSE 0 END) AS [Unit_id],
+	Detail_MinEqual AS [MinEqual], Detail_MaxEqual AS [MaxEqual],
+	Detail_Amount AS [Price], 
+	Detail_MinPay AS [MinPay], Detail_Creator AS [Creator], 
+	Detail_CreatorCompanyID AS [CreatorCompanyID], 
+	Detail_CreateTime AS [CreateTime], Detail_Updater AS [Updater], Detail_UpdateTime AS [UpdateTime], 
+	Detail_Invalid AS [Invalid], Detail_Comments AS [Comments] FROM Price_DocDetails AS a INNER JOIN Price_DocIndex AS b ON a.Detail_DOCID = b.Index_ID 
+	WHERE Detail_DocID = @did AND Detail_Type = 8  AND Detail_Invalid = 0 AND (Detail_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) OR b.Index_CustomerCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0));",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

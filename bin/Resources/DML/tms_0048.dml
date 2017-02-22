@@ -1,0 +1,85 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0048",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "INSERT INTO usermanager(name, sex, userpic, birthday, phone, username, password, dept, duty, nickname) VALUES(@name, @sex, @userpic, @birthday, @phone, @username, @password, @dept, @duty, @nickname);SELECT IDENT_CURRENT( 'usermanager' ) AS ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "sex",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "userpic",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "birthday",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "phone",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "username",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "password",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "dept",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "duty",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "nickname",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

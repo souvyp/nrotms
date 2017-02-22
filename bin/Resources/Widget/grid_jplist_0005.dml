@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0005",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  Goods_ID AS [id],Goods_Code AS [Code], Goods_Name AS [Name], dbo.fn_pub_order_GoodsType2Name(Goods_TypeID) AS [TypeName], Goods_Price AS [Price], Goods_SPC AS [SPC], Goods_Volume AS [Volume], Goods_Weight AS [Weight], Goods_MWeight AS [MWeight], Goods_Invalid AS [Invalid], CONVERT(varchar(100),Goods_InsertTime , 111) AS [InsertTime], dbo.fn_pub_price_UnitName(Goods_Unit) AS [UnitName] FROM TMS_MGoods",
+    "where": "Goods_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) "
+  }
+}
+
+
+

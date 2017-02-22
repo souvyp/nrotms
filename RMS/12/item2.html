@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="js/jquery-1.10.1.min.js"></script>    
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>    
+    <script src="js/index.js"></script>
+	<style type="text/css">
+	   #backImg{
+	   	 
+	   }
+	</style>
+</head>
+<body style="width: 9600px; height: 5400px;">
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->    <div id="backImg" style="width:100%;height:100%;">
+    <div id="main1" style="width: 600px;height:400px;"></div>
+
+   	<div id="main2" style="width: 600px;height:400px;"></div>
+   	<div id="main3"  class="main3" style="width: 600px;height:400px;"></div>
+   	<div id="main4"  class="main4" style="width: 600px;height:400px;"></div>   	</div>   	
+</body>
+    <script type="text/javascript">
+
+		function GetPostion() {
+		       		var longtitude = 0;
+		var latitude = 0;
+		            //通过百度获取经纬度
+		            var address = "北京";             
+		            var url = "http://api.map.baidu.com/geocoder/v2/?address=" + address + "&output=json&ak=FG7wxr1VUj0k2NwoO3yXzymd&callback=?";
+		            $.getJSON(url, function (data) {
+		                
+		                longtitude = data.result.location.lng;
+		                latitude = data.result.location.lat;
+		            });
+		            console.log(longtitude,latitude)
+		}
+		GetPostion();
+    </script>  
+</html>

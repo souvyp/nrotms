@@ -1,0 +1,83 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0229",
+  "version": 1,
+  "dml-id": "tms_0229",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "minFromTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "maxFromTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "minCreateTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "maxCreateTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CustomerName",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "EndUserName",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Code",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Pactcode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ContainsCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Status",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Shipmode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "SupplierName",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Combined",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

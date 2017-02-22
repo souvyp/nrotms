@@ -1,0 +1,99 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0031",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_price_CombineOrderPrice",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "LessLoadPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "FullLoadPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "PickPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "DeliveryPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "OnLoadPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "OffLoadPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "AdditionPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "InsuranceCost",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "TaxPrice",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "TxnRequired",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

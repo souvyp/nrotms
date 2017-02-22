@@ -1,0 +1,50 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0204",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE TMS_MSymbol SET Symbol_CompanyID = dbo.fn_pub_user_User2CompanyID(@companyid,0), Symbol_Type = @type, Symbol_Code = @code, Symbol_Name = @name WHERE Symbol_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "标记编号"
+      },
+      {
+        "name": "companyid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "所属公司"
+      },
+      {
+        "name": "type",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "标记类型，1 客户标记 2 承运商标记"
+      },
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "标记代码"
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": "标记名称"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

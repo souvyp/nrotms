@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.email_info{width:900px; padding:30px 50px 60px;background-color:#DFDFDF; margin:0 auto;}
+.top_bar{ position:relative; height:65px;}
+.top_bar p{ position:absolute; bottom:-10px; width:100%; text-align:center; font-size:35px; color:#555; font-family:'微软雅黑';}
+.content{ padding-top:10px; background-color:#535353; margin-top:20px;}
+.invitation_info{ background-color:#F3F3F3; padding:40px 60px 50px;}
+.invitation_info .info_tips{ font-size:22px; color:#666; line-height:40px; font-family:'微软雅黑';}
+.invitation_info .copy_web{font-size:20px; margin-top:25px; color:#666; font-family:'微软雅黑';}
+.coo_partner{ background-color:#fff; padding:30px 60px 50px;}
+.coo_partner .ptips{font-size:18px; color:#333; line-height:35px; font-family:'微软雅黑';}
+.coo_partner .partner_sign{ margin:30px 0 50px;}
+.partner_sign li{ float:left; height:50px;}
+.partner_sign li a img{ height:100%;}
+.coo_partner .go_otms{ color:#114F98; font-size:16px; font-family:'微软雅黑';}
+.go_otms .glyphicon-play{ margin-left:10px; font-size:14px;}

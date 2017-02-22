@@ -1,0 +1,29 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0012",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "INSERT INTO Operation2(dId, goodscode) VALUES(@did, @goodscode);SELECT IDENT_CURRENT( 'Operation2' ) AS ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "goodscode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0225",
+  "version": 1,
+  "dml-id": "tms_0225",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "min",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "max",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

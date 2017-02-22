@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0025",
+  "version": 1,
+  "dml-id": "pml_0025",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

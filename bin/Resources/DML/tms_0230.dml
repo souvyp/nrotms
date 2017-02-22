@@ -1,0 +1,107 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0230",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT A.Index_ID AS [id],CONVERT(VARCHAR(10),A.Index_FromTime,120)  AS A, CONVERT(NVARCHAR(10), A.Index_FromTime, 120) AS [FromTime], dbo.fn_pub_user_SupplierName( A.Index_SupplierID) AS [SupplierName], A.Index_Code AS [code], A.Index_PactCode AS [pactcode], dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName], dbo.fn_pub_user_Customer2Name(A.Index_CustomerID) AS [CustomerName],CONVERT(VARCHAR(10),A.Index_CreateTime,120) AS [CreateTime],CONVERT(NVARCHAR(10),Index_ToTime , 120) AS [ToTime] ,dbo.fn_pub_order_TotalWeight(A.Index_ID,0) AS [TotalWeight],dbo.fn_pub_order_TotalVolume(A.Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalAmount(A.Index_ID,0) AS [TotalAmount],dbo.fn_pub_order_TotalCost(A.Index_ID) AS [TotalCost],dbo.fn_pub_price_PricebyType(A.Index_ID,1) AS [LessLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,2) AS [FullLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,3) AS [Pick],dbo.fn_pub_price_PricebyType(A.Index_ID,4) AS [Delivery],dbo.fn_pub_price_PricebyType(A.Index_ID,5) AS [OnLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,6) AS [OffLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,7) AS [min],dbo.fn_pub_price_PricebyType(A.Index_ID,8) AS [InsuranceCost],dbo.fn_pub_price_PricebyType(A.Index_ID,9)  AS[Addition],dbo.fn_pub_price_PricebyType(A.Index_ID,10) AS [Tax], (dbo.fn_pub_order_AreaName(Index_FromProvince)+dbo.fn_pub_order_AreaName(Index_FromCity)+dbo.fn_pub_order_AreaName(Index_FromDistrict)+Index_From) AS [FromAddress],(dbo.fn_pub_order_AreaName(Index_ToProvince)+dbo.fn_pub_order_AreaName(Index_ToCity) +dbo.fn_pub_order_AreaName(Index_ToDistrict) + Index_To) AS [ToAddress], dbo.fn_pub_order_OrderID2Code(Contains_OwnerOrderID) AS [ContainsOrderCode], A.Index_GoodsLst AS [GoodsLst],A.Index_Description AS [Description], dbo.fn_pub_order_AreaName(A.Index_FromCity) AS [FromCity], dbo.fn_pub_order_AreaName(A.Index_ToCity) AS [ToCity],(CASE WHEN Contains_OwnerOrderID = '' OR Contains_OwnerOrderID IS NULL THEN 0 ELSE 1 END) AS [Combined] FROM TMS_OrderIndex AS A LEFT JOIN TMS_Devices ON Device_ID = Index_DeviceCode LEFT JOIN TMS_OrderContains AS B ON A.Index_SrcOrderID = B.Contains_OrderID WHERE Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(@Operator, 0) AND  Index_Invalid = 0 AND Index_SrcClass = 1 AND Index_SrcOrderID > 0 AND Index_Status > 0 AND Index_Status <= 16 AND Index_SrcClass <> 3 AND (CASE WHEN @minFromTime = ' ' AND @maxFromTime = ' ' THEN 1 WHEN CONVERT(VARCHAR(10),A.Index_FromTime,120) >=  @minFromTime AND CONVERT(VARCHAR(10),A.Index_FromTime,120) <= @maxFromTime THEN 1 ELSE 0 END) =1 AND (CASE WHEN @minCreateTime = ' ' AND @maxCreateTime = ' ' THEN 1   WHEN CONVERT(VARCHAR(10),A.Index_CreateTime,120) >=  @minCreateTime AND  CONVERT(VARCHAR(10),A.Index_CreateTime,120) <= @maxCreateTime  THEN 1 ELSE 0 END)=1 AND (CASE WHEN @CustomerName = ' ' THEN 1 WHEN dbo.fn_pub_user_Customer2Name(A.Index_CustomerID) LIKE '%'+@CustomerName+'%' THEN 1  ELSE 0 END)=1 AND (CASE WHEN @EndUserName = ' ' THEN 1 WHEN Index_EndUserName LIKE '%'+@EndUserName+'%' THEN 1 ELSE 0 END) = 1 AND (CASE WHEN @Code = ' ' THEN 1 WHEN A.Index_Code LIKE '%'+@Code+'%' THEN 1 ELSE 0 END) =1 AND (CASE WHEN @Pactcode = ' ' THEN 1 WHEN A.Index_PactCode LIKE '%'+@Pactcode+'%' THEN 1 ELSE 0 END) = 1 AND (CASE WHEN @ContainsCode = ' ' THEN 1 WHEN dbo.fn_pub_order_OrderID2Code(Contains_OwnerOrderID) LIKE '%'+@ContainsCode+'%' THEN 1 ELSE 0 END)=1 AND (CASE WHEN @Status = ' ' THEN 1 WHEN Index_Status = @Status THEN 1 ELSE 0 END ) = 1 AND (CASE WHEN @Shipmode = '' THEN 1 WHEN Index_ShipMode = @Shipmode THEN 1 ELSE 0 END) = 1  AND (CASE WHEN @Combined = '' THEN 1 WHEN (CASE WHEN Contains_OwnerOrderID = '' OR Contains_OwnerOrderID IS NULL THEN 0 ELSE 1 END) = @Combined  THEN 1 ELSE 0 END ) = 1  ORDER BY ContainsOrderCode ,Index_StatusTime DESC",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "下单人"
+      },
+      {
+        "name": "minFromTime",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "开始时间"
+      },
+      {
+        "name": "maxFromTime",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "结束时间"
+      },
+      {
+        "name": "minCreateTime",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "创建最小时间"
+      },
+      {
+        "name": "maxCreateTime",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "创建最大时间"
+      },
+      {
+        "name": "CustomerName",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "客户名称"
+      },
+      {
+        "name": "EndUserName",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "收件人名字"
+      },
+      {
+        "name": "Code",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "订单编号"
+      },
+      {
+        "name": "Pactcode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "合同编号"
+      }
+	  ,
+      {
+        "name": "ContainsCode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "拼车单号"
+      },
+      {
+        "name": "Status",
+        "type": "nvarchar",
+        "size": 20,
+        "direction": "input",
+        "displayName": "订单状态"
+      },
+      {
+        "name": "Shipmode",
+        "type": "varchar",
+        "size": 4,
+        "direction": "input",
+        "displayName": "订单状态"
+      },
+      {
+        "name": "Combined",
+        "type": "varchar",
+        "size": 4,
+        "direction": "input",
+        "displayName": "是否被拼车"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "fml_0008",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": " SELECT dbo.fn_pub_user_SupplierName(B.Index_SupplierID) AS [SupplierName], CONVERT(VARCHAR(100),B.Index_InsertTime,111) AS [inserttime],Detail_ID AS [DetailID], Detail_DocID AS [DocID], Detail_Code AS [Code], Detail_OrderID AS [OrderID], Detail_PactCode AS [pactcode],(dbo.fn_pub_order_AreaName(Index_FromProvince)+dbo.fn_pub_order_AreaName(Index_FromCity)+dbo.fn_pub_order_AreaName(Index_FromDistrict)+Index_From) AS [FromAddress],(dbo.fn_pub_order_AreaName(Index_ToProvince)+dbo.fn_pub_order_AreaName(Index_ToCity) +dbo.fn_pub_order_AreaName(Index_ToDistrict) + Index_To) AS [ToAddress], Detail_Total AS [total],dbo.fn_pub_order_TotalVolume(Detail_OrderID,0) AS [volume],dbo.fn_pub_order_TotalAmount(Detail_OrderID,0) AS [amount],dbo.fn_pub_order_TotalCost(Detail_OrderID) AS [TotalCost],  dbo.fn_pub_order_TotalWeight(Detail_OrderID,0) AS [weight],T.ReceiptQty  AS [receiptqty],Detail_Description AS [description], CONVERT(VARCHAR(10),Index_FromTime,120) AS [fromtime],Index_Payment AS [payment], Index_Payable AS [payable],Index_Goodslst AS [Goodslst],dbo.fn_pub_price_PricebyType(Detail_OrderID,1) AS [LessLoad],dbo.fn_pub_price_PricebyType(Detail_OrderID,2) AS [FullLoad],dbo.fn_pub_price_PricebyType(Detail_OrderID,3) AS [Pick],dbo.fn_pub_price_PricebyType(Detail_OrderID,4) AS [Delivery],dbo.fn_pub_price_PricebyType(Detail_OrderID,5) AS [OnLoad],dbo.fn_pub_price_PricebyType(Detail_OrderID,6) [OffLoad],dbo.fn_pub_price_PricebyType(Detail_OrderID,7) [min],dbo.fn_pub_price_PricebyType(Detail_OrderID,8)[InsuranceCost],dbo.fn_pub_price_PricebyType(Detail_OrderID,9) [Addition],dbo.fn_pub_price_PricebyType(Detail_OrderID,10) AS [Tax],Detail_Total-Index_Payment-Index_Payable AS [PayAmount] FROM Balance_BillDetails INNER JOIN (SELECT SUM(GoodsLst_ReceiptQty) AS ReceiptQty,GoodsLst_OrderID FROM TMS_OrderGoods GROUP BY GoodsLst_OrderID) AS T ON Detail_OrderID = T.GoodsLst_OrderID INNER JOIN TMS_OrderIndex ON  Detail_OrderID = Index_ID INNER JOIN Balance_BillIndex AS B ON B.Index_ID = Detail_DocID  WHERE Detail_DocID = @did;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,36 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0063",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  (CASE WHEN Index_TransportMode = 1 THEN '零担' ELSE '整车' END) AS [TransportMode],
+SUM(CASE WHEN MONTH(Index_CreateTime) = 1 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [1], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 2 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [2], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 3 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [3], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 4 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [4], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 5 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [5], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 6 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [6], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 7 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [7], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 8 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [8], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 9 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [9], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 10 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [10], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 11 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [11], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 12 THEN dbo.fn_pub_order_TotalVolume(Index_ID,1) ELSE 0 END) AS [12],
+SUM(dbo.fn_pub_order_TotalVolume(Index_ID,1)) AS [TotalVolume] FROM TMS_OrderIndex  TMS_OrderIndex WHERE Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_Status <> 32 AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID( @operator, 0) AND YEAR(Index_CreateTime)=YEAR(GETDATE()) GROUP BY Index_TransportMode ",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

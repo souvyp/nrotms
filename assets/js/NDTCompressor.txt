@@ -1,0 +1,12 @@
+
+/*CSDU.1.0.1.min.js*/
+NDTCompressor -c E:\SVN\OTMS\trunk\assets\js\ form-calc-1.0.js verify-1.0.js table-form-data-1.0.js table-form-data-1.0-ndt.js form-combo-1.0.js form-inputbox-1.0.js form-date-1.0.js form-dialogue-1.0.js form-file-1.0.js form-image-1.0.js form-editor-1.0.js form-textarea-1.0.js form-normal-1.0.js form-print-1.0.js form-button-1.0.js table-form-action-1.0.js table-form-action-1.0-ndt.js table-form-1.0.1.js table-form-workflow-1.0.js
+
+NDTCompressor -p CSDU.1.0.1.js E:\SVN\OTMS\trunk\assets\js\ form-calc-1.0.min.js verify-1.0.min.js table-form-data-1.0.min.js table-form-data-1.0-ndt.min.js form-combo-1.0.min.js form-inputbox-1.0.min.js form-date-1.0.min.js form-dialogue-1.0.min.js form-file-1.0.min.js form-image-1.0.min.js form-editor-1.0.min.js form-textarea-1.0.min.js form-normal-1.0.min.js form-print-1.0.min.js form-button-1.0.min.js table-form-action-1.0.min.js table-form-action-1.0-ndt.min.js table-form-1.0.1.min.js table-form-workflow-1.0.min.js
+
+
+/*CSDU.1.1.1.min.js*/
+NDTCompressor -c F:\OTMS\trunk\assets\js\ form-calc-1.0.js verify-1.0.js table-form-data-1.0.js table-form-data-1.0-ndt.js form-combo-1.0.js form-inputbox-1.0.js form-date-1.0.js form-dialogue-1.0.js form-file-1.0.js form-image-1.0.js form-editor-2.0.js form-textarea-1.0.js form-normal-1.0.js form-print-1.0.js form-button-1.0.js table-form-action-1.0.js table-form-action-1.0-ndt.js table-form-1.0.1.js table-form-workflow-1.0.js
+
+NDTCompressor -p CSDU.1.1.1.js F:\OTMS\trunk\assets\js\ form-calc-1.0.min.js verify-1.0.min.js table-form-data-1.0.min.js table-form-data-1.0-ndt.min.js form-combo-1.0.min.js form-inputbox-1.0.min.js form-date-1.0.min.js form-dialogue-1.0.min.js form-file-1.0.min.js form-image-1.0.min.js form-editor-2.0.min.js form-textarea-1.0.min.js form-normal-1.0.min.js form-print-1.0.min.js form-button-1.0.min.js table-form-action-1.0.min.js table-form-action-1.0-ndt.min.js table-form-1.0.1.min.js table-form-workflow-1.0.min.js
+

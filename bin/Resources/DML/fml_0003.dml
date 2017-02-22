@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "fml_0003",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_CustomerID AS [Customerid], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], Index_SupplierID AS [Supplierid], dbo.fn_pub_user_SupplierName(Index_SupplierID) AS [SupplierName], Index_Code AS [Code], Index_No AS [No], Index_Amount AS [Amount], Index_Description AS [Description], Index_Status AS [status], Index_StatusTime AS [statustime], Index_Author AS [author], CONVERT(VARCHAR(100),Index_InsertTime,111) AS [inserttime], Index_Updater AS [updater], Index_UpdateTime AS [updatetime], Index_Invalid AS [invalid], Index_Comments AS [comments],Index_ID AS [DocID] FROM Balance_BillIndex WHERE Index_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "账单编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0073",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_order_TransportPlan",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "SrcOrderID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "AddrLst",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "GoodsLst",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "_Version",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TransType",
+        "type": "tinyint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Payable",
+        "type": "decimal",
+        "size": 20,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Payment",
+        "type": "decimal",
+        "size": 20,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

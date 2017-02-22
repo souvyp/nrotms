@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0092",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Flow_ID AS [id], Flow_SrcStatus AS [SrcStatus], dbo.fn_pub_order_Status2Name(Flow_SrcStatus) AS [SrcStatusName], Flow_DstStatus AS [DstStatus], dbo.fn_pub_order_Status2Name(Flow_DstStatus) AS [DstStatusName],Flow_Operation AS [Operation], Flow_Creator AS [Creator], dbo.fn_pub_user_User2Name(Flow_Creator) AS [CreatorName],Flow_CompanyID AS [CompanyID], dbo.fn_pub_user_Company2Name(Flow_CompanyID) AS [CompanyName], Flow_InsertTime AS [InsertTime], Flow_Invalid AS [Invalid], Flow_Comments AS [Comments], Flow_Description AS [Description] FROM TMS_OrderFlow WHERE Flow_OrderID = @orderid;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "orderid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "订单号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

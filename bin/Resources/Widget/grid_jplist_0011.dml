@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0011",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_Code AS [code], Index_PactCode AS [pactcode], Index_EndUserID AS [enduserid], Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to], Index_Status AS [status], Index_StatusTime AS [statustime], Index_SrcOrderID AS [srcorderid], Index_RootOrderID AS [rootorderid], Index_DriverID AS [driverid], Index_CarID AS [carid], Index_SupplierID AS [supplierid], Index_SupplierCompanyID AS [suppliercompanyid], Index_CustomerID AS [customerid], Index_CustomerCompanyID AS [customercompanyid], Index_Creator AS [creator], Index_CreateTime AS [createtime], Index_Confirmer AS [confirmer], Index_ConfirmTime AS [confirmtime], Index_Singer AS [singer], Index_SignTime AS [signtime], Index_ReceiptDoc AS [receiptdoc], Index_Exception AS [exception], Index_Invalid AS [invalid], Index_Comments AS [comments] FROM TMS_OrderIndex",
+    "count": "SELECT COUNT([Index_ID]) FROM TMS_OrderIndex",
+    "where": "Index_Invalid = 0 and Index_Status = 8 AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0)"
+  }
+}

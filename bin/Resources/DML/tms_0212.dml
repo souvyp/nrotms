@@ -1,0 +1,26 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0212",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT a.GoodsLst_ID AS [ListID], a.GoodsLst_OrderID AS [OrderID], a.GoodsLst_GoodsID AS [GoodsID], a.GoodsLst_Code AS [Code], a.GoodsLst_Name AS [Name],
+    (SELECT CAST(a.GoodsLst_Qty AS INT)) AS [Qty], a.GoodsLst_Weight AS [Weight], a.GoodsLst_Volume AS [Volume],
+     a.GoodsLst_Weight AS [weight], a.GoodsLst_Volume AS [volume],
+     (SELECT CAST(a.GoodsLst_ReceiptQty AS INT)) AS [ReceiptQty], (SELECT CAST(a.GoodsLst_ExceptionQty AS INT)) AS [ExceptionQty],a.GoodsLst_BatchNo AS [BatchNo], a.GoodsLst_Creator AS [Creator], a.GoodsLst_InsertTime AS [InsertTime], a.GoodsLst_Updater AS [Updater], a.GoodsLst_UpdateTime AS [UpdateTime], a.GoodsLst_Invalid AS [Invalid], a.GoodsLst_Comments AS [Comments],b.Goods_SPC AS [SPC],dbo.fn_pub_price_UnitName(b.Goods_Unit) AS [UnitName] 
+     FROM TMS_OrderGoods AS a INNER JOIN TMS_MGoods AS b ON a.GoodsLst_GoodsID = b.Goods_ID WHERE a.GoodsLst_OrderID = (select Index_ID from TMS_OrderIndex where Index_Code = @did );",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": "订单物品编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

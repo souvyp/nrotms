@@ -1,0 +1,28 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0211",
+  "version": 1,
+  "dml-id": "tms_0211",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "Code",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Type",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

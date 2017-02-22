@@ -1,0 +1,29 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html,body{ font-family:'微软雅黑'; background-color:#EBE2D9;}
+.guideCon{ width:80%; margin:auto; border-radius:10px; background-color:white; margin-top:80px;}
+.guideHeader{ padding-left:30px; padding-right:30px; position:relative;}
+.studyPro{border-bottom:1px solid #eee; padding-top:20px; padding-bottom:20px; margin-bottom:0;}
+.studyPro span{ width:20px; height:20px; display:inline-block; background-color:#E6E6E6; margin-right:2px;}
+.studyPro .firstDec{ border-top-left-radius:10px; border-bottom-left-radius:10px; }
+.studyPro .lastDec{border-top-right-radius:10px; border-bottom-right-radius:10px;}
+.jumpGuide{ position:absolute; right:30px; top:20px; color:#666; text-decoration:none; font-size:15px;}
+.jumpGuide:hover{ text-decoration:none;}
+.guideContent{ width:65%; margin:auto;padding-top:40px; padding-bottom:40px; height:70%;}
+.guideBody ul{ margin-bottom:0;}
+.guideBody ul li{ display:none;}
+.guideBody ul li:first-child .guideContent{ padding-top:70px; padding-bottom:70px;}
+.guideBody ul li.active{ display:block;}
+.welcomWorld{ width:448px; height:167px; background:url(../../images/guide/007.png) 0 0 no-repeat; background-size:100% 100%; margin-top:13px;}
+.welcomWorld div{ width:60%; margin-top:35px; margin-left:15%;}
+.welcomWorld h4{ font-size:18px; font-family:'微软雅黑';}
+.welcomWorld p{ color:#888; margin-top:20px; font-size:16px; line-height:30px;}
+.guideFooter{ background-color:#DBBFA7; padding:20px 30px;}
+.studyBtn{ font-size:16px; color:white; background-color:#F27302; line-height:40px; border-radius:20px; cursor:pointer; display:block; width:146px; text-align:center;}
+.goSystem{ background-color:#F27302;font-size:16px; color:white; line-height:40px; border-radius:20px; cursor:pointer; display:block; width:146px; text-align:center;}
+.fullImg{ width:100%;}
+.guideFooter .pull-left{ padding-left:140px; position:relative;}
+.footDec{ position:absolute; left:10px; top:-50px;}
+.guideFooter .pull-left h5{ font-size:15px; margin-bottom:4px; margin-top:0; font-weight:bold;}
+.guideFooter .pull-left p{ margin-bottom:0;}
+

@@ -1,0 +1,71 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0014",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_price_LoadPrice",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "UnitType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Unit",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Min",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Max",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Price",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

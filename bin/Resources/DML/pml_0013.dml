@@ -1,0 +1,169 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0013",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_price_CityDeliveryPrice",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DetailID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ToProvince",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ToCity",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ToDistrict",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "To",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Price",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 1024,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CarType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CarLength",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "CarVolume",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "CarWeight",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "UnitType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Unit",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Min",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Max",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "MinEqual",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "MaxEqual",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Invalid",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

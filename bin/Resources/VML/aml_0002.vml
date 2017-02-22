@@ -1,0 +1,33 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "aml_0002",
+  "version": 1,
+  "dml-id": "aml_0002",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "ProvinceID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CityID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DistrictID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

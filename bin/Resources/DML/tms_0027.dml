@@ -1,0 +1,43 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0027",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_ID AS [OrderID], Index_Code AS [Code], Index_PactCode AS [PactCode], 
+Index_EndUserID AS [EndUserID], Index_EndUserName AS [EndUserName], Index_From AS [From], 
+Index_To AS [To],Index_Status AS [Status], Index_StatusTime AS [StatusTime], Index_SrcOrderID AS [SrcOrderID], Index_RootOrderID AS [RootOrderID], Index_DriverID AS [DriverID],dbo.fn_pub_user_Driver2Name(Index_DriverID) AS [DriverName], dbo.fn_pub_user_Car2SN(Index_CarID) AS [CarSN], Index_CarID AS [CarID], Index_SupplierID AS [SupplierID], dbo.fn_pub_order_SupplierName(Index_SupplierID,Index_ID) AS [SupplierName], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [Name], Index_CustomerID AS [CustomerID], Index_ShipMode AS [ShipMode],Index_Pick AS [IsPick],Index_Delivery  AS [IsDelivery],Index_CustomerCompanyID AS [CustomerCompanyID], dbo.fn_pub_user_User2Name(Index_Creator) AS [Creator], Index_CreatorCompanyID AS [CreatorCompanyID], convert(varchar(10),Index_CreateTime,120) AS [CreateTime], Index_Confirmer AS [Confirmer],Index_ConfirmTime AS [ConfirmTime], Index_Singer AS [Singer], Index_SignTime AS [SignTime], Index_ReceiptDoc AS [ReceiptDocPath0], Index_ReceiptDoc1 AS [ReceiptDocPath1],Index_ReceiptDoc2 AS [ReceiptDocPath2],Index_ReceiptDoc3 AS [ReceiptDocPath3],Index_Exception AS [Exception], Index_Invalid AS [Invalid], Index_OnLoad  AS [IsOnLoad],Index_OffLoad  AS [IsOffLoad],Index_Comments AS [Comments],dbo.fn_pub_order_AreaName(Index_FromProvince) AS [FromProvince],Index_FromProvince AS [FromProvince_id],dbo.fn_pub_order_AreaName(Index_FromCity) AS [FromCity],dbo.fn_pub_order_AreaName(Index_FromCity) AS AreaName,Index_FromCity AS [FromCity_id],dbo.fn_pub_order_AreaName(Index_FromDistrict) AS [FromDistrict],Index_FromDistrict AS [FromDistrict_id],
+convert(varchar(16),Index_FromTime,(120)) AS [FromTime],dbo.fn_pub_order_AreaName(Index_ToProvince) AS [ToProvince],Index_ToProvince AS [ToProvince_id],dbo.fn_pub_order_AreaName(Index_ToCity) AS [ToCity],
+Index_ToCity AS [ToCity_id],dbo.fn_pub_order_AreaName(Index_ToDistrict) AS [ToDistrict],Index_ToDistrict AS [ToDistrict_id],convert(varchar(16),Index_ToTime,(120)) AS [ToTime],Index_TransportMode AS [TransportMode],
+Index_GoodsCategory AS [GoodsCategory],Index_PackageMode AS [PackageMode],Index_ChargeMode AS [ChargeMode],
+Index_PriceUnit AS [PriceUnit],Index_Kms AS [Kms],Index_CarType AS [CarType],Index_CarLength AS [CarLength],
+Index_Insurance AS [IsInsurance],Index_VolumeAddition AS [VolumeAddition],
+Index_WeightAddition AS [WeightAddition],
+Index_Description AS [Descriptions],
+Index_CarVolume AS [CarVolume],
+Index_CarWeight AS [CarWeight],
+dbo.fn_pub_order_BrotherOrderCount(Index_ID) AS [BrotherCount],
+Index_CustomerSymbolID AS [CustomerSymbolID],
+Index_SupplierSymbolID AS SupplierSymbolID,
+dbo.fn_pub_user_SymbolName(Index_CustomerSymbolID) AS [CustomerSymbolName],
+dbo.fn_pub_user_SymbolName(Index_SupplierSymbolID) AS [SupplierSymbolName],
+Index_FromContact AS [FromContact],
+Index_ToContact AS [ToContact],
+dbo.fn_pub_order_OrderID2Code(Index_RootOrderID) AS [SrcCode],
+Index_GoodsValue as [GoodsValue], B.User_OpenId AS [OpenId], A.Index_DeviceCode AS [DeviceCode],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CreatorCompanyName], Company_Phone AS [SupplierPhone],Company_Contact AS [SupplierContact],Index_SrcClass AS [SrcClass],Index_payment AS [Payment],Index_payable AS [Payable],dbo.fn_pub_order_TotalCost(A.Index_ID) AS [TotalCost],dbo.fn_pub_price_PricebyType(A.Index_ID,1) AS [LessLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,2) AS [FullLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,3) AS [Pick],dbo.fn_pub_price_PricebyType(A.Index_ID,4) AS [Delivery],dbo.fn_pub_price_PricebyType(A.Index_ID,5) AS [OnLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,6) AS [OffLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,7) AS [min],dbo.fn_pub_price_PricebyType(A.Index_ID,8) AS [InsuranceCost],dbo.fn_pub_price_PricebyType(A.Index_ID,9)  AS[Addition],dbo.fn_pub_price_PricebyType(A.Index_ID,10) AS [Tax],dbo.fn_pub_order_TotalVolume(Index_ID,0) AS [TotalVolume], dbo.fn_pub_order_TotalWeight(Index_ID,0) AS [TotalWeight], dbo.fn_pub_order_TotalAmount (Index_ID,0) AS [TotalAmount] FROM TMS_OrderIndex AS A LEFT JOIN (SELECT User_OpenId,User_CompanyID FROM TMS_User WHERE User_OpenId <> '' AND User_OpenId IS NOT NULL) AS B ON  A.Index_SupplierCompanyID = B.User_CompanyID LEFT JOIN TMS_Company ON Company_ID = Index_SupplierCompanyID 
+ WHERE Index_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

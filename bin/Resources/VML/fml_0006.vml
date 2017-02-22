@@ -1,0 +1,18 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "fml_0006",
+  "version": 1,
+  "dml-id": "fml_0006",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "did",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

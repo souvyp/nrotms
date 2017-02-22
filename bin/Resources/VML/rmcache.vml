@@ -1,0 +1,8 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'rmcache',
+ 'id' : 'rmcache',
+ 'version' : 1,
+ 'sml-id' : 'rmcache',
+ 'smlparas' : {}
+}

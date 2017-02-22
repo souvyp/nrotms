@@ -1,0 +1,183 @@
+/**
+ * Demo Page Styles
+ */
+
+
+
+* {
+    margin:0px;
+    padding:0px;
+    border:0px;
+    background:none;
+}
+
+body {
+    background: #fff;
+}
+
+
+/**
+ * Slider specific styles
+ */
+
+.slider {
+    position: relative;
+    width: 300px;
+    margin: 0 auto 40px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.frame {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left:-5px;
+}
+
+.frame li {
+    position: relative;
+    display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 130px;
+    font-size: 15px;
+	border:1px solid #ccc;
+	border-radius:5px;
+    color: #fff;
+}
+
+.slides {
+    display: inline-block;
+	margin-bottom:0;
+}
+
+.simple li {
+    width: 270px;
+    margin-right: 10px;
+}
+
+.variablewidth li {
+    width: 280px;
+    margin-right: 10px;
+
+}
+
+.multipleelements li, .multislides li, .ease li {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.simple li:last-child,
+.variablewidth li:last-child,
+.multipleelements li:last-child,
+.multislides li:last-child,
+.ease li:last-child {
+    margin-right: 0;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 52%;
+    margin-top: -25px;
+    display: block;
+    cursor: pointer;
+}
+
+.next {
+    right: -31px;
+}
+
+.prev {
+    left:-43px;
+}
+
+.next svg, .prev svg {
+    width: 25px;
+}
+
+@media screen and (min-width: 640px ) {
+    /**
+     * Demo Page Styles
+     */
+    .examplecode, .frame {
+        width: 580px;
+    }
+
+    table {
+        width: 580px;
+        margin: 0 auto;
+    }
+
+    tr {
+        padding: 0;
+    }
+
+    /**
+     * Slider specific styles
+     */
+
+    .slider {
+        width: 640px;
+        margin: 0 auto 20px;
+    }
+
+    .simple li {
+        width: 580px;
+    }
+
+    .variablewidth li {
+        width: 280px;
+        margin-right: 10px;
+    }
+
+    .multipleelements li, .multislides li, .ease li {
+        width: 130px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (min-width: 980px ) {
+    /**
+     * Demo Page Styles
+     */
+
+    .examplecode {
+        width: 880px;
+    }
+
+    /**
+     * Slider specific styles
+     */
+
+    .slider {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .frame {
+        width: 1000px;
+    }
+
+    .simple li {
+        width: 880px;
+    }
+
+    .variablewidth li {
+        width: 280px;
+        margin-right: 10px;
+    }
+
+    .multipleelements li, .multislides li, .ease li {
+        width: 320px;
+        margin-right: 20px;
+    }
+}
+
+

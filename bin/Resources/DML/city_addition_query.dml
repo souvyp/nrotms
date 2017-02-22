@@ -1,0 +1,29 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "city_addition_query",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Detail_ID AS [DetailID], Detail_Type AS [Type], Detail_FromProvince AS [FromProvince], Detail_FromCity AS [FromCity], Detail_FromDistrict AS [FromDistrict], dbo.fn_pub_order_AreaName(Detail_FromProvince) + '-' + dbo.fn_pub_order_AreaName(Detail_FromCity) + '-' + dbo.fn_pub_order_AreaName(Detail_FromDistrict) AS [FromName], Detail_From AS [From], Detail_ToProvince AS [ToProvince], Detail_ToCity AS [ToCity], Detail_ToDistrict AS [ToDistrict], Detail_To AS [To], Detail_Kms AS [Kms], Detail_CarType AS [CarType], Detail_CarLength AS [CarLength], Detail_Description AS [Description], Detail_MinVolume AS [MinVolume], Detail_MaxVolume AS [MaxVolume], Detail_VolumeUnit AS [VolumeUnit], Detail_MinWeight AS [MinWeight], Detail_MaxWeight AS [MaxWeight], Detail_WeightUnit AS [WeightUnit], Detail_MinEqual AS [MinEqual], Detail_MaxEqual AS [MaxEqual], Detail_MinCount AS [MinCount], Detail_MaxCount AS [MaxCount], Detail_CountUnit AS [CountUnit], Detail_Amount AS [Price], Detail_MinPay AS [MinPay], Detail_Creator AS [Creator], Detail_CreatorCompanyID AS [CreatorCompanyID], Detail_CreateTime AS [CreateTime], Detail_Updater AS [Updater], Detail_UpdateTime AS [UpdateTime], Detail_Invalid AS [Invalid], Detail_Comments AS [Comments], Detail_AdditionType AS [AdditionType], Detail_AdditionType AS [AdditionType_id] FROM Price_DocDetails AS a INNER JOIN Price_DocIndex AS b ON a.Detail_DOCID = b.Index_ID WHERE Detail_DocID = @did AND Detail_Type = 9 AND Detail_Invalid = 0 AND (Detail_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0) OR b.Index_CustomerCompanyID = dbo.fn_pub_user_User2CompanyID(@Operator,0));",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

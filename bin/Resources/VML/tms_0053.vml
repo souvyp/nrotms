@@ -1,0 +1,123 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0053",
+  "version": 1,
+  "dml-id": "tms_0053",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ownercompany",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "clientcode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "name",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "industry",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "web",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "shortname",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "enname",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "shortenname",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "master",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "license",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "contact",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "phone",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "fax",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "mail",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "address",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "zip",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "weixin",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "logo",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "bank",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "bankaccount",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "description",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

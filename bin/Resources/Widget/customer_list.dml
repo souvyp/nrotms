@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0020",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT EndUser_ID AS [id], EndUser_OwnerCompany AS [ownercompany], EndUser_CompanyID AS [companyid], EndUser_ClientCode AS [clientcode], EndUser_Name AS [name], EndUser_Industry AS [industry], EndUser_Web AS [web], EndUser_ShortName AS [shortname], EndUser_EnName AS [enname], EndUser_ShortEnName AS [shortenname], EndUser_Master AS [master], EndUser_License AS [license], EndUser_Contact AS [contact], EndUser_Phone AS [phone], EndUser_Fax AS [fax], EndUser_Mail AS [mail], EndUser_Address AS [address], EndUser_Zip AS [zip], EndUser_WeiXin AS [weixin], EndUser_Logo AS [logo], EndUser_Bank AS [bank], EndUser_BankAccount AS [bankaccount], EndUser_Description AS [description], EndUser_Creator AS [creator], EndUser_InsertTime AS [inserttime], EndUser_Updater AS [updater], EndUser_UpdateTime AS [updatetime], EndUser_Invalid AS [invalid], EndUser_Comments AS [comments] FROM TMS_MEndUser",
+    "count": "SELECT COUNT([EndUser_ID]) FROM TMS_MEndUser",
+    "where": ""
+  }
+}

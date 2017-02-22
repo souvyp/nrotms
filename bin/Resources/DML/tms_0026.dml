@@ -1,0 +1,64 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0026",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE toqbqyvc SET code = @code, pactcode = @pactcode, clientid = @clientid, cname = @cname, sadd = @sadd, eadd = @eadd WHERE Id = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "pactcode",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "clientid",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "cname",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "sadd",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "eadd",
+        "type": "nvarchar",
+        "size": 64,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

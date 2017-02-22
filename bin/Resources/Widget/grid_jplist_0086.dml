@@ -1,0 +1,13 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0086",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  Index_ID AS [id], Index_Code AS [code], Index_PactCode AS [pactcode], Index_Name AS [name], CONVERT(VARCHAR(100),Index_StartTime,111)   AS [starttime],CONVERT(VARCHAR(100),Index_EndTime,111)  AS [endtime],dbo.fn_pub_user_Company2Name(Index_CustomerCompanyID) AS customercompanyname, dbo.fn_pub_price_Status2Name(Index_Status) AS [StatusName],Index_StatusTime AS [statustime]  FROM Price_DocIndex",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_Type = 2 AND Index_Invalid = 0 AND Index_EndTime >= GETDATE() AND Index_Status = 2 "
+  }
+}
+
+
+

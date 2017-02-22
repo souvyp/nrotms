@@ -1,0 +1,22 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "company_phone",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Company_ID AS [id] FROM TMS_company WHERE Company_Phone = @phone;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "phone",
+        "type": "nvarchar",
+        "size": 16,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

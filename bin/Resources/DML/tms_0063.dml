@@ -1,0 +1,155 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0063",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_my_EditCustomer",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CustomerCompanyID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Logo",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Web",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ShortName",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "EnName",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ShortEnName",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Master",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "License",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Contact",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Phone",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Fax",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Zip",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Address",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Mail",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "WeiXin",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Bank",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "BankAccount",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": -1,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

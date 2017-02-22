@@ -1,0 +1,6 @@
+﻿UPDATE TMS_SN SET SN_Prefix = 'GOD' WHERE SN_Type = 3;
+UPDATE TMS_SN SET SN_Prefix = 'CUS' WHERE SN_Type = 5;
+INSERT INTO TMS_SN(SN_Number, SN_Type, SN_Prefix) VALUES(0, 6, 'SUP');
+INSERT INTO TMS_SN(SN_Number, SN_Type, SN_Prefix) VALUES(0, 7, 'EDU');
+
+ALTER TABLE TMS_MSupplier ADD Supplier_ClientCode NVARCHAR(100) NULL;

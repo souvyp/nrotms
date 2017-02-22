@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>开发平台 | 中国程序员大联盟</title>
+    <meta name="author" content="mcfee">
+   <link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+	<link rel="stylesheet" type="text/css" href="themes/bootstrap/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+
+	
+	<link rel="stylesheet" type="text/css" href="themes/black/menu.css">
+		<link rel="stylesheet" type="text/css" href="res/styles.css">
+	<!--link rel="stylesheet" type="text/css" href="themes/black/linkbutton.css"-->
+	
+	<script async="true" src="res/source-code-pro.js"></script>	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="js/uploadify/jquery.uploadify.js"> </script>
+	<script type="text/javascript" src="js/common.js"> </script>	
+	<script type="text/javascript" src="js/index.js"></script>
+
+	
+	
+	
+</head>
+<body class="easyui-layout">	
+	<div class="easyui-panel Menus" data-options="region:'north',border:false">	
+		<div  id="Menus">
+			<div class="navbar-brand"><img src="themes/icons/logo.png"/>kingsoftware<span class="label label-default">Ver 0.1</span></div>
+			<!--a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-new',plain:true" onclick="showProject()">新建项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-open',plain:true" onclick="openProject()">打开项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-close',plain:true" onclick="closeProject()">关闭项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-delete',plain:true" onclick="deleteProject()">删除项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-preview',plain:true" onclick="previewProject()">预览</a-->
+			<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="float:right;" onclick="UserLogout()">退出</a>
+			<div id="user" style="float:right;color:#fff;font-size:12px;padding:5px 5px;">Welcome</div>
+		</div>
+	</div>
+	<!--div class="easyui-panel" data-options="region:'north',border:false" style="overflow:hidden;padding:3px 3px 5px 3px;height:32px;background-color:#101010;">	
+		<div class="navbar-brand"><img src="res/icons/favicon.png" />CoddingIt!<span class="label label-default">Ver 0.1</span></div>
+		<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-close'" style="float:right;" onclick="UserLogout()">Exit</a>
+		<div id="user" style="float:right;color:#fff;font-size:12px;padding:7px 5px;">Welcome</div>
+	</div-->
+	<div id="rcmenu" class="easyui-menu" style="">
+		<div data-options="iconCls:'icon-cancel'" id="closecur">
+			关闭
+		</div>
+		<div id="closeall">
+			关闭全部
+		</div>
+		<div id="closeother">
+			关闭其他
+		</div>
+		<div class="menu-sep"></div>
+		<div id="closeright">
+			关闭右侧标签页
+		</div>
+		<div id="closeleft">
+			关闭左侧标签页
+		</div>
+	</div>
+
+	<div id="file-list" data-options="region:'west',split:true,border:true,tools:'#tree-tools',title:'文件列表',
+			onResize:function(){if(window.onresize)window.onresize();},
+			onCollapse:function(){if(window.onresize)window.onresize();}" 
+		style="width:250px;padding:10px;" >
+		<ul id="treeFiles" tag="0" class="easyui-tree"></ul>
+		
+		<div id="tree-tools">
+			<a href="javascript:void(0)" class="icon-add" onclick="addit()"></a>
+			<a href="javascript:void(0)" class="icon-add-folder	" onclick="addfolder()"></a>	
+			<a href="javascript:void(0)" class="icon-edit" onclick="addfolder()"></a>		
+			<a href="javascript:void(0)" class="icon-delete" onclick="removeit(true)"></a>
+			<a href="javascript:void(0)" class="icon-file uploadify" id="uploadFiles"></a>
+		</div>		
+		<div id="mmTree" class="easyui-menu" style="width:120px;">
+			<div onclick="addit()" data-options="iconCls:'icon-add'">新建文件</div>
+			<div onclick="addfolder()" data-options="iconCls:'icon-add-folder'">文件文件夹</div>
+			<div onclick="renameIt()" data-options="iconCls:'icon-edit'">重命名</div>
+			<div onclick="removeit()" data-options="iconCls:'icon-delete'">删除...</div>
+			<div class="menu-sep"></div>
+			<div onclick="expand()">展开</div>
+			<div onclick="collapse()">收起</div>
+		</div>
+	</div>
+	
+	<!--div id="preview-list" data-options="region:'east',split:true,title:'Web Preview',onCollapse:function(){if(window.onresize)window.onresize();}" style="width:250px;padding:10px;" >
+		<iframe src="#" style="width:100%;height:100%;border:0px;"></iframe>
+	</div-->
+	
+	<div data-options="region:'center',border:true" style="overflow:hidden;">			
+		<div id="ttTab" class="easyui-tabs" data-options="border:false,fit:true,tools:'#tab-tools'" >
+			<div title="首页" style="padding:5px;">
+				
+			</div>
+			<div title="文件浏览" style="padding:5px;">
+				<div id='fileBrowser'></div>
+			</div>
+		</div>
+		
+		<div id="tab-tools">
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-options'" onclick="showOption()"></a>
+		</div>
+		
+		<div id="editorDiv" style="display:none;">
+			<div id="editor-container" style="border:1px solid #D4D4D4;"></div>	
+			<div id="preview" class="easyui-draggable">文件详情</div>
+			<div id="editor-toolbar" class="panel-header">
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-delete'" onclick="removeit(false)">删除</a>
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-undo'" id="undo">撤销</a>
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-redo'" id="redo">重做</a>
+				<a href="javascript:;" style="cursor:default;color:#ddd;">&nbsp;|&nbsp;</a>
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" id="refreshFile">刷新</a>
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" id="saveFile">保存</a>
+				<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-compiler'" style="display:none;" onclick="compiler()" id="btnCompiler">编译</a>
+			</div>
+		</div>
+	</div>
+		
+
+	
+	<div data-options="region:'south',border:true,split:false" id="southPanel" style="padding:5px;height:30px;" align="center"><a href="http://www.kingsoftware.cn" target="_blank">&copy;kingsoftware.cn</a> | 更多信息请联系<a href="mailto:mcfee@kingsoftware.cn">mcfee</a></div>
+	
+	<div style="display:none;">
+	<div id="optionsPanel" class="easyui-dialog" title="编辑器选项" data-options="modal:true,closed:true,resizable:true" style="width:300px;height:400px;padding:10px;" >	
+
+		  <table>
+			<!--tr>
+			  <td>
+				<label for="doc">Document</label>
+			  </td><td>
+				<select id="doc" size="1">
+				</select>
+			  </td>
+			</tr-->
+			<tr style="display:none;">
+			  <td >
+				<label for="mode">模式</label>
+			  </td><td>
+				<select id="mode" size="1">
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<label for="split">分割</label>
+			  </td><td>
+				<select id="split" size="1">
+				  <option value="none">无</option>
+				  <option value="below">下分割</option>
+				  <option value="beside">边分割</option>
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="theme">主题</label>
+			  </td><td>
+				<select id="theme" size="1">
+				  
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<label for="fontsize">字体大小</label>
+			  </td><td>
+				<select id="fontsize" size="1">
+				  <option value="10px">10px</option>
+				  <option value="11px">11px</option>
+				  <option value="12px" selected="selected">12px</option>
+				  <option value="13px">13px</option>
+				  <option value="14px">14px</option>
+				  <option value="16px">16px</option>
+				  <option value="18px">18px</option>
+				  <option value="20px">20px</option>
+				  <option value="24px">24px</option>
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<label for="folding">代码包围</label>
+			  </td><td>
+				<select id="folding" size="1">
+				  <option value="manual">手工</option>
+				  <option value="markbegin" selected="selected">标记开始</option>
+				  <option value="markbeginend">标记开始和结束</option>
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="keybinding">键值绑定</label>
+			  </td><td>
+				<select id="keybinding" size="1">
+				  <option value="ace">Ace</option>
+				  <option value="vim">Vim</option>
+				  <option value="emacs">Emacs</option>
+				  <option value="custom">Custom</option>
+				</select>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="soft_wrap">软包装</label>
+			  </td><td>
+				<select id="soft_wrap" size="1">
+				  <option value="off">Off</option>
+				  <option value="40">40 Chars</option>
+				  <option value="80">80 Chars</option>
+				  <option value="free">Free</option>
+				</select>
+			  </td>
+			</tr>
+
+			<tr><td colspan="2">
+			<table id="more-controls">
+			<tr>
+			  <td>
+				<label for="select_style">全行选择</label>
+			  </td><td>
+				<input type="checkbox" name="select_style" id="select_style" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<label for="highlight_active">突出主动线</label>
+			  </td><td>
+				<input type="checkbox" name="highlight_active" id="highlight_active" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="show_hidden">显示不可视元素</label>
+			  </td><td>
+				<input type="checkbox" name="show_hidden" id="show_hidden" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="display_indent_guides">显示缩进向导</label>
+			  </td><td>
+				<input type="checkbox" name="display_indent_guides" id="display_indent_guides" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="show_hscroll">持续水平滚动条</label>
+			  </td><td>
+				<input type="checkbox" name="show_hscroll" id="show_hscroll">
+				<label for="show_hscroll">水平</label>
+				<input type="checkbox" name="show_vscroll" id="show_vscroll">
+				<label for="show_vscroll">垂直</label>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="animate_scroll">动画滚动</label>
+			  </td><td>
+				<input type="checkbox" name="animate_scroll" id="animate_scroll">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="show_gutter">显示分割</label>
+			  </td><td>
+				<input type="checkbox" id="show_gutter" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="show_print_margin">显示打印边距</label>
+			  </td><td>
+				<input type="checkbox" id="show_print_margin" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="soft_tab">使用软标签</label>
+			  </td><td>
+				<input type="checkbox" id="soft_tab" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="highlight_selected_word">突出显示选定的词</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="highlight_selected_word" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="enable_behaviours">行为可用</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="enable_behaviours">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="fade_fold_widgets">褪色的折叠工具</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="fade_fold_widgets">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="elastic_tabstops">激活弹性定位停驻点</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="elastic_tabstops">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="isearch">增量搜索</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="isearch">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="highlight_token">显示令牌信息</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="highlight_token">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="read_only">只读</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="read_only">
+			  </td>
+			</tr>
+			<tr>
+			  <td >
+				<label for="scrollPastEnd">滚动到结尾</label>
+			  </td>
+			  <td>
+				<input type="checkbox" id="scrollPastEnd" checked>
+			  </td>
+			</tr>
+			<tr>
+			  <td colspan="2">
+				<input type="button" value="编辑片段" onclick="env.editSnippets()">
+			  </td>
+			</tr>
+		  </table>
+		  </td></tr>
+		  </table>
+
+	</div>
+	</div>
+	<script type="text/javascript">
+      var require = {
+          baseUrl: window.location.protocol + "//" + window.location.host + window.location.pathname.split("/").slice(0, -1).join("/"),
+          paths: {
+              ace: "lib/ace"
+          },
+          waitSeconds: 30
+      };
+  </script>
+  <script src="res/require.js" data-main="res/app" type="text/javascript"></script>
+	
+	<div id="win-file"><div id="queueFile"></div></div>
+	
+	<div id="win-Login" class="easyui-dialog" title="登陆" data-options="modal:true,closed:true,closable:false" style="width:250px;height:135px;">
+		<form id="FormLogin" onsubmit="return false;" method="post">
+			<table class="formTable">  
+				<tr>
+					<th>登录名:</th>
+					<td><input type="hidden" name="cmd" value="SignIn" /><input name="Username" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[2,15]'"/></td>
+				</tr>
+				<tr>
+					<th>密码:</th>
+					<td><input name="Password" type="password" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[5,15]'"/></td>
+				</tr>				
+			</table>
+	
+			<div data-options="region:'south',border:false" align="center">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="submitLoginForm()" style="width:80px">登陆</a>
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="clearLoginForm" style="width:80px">重置</a>
+			</div>
+		</form>
+	</div>
+	
+	<div id="win-Project" class="easyui-dialog" title="新建项目" data-options="modal:true,closed:true,buttons: '#project-buttons'" style="width:500px;height:490px;">
+		<form id="FormProject" onsubmit="return false;" method="post" style="padding:5px;">
+			<!--table class="formTable">  
+				<tr>
+					<th>项目编码:</th>
+					<td><input name="projectCode" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[4,15]'"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>项目名称:</th>
+					<td><input name="projectName" class="easyui-validatebox easyui-textbox"  data-options="validType:'length[3,15]'"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>数据链接:</th>
+					<td><input name="dataConnection" class="easyui-textbox"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>数据路径:</th>
+					<td><input name="dataPath" class="easyui-validatebox easyui-textbox"  style="width:240px;"/></td>
+				</tr>
+				<tr>
+					<th>项目描述:</th>
+					<td><textarea class="easyui-validatebox easyui-textbox" data-options="validType:'length[10,100]'" name="projectDesc"  style="width:240px;height:80px;"></textarea></td>
+				</tr>
+			</table-->
+				<table class="table-striped">
+					<tbody> 
+						<colgroup><col style="width: 120px;"></col><col></col></colgroup>
+						<tr>         
+							<th>项目编码:<small>(必填项*)</small></th>
+							<td><input name="projectCode" class="easyui-validatebox easyui-textbox" data-options="prompt:'请输入项目唯一编码,介于4-15之间的字母'"  data-options="validType:'length[4,15]'"  style="width:100%;"/></td>
+						</tr>
+						<tr>         
+							<th>项目名称:<small>(必填项*)</small></th>
+							<td><input name="projectCode" class="easyui-validatebox easyui-textbox" data-options="prompt:'请输入项目名称,介于4-15之间字符'"  data-options="validType:'length[4,15]'"  style="width:100%;"/></td>
+						</tr>  
+						<tr>
+							<th>数据库连接字符串:</th>
+							<td><input name="dataConnection" class="easyui-textbox" data-options="prompt:'请配置默认数据库的连接字符串'"  style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th>数据路径:</th>
+							<td><input name="dataPath" class="easyui-validatebox easyui-textbox" data-options="prompt:'请配置数据文件的存储路径'"  style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th>表单路径:</th>
+							<td><input name="dataPath" class="easyui-validatebox easyui-textbox" data-options="prompt:'请配置表单文件的存储路径'"  style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th>工作流路径:</th>
+							<td><input name="dataPath" class="easyui-validatebox easyui-textbox" data-options="prompt:'请配置工作流文件的存储路径'"  style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th>页面路径:</th>
+							<td><input name="dataPath" class="easyui-validatebox easyui-textbox" data-options="prompt:'请配置页面文件的存储路径'"  style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th>导图路径:</th>
+							<td><input name="dataPath" class="easyui-validatebox easyui-textbox" data-options="prompt:'请配置思维导图文件的存储路径'"  style="width:100%;"/></td>
+						</tr>
+						
+						<tr>
+							<th>项目LOGO:</th>
+							<td><input class="easyui-filebox" name="file1" data-options="prompt:'选择一个图片...',buttonText:'选择...'" style="width:100%"></td>
+						</tr>
+						<tr>
+							<th>项目描述:</th>
+							<td><textarea class="easyui-validatebox easyui-textbox" data-options="validType:'length[10,100]',multiline:true" name="projectDesc"  style="width:100%;height:80px;"></textarea></td>
+						</tr>
+						
+					</tbody>
+				</table>
+			<div id="project-buttons">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="submitProjectForm()" style="width:80px">确定</a>
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="clearProjectForm" style="width:80px">取消</a>
+			</div>
+		</form>
+	</div>
+	
+	<div id="win-Open" class="easyui-dialog" title="打开项目" data-options="modal:true,closed:true,buttons: '#open-buttons'" style="width:450px;height:350px;">
+		<ul class="files">
+		</ul>
+		<div id="open-buttons">
+			<a class="easyui-linkbutton" data-options="iconCls:'icon-close'" href="javascript:void(0)" onclick="$('#win-Open').dialog('close');" style="width:80px">关闭</a>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="/code/account/status.chi"></script>
+</body>
+</html>

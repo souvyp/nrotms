@@ -1,0 +1,18 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	var path=Conf.Root+'users\\'+user+'\\'+code;
+
+	if(!DirectoryExists(path))
+		CreateDir(path);
+	if(Pos('.zlay',code)>0)
+		Response.PutContent('#CODE#',code);
+	else
+		Response.PutContent('#CODE#',code+'/default.zlay');
+	Response.PutContent('#USER#',user);
+	Response.PutContent('#APPCODE#',Response.Session["appcode"]);
+}

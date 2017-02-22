@@ -1,0 +1,78 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0028",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_order_EditOrderGoods",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "ListID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OrderID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "GoodsID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Qty",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Weight",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Volume",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "tinyint",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+  	  {
+        "name": "BatchNo",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+        }
+    ],
+    "responseType": "recordset"
+  }
+}

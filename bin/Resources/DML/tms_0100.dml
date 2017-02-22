@@ -1,0 +1,14 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0100",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Unit_ID AS [id], Unit_Name AS [name] FROM Price_Unit;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [],
+    "responseType": "recordset"
+  }
+}

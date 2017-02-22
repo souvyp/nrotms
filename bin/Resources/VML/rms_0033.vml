@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "rms_0033",
+  "version": 1,
+  "dml-id": "rms_0033",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "company",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+	  {
+        "name": "Year",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

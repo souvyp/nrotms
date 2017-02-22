@@ -1,0 +1,406 @@
+﻿{
+"@timestamp": "20150414T061330,76Z",
+"@toplevelentries": "8",
+"viewentry": [
+{
+"@position": "1",
+"@unid": "E4F64B2F3B70602448257A190065B40D",
+"@noteid": "5726",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "10"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑建筑装饰集团股份有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "集团公司"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "2",
+"@unid": "9BCF6382598F8A3948257A190065B40E",
+"@noteid": "572A",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "21"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑建筑装饰设计有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "设计公司"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "谢舫-00008"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "3",
+"@unid": "4395B1EE3C81DE6348257A190065B40F",
+"@noteid": "572E",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "22"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑住宅装饰工程有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "住宅装饰"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "周祖康-00006"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "4",
+"@unid": "F79249708E20707148257A190065B410",
+"@noteid": "5732",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "23"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑建筑装饰事业本部"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "建装本部"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "朱小杰-00009"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "5",
+"@unid": "DBD0939E22B489D648257A190065B411",
+"@noteid": "5736",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "24"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑家具有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "家具公司"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "陆晓栋-00007"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "6",
+"@unid": "97A7B84F2B62522048257A190065B412",
+"@noteid": "573A",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "25"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全品室内装饰配套工程有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "全品饰配"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "吕蓓-00013"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "7",
+"@unid": "492AE58F7789DD8548257A190065B413",
+"@noteid": "573E",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "26"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "上海全筑易家居配套有限公司"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "全筑易"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "代国曜-01104"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+},
+{
+"@position": "8",
+"@unid": "0618BEEC3300073748257A190065B414",
+"@noteid": "5742",
+"@siblings": "8",
+"entrydata": [
+{
+"@columnnumber": "0",
+"@name": "txtUnitCode",
+"text": {
+"0": "27"
+}
+},
+{
+"@columnnumber": "1",
+"@name": "txtUnitFullName",
+"text": {
+"0": "建筑科技事业部"
+}
+},
+{
+"@columnnumber": "2",
+"@name": "txtUnitName",
+"text": {
+"0": "建筑科技"
+}
+},
+{
+"@columnnumber": "3",
+"@name": "txtUnitPrincipal",
+"text": {
+"0": "刘继兵-01415"
+}
+},
+{
+"@columnnumber": "4",
+"@name": "txtUnitEName",
+"text": {
+"0": "-"
+}
+},
+{
+"@columnnumber": "5",
+"@name": "txtUnitEShortName",
+"text": {
+"0": "-"
+}
+}
+]
+}
+]
+}

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0208",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "Index_PactCode AS [pactcode], Index_EndUserID AS [enduserid],Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to], Index_Status AS [status], Index_StatusTime AS [statustime], Index_SrcOrderID AS [srcorderid], Index_RootOrderID AS [rootorderid], Index_SrcClass AS [srcclass], Index_DriverID AS [driverid], Index_CarID AS [carid], Index_SupplierID AS [supplierid], Index_SupplierCompanyID AS [suppliercompanyid], Index_CustomerID AS [customerid], Index_Creator AS [creator], Index_CreatorCompanyID AS [creatorcompanyid], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [customername],Index_CreateTime AS [createtime], Index_Confirmer AS [confirmer], Index_ConfirmTime AS [confirmtime], Index_Singer AS [singer], Index_SignTime AS [signtime], Index_ReceiptDoc AS [receiptdoc], Index_Exception AS [exception], Index_Invalid AS [invalid], Index_CustomerSymbolID AS [customersymbolid], Index_SupplierSymbolID AS [suppliersymbolid] FROM TMS_OrderIndex 
+WHERE Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 2 AND Index_Invalid = 0 AND Index_Status >= 1 AND Index_Status < 32 AND (Index_ID = @id AND Index_Code = @inputName OR Index_EndUserName = @inputName OR dbo.fn_pub_user_Customer2Name(Index_CustomerID) = @inputName);",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "inputName",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

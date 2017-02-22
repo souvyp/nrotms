@@ -1,0 +1,54 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0024",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  dbo.fn_pub_order_AreaName(Index_FromCity) AS [fromcity],dbo.fn_pub_order_AreaName(Index_ToCity),
+SUM(CASE WHEN MONTH(Index_CreateTime) = 1 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [1], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 2 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [2], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 3 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [3], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 4 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [4], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 5 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [5], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 6 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [6], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 7 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [7], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 8 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [8], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 9 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [9], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 10 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [10], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 11 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [11], 
+SUM(CASE WHEN MONTH(Index_CreateTime) = 12 THEN dbo.fn_pub_order_TotalCost(Index_ID) ELSE 0 END) AS [12],
+SUM(dbo.fn_pub_order_TotalCost(Index_ID)) AS [TotalCost] FROM TMS_OrderIndex AS S INNER JOIN (SELECT Branch_CompanyID FROM TMS_CompanyBranches WHERE  Branch_OwnerCompanyID = dbo.fn_pub_user_User2CompanyID(@company,0)AND Branch_Status = 2  UNION ALL  select  dbo.fn_pub_user_User2CompanyID(@company,0) AS Branch_CompanyID) AS T  ON  T.Branch_CompanyID = S.Index_CreatorCompanyID  WHERE  Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND YEAR(Index_CreateTime)=@Year  AND dbo.fn_pub_order_AreaName(Index_FromCity)=@fromcity  AND dbo.fn_pub_order_AreaName(Index_ToCity)=@tocity
+GROUP BY Index_FromCity, Index_ToCity,YEAR(Index_CreateTime) ORDER BY YEAR(Index_CreateTime) ASC",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "company",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+      },
+	  {
+        "name": "Year",
+        "type": "int",
+        "size": 8,
+        "direction": "input",
+      },
+	  {
+        "name": "fromcity",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+      },
+	  {
+        "name": "tocity",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

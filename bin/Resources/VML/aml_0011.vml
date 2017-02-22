@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "aml_0011",
+  "version": 1,
+  "dml-id": "aml_0011",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0048",
+  "version": 1,
+  "dml-id": "tms_0048",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "name",
+        "value": ""
+      },
+      {
+        "name": "sex",
+        "value": ""
+      },
+      {
+        "name": "userpic",
+        "value": ""
+      },
+      {
+        "name": "birthday",
+        "value": ""
+      },
+      {
+        "name": "phone",
+        "value": ""
+      },
+      {
+        "name": "username",
+        "value": ""
+      },
+      {
+        "name": "password",
+        "value": ""
+      },
+      {
+        "name": "dept",
+        "value": ""
+      },
+      {
+        "name": "duty",
+        "value": ""
+      },
+      {
+        "name": "nickname",
+        "value": ""
+      }
+    ]
+  }
+}

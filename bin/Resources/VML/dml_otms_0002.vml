@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "dml_otms_0002",
+  "version": 1,
+  "dml-id": "dml_otms_0002",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "code",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "name",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

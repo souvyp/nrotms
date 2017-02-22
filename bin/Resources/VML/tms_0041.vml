@@ -1,0 +1,48 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0041",
+  "version": 1,
+  "dml-id": "tms_0041",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "companyid",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "code",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "customerid",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "desc",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "type",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "comments",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

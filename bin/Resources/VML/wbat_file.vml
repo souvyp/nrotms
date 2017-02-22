@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'wfile',
+ 'id' : 'wbat_file',
+ 'version' : 1,
+ 'sml-id' : 'wbat_file',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'bat'
+ }
+}

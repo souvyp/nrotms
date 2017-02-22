@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0233",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_ID AS [OrderID], Index_Code AS [Code], Index_PactCode AS [PactCode],Index_Status AS [Status],  Index_SrcOrderID AS [SrcOrderID], Index_RootOrderID AS [RootOrderID], Index_SupplierID AS [SupplierID], dbo.fn_pub_order_SupplierName(Index_SupplierID,Index_ID) AS [SupplierName], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [Name], Index_CustomerID AS [CustomerID], Index_CustomerCompanyID AS [CustomerCompanyID], dbo.fn_pub_user_User2Name(Index_Creator) AS [Creator], Index_CreatorCompanyID AS [CreatorCompanyID], convert(varchar(10),Index_CreateTime,120) AS [CreateTime],Index_Comments AS [Comments],Index_Description AS [Descriptions],Index_CustomerSymbolID AS [CustomerSymbolID],Index_SupplierSymbolID AS SupplierSymbolID,dbo.fn_pub_user_SymbolName(Index_CustomerSymbolID) AS [CustomerSymbolName], dbo.fn_pub_user_SymbolName(Index_SupplierSymbolID) AS [SupplierSymbolName], B.User_OpenId AS [OpenId],dbo.fn_pub_user_Company2Name(Index_CreatorCompanyID) AS [CreatorCompanyName], Company_Phone AS [SupplierPhone],Company_Contact AS [SupplierContact],T.payment AS [Payment],T.payment AS [Payable],T.cost AS [TotalCost],T.volume AS [TotalVolume], T.weight AS [TotalWeight], T.amount AS [TotalAmount] FROM TMS_OrderIndex AS A LEFT JOIN (SELECT User_OpenId,User_CompanyID FROM TMS_User WHERE User_OpenId <> '' AND User_OpenId IS NOT NULL) AS B ON  A.Index_SupplierCompanyID = B.User_CompanyID LEFT JOIN TMS_Company ON Company_ID = Index_SupplierCompanyID INNER JOIN (SELECT Contains_OwnerOrderID AS [OwnerOrderID], SUM(con.Contains_Volume) AS [volume], SUM(con.Contains_Weight) AS [weight], SUM(con.Contains_Amount) AS [amount],SUM(dbo.fn_pub_order_TotalCost(con.Contains_OrderID)) AS [cost],SUM(ind.Index_Payment) AS [payment],SUM(Index_Payable) AS [payable] FROM TMS_OrderContains con INNER JOIN TMS_OrderIndex ind on con.Contains_OrderID = ind.Index_ID  WHERE Contains_Invalid = 0 GROUP BY Contains_OwnerOrderID) AS T ON T.OwnerOrderID = Index_ID WHERE Index_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

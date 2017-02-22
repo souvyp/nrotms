@@ -1,0 +1,30 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'data',
+ 'id' : 'vml_login_0001',
+ 'version' : 1,
+ 'dml-id' : 'dml_login_0001',
+ 'dmlparas' :
+ {
+  'rows' : 'true',
+  'columns' : 'false',
+  'paras' : [
+   {
+    'name' : 'Username',
+    'value' : 'guohl'
+   },
+   {
+    'name' : 'Password',
+    'value' : ''
+   },
+   {
+    'name' : 'page',
+    'value' : 1
+   },
+   {
+    'name' : 'rows',
+    'value' : 1
+   }
+  ]
+ }
+}

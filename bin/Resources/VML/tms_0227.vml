@@ -1,0 +1,268 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0227",
+  "version": 1,
+  "dml-id": "tms_0227",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "SrcOrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "AddrLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "GoodsLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "_Version",
+        "type": "normal",
+        "value": 2
+      },
+      {
+        "name": "TransType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "SupplierID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DriverID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "SupplierSymbolID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PactCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "SrcClass",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "TxnRequired",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CustomerID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "EndUserID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "From",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "FromProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "To",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ToProvince",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToCity",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToDistrict",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ToTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TransportMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "GoodsCategory",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PackageMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ChargeMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PriceUnit",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Kms",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarLength",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ShipMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsPick",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsOnLoad",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsOffLoad",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsDelivery",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DstStatus",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsInsurance",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "VolumeAddition",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "WeightAddition",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Descriptions",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CarVolume",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarWeight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CustomerSymbolID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "FromContact",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ToContact",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "GoodsValue",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PrevOrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DeviceCode",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

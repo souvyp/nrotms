@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0218",
+  "version": 1,
+  "dml-id": "tms_0218",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "SrcOrderID",
+        "type": "prev_rs",
+        "value": "0/0/0/1"
+      }
+    ]
+  }
+}

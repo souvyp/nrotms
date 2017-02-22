@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd";>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../html/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../html/fileinput.js"></script>
+    <script type="text/javascript" src="../html/common.js"></script>
+    <script type="text/javascript" src="../html/droparea.js"></script>
+    <script type="text/javascript" src="../html/laydate.js"></script>
+    <script type="text/javascript" src="../html/NSF.js"></script>
+    <script type="text/javascript" src="../html/NSF.System.js"></script>
+    <script type="text/javascript" src="../html/NSF.Toolkits.FB.js"></script>
+    <script type="text/javascript" src="../html/NSF.Toolkits.FB.Widget.js"></script>
+</head>
+<body>
+    <table border="1" width="500" height="300" cellpadding="1" cellspacing="0">
+        <tr>
+            <td class="text"></td>
+            <td class="number"></td>
+            <td class="date"></td>
+        </tr>
+        <tr>
+            <td class="richtext" ></td>
+            <td class="image" ></td>
+            <td class="button"></td>
+        </tr>
+        <tr>
+            <td class="combobox" ></td>
+            <td class="checkboxRadio" ></td>
+            <td class="file" ></td>
+        </tr>
+        <tr>           
+            <td class="dialogue" colspan="3" ></td>
+        </tr>
+    </table>
+</body>
+
+<script type="text/javascript">
+    var _texts = {
+        codename: 'code',
+        characterlength: '50',
+        codetype: 'text',
+        placeholder: '文本'
+    };
+    var _numbers = {
+        codename: 'ncode',
+        characterlength: '50',
+        codetype: 'number',
+        placeholder: '数字'
+    };
+    var _dates = {
+        codename: 'bx_date1',
+        characterlength: '8',
+        codetype: 'date',
+        placeholder: '日期',
+        dateMax: '',
+        dateMin: 'laydate.now()',
+        edittype: 'editable',
+        dateformat: 'YYYY-MM-DD'
+    };
+    var _buttons = {
+        codetype: '_button',
+        target: 'bx_detail',
+        ExecuteCode: '#clone#',
+        placeholder:''
+    };
+    var _combobox = {
+        characterlength: '50',
+        codename: 'item',
+        codetype: 'combobox',
+        conditionhiding: '0',
+        datasourcetsetting: '/code/data/table.chi?data=Rei_item&param=data',
+        datasourcetype: 'list',
+        edittype: 'editable',
+        optValue: 'id',
+        placeholder: ''
+    };
+
+    var _checkboxRadio = {
+        codename: 'prjcode',
+        codetype: 'checkbox',
+        edittype: 'editable',
+        characterlength: '50',
+        placeholder: '',
+        datasourcetype: 'list',
+        datasourcetsetting:''
+    };
+
+    var _dialogue = {
+        characterlength: '50',
+        codename: 'prjid',
+        codetype: 'dialogue',
+        conditionhiding: '0',
+        datasourcetsetting: 'trend/project_Reg',
+        datasourcetype: 'url',
+        edittype: 'editable',
+        modalWindow: '1',
+        placeholder: '',
+        pushFilter: '',
+        pushValus: 'prjcode=0,prjname=2',
+        windowType: '1'
+    };
+
+    var _richtext = {
+        codename: 'content',
+        codetype: 'richtext',
+        edittype: 'editable',
+        characterlength: '256',
+        placeholder: ''
+    };
+
+    var _image = {
+        codename: 'prjcode',
+        codetype: 'image',
+        edittype: 'editable',
+        characterlength: '50',
+        placeholder: '',
+        datasourcetsetting: ''
+    };
+
+    var _file = {
+        codename: 'prjcode',
+        codetype: 'file',
+        edittype: 'editable',
+        characterlength: '50',
+        placeholder: '',
+        datasourcetsetting: ''
+    };
+
+    NSF.Toolkits.FB.Widget.Text( _texts,  '.text' , '', '' );
+    NSF.Toolkits.FB.Widget.Number( _numbers, '.number', '', '' ); 
+    NSF.Toolkits.FB.Widget.Date( _dates, '.date', '', '' );
+    //NSF.Toolkits.FB.Widget.Button( _buttons, '.button', '', '' );
+    NSF.Toolkits.FB.Widget.Combobox( _combobox, '.combobox', '', '' ); 
+    NSF.Toolkits.FB.Widget.CheckboxRadio( _checkboxRadio, '.checkboxRadio', '', '' );
+    NSF.Toolkits.FB.Widget.Dialogue( _dialogue, '.dialogue', '', '' );
+    NSF.Toolkits.FB.Widget.Richtext( _richtext, '.richtext', '', '' );
+    NSF.Toolkits.FB.Widget.File( _file,  '.file' , '', '' );
+    NSF.Toolkits.FB.Widget.Image( _image, '.image' , '', '' );
+</script>
+</html>

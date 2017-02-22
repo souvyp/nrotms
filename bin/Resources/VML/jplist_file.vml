@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'wfile',
+ 'id' : 'jplist_file',
+ 'version' : 1,
+ 'sml-id' : 'jplist_file',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'dml'
+ }
+}

@@ -1,0 +1,7 @@
+{
+ 'namespace' : 'data',
+ 'cmd' : 'paras',
+ 'id' : 'paras',
+ 'version' : 1
+  } 
+}

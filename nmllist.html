@@ -1,0 +1,579 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>小工具</title>
+    <script src="/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/NSF/js/NSF.0.0.3.min.js"></script>
+    <script src="/assets/NSF/js/NSF.System.Crypto.js"></script>
+    <style type="text/css">
+        ul li{
+            width: 25%;
+        }
+        .row{
+            margin: 20px 20px 20px 0px;
+        }
+        .input-group{
+            margin: 20px 20px 20px 0px;
+        }
+        .top{
+            display: none;
+            float: left;
+        }
+    </style>
+</head>
+<body onload="GetData()">
+    <div class="container">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn save btn-default" title="dml">保存为json文件</button>
+          </span>
+          <span class="input-group-btn">
+            <button class="btn savebat btn-primary" title="dml">保存为txt文件</button>
+          </span>
+        </div><!-- /input-group -->
+        <div class="clearfix"></div>
+        <br />
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#dml" aria-controls="home" role="tab" data-toggle="tab">DML</a></li>
+        <li role="presentation"><a href="#vml" aria-controls="profile" role="tab" data-toggle="tab">VML</a></li>
+        <li role="presentation"><a href="#sml" aria-controls="messages" role="tab" data-toggle="tab">SML</a></li>
+        <li role="presentation"><a href="#widget" aria-controls="settings" role="tab" data-toggle="tab">WIDGET</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="dml">
+            <div class="row">
+              <div class="col-lg-2">
+                  <input type="text" class="form-control" name="program" value="otms" placeholder="请输入项目名称">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-3">
+                  <input type="text" class="form-control" name="id" placeholder="请输入DML的ID值">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-5">
+                  <input type="text" class="form-control" name="description" placeholder="请输入DML的描述">
+              </div><!-- /.col-lg-6 -->
+            
+              <div class="col-lg-2">
+                  <button class="btn add btn-default" title="dml" type="button" onclick="AddRow(this)">添加DML</button>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">DML</div>
+              <!-- Table -->
+              <table class="table">
+                <thead>
+                    <tr>
+                        <td>列表ID</td>
+                        <td>列表描述</td>
+                        <td>项目名称</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                    <tbody name="dml"></tbody>
+              </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="vml">
+            <div class="row">
+              <!--<div class="col-lg-4">
+                  <input type="text" class="form-control" name="id" placeholder="请输入VML的ID值">
+              </div>
+              <div class="col-lg-6">
+                  <input type="text" class="form-control" name="description" placeholder="请输入VML的描述">
+              </div>-->
+              <div class="col-lg-2 navbar-right">
+                  <button class="btn add btn-default" title="vml" type="button" onclick="AddVmlByDml(this)">通过dml生成VML</button>
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-2">
+                  <button class="btn add btn-default" title="vml" type="button" onclick="DelVmlAll()">删除全部vml</button>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">VML</div>
+              <!-- Table -->
+              <table class="table">
+                <thead>
+                    <tr>
+                        <td>列表ID</td>
+                        <td>列表描述</td>
+                        <td>项目名称</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                    <tbody name="vml"></tbody>
+              </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="sml">
+            <div class="row">
+              <div class="col-lg-2">
+                  <input type="text" class="form-control" name="program" value="otms" placeholder="请输入项目名称">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-3">
+                  <input type="text" class="form-control" name="id" placeholder="请输入DML的ID值">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-5">
+                  <input type="text" class="form-control" name="description" placeholder="请输入DML的描述">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-2">
+                  <button class="btn add btn-default" title="sml" type="button" onclick="AddRow(this)">添加SML</button>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">SML</div>
+              <!-- Table -->
+              <table class="table">
+                <thead>
+                    <tr>
+                        <td>列表ID</td>
+                        <td>列表描述</td>
+                        <td>项目名称</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                    <tbody name="sml"></tbody>
+              </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="widget">
+            <div class="row">
+             <div class="col-lg-2">
+                  <input type="text" class="form-control" name="program" value="otms" placeholder="请输入项目名称">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-3">
+                  <input type="text" class="form-control" name="id" placeholder="请输入DML的ID值">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-5">
+                  <input type="text" class="form-control" name="description" placeholder="请输入DML的描述">
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-2">
+                  <button class="btn add btn-default" title="widget" type="button" onclick="AddRow(this)">添加WIDEGT</button>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">Widget</div>
+              <!-- Table -->
+              <table class="table">
+                <thead>
+                    <tr>
+                        <td>列表ID</td>
+                        <td>列表描述</td>
+                        <td>项目名称</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                    <tbody name="widget"></tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    
+        <div class="top">∧</div>
+    </div>
+    
+    <script type="text/javascript">
+
+        //生成json文件
+        $(".save").click(function(){
+            var _pid;
+            var _tbodyName;
+            var _id;
+            var _description;
+            var _program;
+            var _content = [];
+            $("tbody").each( function( ){
+                _tbodyName = $(this).attr("name");
+                if( _tbodyName == "dml" ){
+                    _pid = "dml";
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text().split('.')[0];
+                        _description = $(this).find("input:eq(0)").val();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.description = _description;
+                        _para.program = _program;
+
+
+                        _content.push( _para );
+                    });
+
+                }else if( _tbodyName == "vml" ){
+                    _pid = "vml";
+                   
+                    $(this).find("tr").each( function(){
+                         var _para = {};
+                        _id = $(this).find("td:eq(0)").text().split('.')[0];
+                        _description = $(this).find("input:eq(0)").val();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.description = _description;
+                        _para.program = _program;
+
+                        
+
+                        _content.push( _para );
+
+                    });
+                }else if( _tbodyName == "sml" ){
+                    _pid = "sml";
+                    
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text().split('.')[0];
+                        _description = $(this).find("input:eq(0)").val();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.description = _description;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+                }else if( _tbodyName == "widget" ){
+                    _pid = "widget";
+                   
+                    $(this).find("tr").each( function(){
+                         var _para = {};
+                        _id = $(this).find("td:eq(0)").text().split('.')[0];
+                        _description = $(this).find("input:eq(0)").val();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.description = _description;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+                }
+            });
+            _content.sort(function(a, b) { return a.id> b.id? 1 : -1;} );
+            _content = NSF.System.Json.ToString( _content );
+            var _params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"wLst_file","paras":[{"name":"filename","value":"NmlLst"},{"name":"content","value":' + _content + '}]}]';
+
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: "json" ,
+                    jsonp:  '',
+                    type: 'POST',
+                    data: _params,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        alert( "文件保存成功！" );
+                    }
+                });
+            });
+
+        //生成bat文件
+        $(".savebat").click(function(){
+            var _pid;
+            var _tbodyName;
+            var _id;
+            var _program;
+            var _content = [];
+            $("tbody").each( function( index ){
+                _tbodyName = $(this).attr("name");
+                if( _tbodyName == "dml" ){
+                    _pid = "dml";
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+
+                }else if( _tbodyName == "vml" ){
+                    _pid = "vml";
+                    
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+                }else if( _tbodyName == "sml" ){
+                    _pid = "sml";
+                    
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+                }else if( _tbodyName == "widget" ){
+                    _pid = "widget";
+                    
+                    $(this).find("tr").each( function(){
+                        var _para = {};
+                        _id = $(this).find("td:eq(0)").text();
+                        _program = $(this).find("input:eq(1)").val();
+
+                        _para.id = _id;
+                        _para.pid = _pid;
+                        _para.program = _program;
+
+                        _content.push( _para );
+                    });
+                }
+            });
+
+            //var _batcontent = "REM Script to compile the NML scripts\r\nREM Created by: guohongliang\r\nREM Create at "+ CurentTime() +"\r\nREM -nc infolder outfilename namespace file1[ file2[ ...]]\r\nE:\\SVN\\Toolkits\\trunk\\NMLCompiler\\bin\\Debug\\NMLCompiler.exe -nc E:\\SVN\\OTMS\\trunk\\bin\\Resources\\ NmlCollection.cs NDS.NMLCollection ";
+            
+            var  _batcontent = " ";
+            var _program = _content[0].program;
+            var _arr = [];
+            for( var i = 0; i < _content.length; i++ ){
+              for(var j in _arr ){
+                if( _arr.indexOf( _content[i].program ) == -1 ){
+                  _arr.push( _content[i].program );
+                }
+              }
+            }
+
+            for( var j=0; j<_arr.length; j++ ){
+              _batcontent += _arr[j] + ',';
+              for( var i = 0; i < _content.length; i++ ){
+                if( _content[i].program == _arr[j] ){
+                  var _pid = _content[i].pid;
+                  var _value = _content[i].id;
+                  _batcontent += _pid + "\\" + _value + " ";
+                }
+              }
+            }
+
+
+            console.log(_batcontent);
+            //_batcontent += "\r\nCOPY /Y E:\\SVN\\OTMS\\trunk\\bin\\Resources\\NmlCollection.cs E:\\SVN\\NDS.NMLCollection\\NmlCollection.cs\r\nPAUSE";
+
+            _batcontent = new NSF.System.Base64().Encode( _batcontent );
+
+            _content = NSF.System.Json.ToString( _content );
+            var _params = '[{"namespace":"protocol","cmd":"wfile","version":1,"id":"wtxt_file","paras":[{"name":"filename","value":"NmlFilelist"},{"name":"content","value":"' + _batcontent + '"},{"name":"decode","value":"Base64"}]}]';
+
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: "json" ,
+                    jsonp:  '',
+                    type: 'POST',
+                    data: _params,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        alert( "保存到txt文件成功！" );
+                    }
+                });
+        });
+
+        //添加行
+        function AddRow( button ){
+            var _idName = $(button).closest(".row").find( "input[name='id']").val();
+            var _description = $(button).closest(".row").find( "input[name='description']").val();
+            var _pid = $(button).closest(".row").find("button").attr("title");
+            var _program = $(button).closest(".row").find( "input[name='program']").val();
+            var _tr = "<tr>";
+            if( _pid == "widget" ){
+                _pid = "dml";
+                _tr += "<td>"+ _idName +"."+ _pid +"</td>";
+                _tr += "<td><input type='text' class='form-control' value='"+  _description  +"'></td>";
+                _tr += "<td><input type='text' class='form-control' value='"+  _program  +"'></td>";
+                _pid = "widget";
+            }else{
+                _tr += "<td>"+ _idName +"."+ _pid +"</td>";
+                _tr += "<td><input type='text' class='form-control' value='"+  _description  +"'></td>";
+                _tr += "<td><input type='text' class='form-control' value='"+  _program  +"'></td>";
+            }
+            _tr +="<td><button class='btn del btn-default'  onclick='DelRow(this)'  type='button'>删除</button></td></tr>";
+
+            if( _idName != '' ){
+                if( $('tbody[name="'+ _pid +'"] tr').length == 0 ){
+                  $('tbody[name="'+ _pid +'"]').append( _tr );
+                }else{
+                  $('tbody[name="'+ _pid +'"] tr:first').before( _tr );
+                }
+                
+            }else{
+                alert( "请输入ID值!" );
+            }
+        }
+
+        //删除全部vml
+        function DelVmlAll(){
+            $('tbody[name="vml"]').find("tr").each( function(){
+                $(this).remove();
+            });
+        }
+        //通过dml来添加vml
+        function AddVmlByDml( button ){
+            var _pid = "vml";
+            var _tbodyName;
+            var _id;
+            var _description;
+            var _program;
+            var _content = [];
+
+
+            $('tbody[name="dml"]').find("tr").each( function(){
+                var _para = {};
+
+                _id = $(this).find("td:eq(0)").text().split('.')[0];
+                _description = $(this).find("input:eq(0)").val();
+                _program = $(this).find("input:eq(1)").val();
+
+
+                _para.id = _id;
+                _para.description = _description;
+                _para.program = _program;
+
+                _content.push( _para );
+            });
+
+            for( var i = 0; i < _content.length; i++ ){
+                _tr = "<tr><td>";
+
+                    _tr += _content[i].id + ".vml</td><td><input type='text' class='form-control' value='"+  _content[i].description  +"'></td><td><input type='text' class='form-control' value='"+  _content[i].program  +"'></td><td><button class='btn del btn-default' onclick='DelRow(this)' title='"+ _content[i].pid +"' type='button'>删除</button></td></tr>";
+
+                    $('tbody[name="vml"]').append( _tr );
+                }
+
+        }
+
+        function DelRow( button ){
+            $(button).closest("tr").remove();
+        }
+        //读取数据
+        function GetData(){
+            var params = '[{"namespace":"protocol","cmd":"rfile","version":1,"id":"rLst_file","paras":[{"name":"filename","value":"NmlLst"}]}]';
+            $.ajax(
+                {
+                    async: false,
+                    url: '/Portal.aspx',
+                    dataType: "json" ,
+                    jsonp:  '',
+                    type: 'POST',
+                    data: params,
+                    error: function ( reqObj, status, err )
+                    {
+                        if ( callback )
+                        {
+                            callback( false, '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+                        }
+                        else
+                        {
+                            NSF.System.ThrowInfo( 'status: ' + status + '\nerr: ' + err );
+                        }
+                    },
+                    success: function ( data )
+                    {
+                        data = NSF.System.Json.ToJson(data[0].file.content);
+                        for( var i = 0; i < data.length; i++ ){
+
+                            _tr = "<tr><td>";
+
+                            if( data[i].pid == "widget" ){
+                                data[i].pid = "dml";
+                                _tr += data[i].id + "." + data[i].pid + "</td>";
+                                _tr += "<td><input type='text' class='form-control' value='"+  data[i].description  +"'></td>";
+                                _tr += "<td><input type='text' class='form-control' value='"+  data[i].program  +"'></td>";
+                                data[i].pid = "widget";
+                                _tr += "<td><button class='btn del btn-default' onclick='DelRow(this)' title='"+ data[i].pid +"'  type='button'>删除</button></td></tr>";
+                                $('tbody[name="'+ data[i].pid +'"]').append( _tr );
+                            }else{
+                                _tr += data[i].id + "." + data[i].pid + "</td><td><input type='text' class='form-control' value='"+  data[i].description  +"'></td><td><input type='text' class='form-control' value='"+  data[i].program  +"'></td><td><button class='btn del btn-default' onclick='DelRow(this)' title='"+ data[i].pid +"' type='button'>删除</button></td></tr>";
+
+                                $('tbody[name="'+ data[i].pid +'"]').append( _tr );
+                            }
+                        }
+                    }
+                });
+        }
+        //获取当前时间
+        function CurentTime()
+        { 
+            var now = new Date();
+           
+            var year = now.getFullYear();       //年
+            var month = now.getMonth() + 1;     //月
+            var day = now.getDate();            //日
+           
+            var hh = now.getHours();            //时
+            var mm = now.getMinutes();          //分
+           
+            var clock = year + "-";
+           
+            if(month < 10)
+                clock += "0";
+           
+            clock += month + "-";
+           
+            if(day < 10)
+                clock += "0";
+               
+            clock += day + " ";
+           
+            if(hh < 10)
+                clock += "0";
+               
+            clock += hh + ":";
+            if (mm < 10) clock += '0'; 
+            clock += mm; 
+            return(clock); 
+        }
+    </script>
+</body>
+</html>

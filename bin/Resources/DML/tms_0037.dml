@@ -1,0 +1,92 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0037",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE TMS_MCar SET Car_SN = @SN, Car_Type = @CarType, Car_Length = @CarLength, Car_Weight = @Weight, Car_Volume = @Volume, Car_Seats = @Seats, Car_PurchaseTime = @PurchaseTime, Car_Insurance = @Insurance, Car_Brand = @Brand, Car_Photo = @Photo WHERE Car_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "SN",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": "车牌号"
+      },
+      {
+        "name": "CarType",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CarLength",
+        "type": "decimal",
+        "size": 9,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Weight",
+        "type": "float",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+	  {
+        "name": "Volume",
+        "type": "float",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Seats",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "PurchaseTime",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Insurance",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Brand",
+        "type": "nvarchar",
+        "size": 100,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Photo",
+        "type": "nvarchar",
+        "size": 600,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

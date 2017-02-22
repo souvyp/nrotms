@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>缓存</title>
+    <script src="http://otms.zld.com.cn/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://otms.zld.com.cn/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="http://otms.zld.com.cn/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="http://otms.zld.com.cn/assets/NSF/js/NSF.0.0.3.min.js"></script>
+
+	<style type="text/css">
+		body{padding:10px}
+		.list ul{padding:0;margin:0;border:1px solid #ccc;border-top:0;overflow:hidden;}
+		.title{padding:0;border:1px solid #ccc;margin:0;}
+		.title li{text-align:center !important;}
+		ul li
+		{
+			display: inline-block;
+			text-align:center;
+			line-height:50px;
+		}
+		ul li a
+		{
+			display:block;
+			height:100%;
+		}
+		ul li a:hover
+		{
+			background:#eee;
+		}
+		ul li:nth-child(1)
+		{
+			width:10%;
+		}
+		ul li:nth-child(2)
+		{
+			width:70%;
+			text-align:left;
+		}
+		ul li:nth-child(3)
+		{
+			width:20%;
+		}
+		.title li:nth-child(3)
+		{
+			width:19.4%;
+		}
+		label
+		{
+			margin:0;
+			width:100%;
+		}
+		.topDiv
+		{
+			font-size:32px;
+			text-align:center;
+		}
+		b
+		{
+			float:left;
+			width:50px;
+			padding-left: 10px;
+		}
+		.loading
+		{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0.5;
+			text-align: center;
+			line-height: 50;
+		}
+	</style> 
+	<script type="text/javascript">
+		$(function()
+		{
+			load();
+			//缓存列表
+			$('.caches').click(function()
+			{
+				load();
+			});			
+			//清除缓存
+			$('.dropcache').click(function()
+			{
+				var datas = '[{"namespace":"protocol","cmd":"dropcache","version":1,"id":"dropcache","paras":[{"name" : "token","value" : "1CF1BE2069779229C6903407825AC1E3166B2A96C673AFD4DD949EEA5F725FD653B8790CE96A615DFCDBE59411DF7F11"}]}]';
+				CacheMgr(datas,2);
+			});
+			//重载配置文件
+			$('.cfgrestore').click(function()
+			{
+				$('body').append('<div class="loading"><img src="images/loading.gif"/></div>');
+				var datas = '[{"namespace":"protocol","cmd":"cfgrestore","version":1,"id":"cfgrestore","paras":[{"name" : "token","value" : "1CF1BE2069779229C6903407825AC1E3166B2A96C673AFD4DD949EEA5F725FD653B8790CE96A615DFCDBE59411DF7F11"}]}]';
+				CacheMgr(datas,4);
+			});
+		});
+		function Rmcahe_del(obj)
+		{
+			//删除缓存
+			if($(obj).parent().prev().prev().find('input:checked').val() != undefined)
+			{
+				var chk_value =[];    
+				$('input[name="che"]:checked').each(function()
+				{    
+					chk_value.push($(this).parent().next().text());    
+				});
+				var par = '';
+				for(var i=0;i<chk_value.length;i++)
+				{
+					par += '{"namespace":"protocol","cmd":"rmcache","version":1,"id":"rmcache","paras":[{"name" : "token","value" : "1CF1BE2069779229C6903407825AC1E3166B2A96C673AFD4DD949EEA5F725FD653B8790CE96A615DFCDBE59411DF7F11"},{"name" : "key","value" : "'+ chk_value[i] +'"}]}';
+					par += ',';
+				}
+				par = par.substring(0,par.length-1);
+				var datas = '['+ par +']'
+				CacheMgr(datas,3);
+			}
+			else
+			{
+				var val = $(obj).parent().prev().find('label').text();
+				var datas = '[{"namespace":"protocol","cmd":"rmcache","version":1,"id":"rmcache","paras":[{"name" : "token","value" : "1CF1BE2069779229C6903407825AC1E3166B2A96C673AFD4DD949EEA5F725FD653B8790CE96A615DFCDBE59411DF7F11"},{"name" : "key","value" : "'+ val +'"}]}]'
+				CacheMgr(datas,3);
+			}
+		}
+		function load()
+		{
+			var datas = '[{"namespace":"protocol","cmd":"caches","version":1,"id":"caches","paras":[{"name" : "token","value" : "1CF1BE2069779229C6903407825AC1E3166B2A96C673AFD4DD949EEA5F725FD653B8790CE96A615DFCDBE59411DF7F11"}]}]';
+			CacheMgr(datas,1);
+			//1：缓存列表 2：清除缓存 3：删除缓存 4：重载配置文件
+		}
+		function CacheMgr(datas,types)
+		{
+			var cross = false;
+			$.ajax(
+				{
+					async: false,
+					url: '/Portal.aspx',
+					dataType: ( cross ? "jsonp" : "json" ),
+					jsonp: ( cross ? 'callback' : '' ),
+					type: 'POST',
+					data: datas,
+					error: function ( reqObj, status, err )
+					{
+						$('textarea[name="response"]').val( '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+					},
+					success: function ( data )
+					{
+						if(types == 1)
+						{
+							var _html = '';
+							for(var i=0;i<data[0].data.length;i++)
+							{
+								_html += '<ul><li><b></b><input id="'+i+'" name="che" type="checkbox"/></li>';
+								_html += '<li><label for="'+i+'">'+data[0].data[i].key+'</label></li>';							
+								_html += '<li><a href="javascript:void(0)" class="rmcahe" onclick="Rmcahe_del(this)">删除缓存</a></li>';							
+								_html += '</ul>';
+							}
+							$('.list').hide();
+							$('.list').html(_html);
+							//按key值字母排序
+							var lis = {};
+					
+							$('.list ul').each(function()
+							{
+								var li = $(this);
+								lis[li.find('li').eq(1).text()] = li;
+							});
+							var keys = Object.keys(lis).sort();
+							var $list = $('.list').empty();
+							$.each(keys,function(i,key)
+							{
+							  $list.append(lis[key]);							 
+							});
+							$('.list').show();
+							var j = 0;
+							$('.list ul').each(function()
+							{	
+								j++;
+								$(this).find('li').eq(0).find('b').text(j);
+							});
+						}
+						else if(types == 2)
+						{
+							if(data[0].result)
+							{								
+								$('.list').html('');
+								alert('清除成功！');
+							}
+							else
+							console.log(data);
+						}
+						else if(types == 3)
+						{
+							if(data[0].result)
+							{								
+								load();
+								alert('删除成功！');
+							}
+							else
+							alert('请选择要删除的条目');
+						}
+						else if(types == 4)
+						{							
+							if(data[0].result)
+							{
+								$('.loading').remove();
+								alert('重载完成！');
+							}
+						}
+					}
+				} );
+		}
+		
+	</script>
+</head>
+<body>
+    <div class="topDiv">
+        缓存 
+    </div>
+	<div>
+		<ul class="title">
+			<li><a href="javascript:void(0)" class="cfgrestore">重载配置文件</a></li>
+			<li><a href="javascript:void(0)" class="caches">缓存列表</a></li>
+			<!--li><a href="javascript:void(0)" class="rmcahe">删除缓存</a></li-->
+			<li><a href="javascript:void(0)" class="dropcache">清除缓存</a></li>
+		</ul>
+		<div class="list"></div>
+	<div>
+</body>
+</html>

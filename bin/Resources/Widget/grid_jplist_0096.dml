@@ -1,0 +1,10 @@
+﻿{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0096",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Branch_ID AS [id], (SELECT Company_ClientCode FROM TMS_Company WHERE Company_ID = Branch_OwnerCompanyID )  AS [GroupCompanyCode], Branch_OwnerCompanyID AS [OwnerCompanyID], dbo.fn_pub_user_Company2Name(Branch_OwnerCompanyID ) AS [OwnerCompanyName], Branch_CompanyID AS [CompanyID], Branch_Name AS [CompanyName], Branch_ReqDescription AS [Description], Branch_Creator AS [Creator], Branch_CreateTime AS [CreateTime], Branch_Status AS [Status], Branch_Invalid AS [Invalid] FROM TMS_CompanyBranches",
+    "where": "Branch_OwnerCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID],0) AND ( Branch_Status = 1 OR Branch_Status = 2 ) AND Branch_Category=1 "
+  }
+}

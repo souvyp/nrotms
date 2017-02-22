@@ -1,0 +1,152 @@
+dml_otms_0001.vml 地区表vml取数据测试
+
+tms_0001.vml	物品类型添加、编辑
+tms_0002.vml	物品类型删除
+tms_0004.vml	物品类型查询
+
+tms_0016.vml	物品添加、编辑
+tms_0018.vml	物品查询
+tms_0019.vml	物品删除
+
+tms_0020.vml	客户信息添加、编辑
+tms_0021.vml	客户信息删除
+tms_0023.vml	客户信息查询
+
+tms_0024.vml	订单信息添加、编辑
+tms_0025.vml	订单信息删除
+tms_0027.vml	订单信息查询
+
+tms_0028.vml	订单明细添加、编辑
+tms_0030.vml	订单明细查询
+tms_0031.vml	订单明细删除
+
+tms_0032.vml	司机信息添加、编辑
+tms_0034.vml	司机信息查询
+tms_0035.vml	司机信息删除
+
+tms_0036.vml	车辆信息添加
+tms_0037.vml	车辆信息编辑
+tms_0038.vml	车辆信息查询
+tms_0039.vml	车辆信息删除
+
+tms_0040.vml	常用地址添加、编辑
+company_reading.dml 	常用地址查询
+tms_0043.vml	常用地址删除
+
+tms_0044.vml	公司信息添加
+tms_0045.vml	公司信息编辑
+company_reading.vml	公司信息查询
+tms_0047.vml	公司信息删除
+
+tms_0049.vml	用户信息编辑
+user_reading.vml	用户信息查询
+
+tms_0052.vml	收货人信息添加
+tms_0053.vml	收货人信息编辑
+tms_0054.vml	收货人信息查询
+tms_0055.vml	收货人信息删除
+
+tms_0056.vml	公司注册
+tms_0057.vml	用户列表
+tms_0058.vml	修改密码
+tms_0059.vml    重置用户，管理员密码
+
+tms_0060.vml    一般用户注册
+
+tms_0061.vml    公司列表
+tms_0062.vml    供应商添加
+tms_0063.vml    我的客户添加
+tms_0064.vml    我的司机添加
+tms_0065.vml    我的司机查询
+
+tms_0066.vml    接受订单
+tms_0067.vml    分配订单
+tms_0068.vml    签收订单
+tms_0069.vml    回单上传
+
+tms_0070.vml	审核公司，管理员注册
+
+tms_0071.vml    订单发送
+
+tms_0072.vml    同意或拒绝成为供应商
+
+tms_0073.vml    拆单
+tms_0074.vml    货物数量拆单列表
+
+tms_province.vml 省
+tms_city.vml	市
+tms_district.vml	区
+
+tms_0075.dml	费用下拉列表
+
+tms_0076.vml	费用新增
+tms_0077.vml	费用查询
+tms_0078.vml	费用编辑
+tms_0079.vml	附加费删除
+
+tms_0080.vml	我的待办列表
+tms_0081.vml	承运商列表启用、禁用
+tms_0082.vml	客户列表启用、禁用
+tms_0083.vml	最终用户列表启用、禁用
+
+tms_0084.vml	获取用户账号
+tms_0085.vml	被邀请承运商详情
+
+tms_0086.vml	获取事件提醒数目
+tms_0087.vml	承运商线下新增、编辑
+tms_0088.vml	承运商线下详情
+tms_0089.vml	打回订单
+tms_0090.vml	关闭订单
+
+tms_0091.vml	我的待办(功能列表)
+tms_0092.vml	订单追踪明细
+tms_0093.vml	订单订单调度
+tms_0094.vml    我的待办(消息提示区)
+tms_0095.vml    PMS我的待办(功能列表)
+tms_0096.vml    PMS我的待办(消息提示区)
+tms_0097.vml    PMS我的消息(列表、消息提示区)
+tms_0098.vml    PMS我的消息数量
+tms_0101.vml    创建订单获得默认的计费，价格，包装，货物
+
+tms_0207.vml	页面客户订单查询功能
+tms_0208.vml	页面运输订单查询功能
+
+
+Comments_0001.vml 追加备注
+Comments_0002.vml 追加备注
+
+pml_0001.vml   物品单位新增
+pml_0002.vml   物品单位编辑
+pml_0003.vml   物品单位查询
+
+pml_0004.vml   价格类型新增
+pml_0005.vml   价格类型编辑
+pml_0006.vml   价格类型查询
+
+pml_0007.vml   按单报价新增
+pml_0008.vml   合同报价新增
+pml_0009.vml   补充报价新增
+
+pml_0010.vml   零担报价新增
+pml_0011.vml   提货费新增
+pml_0012.vml   整车新增
+pml_0013.vml   送货费新增
+pml_0014.vml   装货费新增
+pml_0015.vml   卸货费新增
+pml_0016.vml   最小收费新增
+pml_0017.vml   保费新增
+pml_0018.vml   价格删除
+
+
+
+
+pml_0019.vml   报价详细主表查询
+pml_0020.vml   零担详细
+city_delivery_query.vml  送货费详细
+city_fullload_query.vml  整车详细
+city_insurance_query.vml 保费详细
+city_load_query.vml  装卸费详细
+city_min_query.vml   最低收费详细
+city_pick_query.vml   提货费详细
+
+stat_0001.vml 个人中心首页状态数据值

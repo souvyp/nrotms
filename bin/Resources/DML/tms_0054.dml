@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0054",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT EndUser_ID AS [EndUserID], EndUser_OwnerCompany AS [OwnerCompany], EndUser_CompanyID AS [CompanyID], EndUser_ClientCode AS [ClientCode], EndUser_Name AS [Name], EndUser_Name AS [CompanyName], EndUser_Industry AS [Industry], EndUser_Web AS [Web], EndUser_ShortName AS [ShortName], EndUser_EnName AS [EnName], EndUser_ShortEnName AS [ShortEnName], EndUser_Master AS [Master], EndUser_License AS [License], EndUser_Contact AS [Contact], EndUser_Phone AS [Phone], EndUser_Fax AS [Fax], EndUser_Mail AS [Mail], EndUser_Address AS [Address], EndUser_Zip AS [Zip], EndUser_WeiXin AS [WeiXin], EndUser_Logo AS [Logo], EndUser_Bank AS [Bank], EndUser_BankAccount AS [BankAccount], EndUser_Description AS [Description], EndUser_Creator AS [Creator], EndUser_Invalid AS [Invalid], EndUser_Comments AS [Comments],dbo.fn_pub_user_Customer2Name(EndUser_CustomerID) AS [CustomerName], EndUser_CustomerID AS [CustomerID] FROM TMS_MEndUser WHERE EndUser_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

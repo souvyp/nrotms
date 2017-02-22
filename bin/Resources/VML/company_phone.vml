@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "company_phone",
+  "version": 1,
+  "dml-id": "company_phone",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "phone",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

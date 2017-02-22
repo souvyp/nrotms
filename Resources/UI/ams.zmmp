@@ -1,0 +1,69 @@
+﻿{
+	"root":
+	{
+		"id":"newotms","text":"OTMS","layout":"map","children":
+		[
+			{"id":"xofvkmgg","text":"管理员中心","side":"right","children":
+			[
+				{"id":"MyCenter","text":"个人中心","thumbText":"中心","shape":"box","children":
+					[
+						{"id":"UpdatePwd","text":"修改密码","shape":"box","others":{"0":"UpdatePwd.aspx"}}
+					],
+					"others":{"0":"glyphicon-user","1":"UpdatePwd"}
+				},
+				
+				{"id":"MyCompany","text":"我的公司","thumbText":"公司","shape":"box","children":
+					[
+						{"id":"Index","text":"用户管理","shape":"box", "children" :
+						[
+							{"id":"TMS_Users","text":"运输系统用户","shape":"box","others":{"0":"Index","1":"TMSUserList.aspx"}},
+							{"id":"PMS_Users","text":"报价系统用户","shape":"box","others":{"0":"Index","1":"PMSUserList.aspx"}},
+							{"id":"RMS_Users","text":"报表/集团/园区用户","shape":"box","others":{"0":"Index","1":"RMSUserList.aspx"}},
+							{"id":"RMS_Users","text":"财务系统用户","shape":"box","others":{"0":"Index","1":"FMSUserList.aspx"}},
+							{"id":"Driver_Users","text":"个体司机用户","shape":"box","others":{"0":"Index","1":"DriverUserList.aspx"}}
+						],
+						"others":{"0":"TMSUserList.aspx"}},
+						{"id":"CompanyInfo","text":"公司信息","shape":"box", "children" :
+						[
+							{"id":"Index","text":"公司信息","shape":"box","others":{"0":"CompanyInfo","1":"Index.aspx"}},
+							{"id":"CompanyCfg","text":"配置信息","shape":"box","others":{"0":"CompanyInfo","1":"CompanyCfg.aspx"}}
+						],"others":{"0":"Index.aspx"}}
+					],"others":{"0":"glyphicon-home","1":"Index"}},
+					
+				{"id":"Group","text":"集团","thumbText":"集团","shape":"box","children":
+					[
+						{"id":"JoinGroup","text":"申请列表","shape":"box","others":{"0":"JoinGroup.aspx"}},
+						{"id":"ConfirmGroupReq","text":"审核申请列表","shape":"box","others":{"0":"ConfirmGroupReq.aspx"}}
+					],"others":{"0":"glyphicon-globe","1":"JoinGroup"}
+				},
+				
+				{"id":"JnPark","text":"园区","thumbText":"园区","shape":"box","children":
+					[
+						{"id":"JoinPark","text":"申请列表","shape":"box","others":{"0":"JoinPark.aspx"}},
+						{"id":"ConfirmParkReq","text":"审核申请列表","shape":"box","others":{"0":"ConfirmPark.aspx"}}
+					],"others":{"0":"glyphicon-certificate","1":"JoinPark"}
+				},
+				
+				{"id":"OrderMaintain","text":"数据维护","thumbText":"维护","shape":"box","children":
+					[
+						{"id":"ManagerOrders","text":"订单管理","shape":"box","children" :
+						[{"id":"ShutOrders","text":"关闭订单","shape":"box","others":{"0":"ManagerOrders","1":"ShutOrders.aspx"}}],
+						"others":{"0":"ShutOrders.aspx"}},
+						
+						{"id":"OrderManager","text":"价格管理","shape":"box", "children" :
+						[{"id":"RePrice","text":"订单价格重算","shape":"box","others":{"0":"OrderManager","1":"RePrice.aspx"}}],
+						"others":{"0":"RePrice.aspx"}},
+						
+						{"id":"Doc","text":"报价单管理","shape":"box", "children" :
+						[{"id":"DocExpiredNow","text":"合约报价单","shape":"box","others":{"0":"Doc","1":"DocExpiredNow.aspx"}}],
+						"others":{"0":"DocExpiredNow.aspx"}},
+						
+						{"id":"API","text":"API管理","shape":"box","others":{"0":"API.aspx"}}
+					],"others":{"0":"glyphicon-wrench","1":"RePrice"}
+				}],
+				
+				"others":{}
+			}
+		]
+	}
+}

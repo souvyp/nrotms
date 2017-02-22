@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "company_name",
+  "version": 1,
+  "dml-id": "company_name",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "name",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

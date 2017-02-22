@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_province",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_ID AS [id], Area_Name AS [provinceName], Area_Invalid AS [invalid], (ROW_NUMBER() OVER(ORDER BY Area_InsertTime DESC)) AS [indexId] FROM TMS_BasicArea WHERE Area_NodeType = 1 AND Area_Invalid = 0;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "nodetype",
+        "type": "int",
+        "size": 4,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

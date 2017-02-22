@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0031",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "DELETE FROM TMS_OrderGoods WHERE GoodsLst_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "订单物品编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

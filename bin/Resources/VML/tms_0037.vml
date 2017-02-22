@@ -1,0 +1,68 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0037",
+  "version": 1,
+  "dml-id": "tms_0037",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "sn",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CarType",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarLength",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "weight",
+        "type": "normal",
+        "value": 0
+      },
+	  {
+        "name": "Volume",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "seats",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "purchasetime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "insurance",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "brand",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "photo",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

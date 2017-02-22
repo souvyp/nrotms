@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "fml_0005",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "DELETE FROM Balance_BillDetails WHERE Detail_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "账单明细编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

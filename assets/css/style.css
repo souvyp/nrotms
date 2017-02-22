@@ -1,0 +1,556 @@
+
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.toolbar-icon
+{
+	background:no-repeat;
+	background-size:contain;
+	cursor:pointer;
+	width:16px;
+	height: 16px;
+	margin:5px;
+	border:0px;
+	float:left;
+}
+
+.toolbar-separator
+{
+	background:no-repeat;
+	background-size:contain;
+	cursor:pointer;
+	width:2px;
+	height: 2px;
+	margin:5px;
+	border:0px;
+	float:left;
+}
+
+.FormTable{ 
+	display: table;
+	empty-cells:show; 
+	border-collapse: collapse; 
+	display: table;
+	border-spacing: 1px;
+	margin: 0px;/*0px 15px 0px 0px;*/
+	background-color: #777;
+}
+    .FormTable a {
+       font-weight:normal !important;
+    }
+
+ 
+.FormTable td{ 
+	border:1px solid #777;
+	background:#fff;
+	height: 35px;
+	display: table-cell;
+	vertical-align: inherit;
+} 
+
+.FormTable>tbody>tr>td{
+	padding:3px 8px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align:left;
+	color:#888;
+	width:12.5%;
+}
+    .FormTable > tbody tr:first-child td {
+        border-bottom:1px solid #e1e6eb !important;
+    }
+
+.FormTable6>tbody>tr>td{
+	width:16.6% !important;
+	cursor: default;
+}
+
+.FormTable>tbody>tr>td>input{ color:#666 !important; box-shadow:none;}
+.FormTable textarea{ box-shadow:none;}
+.FormTable td .selectCarr .selectpicker:focus{ 
+  border-color: #66afe9 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6) !important;
+}
+
+.FormTable .edit{
+	border:none;
+	width:100%;
+	height:100%;
+	min-width:50px;
+	text-align:inherit;
+	color:inherit;
+	font-style:inherit;
+	text-decoration:inherit;
+	font-family:inherit;
+	margin: 0px;
+	padding:0px;
+/*	padding: 0px 8px 0px 8px;*/
+}
+
+
+/*
+.FormTable select.edit{
+	padding: 0px 2px 0px 2px;
+}
+*/
+
+
+.FormTable .edit:focus{ 
+	border-radius:0px;
+	border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+} 
+/*
+.FormTable textarea.edit{
+	overflow: hidden;
+	border:none;
+	height:100%;
+	resize:none;
+}*/
+
+.FormTable  textarea.edit{
+	border:none;
+	width:100%;
+	height:100%;
+	resize: none;
+	text-align:inherit;
+	color:inherit;
+	font-style:inherit;
+	text-decoration:inherit;
+	font-family:inherit;
+	margin: 0px;
+	/*padding: 4px 8px 0px 8px;*/
+  border-radius: 0px;
+
+}
+
+
+.FormTable .editarea:focus{ 
+	outline:none;
+	box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+
+
+.FormTable a.edit{
+	text-decoration: none;
+	color:#0099CC;
+   font-weight:normal;
+}
+
+.FormTable a.edit:hover{
+	text-decoration:underline;
+	border-radius:0px;
+	background:transparent;
+}
+
+.FormTable a.button{
+	background: transparent;
+	white-space:nowrap;
+	padding: 6px 12px;
+	border-radius:0px;
+	color:blue;
+	/*background: #FFF;*/
+}
+
+.FormTable a.button:hover{
+	/*font-style:normal;
+	text-decoration:underline;*/
+	text-decoration:none;
+	color:blue;
+	border-radius:0px;
+	/*background: white;*/
+}
+
+
+.FormTable span.item{
+	white-space :nowrap;
+	text-overflow:ellipsis ;
+	display: inline-table;
+	margin-left: 5px;
+}
+.FormTable span.item input{
+	vertical-align:middle;
+}  
+.FormTable span.item label{
+	vertical-align: middle;
+	margin: 2px;
+
+	display: inline-block;
+	padding-top: 0px;
+}  
+
+.FormTable .laydate-icon{
+	cursor:pointer;
+	font-size: 13px;
+	font-family:inherit;
+}
+
+.FormTable ._added td:first-child{
+	/*background-image:url(../img/star.ico);
+	background-repeat:no-repeat;
+	padding-left: 16px;
+	background-position:left;
+	background-size:14px 14px;*/
+}
+.FormTable ._cloned td:first-child{
+	/*background-image:url(../img/star.ico);
+	background-repeat:no-repeat;
+	padding-left: 16px;
+	background-position:left;
+	background-size:14px 14px;*/
+}
+
+.FormTable .btn-default {
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  background:transparent;
+}
+
+.FormTable .dropdown-menu,.FormTable .form-control{
+  border-radius: 0;
+  background: #fff;
+   margin: 0px;
+}
+
+.FormTable .btn-group,.FormTable .btn-group.open,.FormTable .dropdown-toggle{
+	-webkit-box-shadow: none;
+   box-shadow: none;
+}
+
+.FormTable .form-control:not([class*="span"]) {
+  width: 100%;
+  background-color: transparent;
+  box-shadow:none;
+}
+
+.table-online {
+	margin-bottom: 0px;
+}
+.table-online tfoot tr{
+	border-top:1px solid #ddd;
+
+}
+
+
+.tcalInput {
+	border: none;
+	height:100%;
+	-webkit-transition: box-shadow 0.30s ease-in-out; 
+    -moz-transition:  box-shadow 0.30s ease-in-out;
+	text-align:inherit;
+	color:inherit;
+	font-style:inherit;
+	text-decoration:inherit;
+	font-family:inherit;
+}
+
+.FormTable :focus{ 
+	outline:none;
+    box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+} 
+
+
+.FormTable .innerTable{
+	border:none;
+	width:300px;
+	background:transparent;
+}
+.FormTable .innerTable td{
+	border:none;
+	background:transparent;
+}
+
+.styleBold
+{ font-weight: bold; }
+.styleItalics	
+{ font-style: italic; }
+.styleUnderline	
+{ text-decoration: underline; }
+.styleLineThrough
+{ text-decoration: line-through;}
+.styleLeft		
+{ text-align: left; }
+.styleRight		
+{ text-align: right; }
+.styleCenter	
+{ text-align: center !important; }
+.styleTop		
+{ vertical-align: top; }
+.styleMiddle	
+{ vertical-align: middle; }
+.styleBottom	
+{ vertical-align: bottom; }
+.styleUpper 		
+{ text-transform: uppercase; }
+.styleCapital 	
+{ text-transform: capitalize; }
+.styleLower 		
+{ text-transform: lowercase; }
+.styleHidden 	
+{ display: none; }
+.styleWrap
+{
+	white-space: pre-wrap ! important;      
+	white-space: -moz-pre-wrap ! important;  
+	white-space: -pre-wrap ! important;     
+	white-space: -o-pre-wrap ! important;  
+	word-wrap: break-word;
+	-ms-text-overflow: clip;
+}
+
+
+.droparea {
+	position:relative;
+	text-align: center;
+}
+.multiple {
+	position:relative;
+	height: 20px;
+}
+.droparea div, .droparea input, .multiple div, .multiple input {
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+}
+.droparea input, .multiple input {
+	cursor: pointer; 
+	opacity: 0; 
+}
+.droparea .instructions, .multiple .instructions {
+	border: 2px dashed #ddd;
+	background: transparent;
+}
+.droparea .instructions.over, .multiple .instructions.over {
+	border: 2px dashed #000;
+	background: transparent;
+}
+.droparea .progress, .multiple .progress {
+	position:absolute;
+	bottom: 0;
+	width: 100%;
+	height: 0;
+	color: #fff;
+	background: #6b0;
+}
+.multiple .progress {
+	width: 0;
+	height: 100%;
+}
+
+div.spot {
+	float: left;
+}
+
+.popover{
+	max-width:500px;
+	max-height:400px;
+}
+
+.popoverinner{
+	overflow: auto;
+}
+
+.waiting{
+	max-height:25px;
+}
+.buttonImage{
+
+max-width: 24px;
+max-height: 24px;
+}
+
+.workflow{
+	display:none;
+}
+
+.table-responsive{
+border-radius: 5px;
+border: 5px solid #f4f4f4;
+}
+
+table.dataTable tr td:first-child,.dataTable tr th:first-child{
+	width: 35px;
+	padding: 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+table.dataTable tr th{
+	white-space:nowrap;
+}
+
+table.dataTable > tbody > tr.child ul {
+text-align: left;
+width: 100%;
+}
+
+.td_name{ background-color:#eee !important;}
+.remarks_sign{ color:blue;}
+.remarks_sign:hover{ color:blue;}
+.FormTable td .list-inline{ position:relative; top:7px; box-shadow:none;}
+.FormTable td .list-inline li input[type=radio],.FormTable td .list-inline li input[type=checkbox],.line_chaidan td input[type=radio]{ position:relative; top:2px;} 
+
+.toolbar .btn{ background-color:#eee;}
+
+#msg {display:none; position:absolute; z-index:200; background:url(/assets/img/msg_arrow.png) left top no-repeat; padding-left:7px; height:30px}
+#msgcontent {display:block;border:2px solid #fee9d7; border-left:none; padding:5px 10px; min-width:50px; max-width:250px;background-color:white;}
+
+
+.queue_list{
+}
+
+.queue_list a{
+  float: left;
+  border: 1px solid #ddd;
+  padding: 0px 5px 5px;
+  margin: 0px 5px 5px 5px;
+}
+
+.content_workflow{
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  display:none;
+ }
+ 
+ .WorkFlowPhoto{
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: none;
+  height: 400px;
+ }
+ 
+  .WorkFlowPhoto iframe{
+   width :100%;
+   height:100%;
+   border: none;
+ }
+ 
+ .button_workflow{
+/*	border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;*/
+  padding: 5px 3px;
+  margin: 0px;/*5px 0px 5px 0px;*/
+  background: #EEEEEE 50% 50% repeat-x;
+}
+ .button_workflow .btn{
+  border: 1px solid #ddd;
+   padding: 8px 12px;
+  color: #888;
+  border-radius:0px;
+  text-decoration:none;
+  background:#eee;
+  box-shadow:none !important;
+  }
+
+  .button_workflow .btn:hover{
+	  background-color:transparent !important;
+  
+  }
+  
+  
+  
+  .formcontainer{
+
+  }
+  
+  ::-webkit-scrollbar{
+	width:10px;
+    height:11px;
+	background:rgba(60,60,60,0.2);
+}
+::-webkit-scrollbar-thumb{
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+::-webkit-scrollbar-thumb{
+	background:#9A9A9A;	
+}
+
+
+.jplist-drop-down,.jplist-panel button
+{
+	background-image:none;
+	white-space: nowrap;
+	width: auto;
+}
+
+.main iframe{
+    width:100%;
+    border:0px;
+	z-index: 10051;
+	position: relative;
+ }
+ 
+ .ShowOverModal{
+   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:rgba(0, 0, 0, 0.5);
+ }
+ 
+ /*弹出框的样式*/
+  #win-Common-Dialog .modal-dialog{
+	display: inline-block; 
+	width: auto;
+}
+  
+  #win-Common-Dialog .modal-dialog .modal-body{ padding:20px 20px 50px;}
+
+#win-Common-Dialog .content {
+    height:470px !important;
+}
+ #win-Common-Dialog .content iframe{
+	width:800px;
+	/*height:100%;*/
+    height:450px !important;
+	overflow:hidden;
+	border:0;
+	border-top:1px solid #e1e6eb;
+	padding-top:10px;
+}
+
+.transparent{
+	background: transparent;
+}
+
+.bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]) {
+  min-width: 120px;
+}
+.bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"] {
+  margin-bottom: 0px;
+}
+ .jptable tr td:first-child{
+        /*width:1% !important;*/
+    }
+.jptable>tbody>tr>td>input[type="radio"]{ margin:0;}
+ .table {
+        border:1px solid #ddd;
+    }
+
+/*报价*/
+.glyphicon-record {margin-right:5px; color:#f27302;}
+.backgroundGray {background-color:rgb(242, 242, 242) !important;}
+.provinceCityAll .tabs { border-bottom:2px solid #f27302 !important; width:100%; padding:0;border:none;}
+.provinceCityAll .tabs ul { padding-left:0 !important;}
+.provinceCityAll .hotCityAll li:hover a input,.provinceCityAll .provinceAll .list li:hover a,.provinceCityAll .cityAll .list li:hover a,.provinceCityAll .countyAll li:hover a {color:#f27302;}
+.provinceCityAll .hotCityAll .list ul {padding-left:0;}
+.provinceCityAll .tabs li a.current {background:#f27302 !important;}
+/*返回按钮*/
+.glyphicon-share-alt {transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-o-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-moz-transform:rotateY(180deg);}
+.panel-top .glyphicon-share-alt {transform: rotateY(0);-webkit-transform:rotateY(0);-o-transform:rotateY(0);-ms-transform:rotateY(0);-moz-transform:rotateY(0);}
+.panel-bottom .glyphicon-share-alt{transform: rotateY(0);-webkit-transform:rotateY(0);-o-transform:rotateY(0);-ms-transform:rotateY(0);-moz-transform:rotateY(0);}
+/*没有数据居左*/
+.jplist-no-results {margin-top:50px;}

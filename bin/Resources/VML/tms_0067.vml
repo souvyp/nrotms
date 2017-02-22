@@ -1,0 +1,33 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0067",
+  "version": 1,
+  "dml-id": "tms_0067",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CarID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "DriverID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

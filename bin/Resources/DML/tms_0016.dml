@@ -1,0 +1,113 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0016",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_my_EditGoods",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "GoodsID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TypeID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Price",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "SPC",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Volume",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Weight",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "MWeight",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Long",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Width",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "Height",
+        "type": "decimal",
+        "size": 0,
+        "direction": "input",
+        "displayName": "18"
+      },
+      {
+        "name": "CustomerCompanyID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Unit",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

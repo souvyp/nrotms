@@ -1,0 +1,58 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0038",
+  "version": 1,
+  "dml-id": "tms_0038",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Type",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Length",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Weight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Seats",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PurchaseTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Insurance",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Brand",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Photo",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

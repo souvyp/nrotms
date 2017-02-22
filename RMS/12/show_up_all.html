@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>首页</title>
+
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <!--公用-->
+        <!--#include file="/Controls/GMS/css_s.aspx"-->	
+    	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/show.css">
+    <script src="js/jquery-1.10.1.min.js"></script>    
+    <script src="js/lie.js"></script>  
+	<script type="text/javascript" src="/assets/js/jquery.SuperSlide.js"></script>    	
+	<script src="/assets/NSF/js/NSF.js"></script>
+ 	<script src="/assets/NSF/js/NSF.System.js"></script>		 	
+ 	<script src="/assets/NSF/js/NSF.System.Network.js"></script>    
+    </head>
+    <body onLoad="startclock()">
+          
+		<div class="clear"></div>
+        <!--主体-->
+        <div class="">
+ 			<div>
+ 				<div class="show_title" style="padding-top: 30px; height: 150px;">
+ 					<div class="show_title_left">
+ 						 
+ 					</div>			 
+ 					<font style="font-family: '微软雅黑'; font-size: 60px;">公司总运输量报表</font>
+ 					<div class="show_title_right">
+						<form class="show_title_right_f" name='jsfrm'>
+							<input style="" readonly="" type=text name='face' size=34 value=''>
+						</form>
+ 					</div>
+ 				</div>
+            	<div class="clear"></div> 				
+ 				<div class="show_a_content">
+	 				<div class="show_title" style="background: #010d6f; margin-bottom: 30px;border: solid 1px #106667;">
+	 					<div class="show_title_left2">
+	 							今日 
+	 					</div>			 
+	 					<div class="show_title_left2">
+	 							本月 
+	 					</div>		
+	 					<div class="show_title_left2">
+	 							今年 
+	 					</div>	
+	 				</div>
+					<div class="show_a_today"><!--今日-->
+			 
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>线路名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                
+	                                    <div class="slideTxtBox_t1 leftLoop">
+											<div class="hd hd_49 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_49">
+												<ul class="tableCont_bd_49">
+ 
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>		                                
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>客户名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_t2 leftLoop">
+											<div class="hd hd_52 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_52">
+												<ul class="tableCont_bd_52">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div>
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>承运商名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_t leftLoop">
+											<div class="hd hd_55 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_55">
+												<ul class="tableCont_bd_55">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						 
+					</div>
+					
+					<!--本月-->
+					<div class="show_a_month"><!--本月-->
+						 
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>线路名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_m1 leftLoop">
+											<div class="hd hd_48 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_48">
+												<ul class="tableCont_bd_48">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>客户名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+ 
+	                                    <div class="slideTxtBox_m2 leftLoop">
+											<div class="hd hd_51 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_51">
+												<ul class="tableCont_bd_51">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>		                                
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div>
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>承运商名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_m3 leftLoop">
+											<div class="hd hd_54 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_54">
+												<ul class="tableCont_bd_54">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						 	
+					</div>
+					
+					<!--今年-->
+					<div class="show_a_year"><!--今年-->
+						 
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>线路名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_y1 leftLoop">
+											<div class="hd hd_47 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_47">
+												<ul class="tableCont_bd_47">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div style="margin-bottom: 20px;">
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>客户名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_y2 leftLoop">
+											<div class="hd hd_50 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_50">
+												<ul class="tableCont_bd_50">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						
+						<div>
+							<div class="show_c" style="margin: 0 auto; width:100%;height:252px">
+								<div class="backWhite has-feedback">
+	 
+	                                    <ul class="clearfix tableTitle_a tableTitle8 marTBLR0">
+	       									 
+											<li>承运商名称</li>
+											<li>订单总数</li>
+											 
+											<li>总重量</li>
+											<li>总体积</li>
+	                                    </ul> 
+	                                    <div class="slideTxtBox_y3 leftLoop">
+											<div class="hd hd_53 hide">
+												<ul></ul> 
+											</div>	                                    	
+		                                    <div class="bd bd_53">
+												<ul class="tableCont_bd_53">
+													
+												</ul>                                 
+			                                </div>		                        			                                    
+		                                </div>
+								</div>
+							</div>							
+							
+							
+						</div>
+						 				
+					</div>					
+ 				</div> 				
+ 				
+ 			</div>
+          
+        
+            <div class="clear"></div>
+
+        </div>
+<span id="Span2" style="display:none">10947</span>
+        <!--底部-->
+ 
+		<script type="text/javascript">
+ 
+ 
+ 
+//分公司
+b_today();
+b_month();
+b_year();
+//客户
+c_today();
+c_month();
+c_year();
+//承运商
+f_today();
+f_month();
+f_year();
+
+//setInterval('b_today()',1000*60*58);
+//setInterval('b_month()',23*1000*60*58);
+// 
+//setInterval('c_today()',1000*60*59);
+//setInterval('c_month()',26*1000*60*59);
+// 
+//setInterval('f_today()',1000*60*57);
+//setInterval('f_month()',25*1000*60*57);   
+ 
+		setInterval('js_lock()',60*60*1000); 
+ 
+		</script>   
+    </body>
+</html>

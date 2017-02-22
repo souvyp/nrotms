@@ -1,0 +1,11 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0028",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id],CONVERT(VARCHAR(10),Index_CreateTime,120) AS [createtime], Index_Code AS [code], Index_PactCode AS [pactcode] ,Index_EndUserName AS [endusername], Index_From AS [from], Index_To AS [to],  dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName], dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName], dbo.fn_pub_order_TotalCost(index_id) AS [total],Index_ShipMode AS [ShipMode],Index_statusTime AS [statustime] ,dbo.fn_pub_order_OrderID2Code(Contains_OwnerOrderID) AS [ContainsOrderCode], CONVERT(VARCHAR(10),Index_FromTime,120) AS [FromTime],Contains_OwnerOrderID AS [OwnerOrderID],A.index_status AS [status],(CASE WHEN Contains_OwnerOrderID IS NULL OR Contains_OwnerOrderID = '' THEN 0 ELSE 1 END) AS [Combined]   FROM TMS_OrderIndex AS A LEFT JOIN TMS_OrderContains AS B ON A.Index_SrcOrderID = B.Contains_OrderID",
+    "where": "Index_Invalid = 0 AND Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 1 AND Index_SrcOrderID > 0 AND Index_Status > 0 AND Index_Status <= 16 AND Index_SrcClass <> 3",
+	"sort": "statustime DESC"
+  }
+}

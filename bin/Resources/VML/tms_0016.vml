@@ -1,0 +1,83 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0016",
+  "version": 1,
+  "dml-id": "tms_0016",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "GoodsID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Name",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TypeID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Price",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "SPC",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Volume",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Weight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "MWeight",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Long",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Width",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Height",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "CustomerCompanyID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Unit",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

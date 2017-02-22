@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0020",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  EndUser_ID AS [id], dbo.fn_pub_user_Company2Name(EndUser_CustomerCompanyID) AS [CustomerCompanyName],  EndUser_ClientCode AS [clientcode], EndUser_Name AS [name], EndUser_Industry AS [industry],EndUser_Contact AS [contact], EndUser_Phone AS [phone],EndUser_InsertTime AS [inserttime], EndUser_Invalid AS [invalid] FROM TMS_MEndUser",
+    "where": "EndUser_OwnerCompany = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0)"
+  }
+}
+
+

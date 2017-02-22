@@ -1,0 +1,17 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "client_del_0001",
+  "version": 1,
+  "dml-id": "client_del_0001",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Id",
+        "value": 0
+      }
+    ]
+  }
+}

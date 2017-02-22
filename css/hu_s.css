@@ -1,0 +1,134 @@
+﻿/************** ******************老胡 乱写的样式 **********************************/
+
+ 
+/*时间段 title  css   暂时整个 TMS 公用*/
+.time_ment {
+	background-color: white;
+	padding-left: 8px;
+	height: 20px;
+	margin-bottom: 0;
+	line-height: 20px;
+	margin-bottom: 20px;
+	color: #666;
+	font-size: 14px;
+	font-family: '微软雅黑';
+}
+/*  搜索输入框，宽度调整 */
+.jplist-panel input[type="text"] {
+    width: 150px !important;
+}
+.jplist-drop-down .jplist-dd-panel {
+    width: 148px !important;
+}
+.jplist-drop-down {
+	margin: 10px 5px 0 0 !important;
+}
+.jplist-panel .text-filter-box {
+    margin: 10px 5px 0 0 !important;
+}
+/*  搜索输入框，第二排左边距 */
+#collapseExample{
+	margin-left: 231px !important;
+}
+#collapseExample1,#collapseExample2,#collapseExample3,#collapseExample4,#collapseExample5{
+	margin-left: 230px !important; 
+}
+/*  搜索按钮，样式调整 */
+#search-button,#name-search-button,#code-search-button,#Hd_search-button,#city_search-button,#long_search-button,#pin_search-button,#Qs_search-button{
+    margin-left: 5px;
+ 
+    font-size: 16px;
+    border: 1px solid #f27302;
+    background-color: #f27302;
+    color: white;
+ 	text-shadow: none !important;       
+}
+ 
+#search-button:hover{
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}
+#name-search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}	
+#code-search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}	
+#Hd_search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}	
+#city_search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}		
+#long_search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}		
+#pin_search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}	
+#Qs_search-button:hover {
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    color: #888 !important;
+}		
+ 
+
+
+
+
+
+.button_workflow .btn.footKeepBtn, .btn.footKeepBtn {
+    background-color: #f27302 !important;
+    color: white !important;
+    border: 0 !important;
+ 	text-shadow: none !important;   
+}    
+/* 列表 表头  全选框 位置  */
+.trtitle>td:first-child span{
+	margin-left: 23px !important;
+}
+/*2756 签收管理页面：异常数量、实签数量，框的宽度不一致，需改成一致*/
+.hu_td_so{
+	padding: 0 !important;
+	height: 37px !important;
+	line-height: 37px;
+}
+.hu_td_so font{
+	width: 50%; 
+	display: block;
+	float: left;
+	padding-left: 8px; 
+}
+.hu_td_so input{
+	float: left; 
+	width: 50% !important; 
+	padding-left: 8px !important;
+}
+
+/*2753 回单详情中，上传照片的方框的格式需要调整，三个框应保持一致的宽度*/
+.hu_hd_td{
+	border-right: 1px solid #fff !important;;
+}
+
+/* 2776 单据编号的文字链接颜色统一用橙色   color: #f27302;*/
+.title a{
+	color: #f27302 !important;
+}
+
+
+#win-Common-Dialog .content iframe{
+	width: 1200px !important;
+}

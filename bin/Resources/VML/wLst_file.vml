@@ -1,0 +1,12 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'wfile',
+ 'id' : 'wLst_file',
+ 'version' : 1,
+ 'sml-id' : 'wLst_file',
+ 'smlparas' :
+ {
+  'prefix' : '',
+  'ext' : 'json'
+ }
+}

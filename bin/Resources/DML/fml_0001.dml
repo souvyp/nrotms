@@ -1,0 +1,71 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "fml_0001",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "INSERT INTO Balance_BillIndex(Index_CustomerID, Index_SupplierID, Index_Code, Index_No, Index_Amount, Index_Description, Index_Status, Index_Author) VALUES(@customerid, @supplierid, @code, @no, @amount, @Description, @status, @author);SELECT IDENT_CURRENT( 'Balance_BillIndex' ) AS ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "customerid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "客户编号(应收)"
+      },
+      {
+        "name": "supplierid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "承运商编号(应付)"
+      },
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "发票代码"
+      },
+      {
+        "name": "no",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "发票号码"
+      },
+      {
+        "name": "amount",
+        "type": "decimal",
+        "size": 9,
+        "direction": "input",
+        "displayName": "发票金额"
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 1000,
+        "direction": "input",
+        "displayName": "账单描述"
+      },
+      {
+        "name": "status",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "账单状态"
+      },
+      {
+        "name": "author",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "添加者"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0083",
+  "version": 1,
+  "dml-id": "tms_0083",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "EnduserID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "EOD",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

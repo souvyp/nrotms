@@ -1,0 +1,55 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0038",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT  Index_ID AS [OrderID],  Index_Code AS [Code],  Index_PactCode AS [PactCode], 
+ Index_EndUserID AS [EndUserID],  Index_EndUserName AS [EndUserName],  Index_From AS [IFrom], 
+ Index_To AS [ITo],  Index_SupplierID AS [SupplierID], 
+(CASE WHEN  Index_SupplierCompanyID IS NULL OR  Index_SupplierCompanyID = 0 THEN dbo.fn_pub_user_SupplierName( Index_SupplierID) ELSE dbo.fn_pub_user_Company2Name( Index_SupplierCompanyID) END) AS [SupplierName],  
+dbo.fn_pub_user_Customer2Name( Index_CustomerID) AS [CustomerName],  Index_CustomerID AS [CustomerID],
+ Index_ShipMode AS [ShipMode], Index_Pick AS [IsPick],
+ Index_Delivery AS [IsDelivery],
+ Index_CustomerCompanyID AS [CustomerCompanyID], dbo.fn_pub_user_User2Name( Index_Creator) AS [Creator], 
+ convert(varchar(100), Index_CreateTime,111) AS [CreateTime], 
+ Index_OnLoad AS [IsOnLoad],
+ Index_OffLoad AS [IsOffLoad],
+dbo.fn_pub_order_AreaName( Index_FromProvince) AS [FromProvince],
+ Index_FromProvince AS [FromProvince_id],
+dbo.fn_pub_order_AreaName( Index_FromCity) AS [FromCity],
+dbo.fn_pub_order_AreaName( Index_FromCity) AS AreaName,
+ Index_FromCity AS [FromCity_id],
+dbo.fn_pub_order_AreaName( Index_FromDistrict) AS [FromDistrict],
+ Index_FromDistrict AS [FromDistrict_id],
+convert(varchar(10),Index_FromTime,(120)) AS [FromTime],
+dbo.fn_pub_order_AreaName( Index_ToProvince) AS [ToProvince],
+ Index_ToProvince AS [ToProvince_id],
+dbo.fn_pub_order_AreaName( Index_ToCity) AS [ToCity],
+ Index_ToCity AS [ToCity_id],
+dbo.fn_pub_order_AreaName( Index_ToDistrict) AS [ToDistrict],
+ Index_ToDistrict AS [ToDistrict_id],
+convert(varchar(10), Index_ToTime,
+(120)) AS [ToTime], Index_TransportMode AS [TransportMode],
+ Index_GoodsCategory AS [GoodsCategory], Index_PackageMode AS [PackageMode], Index_ChargeMode AS [ChargeMode],
+Index_PriceUnit AS [PriceUnit],
+ Index_Insurance AS [IsInsurance],
+dbo.fn_pub_order_TotalCost( Index_ID) AS [TotalCost],
+dbo.fn_pub_order_TotalVolume( Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalWeight( Index_ID,0) AS [TotalWeight],
+dbo.fn_pub_order_TotalAmount( Index_ID,0) AS [TotalAmount], (CASE WHEN  Index_Pick = '1' THEN '是' ELSE '否' END) AS [PickName], (CASE WHEN  Index_OnLoad = '1' THEN '是' ELSE '否' END) AS [OnLoadName],(CASE WHEN  Index_OffLoad = '1' THEN '是' ELSE '否' END) AS [OffLoadName] ,(CASE WHEN  Index_Delivery = '1' THEN '是' ELSE '否' END) AS [DeliveryName], (CASE WHEN  Index_Insurance = '1' THEN '是' ELSE '否' END) AS [InsuranceName],(CASE Index_TransportMode WHEN 1 THEN '零担' ELSE '整车' END) AS [TransportModeName],dbo.fn_pub_user_SymbolName(Index_SupplierSymbolID) AS [SupplierSymbolName] FROM TMS_OrderIndex
+ WHERE Index_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

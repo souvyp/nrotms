@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0118",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT a.Index_ID AS [id], a.Index_CustomerID AS [customerid], a.Index_SupplierID AS [supplierid], a.Index_Code AS [code], a.Index_PactCode AS [pactcode], a.Index_EndUserID AS [enduserid], a.Index_EndUserName AS [endusername], a.Index_FromProvince AS [fromprovince], dbo.fn_pub_order_AreaName(a.Index_FromProvince) AS [fromprovincename], a.Index_FromCity AS [fromcity], dbo.fn_pub_order_AreaName(a.Index_FromCity) AS [fromcityname], a.Index_ToProvince AS [toprovince], dbo.fn_pub_order_AreaName(a.Index_ToProvince) AS [toprovincename], a.Index_ToCity AS [tocity], dbo.fn_pub_order_AreaName(a.Index_ToCity) AS [tocityname], a.Index_SupplierCompanyID AS [suppliercompanyid], dbo.fn_pub_user_Company2Name(a.Index_SupplierCompanyID) AS [suppliername], a.Index_CustomerCompanyID AS [customercompanyid], dbo.fn_pub_user_Company2Name(a.Index_CustomerCompanyID) AS [customername],dbo.fn_pub_order_TotalCost(a.Index_ID) AS [Total], dbo.fn_pub_order_TotalVolume(a.Index_ID, 0) AS [Volume],dbo.fn_pub_order_TotalWeight(a.Index_ID, 0) AS [Weight],dbo.fn_pub_order_TotalAmount(a.Index_ID,0) AS [Amount], dbo.fn_pub_order_TotalAmount(a.Index_ID, 1) AS [ReceiptQty], CONVERT(VARCHAR(10),Index_FromTime,120) AS [fromtime],a.Index_Payment AS [payment],A.Index_Payable AS [payable],dbo.fn_pub_order_TotalCost(a.Index_ID)-a.Index_Payment-a.Index_Payable AS [PayAmount] FROM TMS_OrderIndex AS a ",
+	"where":"Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND a.Index_Invalid = 0 AND a.Index_Status = 8 AND NOT EXISTS (SELECT B.Detail_OrderID FROM Balance_BillDetails B WHERE B.Detail_OrderID = A.Index_ID) AND A.Index_SrcClass = 2 "
+  }
+}

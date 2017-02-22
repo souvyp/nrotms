@@ -1,0 +1,63 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0103",
+  "version": 1,
+  "dml-id": "tms_0103",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PactCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "SupplierID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "OrdersLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Descriptions",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "SendDirectly",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "ShipMode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "normal",
+        "value": 1
+      },
+      {
+        "name": "SupplierSymbolID",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

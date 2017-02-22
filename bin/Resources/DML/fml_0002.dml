@@ -1,0 +1,71 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "fml_0002",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "UPDATE Balance_BillIndex SET Index_CustomerID = @customerid, Index_SupplierID = @supplierid, Index_Code = @code, Index_No = @no, Index_Amount = @amount, Index_Description = @Description WHERE Index_ID = @id;SELECT 0 AS Order_Result,@id AS DocID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "账单编号"
+      },
+      {
+        "name": "customerid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "客户编号(应收)"
+      },
+      {
+        "name": "supplierid",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "承运商编号(应付)"
+      },
+      {
+        "name": "code",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "发票代码"
+      },
+      {
+        "name": "no",
+        "type": "nvarchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": "发票号码"
+      },
+      {
+        "name": "amount",
+        "type": "decimal",
+        "size": 9,
+        "direction": "input",
+        "displayName": "发票金额"
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 1000,
+        "direction": "input",
+        "displayName": "账单描述"
+      },
+      {
+        "name": "status",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "账单状态"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,18 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0220",
+  "version": 1,
+  "dml-id": "tms_0220",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "DeviceCode",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

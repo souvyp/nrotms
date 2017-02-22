@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0019",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Car_ID AS [id], Car_SN AS [SN], Car_Type AS [Type], Car_Length AS [Length], Car_Weight AS [Weight],Car_Volume AS[Volume], CONVERT(varchar(100), Car_PurchaseTime, 23) AS [PurchaseTime], CONVERT(varchar(100), Car_Insurance, 23) AS [Insurance], Car_Brand AS [Brand], Car_Inserttime AS [Inserttime],Car_Invalid AS [invalid] FROM TMS_MCar",
+    "where": "Car_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) "
+  }
+}

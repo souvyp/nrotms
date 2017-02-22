@@ -1,0 +1,23 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "city_delivery_query",
+  "version": 1,
+  "dml-id": "city_delivery_query",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "did",
+        "type": "normal",
+        "value": 0
+      },
+	  {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      }
+    ]
+  }
+}

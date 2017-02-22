@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>NML调试器</title>
+    <script src="http://otms.zld.com.cn/assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://otms.zld.com.cn/assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="http://otms.zld.com.cn/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="http://otms.zld.com.cn/assets/NSF/js/NSF.0.0.3.min.js"></script>
+    <script type="text/javascript">
+        $( function ()
+        {
+			$('[name="btnDebug"]').click(function()
+			{
+				var params = $('textarea[name="request"]').val();
+				var _url = $('select[name="sUrl"]').val();
+				var cross = false;
+
+				$.ajax(
+				{
+					async: false,
+					url: _url,
+					dataType: ( cross ? "jsonp" : "json" ),
+					jsonp: ( cross ? 'callback' : '' ),
+					type: 'POST',
+					data: params,
+					error: function ( reqObj, status, err )
+					{
+						$('textarea[name="response"]').val( '{ "status" : "' + status + '", "err" : "' + err + '" } ' );
+					},
+					success: function ( data )
+					{
+						$('textarea[name="response"]').val( NSF.System.Json.ToString(data) );
+					}
+				} );
+			});
+        } );
+    </script>
+    <style type="text/css">
+        ul > li {
+            list-style:none;
+            height:80px;
+        }
+        table {
+            width:100%;
+            border-collapse:collapse;
+            text-align:center;
+        }
+        .table {
+            width:850px;
+        }
+        td, th {
+            padding:0px;
+        }
+        .paraDiv {
+            width:400px;
+            height:300px;
+            position:absolute;
+            -webkit-box-shadow: 2px 2px 10px #909090;
+            background:#addbea;left:500px;top:150px;
+            z-index:100;
+        }
+        .topDiv {
+            margin-left:50px;
+            margin-top:20px;
+        }
+        .paraTwo {
+            margin-left:90px;
+            margin-top:30px;
+        }
+        .s1 {
+            margin-top:20px;
+        }
+        .button {
+        text-align:right;
+        margin-bottom:10px;
+        }
+        .modal-content {
+            width:1224px;
+        }
+        .modal-body table {
+            width:100%;
+        }
+        .modal-lg {
+            width:1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topDiv">
+        NML调试器
+        <div class="s1">
+			<table border="0" cellspacing="0" cellpadding="0" style="width:660px;">
+			<tr>
+				<td align="right" width="130">url:</td>
+				<td align="left"  width="200">
+					<select name="sUrl">
+						<option value="/Portal.aspx">Portal.aspx</option>
+						<option value="/Login.aspx">Login.aspx</option>
+						<option value="/SSOPortal.aspx">SSOPortal.aspx</option>
+						<option value="/UCPortal.aspx">UCPortal.aspx</option>
+					</select>
+				</td>
+				<td align="right" width="130"></td>
+				<td align="left" width="200">
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">request:</td>
+				<td colspan="3" align="left">
+					<textarea rows="7" cols="80" name="request"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" height="30"></td>
+			</tr>
+			<tr>
+				<td align="right">response:</td>
+				<td colspan="3" align="left">
+					<textarea rows="7" cols="80" name="response"></textarea>
+				</td>
+			</tr>
+			</table>
+        </div>      
+        <div>
+            <input type="button" name="btnDebug" value="调试" />
+        </div>
+    </div>
+</body>
+</html>

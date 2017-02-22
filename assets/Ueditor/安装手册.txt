@@ -1,0 +1,13 @@
+1、将ueditor放在assets目录下
+
+2、将ueditor目录下的net目录在iis中转换成应用程序
+
+3、ueditor.config.js
+   在第22处的var URL=之前，添加如下代码
+   window.UEDITOR_HOME_URL = "/assets/Ueditor/";
+
+4、ueditor/net/config.json的修改
+   imageUrlPrefix的值修改为""
+   imagePathFormat的值修改为/UploadFiles/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}
+
+5、更改文件配置 上传 取出 路径 config.json

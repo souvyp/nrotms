@@ -1,0 +1,21 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0040",
+  "version": 1,
+  "dml-id": "pml_0040",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "orderid",
+        "value": 0
+      },
+      {
+        "name": "docid",
+        "value": 0
+      }
+    ]
+  }
+}

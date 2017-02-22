@@ -1,0 +1,114 @@
+using System;
+
+
+GetData();
+
+function GetData()
+{
+
+	var id = Request.getParameter("id");
+	var dr = Server.OpenSQL("select * from operation1 where ID = '"+id+"' ");
+	
+	if(dr.RecordCount==1)
+	{
+		//始发地
+		Server.PutContent("<CHI#FromAddress#CHI>",dr.rs[""]);
+		//目的地
+		Server.PutContent("<CHI#ToAddress#CHI>",dr.rs[""]);
+		//协议编号
+		Server.PutContent("<CHI#AgreementCode#CHI>",dr.rs[""]);
+		//甲方（托运方）
+		Server.PutContent("<CHI#Consignor#CHI>",dr.rs["cname"]);
+		//甲方联系人
+		Server.PutContent("<CHI#ConsignorContacter#CHI>",dr.rs["Linkmen"]);
+		//甲方联系电话
+		Server.PutContent("<CHI#ConsignorTel#CHI>",dr.rs["Tel"]);
+		//提货联系人
+		Server.PutContent("<CHI#PickerContacter#CHI>",dr.rs[""]);
+		//提货联系电话
+		Server.PutContent("<CHI#PickerTel#CHI>",dr.rs[""]);
+		//提货地址
+		Server.PutContent("<CHI#PickAdd#CHI>",dr.rs[""]);
+		//提货时间
+		Server.PutContent("<CHI#PickDate#CHI>",dr.rs[""]);
+		//提货要求
+		Server.PutContent("<CHI#PickRequire#CHI>",dr.rs[""]);
+		//送货联系人
+		Server.PutContent("<CHI#ArrivalContacter#CHI>",dr.rs[""]);
+		//送货联系电话
+		Server.PutContent("<CHI#ArrivalTel#CHI>",dr.rs["Tel"]);
+		//送货地址
+		Server.PutContent("<CHI#ArrivalAddress#CHI>",dr.rs[""]);
+		//送货时间
+		Server.PutContent("<CHI#ArrivalDate#CHI>",dr.rs[""]);
+		//送货要求
+		Server.PutContent("<CHI#ArrivalRequire#CHI>",dr.rs[""]);
+		//签收要求
+		Server.PutContent("<CHI#SighRequire#CHI>",dr.rs[""]);
+		//特殊服务要求
+		Server.PutContent("<CHI#ServerRequire#CHI>",dr.rs[""]);
+		//乙方联系人
+		Server.PutContent("<CHI#CarrierContacter#CHI>",dr.rs[""]);
+		//乙方联系电话
+		Server.PutContent("<CHI#CarrierTel#CHI>",dr.rs[""]);
+		//甲方地址
+		Server.PutContent("<CHI#ConsignerAddress#CHI>",dr.rs["addr"]);
+		//甲方邮编
+		Server.PutContent("<CHI#ConsignerCode#CHI>",dr.rs[""]);
+		
+		var total_num = 0;
+		var weight_sum = 0.0;
+		var volume_sum = 0.0;
+		var i = 1;
+		
+		var drd = Server.OpenSQL("select * from Operation2 where OperationID = '"+dr.rs["ID"]+"' ");
+		while(!drd.Eof)
+		{		
+			if(i<=1||i>=6){
+				sb+='<tr>';
+				sb+='<td>'+ i +'</td>';
+				sb+='<td>'+drd.rs["GoodsName"]+'</td>';
+				sb+='<td>'+drd.rs["Qty"]+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Qty"]))+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Weight"]))+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Volume"]))+'</td>';
+				sb+='<td>'+drd.rs["Package"]+'</td>';
+				sb+='<td colspan="2">'+drd.rs["Remark"]+'</td></tr>';
+				
+				total_num += atof(drd.rs["QTY"]);
+				weight_sum += atof(drd.rs["WEIGHT"]);
+				volume_sum += atof(drd.rs["VOLUME"]);
+				i++;
+				drd.Next();	
+			}else if(i>=2&&i<=5){
+				sb+='<tr>';
+				sb+='<td>'+ i +'</td>';
+				sb+='<td>'+drd.rs["GoodsName"]+'</td>';
+				sb+='<td>'+drd.rs["Qty"]+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Qty"]))+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Weight"]))+'</td>';
+				sb+='<td>'+FormatFloat("0.0000",atof(drd.rs["Volume"]))+'</td>';
+				sb+='<td>'+drd.rs["Package"]+'</td>';
+				sb+='<td>'+drd.rs["Remark"]+'</td><td></td></tr>';
+				
+				total_num += atof(drd.rs["QTY"]);
+				weight_sum += atof(drd.rs["WEIGHT"]);
+				volume_sum += atof(drd.rs["VOLUME"]);
+				i++;
+				drd.Next();
+			}		
+		}
+		while(i<=8){
+			sb+='<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+			i++;
+		}
+		//货物信息
+		Server.PutContent("<CHI#GoodInfo#CHI>",sb);
+		//合计数量
+		Server.PutContent("<CHI#QtySum#CHI>",FormatFloat("0.0000",total_num));
+		//合计重量
+		Server.PutContent("<CHI#WeightSum#CHI>",FormatFloat("0.0000",weight_sum));
+		//合计体积
+		Server.PutContent("<CHI#VolumeSum#CHI>",FormatFloat("0.0000",volume_sum));
+	}
+｝

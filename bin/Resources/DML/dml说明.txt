@@ -1,0 +1,230 @@
+dml_otms_0001.dml 地区表vml取数据测试
+dml_otms_0002.dml 模糊查找具体市县区
+
+tms_0001.dml	物品类型添加、编辑
+tms_0002.dml	物品类型删除
+tms_0004.dml	物品类型查询
+
+tms_0016.dml	物品添加、编辑
+tms_0018.dml	物品查询
+tms_0019.dml	物品删除
+
+tms_0020.dml	客户信息添加、编辑
+tms_0021.dml	客户信息删除
+tms_0023.dml	客户信息查询
+
+tms_0024.dml	订单信息添加、编辑
+tms_0025.dml	订单信息删除
+tms_0027.dml	订单信息查询
+
+tms_0028.dml	订单物品添加、编辑
+tms_0030.dml	订单物品查询
+tms_0031.dml	订单物品删除
+
+tms_0032.dml	司机信息添加、编辑
+tms_0034.dml	司机信息查询
+tms_0035.dml	司机信息删除
+
+tms_0036.dml	车辆信息添加
+tms_0037.dml	车辆信息编辑
+tms_0038.dml	车辆信息查询
+tms_0039.dml	车辆信息删除
+
+tms_0040.dml	常用地址添加、编辑
+company_reading.dml	常用地址查询
+tms_0043.dml	常用地址删除
+
+tms_0044.dml	公司信息添加
+tms_0045.dml	公司信息修改
+company_reading.dml 公司信息查询
+tms_0047.dml	公司信息删除
+
+tms_0049.dml	用户信息编辑
+user_reading.dml  用户信息查询
+
+
+tms_0052.dml	收货人信息添加
+tms_0053.dml	收货人信息编辑
+tms_0054.dml	收货人信息查询
+tms_0055.dml	收货人信息删除
+
+tms_0056.dml	公司注册
+
+tms_0057.dml	用户列表
+
+tms_0058.dml	修改密码
+tms_0059.dml    重置用户，管理员密码
+
+tms_0060.dml    一般用户注册
+
+tms_0061.dml    公司列表
+tms_0062.dml    供应商添加
+tms_0063.dml    我的客户添加
+tms_0064.dml    我的司机添加
+tms_0065.dml    我的司机查询
+
+tms_0066.dml    接受订单
+tms_0067.dml    分配订单
+tms_0068.dml    签收订单
+tms_0069.dml    回单上传
+
+tms_0070.dml	审核公司，注册管理员
+
+tms_0071.dml    订单发送
+
+tms_0072.dml    同意或拒绝成为供应商
+
+tms_0073.dml    拆单
+tms_0074.dml    货物数量拆单列表
+
+tms_province.dml 省
+tms_city.dml	市
+tms_district.dml	区
+
+tms_0075.dml	费用下拉列表
+
+tms_0076.dml	费用新增
+tms_0077.dml	费用查询
+tms_0078.dml	费用编辑
+tms_0079.dml	附加费删除
+
+tms_0080.dml	我的信息列表
+
+tms_0081.dml	承运商列表启用、禁用
+tms_0082.dml	客户列表启用、禁用
+tms_0083.dml	最终用户列表启用、禁用
+
+tms_0084.dml	获取用户账号
+tms_0085.dml	被邀请承运商详情
+
+tms_0086.dml	获取事件提醒数目
+tms_0087.dml	承运商线下新增
+tms_0003.dml    承运商线下编辑
+tms_0088.dml	承运商线下详情
+tms_0089.dml	打回订单
+tms_0090.dml	关闭订单
+
+tms_0091.dml	TMS我的待办(功能列表)
+tms_0092.dml	订单追踪明细
+tms_0093.dml	订单订单调度
+.tms_0094dml    TMS我的待办(消息提示区)
+tms_0095.dml    PMS我的待办(功能列表)
+tms_0096.dml    PMS我的待办(消息提示区)
+tms_0097.dml    PMS我的消息(列表、消息提示区)
+tms_0098.dml    PMS我的消息数量
+
+tms_0099.dml    创建订单时，获取默认的客户ID
+tms_0100.dml	数量单位查询
+tms_0101.dml    创建订单获得默认的计费，价格，包装，货物
+tms_0102.dml    签收详情
+tms_0103.dml    待调度订单合单保存（主单）
+tms_0105.dml    编辑拼车单（订单）明细
+tms_0106.dml    接收或拒绝拼车单
+tms_0107.dml    关闭拼车单
+tms_0108.dml    追加被合并的订单
+tms_0109.dml    删除被合并的订单
+
+tms_0200.dml    判断承运商是否存在
+tms_0201.dml    新增拼车单时显示订单明细
+tms_0202.dml    发送拼车单
+
+tms_0203.dml    标记管理新增
+tms_0204.dml    标记管理修改
+tms_0205.dml    标记管理查询
+tms_0206.dml    标季列表启用、禁用
+
+tms_0207.dml	客户订单首页订单查询功能
+tms_0208.dml    运输订单首页订单查询功能
+
+tms_0209.dml    列表签收功能
+
+Comments_0001.vml 追加备注
+Comments_0002.vml 追加备注
+
+
+pml_0001.dml   物品单位新增
+pml_0002.dml   物品单位编辑
+pml_0003.dml   物品单位查询
+
+pml_0004.dml   价格类型新增
+pml_0005.dml   价格类型编辑
+pml_0006.dml   价格类型查询
+
+pml_0007.dml   按单报价新增
+pml_0008.dml   合约报价新增
+pml_0009.dml   补充报价新增
+
+pml_0010.dml   零担报价新增,编辑
+pml_0011.dml   提货费新增,编辑
+pml_0012.dml   整车新增,编辑
+pml_0013.dml   送货费新增,编辑
+
+pml_0015.dml   装卸货费新增,编辑
+pml_0016.dml   最小收费新增,编辑
+pml_0017.dml   保费新增,编辑
+pml_0018.dml   价格删除
+
+
+pml_0019.dml 按单报价查询
+pml_0020.dml 零担报价查询
+pml_0021.dml 附加费新增
+pml_0022.dml 发送报价单
+pml_0023.dml 关闭报价单
+pml_0024.dml 审核报价单
+
+pml_0037.dml 按单报价查询订单详情
+
+city_delivery_query.dml  送货费详细
+city_fullload_query.dml  整车详细
+city_insurance_query.dml 保费详细
+city_load_query.dml  装卸费详细
+city_min_query.dml   最低收费详细
+city_pick_query.dml   提货费详细
+city_addition_query.dml   附加费详细
+city_tax_query.dml   税费详细
+
+pml_0025.dml 运输订单价格合计
+pml_0026.dml 报价单信息追踪
+pml_0027.dml 合约报价查询
+
+pml_0028.dml 税费新增，编辑
+pml_0029.dml 合单报价新增、编辑
+pml_0030.dml 合单报价查询
+
+pml_0031.dml 拼车单保存总价
+pml_0032.dml 报价系统-显示合单价格
+
+pml_0033.dml   按单报价新增、编辑(主单，线下承运商报价)
+pml_0034.dml   合约报价新增、编辑(主单，线下承运商报价)
+pml_0035.dml   补充报价新增、编辑(主单，线下承运商报价)
+pml_0036.dml   合单报价新增、编辑(主单，线下承运商报价)
+
+pml_0037.dml   合单报价新增、编辑(主单，线下承运商报价)
+
+fml_0001.dml 应（收/付）结账单新增
+fml_0002.dml 应（收/付）结账单编辑
+fml_0003.dml 应（收/付）结账单查询
+fml_0004.dml 订单明细新增
+fml_0005.dml 订单明细删除
+fml_0006.dml 订单明细查询
+
+//系统用户
+aml_0001.dml 重新计算订单价格
+aml_0002.dml 配置信息新增、编辑
+aml_0003.dml 配置信息详情
+aml_0004.dml 启用禁用账号
+aml_0005.dml 重置密码使用
+
+
+
+报表(RMS)
+rms_0001.dml  营业额报表
+rms_0002.dml  货贷报表
+rms_0003.dml  自营配送报表
+rms_0004.dml  客户订单查询
+rms_0005.dml  运输订单查询（委托）
+rms_0006.dml  运输订单查询（自营）
+rms_0007.dml  待结账客户订单查询
+rms_0008.dml  待结账运输单查询
+
+stat_0001.dml 个人中心首页状态数据值

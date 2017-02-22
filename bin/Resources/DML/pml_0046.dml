@@ -1,0 +1,162 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0046",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "sp_pub_price_EditContractDoc",
+    "readonly": "false",
+    "type": "StoreProcedure",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DocID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Type",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OrderID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "PactCode",
+        "type": "nvarchar",
+        "size": 50,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Description",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Name",
+        "type": "nvarchar",
+        "size": 300,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "CustomerID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "StartTime",
+        "type": "datetime",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "EndTime",
+        "type": "datetime",
+        "size": 0,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "tinyint",
+        "size": 1,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "LessLoadPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "FullLoadPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "PickPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "DeliveryPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OnLoadPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "OffLoadPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "InsuranceCost",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "TaxPrice",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "Issend",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      },
+      {
+        "name": "MinPay",
+        "type": "nvarchar",
+        "size": 65536,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

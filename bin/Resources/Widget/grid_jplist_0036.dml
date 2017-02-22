@@ -1,0 +1,12 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0036",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT TOP (1000) Event_ID AS ID, Event_Category, Event_Type, Event_Result, Event_SrcCompanyID, dbo.fn_pub_user_Company2Name(Event_SrcCompanyID) AS Event_SrcCompanyName, Event_DstCompanyID, dbo.fn_pub_user_Company2Name(Event_DstCompanyID) AS Event_DstCompanyName, Event_Ext, Event_Time, Event_InsertTime FROM TMS_Events ",
+    "count": "SELECT COUNT([Event_ID]) FROM TMS_Events",
+    "where": "Event_DstCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Event_Processed = 1 AND Event_Invalid =0 AND (Event_Type=1 OR Event_Type=3)",
+     "sort":"Event_Category DESC"
+  }
+}

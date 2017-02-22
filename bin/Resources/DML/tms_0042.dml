@@ -1,0 +1,23 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0042",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Addr_ID AS [ID], Addr_CompanyID AS [CompanyID], Addr_Code AS [Code], Addr_CustomerID AS [CustomerID], dbo.fn_pub_user_AddrCompany2Name(Addr_Type, Addr_CustomerID) AS [CustomerName], Addr_Desc AS [Address], Addr_Type AS [Type], Addr_Creator AS [Creator], Addr_InsertTime AS [InsertTime], Addr_Updater AS [Updater], Addr_UpdateTime AS [UpdateTime], Addr_Invalid AS [Invalid], Addr_Comments AS [Comments], Addr_ProvinceID AS [ProvinceID],dbo.fn_pub_order_AreaName(Addr_ProvinceID) AS [ProvinceName], Addr_ProvinceID AS [ProvinceID_id], Addr_CityID AS [CityID],dbo.fn_pub_order_AreaName(Addr_CityID) AS [CityName],
+Addr_CityID AS [CityID_id], Addr_DistrictID AS [DistrictID],dbo.fn_pub_order_AreaName(Addr_DistrictID) AS [istrictName], Addr_DistrictID AS [DistrictID_id], Addr_Phone AS [Phone] FROM TMS_MAddr WHERE Addr_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

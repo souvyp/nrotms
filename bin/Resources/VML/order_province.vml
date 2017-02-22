@@ -1,0 +1,18 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "order_province",
+  "version": 1,
+  "dml-id": "order_province",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "nodetype",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+using System;
+
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	var code=Request.getParameter("code");
+	var user=Response.Session["user"];
+	var userpath=Conf.Root+'users\\'+user;
+	var path=userpath+'\\'+code;
+	Response.PutContent('#USER#',user);
+	Response.PutContent('#ANAME#',Response.Session["appname"]);
+	Response.PutContent('#UNAME#',Response.Session["name"]);
+	if(Pos('.zwfl',code)>0)
+		Response.PutContent('#CODE#',escape(code));
+	else
+		Response.PutContent('#CODE#',escape(code+'/default.zwfl'));
+	Response.PutContent('#UCODE#','users/'+user);
+	Response.PutContent('#ACODE#',Response.Session["appcode"]);
+}

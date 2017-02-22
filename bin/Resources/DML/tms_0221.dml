@@ -1,0 +1,29 @@
+﻿{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0221",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT A.Index_ID AS [id],  CONVERT(NVARCHAR(16), A.Index_FromTime, 120) AS [FromTime], dbo.fn_pub_order_SupplierName(Index_SupplierID,Index_ID) AS [SupplierName], A.Index_Code AS [code], A.Index_PactCode AS [pactcode], dbo.fn_pub_order_Status2Name_v2(Index_Status,A.Index_ID) AS [StatusName], dbo.fn_pub_user_Customer2Name(A.Index_CustomerID) AS [CustomerName],CONVERT(VARCHAR(16),A.Index_CreateTime,120) AS [CreateTime],D.Index_Code AS [ContainsOwnerOrderCode],CONVERT(NVARCHAR(16),Index_ToTime , 120) AS [ToTime] ,dbo.fn_pub_order_TotalWeight(A.Index_ID,0) AS [TotalWeight],dbo.fn_pub_order_TotalVolume(A.Index_ID,0) AS [TotalVolume],dbo.fn_pub_order_TotalAmount(A.Index_ID,0) AS [TotalAmount],dbo.fn_pub_order_TotalCost(A.Index_ID) AS [TotalCost],dbo.fn_pub_price_PricebyType(A.Index_ID,1) AS [LessLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,2) AS [FullLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,3) AS [Pick],dbo.fn_pub_price_PricebyType(A.Index_ID,4) AS [Delivery],dbo.fn_pub_price_PricebyType(A.Index_ID,5) AS [OnLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,6) [OffLoad],dbo.fn_pub_price_PricebyType(A.Index_ID,7) [min],dbo.fn_pub_price_PricebyType(A.Index_ID,8)[InsuranceCost],dbo.fn_pub_price_PricebyType(A.Index_ID,9) [Addition],dbo.fn_pub_price_PricebyType(A.Index_ID,10) AS [Tax],dbo.fn_pub_order_AreaName(Index_FromProvince) AS [FromProvince],dbo.fn_pub_order_AreaName(Index_FromCity) AS [FromCity],dbo.fn_pub_order_AreaName(Index_FromDistrict) AS [FromDistrict],dbo.fn_pub_order_AreaName(Index_ToProvince) AS [ToProvince],dbo.fn_pub_order_AreaName(Index_ToCity) AS [ToCity],dbo.fn_pub_order_AreaName(Index_ToDistrict) AS [ToDistrict] FROM TMS_OrderIndex AS A LEFT JOIN (SELECT B.Index_Code,C.Contains_OwnerOrderID,C.Contains_OrderID, B.Index_GoodsLst AS [GoodsLst] FROM TMS_OrderIndex AS B INNER JOIN TMS_OrderContains AS C ON B.Index_ID = C.Contains_OwnerOrderID) AS D ON A.Index_ID= D.Contains_OrderID   WHERE Index_CreatorCompanyID= dbo.fn_pub_user_User2CompanyID(@Operator, 0) AND Index_SrcClass = 2 AND Index_Invalid = 0 AND Index_Status >= 1 AND Index_Status < 32 AND CONVERT(VARCHAR(10),A.Index_FromTime,120) = CONVERT(VARCHAR(10),@createtime,120);",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "下单人"
+      },
+      {
+        "name": "createtime",
+        "type": "datetime",
+        "size": 8,
+        "direction": "input",
+        "displayName": "创建时间"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

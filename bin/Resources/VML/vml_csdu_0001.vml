@@ -1,0 +1,12 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "vml_csdu_0001",
+  "version": 1,
+  "dml-id": "dml_csdu_0001",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": []
+  }
+}

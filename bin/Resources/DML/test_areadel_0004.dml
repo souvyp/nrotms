@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "test_areadel_0004",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_Code AS [Code], Area_Level AS [Level], Area_Name AS [Name], Area_ParentID AS [ParentID], Area_CreatorID AS [CreatorID], Area_InsertTime AS [InsertTime] FROM TMS_BasicArea WHERE Area_ID = @ID;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "ID",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

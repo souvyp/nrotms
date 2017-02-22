@@ -1,0 +1,28 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "company_SiginCheck",
+  "version": 1,
+  "dml-id": "company_SiginCheck",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "phone",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "mail",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "companyname",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

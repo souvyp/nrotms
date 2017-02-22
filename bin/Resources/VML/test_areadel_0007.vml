@@ -1,0 +1,17 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "test_areadel_0007",
+  "version": 1,
+  "dml-id": "test_areadel_0007",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "id",
+        "value": 0
+      }
+    ]
+  }
+}

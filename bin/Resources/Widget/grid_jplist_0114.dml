@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0061",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT  User_ID AS [id],User_Account AS [Account],User_Name AS [Name],User_RoleID AS [RoleID], User_Nickname AS [Nickname], User_Gender AS [Gender], User_Birthday AS [Birthday], User_Phone AS [Phone],  User_Invalid AS [Invalid] FROM TMS_User INNER JOIN TMS_Company ON User_CompanyID = Company_ID",
+    "where": "User_CompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0)  AND User_RoleID = 547 AND Company_Personal = 1 "
+  }
+}

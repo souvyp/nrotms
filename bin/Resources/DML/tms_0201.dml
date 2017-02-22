@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0201",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Index_ID AS [orderid], Index_Code AS [code], Index_EndUserName AS [EndUserName], Index_From AS [IFrom], Index_To AS [ITo], dbo.fn_pub_order_TotalVolume(Index_ID, 0) AS [volume], dbo.fn_pub_order_TotalWeight(Index_ID, 0) AS [weight], dbo.fn_pub_order_TotalAmount(Index_ID, 0) AS [amount],CONVERT(varchar(10),Index_FromTime,120) AS Fromtime,CONVERT(varchar(10),Index_ToTime,120) AS Totime,Index_PactCode AS [PactCode] FROM TMS_OrderIndex WHERE Index_ID IN (SELECT CAST(N.v.value('.' , 'varchar(200)') AS BIGINT) FROM (SELECT  [value] = CONVERT(XML , '<v>' + REPLACE(@did, ',' , '</v><v>') + '</v>')) A CROSS APPLY A.[value].nodes('/v') N ( v ))",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "varchar",
+        "size": 200,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,9 @@
+var user=Response.Session["user"];
+if(user=="")
+	Response.Redirect("/");
+else{
+	Response.PutContent('#USER#',Response.Session["name"]);
+	Response.PutContent('#USERCODE#',user);
+	Response.PutContent('#APPCODE#',Response.Session["appcode"]);
+	Response.PutContent('#APPNAME#',Response.Session["appname"]);
+}

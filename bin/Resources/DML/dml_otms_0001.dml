@@ -1,0 +1,14 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "dml_otms_0001",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Area_ID AS [ID], Area_Code AS [Code], Area_Level AS [Level], Area_Name AS [Name], Area_ParentID AS [ParentID], Area_NodeType AS [NodeType], Area_CreatorID AS [CreatorID], Area_InsertTime AS [InsertTime], Area_Updater AS [Updater], Area_UpdateTime AS [UpdateTime], Area_Invalid AS [Invalid], Area_Comments AS [Comments], opt_status AS [status] FROM TMS_BasicArea ;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "pml_0042",
+  "version": 1,
+  "dml-id": "pml_0042",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "DocID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "Type",
+        "type": "normal",
+        "value": 5
+      },
+      {
+        "name": "OrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PactCode",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Name",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "CustomerID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "StartTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "EndTime",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "TxnRequired",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

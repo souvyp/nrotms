@@ -1,0 +1,174 @@
+﻿<%@ CodeFile="code/frame.cn"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>数据库管理器 | 中国程序员大联盟</title>
+<link rel="shortcut icon" href="/assets/img/kingsoftware.ico">
+<link rel="stylesheet" type="text/css" href="themes/metro/easyui.css" id="swicth-style">
+<link rel="stylesheet" type="text/css" href="themes/style.css">
+<link rel="stylesheet" type="text/css" href="themes/icon.css">
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+
+<script type="text/javascript">
+	mxBasePath = './js/src';
+</script>
+
+<script type="text/javascript" src="js/src/js/mxClient.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css">
+<script type="text/javascript" src="uploadify/jquery.uploadify.js"> </script>
+
+<script type="text/javascript" src="js/index.js"></script>
+					
+</head>
+<body class="easyui-layout" code="#ACODE#">
+	<div class="easyui-panel Menus" data-options="region:'north',border:false">	
+		<div  id="Menus">
+			<div class="navbar-brand"><img src="images/logo.png"/>中国程序员大联盟<span class="label label-default">Ver 0.1</span></div>
+			<!--a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-new',plain:true" onclick="showProject()">新建项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-open',plain:true" onclick="openProject()">打开项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-close',plain:true" onclick="closeProject()">关闭项目</a>
+			<a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-delete',plain:true" onclick="deleteProject()">删除项目</a-->
+			<a href="javascript:;" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-close'" style="float:right;" onclick="UserLogout()">退出</a>
+			<!--a href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-data',plain:true" style="float:right;margin-right:3px;" onclick="showUrl('dataDesign','Data Design','data')">数据设计</a-->
+			<div id="user" style="float:right;color:#fff;font-size:12px;padding:2px 5px;">#UNAME#</div>
+			<div id="toolbarContainer" style="padding:0px;">
+				<!--a href="javascript:void(0)" id="HideButton" title="显示/隐藏操作按钮" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-tip'" onclick="HideButton()"></a-->
+				<a href="javascript:void(0)" id="savemsg" title="保存当前内容" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" onclick="SaveMsg()">保存</a>
+				<a href="javascript:void(0)" id="clearData" title="清除当前内容" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-refresh'" onclick="LoadMsg()">刷新</a>
+				<a href="javascript:void(0)" id="viewMenu" class="easyui-menubutton" data-options="menu:'#mmView',iconCls:'icon-option'">视图</a>
+			</div>
+					
+			
+		</div>
+	</div>
+	
+	<div id="leftPanel" data-options="region:'west',split:true,tools:'#tree-tools',title:'#ANAME#'" style="width:250px;padding:10px;" >
+		<ul id="tableList"></ul>
+		<div id="tree-tools">
+			<a href="javascript:void(0)" title="展开功能" class="icon-expanded easyui-tooltip" onclick="expand()"></a>
+			<a href="javascript:void(0)" title="收起功能" class="icon-collapse easyui-tooltip" onclick="collapse()"></a>
+		</div>		
+		<div id="trash" style="width:50px;height:50px;position:absolute;z-index:9999;left:5px;bottom:5px;background:transparent;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;">
+			<img src="images/trash.png" style="width:50px;height:50px;"/>
+		</div>
+	
+	</div>
+	
+	<div data-options="region:'center'" style="overflow:hidden;" >	
+		<div id="mainPanle" region="center" border="true" border="false">
+			<div title="数据设计">
+				<div>
+					
+					<div id="graphContainer" style="top:5px;"></div>
+					<div id="sidebarContainer"></div>
+				</div>
+			</div>
+		</div>
+		<div id="outlineContainer" style="width:200px;height:200px;position:absolute;z-index:9999;right:5px;bottom:5px;border:1px solid green;background:#FFF;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;"></div>
+	</div>
+	<div data-options="region:'south',border:false" align="center" style="padding:5px;background: #f4f4f4;">mcfee@163.com</div>
+	
+	
+	
+	<div id="mmView" style="width:100px;display:none;">
+		<div data-options="iconCls:'icon-zoom-in'">放大</div>
+		<div data-options="iconCls:'icon-zoom-out'">缩小</div>
+		<div>实际大小</div>
+		<div>自适应大小</div>
+		<div class="menu-sep"></div>
+		<div data-options="iconCls:'icon-zoom-exp'">全部展开</div>
+		<div data-options="iconCls:'icon-zoom-col'">全部收起</div>
+	</div>
+	
+	<div id="Dataset" style="display:none;">
+		<form id="formDataset">
+			<table class="formTable">  
+				<tr>
+					<th>编码:</th> 
+					<td><input name="fcode" readonly="readonly"/>
+					
+					</td>  				</tr>
+				<tr>
+					<th>名称:</th>
+					<td><input type="text" name="fname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'"/></td>
+									</tr>
+
+				<tr>
+					<th>描述:</th> 
+					<td>
+						<textarea name="fDescription" ></textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	
+	<div id="Field" style="display:none;">
+		<form id="formField">
+			<table class="formTable">  
+				<tr>
+					<th>字段名称:</th> 
+					<td><input name="dfieldname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,100]'"/></td>  
+					<th>字段类型:</th>
+					<td>         
+						<select name="dfieldtype"  style="width:120px">
+							<option value="0" >Empty</option>
+							<option value="1" >整数</option>
+							<option value="2" >文本</option>
+							<option value="3" >浮点数</option>
+							<option value="4" >日期</option>
+							<option value="5" >大字段</option>
+							<option value="6" >唯一文本</option>
+							<option value="7" >自动递增</option>
+						</select>
+					</td>
+
+				</tr>
+				<tr>
+					<th>显示名称:</th>
+					<td  colspan="3"><input name="ddisplayname" class="easyui-validatebox"  data-options="required:true,validType:'length[2,15]'"/></td>
+				</tr>
+				<tr>
+					<th>缺省值:</th>
+					<td><input name="ddefaultvalue"/></td>
+					<th>字段大小:</th><td><input name="dfieldsize" id="dfieldsize class="easyui-numberbox" data-options="required:true,precision:0" style="width:115px"/></td>
+				</tr> 			
+				<tr>
+					<th>选项:</th>
+					<td colspan="3" style="border:1px solid #E0ECFF;">
+					<input value="True" type="checkbox" class="checkbox" name="dreadonly" id="dreadonly"  /> <label for="dreadonly">只读字段</label>
+					<input value="True" type="checkbox" class="checkbox" name="dkeys" id="dkeys"  /> <label for="dkeys">主键</label>
+					<input value="True" type="checkbox" class="checkbox" name="drequired" id="drequired"  /> <label for="drequired">必填字段</label>
+					<input value="True" type="checkbox" class="checkbox" name="dforeignkey" id="dforeignkey"  /> <label for="dforeignkey">外键</label>
+					</td>
+				</tr>
+				<tr>
+					<th>关联内容:</th> 
+					<td colspan="3">
+						
+						<textarea name="dlinklist" style="height:50px;"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>备注:</th> 
+					<td colspan="3">
+						<textarea name="ddescription" style="height:50px;"></textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0109",
+  "version": 1,
+  "dml-id": "tms_0109",
+  "dmlparas": {
+    "rows": true,
+    "columns": false,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "CombineOrderID",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "OrdersLst",
+        "type": "normal",
+        "value": ""
+      },
+      {
+        "name": "Description",
+        "type": "normal",
+        "value": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'dropcache',
+ 'id' : 'dropcache',
+ 'version' : 1,
+ 'sml-id' : 'dropcache',
+ 'smlparas' : {}
+}

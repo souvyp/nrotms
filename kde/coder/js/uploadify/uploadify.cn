@@ -1,0 +1,44 @@
+using System;
+
+Response.ContentText="1";
+
+var fFilename='\\~Temp\\'+Request.getParameter("Filename");
+
+var f = Server.WebRoot+fFilename;
+var ext = Lower(System.ExtractFileExt(f));			
+var strval = '';
+	  
+var resultid=Request.getParameter("resultid");
+var atid=Request.getParameter("AppendixTypeID");
+var drr=Server.OpenSQL("SELECT ItemName FROM Result where id='"+resultid+"'");
+var dra=Server.OpenSQL("select appendixtypename from appendixtype where id = '"+atid+"'");
+var path='/设计成果/'+drr.rs["ItemName"];
+CreateDir(Server.WebRoot+'\\'+path);
+path=path+'/'+dra.rs["appendixtypename"]+'/';
+CreateDir(Server.WebRoot+'\\'+path);
+
+if(ext==".pdf"){	
+	var out=path+ExtractFileName(fFilename)+'.swf';	
+	var swf='cmd /C E:/mcfee/SWFTools/pdf2swf.exe -t '+f+' -s flashversion=9 -o '+ Server.WebRoot+out;
+	var w= ExecWin(swf);
+	strval = out;
+}
+else if(ext==".doc"||ext==".docx"){
+	var out=path+ExtractFileName(fFilename);
+	Doc2Pdf(f,Server.WebRoot+'/'+out+'.pdf');
+	var swf='cmd /C E:/mcfee/SWFTools/pdf2swf.exe -t '+Server.WebRoot+out+'.pdf'+' -s flashversion=9 -o '+ Server.WebRoot+out+'.swf';
+	var w= ExecWin(swf);
+	strval = out+'.swf';
+}
+else{
+	strval=path+ExtractFileName(fFilename);
+	MoveFile(f,Server.WebRoot+'\\'+strval);
+}
+
+var dr=Server.OpenSQL("select * from appendix where 0>1");
+dr.Append();
+dr.rs["id"]=NewID();
+dr.rs["ResultID"]=resultid;
+dr.rs["AppendixTypeID"]=atid;
+dr.rs["note"]=strval;
+dr.Save();

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="js/jquery-1.10.1.min.js"></script>    
+    <script src="js/echarts.min.js"></script>
+    <script src="js/wlyuan.js"></script>
+    <script src="js/china.js"></script>    
+    <script src="js/index.js"></script>
+	<script src="js/app.js"></script>    
+	<script src="/assets/NSF/js/NSF.js"></script>
+ 	<script src="/assets/NSF/js/NSF.System.js"></script>		 	
+ 	<script src="/assets/NSF/js/NSF.System.Network.js"></script>    
+ 	<style type="text/css">
+ 		body{
+ 			background-image: url(img/bg001.jpg);
+ 			background-repeat: no-repeat;
+ 			background-size: cover;
+ 			margin: 0;
+ 			padding: 0;
+ 		}
+ 
+ 		
+ 		.main2{
+ 			overflow: hidden;
+ 			width: 3840px;
+ 			height: 1080px;
+ 		}
+ 
+ 					
+ 	</style>
+ 	<link rel="stylesheet" type="text/css" href="css/donghua.css">
+</head>
+<body>
+ 
+
+	<div class="main2">
+		<div class="" style="float: left;width: 960px;height: 1080px;">
+			<div class="" style="width: 960px;height:540px; overflow: hidden;">
+				<div id="main52_name" class="wings" style="">
+						<font style="font-size: 20px; color: #FFFFFF; position: absolute; left: 1%; top: 10px;  z-index: 99;"> </font>
+				</div>
+			    <div id="main1_4" onclick="huan_5()" style=" width: 960px;height:540px; ">
+			
+			    </div>
+			</div>
+
+			<div class="" style="width: 960px;height:540px; overflow: hidden;">
+				<div id="main52_name" class="wings" style="">
+						<font style="font-size: 20px; color: #FFFFFF; position: absolute; left: 1%; top: 52%;  z-index: 99;">市内与长途统计图</font>
+				</div>
+			    <div id="main1_5" onclick="huan_6()" style=" width: 960px;height:540px;  ">
+			
+			    </div>	
+			</div>
+
+		</div>
+		<div class=" " style="float: left; width: 1920px;height:1080px;">
+		    <div id="main52_name" class="object-opacity-hide wings" style="">
+				<font class="name_h52" style="font-size: 60px; height: 80px; position: absolute; color: #FFFFFF; left: 45%; top: 60px; z-index: 99;"> </font>
+		    </div>
+		    <div id="min_main52" style=" width: 1920px;height:1080px; ">
+		
+		    </div>	
+		</div>
+	    
+		<div class="" style="float: left;width: 960px;height: 1080;">
+			<div class="" style="width: 960px;height:540px; overflow: hidden;">
+				<div id="main52_name" class="wings" style="">
+						<font style="font-size: 20px; color: #FFFFFF; position: absolute; left: 77%; top: 10px;  z-index: 99;">线路统计图(单位/方)</font>
+				</div>
+			    <div id="main1_6" onclick="huan_7()"  style=" width: 960px;height:540px; ">
+			
+			    </div>		
+			</div>
+			<div class="" style="width: 960px;height:540px; overflow: hidden;">
+				<div id="main52_name" class="wings" style="">
+						<font style="font-size: 20px; color: #FFFFFF; position: absolute; left: 77%; top: 52%;  z-index: 99;">整车与零担统计图</font>
+				</div>
+			    <div id="main1_7" onclick="huan_8()"   style=" width: 960px;height:540px; ">
+			
+			    </div>		
+			</div> 
+
+		</div>	
+	</div>
+	 
+ 
+	
+<span id="Span2" style="display:none">10947</span>
+	
+	
+	
+</body>
+    <script type="text/javascript">
+
+		APP.init5_2();
+
+
+		function huan_5(){	 
+			nineth('min_main52');	
+		 
+			$('.name_h52').text('');
+		}
+		function huan_6(){	 
+			second('min_main52');	 
+			$('.name_h52').text('市内与长途统计图');
+		}	
+		function huan_7(){	 
+			third('min_main52');	 
+			$('.name_h52').text('线路统计图(单位/方)');
+		}	
+		
+		function huan_8(){	 
+			fourth('min_main52');	
+			$('.name_h52').text('整车与零担统计图');
+		}		 
+	
+ 
+ 
+    </script>  
+</html>

@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>My Uploadify Implementation</title>
+ <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+   <!--  
+   <link href="uploadify-v2.1.4/uploadify.css" rel="stylesheet" type="text/css" media="screen" />
+   -->
+ <script type="text/javascript" src="uploadify-v2.1.4/jquery-1.4.2.min.js"></script>
+ <script type="text/javascript" src="uploadify-v2.1.4/swfobject.js"></script>
+ <script type="text/javascript" src="uploadify-v2.1.4/jquery.uploadify.v2.1.4.min.js"></script>
+ <script type="text/javascript" src="upload.js"></script>
+</head>
+<body >
+    <input id="imgPos" type="text" />
+ <input id="file_upload" type="file" name="Filedata" />
+    <img id="imgShow" style="display:none">
+       <a id="uploadLink" href="javascript:$('#file_upload').uploadifyUpload()">[Upload]</a>
+    <a id="cancelLink" href="javascript:void(0)">[Remove]</a>
+</body>
+</html>
+ 
+3.upload.js
+$(document).ready(function(){
+    $("#cancelLink").hide();
+ $("#imgPos").attr("value", '');
+ $('#file_upload').uploadify({
+  'uploader' : 'uploadify-v2.1.4/uploadify.swf',
+  'script' : 'upload.php',
+  'queueID': 'fileQueue',  //去掉显示进度条
+  'onInit': function () {                       
+             //  $("#queueID").hide();
+        },
+  //'cancelImg' : 'uploadify-v2.1.4/cancel.png',
+  'folder': 'UploadFile',
+  'fileExt':'*.gif;*.jpg;*.png',
+  'sizeLimit': 2048000,
+  'auto': false, //need for IE8
+  'uploadLimit':1,
+  'buttonText': '[select]',
+  'onSelect' : function(e, queueId, fileObj) {
+     var fileMes = fileObj.name +"("+ (fileObj.size$)+"KB)";
+            $("#imgPos").attr("value", fileMes);
+        },
+  'onComplete' : function(event, ID, fileObj, response, data) {
+  var responseData = eval_r('(' + response + ')');
+  if(responseData.statues == "success"){
+    $("#imgPos").attr("value", responseData.message);
+    $("#imgPos").hide();
+    $("#imgShow").attr("src", responseData.message);
+    $("#imgShow").css({
+     "width":"150px",
+     "height":"150px",
+     "display":"block"
+    });
+    $("#file_uploadUploader").hide();
+    $("#uploadLink").hide();
+    $("#cancelLink").css("float","left");
+    $("#cancelLink").show();
+   }
+   else {
+      alert(responseData.message);
+   return false;
+   }
+  }
+ });
+ 
+ $("#cancelLink").click(function(){
+  var imgUrl = $("#imgPos").val();
+  $.ajax({
+   url:"upload.php",
+   type:"POST",
+   data:{"imgUrl":imgUrl},   //data: "imgUrl=" + imgUrl,
+   success:function(result){
+     if(result == "success"){
+     $("#imgShow").hide();
+     $("#imgShow").attr("src", '');
+     $("#imgPos").attr("value", '');
+     $("#imgPos").show();
+     $("#file_uploadUploader").show();
+     $("#uploadLink").show();
+     $("#cancelLink").hide();
+    }
+   }
+  });
+ 
+ });
+ 
+});

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0034",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Driver_ID AS [ID], Driver_Name AS [Name], Driver_Gender AS [Gender], Driver_Photo AS [Photo],  CONVERT(varchar(100), Driver_Birthday, 23) AS [Birthday] , Driver_Phone AS [Phone], CONVERT(varchar(100), Driver_LicensedDate, 23)  AS [LicensedDate], Driver_LicenseType AS [LicenseType], Driver_SN AS [SN], Driver_PersonalSN AS [PersonalSN], Driver_CompanyID AS [CompanyID], Driver_Invalid AS [Invalid], Driver_Comments AS [Comments] FROM TMS_MDriver WHERE Driver_ID = @id;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

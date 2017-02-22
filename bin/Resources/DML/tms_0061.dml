@@ -1,0 +1,14 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "tms_0061",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Company_ID AS [id], Company_Name AS [name] FROM TMS_Company;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [],
+    "responseType": "recordset"
+  }
+}

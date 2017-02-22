@@ -1,0 +1,29 @@
+
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "rms_0069",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT DISTINCT  Index_FromCity AS Location,dbo.fn_pub_order_AreaLocation(Index_FromCity,0) AS FromLocation , dbo.fn_pub_order_AreaName (Index_FromCity) AS [FromCity] ,2 AS [sysmbolSize],1 AS [Type] FROM TMS_OrderIndex AS S  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32  AND Index_FromCity <> 0 AND Index_FromCity IS NOT NULL AND  NOT EXISTS( SELECT DISTINCT  dbo.fn_pub_order_AreaLocation(Index_ToCity,0) AS ToLocation , dbo.fn_pub_order_AreaName (Index_ToCity) AS [ToCity] , 2 AS [sysmbolSize] FROM TMS_OrderIndex AS T  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass <> 3 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND S.Index_FromCity= T.Index_ToCity )
+UNION ALL 
+ SELECT DISTINCT  Index_FromCity AS Location,dbo.fn_pub_order_AreaLocation(Index_FromCity,0) AS FromLocation , dbo.fn_pub_order_AreaName (Index_FromCity) AS [FromCity] ,2 AS [sysmbolSize],3 AS [Type] FROM TMS_OrderIndex AS S  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32  AND Index_FromCity <> 0 AND Index_FromCity IS NOT NULL AND  EXISTS( SELECT DISTINCT  dbo.fn_pub_order_AreaLocation(Index_ToCity,0) AS ToLocation , dbo.fn_pub_order_AreaName (Index_ToCity) AS [ToCity] , 2 AS [sysmbolSize] FROM TMS_OrderIndex AS T  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass <> 3 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND S.Index_FromCity= T.Index_ToCity )
+UNION ALL 
+ SELECT DISTINCT  Index_ToCity AS Location,dbo.fn_pub_order_AreaLocation(Index_ToCity,0) AS ToLocation , dbo.fn_pub_order_AreaName (Index_ToCity) AS [ToCity] , 2 AS [sysmbolSize],2 AS [Type] FROM TMS_OrderIndex AS T  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass = 1 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND Index_ToCity <> 0 AND Index_ToCity IS NOT NULL 
+  AND  NOT EXISTS(  SELECT DISTINCT  dbo.fn_pub_order_AreaLocation(Index_FromCity,0) AS FromLocation , dbo.fn_pub_order_AreaName (Index_FromCity) AS [FromCity] ,2 AS [sysmbolSize] FROM TMS_OrderIndex AS S  WHERE Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(@operator,0)  AND Index_SrcClass <> 3 AND Index_Invalid = 0 AND Index_SrcOrderID > 0 AND Index_Status <> 32 AND  S.Index_FromCity= T.Index_ToCity )
+ ",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "operator",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+   
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

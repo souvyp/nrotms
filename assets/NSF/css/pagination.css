@@ -1,0 +1,109 @@
+﻿/*报修*/
+a{text-decoration: none;}
+
+.pag{
+	margin:auto;
+	text-align:center;
+	width: 60%;
+	padding-top: 3px;
+}
+.pag li{
+	float:left;
+	list-style-type:none;
+	border:1px solid #ccc;
+	margin:0 5px;
+	color:#666666;
+}
+.pag .bord_li{
+	border:0px;
+}
+.repair .border_li_marg{
+	margin-top:1px;
+}
+.pag li a{
+	color:#666666;
+	padding:0 5px;
+}
+.bord_li img{
+	height:16px;
+}
+
+.pag .active_li {
+	background: #b7092c;
+	border-color: #b7092c;
+}
+.pag .active_li a{
+	color:#ffffff;
+}
+.pag .omitted{
+	border:0px;
+}
+
+.test_fld_class {
+	background-color: #ededed;
+	border:1px solid #000000;
+}
+
+.test_row_odd_class
+{
+	background-color: #ffffff;
+}
+
+.test_row_even_class
+{
+	background-color: #ededed;
+}
+
+.pag .bord_li a
+{
+    border: 0px;
+    background: none;
+}
+.bord_li img
+{
+    height:initial;
+}
+.pag .showrec span
+{
+    border: 0px;
+    background: none;
+    color: #666;
+    float: initial;
+}
+.pag .showrec span:hover,.pag .bord_li a:hover
+{
+    background:none;
+}
+
+/*修整与otms一致的样式*/
+.pagination li {
+    border:none;
+}
+.pagination li.active a, .pagination li.active span {
+    background-color:#f5f6fa;
+    border:1px solid #dbdbdb;
+    color:#f27302;
+}
+.pagination li a, .pagination li span {
+    border:1px solid #dbdbdb;
+    color:#888;
+    height:30px;
+    line-height:30px;
+    padding:0 10px;
+    font-weight:normal;
+}
+.pagination li:hover a, .pag .bord_li:hover a {
+    background-color:#f5f6fa !important;
+    color:#f27302 !important;
+    border:1px solid #dbdbdb !important;
+}
+.pagination li:hover, .pagination .bord_li:hover {
+    border:none;
+}
+.pag .bord_li a{
+    border:1px solid #dbdbdb;
+}
+   
+.pag .bord_li.showrec {
+    border:none;
+}

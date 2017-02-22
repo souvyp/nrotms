@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "city_lessload_query",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "SELECT Detail_Type AS [Type], Detail_FromProvince AS [FromProvince], Detail_FromCity AS [FromCity], Detail_FromDistrict AS [FromDistrict], Detail_From AS [From], Detail_ToProvince AS [ToProvince], Detail_ToCity AS [ToCity], Detail_ToDistrict AS [ToDistrict], Detail_To AS [To], Detail_Kms AS [Kms], Detail_MinVolume AS [Min], Detail_MaxVolume AS [Max], Detail_VolumeUnit AS [UnitType], Detail_MinWeight AS [MinWeight], Detail_MaxWeight AS [MaxWeight], Detail_WeightUnit AS [WeightUnit], Detail_MinEqual AS [MinEqual], Detail_MaxEqual AS [MaxEqual], Detail_Amount AS [Price], Detail_Creator AS [Creator], Detail_CreateTime AS [CreateTime] FROM Price_DocDetails WHERE Detail_ID = @id AND Detail_Invalid = 0;",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": ""
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "namespace": "data",
+  "cmd": "sqlcmd",
+  "id": "pml_0036",
+  "version": 1,
+  "paras": {
+    "dbtype": "sqlserver",
+    "sql": "select ind.Index_Code AS [code],con.Contains_ID AS [id], ind.Index_EndUserName AS [endusername], ind.Index_From AS [from], ind.Index_To AS [to], con.Contains_OrderID AS [orderid], con.Contains_Volume AS [volume], con.Contains_Weight AS [weight], con.Contains_Amount AS [amount], con.Contains_Creator AS [creator],  con.Contains_InsertTime AS [inserttime], con.Contains_Updater AS [updater], con.Contains_UpdateTime AS [updatetime], con.Contains_Invalid AS [invalid],  con.Contains_Comments AS [comments],ind.Index_PactCode AS [pactcode],CONVERT(VARCHAR(16),Index_FromTime,120) AS [FromTime] from TMS_OrderContains con INNER JOIN TMS_OrderIndex ind on con.Contains_OrderID=ind.Index_ID AND con.Contains_OwnerOrderID=(SELECT DI.Index_OrderID FROM Price_DocIndex DI WHERE DI.Index_ID = @did);",
+    "readonly": "false",
+    "type": "text",
+    "paras": [
+      {
+        "name": "did",
+        "type": "bigint",
+        "size": 8,
+        "direction": "input",
+        "displayName": "所有者订单编号"
+      }
+    ],
+    "responseType": "recordset"
+  }
+}

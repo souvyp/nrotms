@@ -1,0 +1,11 @@
+{
+ 'namespace' : 'view',
+ 'cmd' : 'caches',
+ 'id' : 'caches',
+ 'version' : 1,
+ 'sml-id' : 'caches',
+ 'smlparas' : 
+ {
+  'withvalue' : false
+ }
+}

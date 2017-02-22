@@ -1,0 +1,10 @@
+{
+  "namespace": "widget",
+  "cmd": "jplist",
+  "id": "grid_jplist_0040",
+  "version": "1",
+  "paras": {
+    "sql": "SELECT Index_ID AS [id], Index_ShipMode AS [ShipMode], CONVERT(NVARCHAR(16), Index_FromTime, 120) AS [FromTime], Index_Code AS [code], dbo.fn_pub_user_SupplierName(Index_SupplierID) AS [SupplierName], Index_StatusTime,Index_PactCode AS [pactcode], Index_EndUserName AS [endusername], Index_From AS [from],CONVERT(VARCHAR(10),Index_CreateTime,120) AS [createtime], Index_To AS [to],dbo.fn_pub_order_Status2Name(Index_Status) AS [StatusName],  dbo.fn_pub_user_Customer2Name(Index_CustomerID) AS [CustomerName],Index_statusTime AS [statustime]  FROM TMS_OrderIndex",
+    "where": "Index_CreatorCompanyID = dbo.fn_pub_user_User2CompanyID(SESSION[USERID], 0) AND Index_SrcClass = 2 AND Index_Status = 4 AND Index_Invalid = 0"
+  }
+}

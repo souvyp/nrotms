@@ -1,0 +1,63 @@
+﻿{
+  "namespace": "view",
+  "cmd": "data",
+  "id": "tms_0216",
+  "version": 1,
+  "dml-id": "tms_0216",
+  "dmlparas": {
+    "rows": true,
+    "columns": true,
+    "paras": [
+      {
+        "name": "Operator",
+        "type": "session",
+        "value": "SESSION[USERID]"
+      },
+      {
+        "name": "GoodsCategory",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PackageMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "ChargeMode",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "PriceUnit",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsInsurance",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsPick",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsDelivery",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsOnLoad",
+        "type": "normal",
+        "value": 0
+      },
+      {
+        "name": "IsOffLoad",
+        "type": "normal",
+        "value": 0
+      }
+    ]
+  }
+}

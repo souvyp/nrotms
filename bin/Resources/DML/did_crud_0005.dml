@@ -1,0 +1,6 @@
+{
+ 'namespace' : 'data',
+ 'cmd' : 'crud',
+ 'id' : 'did_crud_0005',
+ 'version' : 1,
+}
